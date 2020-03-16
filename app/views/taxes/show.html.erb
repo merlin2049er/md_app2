@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Prov:</strong>
+  <%= @tax.prov_id %>
+</p>
+
+<p>
+  <strong>Tax rate:</strong>
+  <%= @tax.tax_rate %>
+</p>
+
+<p>
+  <strong>Enabled:</strong>
+  <%= @tax.enabled %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @tax.comment %>
+</p>
+
+<%= link_to 'Edit', edit_tax_path(@tax) %> |
+<%= link_to 'Back', taxes_path %>

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :contacts
+  resources :notifications
+  resources :transactions
+  resources :taxes
+  resources :photos
   devise_for :users
   root to: 'pages#index'
   
