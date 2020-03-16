@@ -31,6 +31,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # breadcrumbs
 gem 'breadcrumbs_on_rails'
 
+#devise for authentication
+gem 'devise', '~> 4.2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -43,7 +46,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
- 
+
  # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
 
