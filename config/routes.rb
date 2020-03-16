@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  resources :contacts
-  resources :notifications
   resources :transactions
   resources :taxes
   resources :photos
   devise_for :users
+
   root to: 'pages#index'
-  
+
   get 'pages/about'
   get 'pages/activity'
   get 'pages/contact'
@@ -22,4 +21,6 @@ Rails.application.routes.draw do
   get 'pages/random'
   get 'pages/terms'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get '*path', to: redirect('/pages/error')
 end
