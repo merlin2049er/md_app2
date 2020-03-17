@@ -10,9 +10,19 @@
   </head>
 
   <body>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <div class="content">
 
-    <%= yield %>
+    <%= render 'layouts/nav' %>
+    <%= bootstrap_flash %>
+
+  <div class="container">
+
+      <%= render_breadcrumbs :tag => :li, :separator => "" %>
+      <%= yield %>
+</div>
+</div>
+
+ <%= render 'layouts/footer' %>
+ 
   </body>
 </html>

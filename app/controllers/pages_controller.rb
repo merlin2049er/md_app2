@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def about
      add_breadcrumb 'MASSDUMP', :root_path
-     add_breadcrumb 'about', :about_path   
+     add_breadcrumb 'about', :pages_about_path
   end
 
   def activity
@@ -14,27 +14,27 @@ class PagesController < ApplicationController
 
   def cookies
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'cookies', :cookies_path
+    add_breadcrumb 'cookies', :pages_cookies_path
   end
 
   def dashboard
      add_breadcrumb 'MASSDUMP', :root_path
-     add_breadcrumb 'dashboard', :dashboard_path
+     add_breadcrumb 'dashboard', :pages_dashboard_path
   end
 
   def error
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'error', :error_path
+    add_breadcrumb 'error', :pages_error_path
   end
 
   def faq
      add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'faq', :faq_path
+    add_breadcrumb 'faq', :pages_faq_path
   end
 
   def index
      add_breadcrumb 'MASSDUMP', :root_path
-     add_breadcrumb 'home', :index_path
+     add_breadcrumb 'home', :pages_index_path
   end
 
   def invitations
@@ -47,17 +47,17 @@ class PagesController < ApplicationController
 
   def jobs
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb "jobs", :jobs_path
+    add_breadcrumb "jobs", :pages_jobs_path
   end
 
   def privacy
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'privacy', :privacy_path
+    add_breadcrumb 'privacy', :pages_privacy_path
   end
-  
+
   def random
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'random', :random_path
+    add_breadcrumb 'random', :pages_random_path
 
     @random = Product.published.limit(12).order("RANDOM()")
 
@@ -65,7 +65,7 @@ class PagesController < ApplicationController
 
  def terms
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'terms', :terms_path
+    add_breadcrumb 'terms', :pages_terms_path
   end
-  
+
 end
