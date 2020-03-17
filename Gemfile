@@ -28,6 +28,16 @@ gem 'redis', '~> 4.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# bootstrap ui
+gem 'bootstrap', '~> 4.4', '>= 4.4.1'
+#bootstrap sass stylesheets
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+#bootstrap sass extras
+gem 'bootstrap-sass-extras', '~> 0.0.7'
+
+#fonts
+gem 'fontawesome-rails', '~> 4.0', '>= 4.0.3.2'
+
 # use Postgres on Heroku production
 gem 'pg', '~> 1.1', '>= 1.1.3'
 
@@ -45,6 +55,12 @@ gem 'pagy', '~> 3.7', '>= 3.7.3'
 
 # for fake data
 gem 'faker'
+
+#populator
+gem 'populator', '~> 1.0'
+
+#validates timelines
+gem 'validates_timeliness', '~> 5.0.0.alpha3'
 
 # omniauth
 gem 'omniauth'
