@@ -51,6 +51,9 @@ gem 'omniauth'
 # for facebook authentication
 gem 'omniauth-facebook'
 
+# Log impressions from controller actions or from a model
+gem 'impressionist', '~> 1.6', '>= 1.6.1'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
