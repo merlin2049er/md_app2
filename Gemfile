@@ -31,13 +31,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # sprockets
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
-# bootstrap ui
-gem 'bootstrap', '~> 4.4', '>= 4.4.1'
-#bootstrap sass stylesheets
-gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
-#bootstrap sass extras
-gem 'bootstrap-sass-extras', '~> 0.0.7'
-
 #fonts
 gem 'fontawesome-rails', '~> 4.0', '>= 4.0.3.2'
 
