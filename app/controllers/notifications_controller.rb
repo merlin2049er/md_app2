@@ -8,7 +8,7 @@ class NotificationsController < ApplicationController
   # GET /notifications.json
   def index
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'notifications', :notifications_path
+    add_breadcrumb 'Notifications', :notifications_path
 
     @notifications = Notification.where('user_id =?', current_user.id).order('created_at DESC')
     @pagy, @notifications = pagy(@notifications)

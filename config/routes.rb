@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :transactions
   resources :taxes
   resources :photos
+  resources :notifications
   devise_for :users
 
   root to: 'pages#index'
@@ -18,7 +19,6 @@ Rails.application.routes.draw do
   get 'pages/invitations'
   get 'pages/invite'
   get 'pages/jobs'
-  get 'pages/notifications'
   get 'pages/privacy'
   get 'pages/random'
   get 'pages/terms'
