@@ -7,11 +7,19 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+<!--
       <li class="nav-item active">
-        <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#pages_about">About <span class="sr-only">(current)</span></a>
       </li>
+-->
+
+    <li class="nav-item">
+      <li><%= link_to "About", pages_about_path, :class => "nav-link" %></li>
+    </li>
+
+
       <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
+        <li><%= link_to "Contact", pages_contact_path, :class => "nav-link" %></li>
       </li>
 
       <li class="nav-item dropdown">
@@ -27,19 +35,22 @@
           </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#">Random</a>
+        <li><%= link_to "Random", pages_random_path, :class => "nav-link" %></li>
+      </li>
+
+      <li class="nav-item">
+        <li><%= link_to "Faq", pages_faq_path, :class => "nav-link" %></li>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Faq</a>
+        <li><%= link_to "Terms", pages_terms_path, :class => "nav-link" %></li>
+      </li>
+
+      <li class="nav-item">
+        <li><%= link_to "Sign up", new_user_registration_path, :class => "nav-link" %></li>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Terms</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Sign up</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Log in</a>
+        <li><%= link_to "Log in", new_user_session_path, :class => "nav-link" %></li>
+
       </li>
     </ul>
 
