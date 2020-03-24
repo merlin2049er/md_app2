@@ -8,8 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'c9be4752f405108bf89072762a43575d2286d2b06acf2c845e8b7eb24ddedf903371da68ab72f8531ee455b46b348ef1fff1d39d209ca84c3ec1cf45d8685d69'
-
+   config.secret_key = '19a753aa8458a41b441b5c0ba15475e9642ded921f199ecb70301860e7d7f6d8e76aaa79d5c6312c5353ae18993ccbd11b670e4d26292cb7327a4e7e839ea777'
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -18,7 +17,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'do-not-reply@jginfosys.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -296,4 +295,10 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+  # config.omniauth :facebook, "APP-ID", "APP_SECRET"
+  # config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: 'email'
+  # config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], token_params: { parse: :json }, callback_url: "https://cryptic-inlet-13518.herokuapp.com/users/auth/facebook"
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], callback_url: 'https://cryptic-inlet-13518.herokuapp.com/users/auth/facebook/callback', scope: 'email, public_profile', info_fields: 'email, first_name, last_name, picture', image_size: 'large', secure_image_url: true
+
 end

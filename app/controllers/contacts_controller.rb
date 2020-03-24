@@ -1,24 +1,8 @@
 class ContactsController < ApplicationController
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
-
-  # GET /contacts
-  # GET /contacts.json
-  def index
-    @contacts = Contact.all
-  end
-
-  # GET /contacts/1
-  # GET /contacts/1.json
-  def show
-  end
 
   # GET /contacts/new
   def new
     @contact = Contact.new
-  end
-
-  # GET /contacts/1/edit
-  def edit
   end
 
   # POST /contacts
@@ -26,40 +10,22 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
 
-    respond_to do |format|
-      if @contact.save
-        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
-        format.json { render :show, status: :created, location: @contact }
-      else
-        format.html { render :new }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+     if @contact.save
+       redirect_to root_path
+       name = params[:contact][:name]
+       email = params[:contact][:email]
+       message = params[:contact][:message]
+       supplier = params[:contact][:supplier]
+       registered_user = params[:contact][:registered_user]
 
-  # PATCH/PUT /contacts/1
-  # PATCH/PUT /contacts/1.json
-  def update
-    respond_to do |format|
-      if @contact.update(contact_params)
-        format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
-        format.json { render :show, status: :ok, location: @contact }
-      else
-        format.html { render :edit }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+       ContactMailer.contact_email(name, email, message, supplier, registered_user).deliver
+       flash[:success] = 'Thanks for the message, we will be in touch soon.'
+     else
+       redirect_to pages_contact_path
+       flash[:danger] = 'Opps, there was a problem! Please fill out all the fields.'
+     end
+   end
 
-  # DELETE /contacts/1
-  # DELETE /contacts/1.json
-  def destroy
-    @contact.destroy
-    respond_to do |format|
-      format.html { redirect_to contacts_url, notice: 'Contact was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

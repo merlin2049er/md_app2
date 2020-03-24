@@ -1,0 +1,17 @@
+<!-- found in views/categories/edit.html.erb -->
+
+<% if user_signed_in? %> <!-- fix this change to admin user -->
+
+<h1>Editing Category</h1>
+
+<%= render 'form' %>
+
+
+<% else %>
+
+
+    <div class="alert alert-warning" role="alert">Please sign in as administrator to add categories.</div>
+
+<% end %>
+
+<!-- end -->

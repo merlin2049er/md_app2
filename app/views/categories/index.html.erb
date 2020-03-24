@@ -1,0 +1,78 @@
+<!-- found in views/categories/index.html.erb -->
+
+<% if user_signed_in? %>
+
+<!-- <p id="notice"><%#= notice %></p> -->
+
+<!--
+<h1>Categories</h1>
+-->
+  <div>
+
+  <% if @categories.empty?  %>
+    Nothing here...
+  <% else %>
+
+    <%=   @categories.count %> categories <br/><br/>
+
+  <% end %>
+  </div>
+
+  <!-- insert new stuff here... -->
+
+  <div class="container">
+
+  	<div class="cards">
+
+    <% @categories.each do |category| %>
+
+    <a class="card" href=  "<%=  category_path(category) %>" >
+
+   <!--   <div class="img"> -->
+
+
+      <span class="card-header" style="background-image: url( <%=  category.picurl %> );">
+
+        <span class="card-title">
+          <h3> <%= category.name %> </h3>
+        </span>
+      </span>
+
+<!--
+      <span class="card-summary">
+        <%= truncate(category.name )  %>
+
+      </span>
+-->
+    <!--   <span class="card-meta">
+        <%= category.name %>
+      </span>
+  -->
+      </a>
+
+    <% end %>
+  </div>
+  </div>
+
+
+  </br>
+
+  <%#== pagy_nav(@pagy) %>
+  <div class="pagenav">
+  <%== pagy_bootstrap_nav(@pagy) %> <br/>
+</div>
+
+  <%#= will_paginate @categories, renderer: BootstrapPagination::Rails %>
+
+  <!--
+<%= link_to 'New Category', new_category_path %>
+-->
+<% else %>
+
+
+
+  <div class="alert alert-warning" role="alert">You must be signed in to see the categories.</div>
+
+<% end %>
+
+<!-- end -->

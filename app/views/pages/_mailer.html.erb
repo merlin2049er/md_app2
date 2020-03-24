@@ -1,0 +1,9 @@
+
+ <%= simple_form_for @contact ,:validate => true  do |f| %>
+ <%= f.input :name ,:validate => true  %>
+ <%= f.input :email ,:validate => true  %>
+ <%= f.input :registered_user %>
+ <%= f.input :supplier %>
+ <%= f.input :message  ,:validate => true %>
+ <%= f.submit "Get in touch!", class: "btn btn-info" %>
+ <% end %>

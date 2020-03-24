@@ -66,6 +66,29 @@ gem 'omniauth-facebook'
 # Log impressions from controller actions or from a model
 gem 'impressionist', '~> 1.6', '>= 1.6.1'
 
+# omniauth
+gem 'omniauth'
+# for facebook authentication
+gem 'omniauth-facebook'
+
+
+# country country_select
+gem 'country_select'
+
+# validations
+gem 'client_side_validations', '~> 16.1', '>= 16.1.1'
+gem 'client_side_validations-simple_form', '~> 10.0'
+
+# elasticsearch
+gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '5.x'
+gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: '5.x'
+
+gem "sentry-raven"
+
+gem "cocoon"
+
+gem 'stripe', '~> 5.12'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

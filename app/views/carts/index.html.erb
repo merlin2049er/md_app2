@@ -1,0 +1,175 @@
+<!-- found in views/cart/index.html.erb -->
+
+
+<% if user_signed_in? %>
+
+<div class="table-responsive">
+<!--
+<div class="panel panel-default">
+  -->
+
+  <!-- Default panel contents -->
+
+  <div class="panel-heading">Shopping cart:  <% if @carts.empty?  %>
+      Nothing here...
+    <% else %>
+      <%= @carts.count %> items...
+    <% end %>
+
+    <div class="pull-right"><font size="1">If a campaign is successful, you will be emailed a reminder to pay.</font>
+    </div>
+
+  </div>
+  <div class="panel-body">
+
+
+    <table class="table">
+      <thead>
+      <tr>
+        <!-- <th colspan="3"></th> -->
+        <th>Added</th>
+      <th> Campaign </th>
+        <th>Item</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Sub</th>
+        <th>Taxes</th>
+        <th>Total</th>
+        <th>End date</th>
+        <th>Funded</th>
+        <th>Action</th>
+
+        <th>Status (Payment due)</th>
+
+      </tr>
+      </thead>
+
+      <tbody>
+
+      <% @carts.each do |cart| %>
+
+        <tr class="<%= cycle("even", "odd") %>">
+
+
+          <td><%= cart.created_at.strftime("%m/%d/%Y") %> </td>
+          <% product = Product.where(id: cart.product_id).first %>
+
+            <% if not product.funded? %>
+          <td> <%= link_to raw(" #{cart.product_id}"), controller: "products", action: "show", id: cart.product_id %> </td>
+            <% else %>
+            <td> <%= cart.product_id %> </td>
+
+            <% end %>
+
+
+          <td> <%=  product.title  %>  </td>
+          <td> <%=  cart.qty  %>  </td>
+          <td> <%=  number_to_currency(product.price ) %>  </td>
+          <td> <%=  number_to_currency(total = product.price * cart.qty)  %>  </td>
+          <td> <%=  number_to_currency(taxes = Calctax.Calctax(total, Lookup.getrate(current_user)) )  %> </td>
+          <td> <%=  number_to_currency(total + taxes) =%> </td>
+	  <td> <%=  product.enddate %>  <script > var enddate = <%=  product.enddate.to_json.html_safe %> ;console.log(enddate); </script> </td>
+          <td> <%=  product.funded  %> </td>
+
+
+          <% if not product.funded? %>
+          <td> 
+		  <% if not cart.paid? %>
+		  	<%= link_to 'Remove', cart, method: :delete, data: { confirm: 'Are you sure?' } %>   
+		<% end %>
+	</td>
+	<% else %>
+            <td>   </td>
+        <% end %>
+		
+             <td>
+	<% if not cart.paid? %>	     
+	      <%= button_to 'Pay now', checkout_create_path, method: :post, params: {id: cart.product_id}, remote: true, class: "button button1" %>
+              <p class="<%= cart.product_id %>"></p>
+	<% else %>
+	   Paid!
+
+        <% end %>
+	    
+      </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<br>
+
+
+  <div class="pagenav">
+
+  <%== pagy_bootstrap_nav(@pagy) %> <br/>
+  </div>
+<% else %>
+
+<div class="alert alert-warning" role="alert">You must be signed in to see the shopping cart.</div>
+
+<% end %>
+
+
+<script>
+// Set the date we're counting down to
+
+// var countDownDate = new Date("2020-01-28 15:37:25").getTime();
+var countDownDate = new Date(enddate).getTime() ;
+
+// var countDownDate = enddate;
+console.log("countdown date =" +countDownDate);
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+console.log('x =' +x);
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  console.log('now =' + now);
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  console.log('distance = ' + distance);
+
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24))  ;
+  console.log('days = ' + days);
+
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  console.log('hours = ' + hours);
+
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  console.log('minutes = ' + minutes);
+
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  console.log('seconds = ' + seconds);
+
+  // Output the result in an element with id="demo"
+  var z  =  <%= @carts.map(&:product_id)%>   ;
+
+  //  console.log("===="+z);
+  for (var i = 0; i < z.length; i++) {
+    // console.log("=iiiii==="+z[i]);
+    $("."+z[i]+"").html( days + "d " + hours + "h " + minutes + "m ");
+  }
+
+  // If the count down is over, write some text
+  if (distance > 0) {
+    console.log('distance = ' + distance);
+
+    clearInterval(x);
+    document.getElementsByClassName("countdown").innerHTML = "EXPIRED";
+    //  document.getElementsById("myBtn").disabled = true;
+
+  }
+}, 1000);
+</script>
+
+<!-- end -->
