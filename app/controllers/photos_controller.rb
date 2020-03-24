@@ -1,24 +1,35 @@
 class PhotosController < ApplicationController
+
+  include Pagy::Backend
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /photos
   # GET /photos.json
   def index
+    add_breadcrumb 'MASSDUMP', :root_path
+   add_breadcrumb 'Photos', :photos_path
     @photos = Photo.all
   end
 
   # GET /photos/1
   # GET /photos/1.json
   def show
+    add_breadcrumb 'MASSDUMP', :root_path
+   add_breadcrumb 'Photos', :photos_path
   end
 
   # GET /photos/new
   def new
+    add_breadcrumb 'MASSDUMP', :root_path
+   add_breadcrumb 'Photos', :photos_path
     @photo = Photo.new
   end
 
   # GET /photos/1/edit
   def edit
+    add_breadcrumb 'MASSDUMP', :root_path
+   add_breadcrumb 'Photos', :photos_path
   end
 
   # POST /photos

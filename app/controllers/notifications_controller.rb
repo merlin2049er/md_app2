@@ -1,24 +1,39 @@
 class NotificationsController < ApplicationController
+  include Pagy::Backend
+
   before_action :set_notification, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /notifications
   # GET /notifications.json
   def index
-    @notifications = Notification.all
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'notifications', :notifications_path
+
+    @notifications = Notification.where('user_id =?', current_user.id).order('created_at DESC')
+    @pagy, @notifications = pagy(@notifications)
+
   end
 
   # GET /notifications/1
   # GET /notifications/1.json
   def show
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'Notification', :notifications_path
   end
 
   # GET /notifications/new
   def new
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'Notification', :notifications_path
+
     @notification = Notification.new
   end
 
   # GET /notifications/1/edit
   def edit
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'Notification', :notifications_path
   end
 
   # POST /notifications
