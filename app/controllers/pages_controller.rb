@@ -80,4 +80,15 @@ class PagesController < ApplicationController
     add_breadcrumb 'Terms', :pages_terms_path
   end
 
+  def shipping
+     add_breadcrumb 'MASSDUMP', :root_path
+     add_breadcrumb 'Shipping', :pages_shipping_path
+   end
+
+   def returns
+      add_breadcrumb 'MASSDUMP', :root_path
+      add_breadcrumb 'Returns', :pages_returns_path
+    end
+
+
 end

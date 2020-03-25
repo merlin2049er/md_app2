@@ -1,0 +1,10 @@
+<!-- views/layouts/_footer.html.erb -->
+<footer class="footer-distributed">
+    <div class="footer-left">
+
+                <p class="footer-company-name" >MASSDUMP</br>
+                Copyright &copy;2020
+              </p>
+    </div>
+</footer>
+<!-- end footer -->
