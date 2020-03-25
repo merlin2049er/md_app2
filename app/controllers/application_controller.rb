@@ -31,6 +31,8 @@ end
 rescue_from ActiveRecord::RecordNotFound, with: :show_errors
 
 def show_errors
+  add_breadcrumb 'MASSDUMP', :root_path
+  add_breadcrumb 'Whoa!'
   render 'pages/error'
 end
 

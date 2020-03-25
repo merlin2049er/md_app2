@@ -11,10 +11,6 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :transaction_msg %>
-    <%= form.text_field :transaction_msg %>
-  </div>
 
   <div class="field">
     <%= form.label :user_id %>
@@ -24,6 +20,11 @@
   <div class="field">
     <%= form.label :shipped %>
     <%= form.check_box :shipped %>
+  </div>
+
+  <div class="field">
+    <%= form.label :transaction_msg %>
+    <%= form.text_field :transaction_msg %>
   </div>
 
   <div class="field">

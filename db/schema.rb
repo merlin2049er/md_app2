@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_25_135253) do
+ActiveRecord::Schema.define(version: 2020_03_25_233858) do
 
   create_table "carts", force: :cascade do |t|
     t.integer "user_id"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2020_03_25_135253) do
     t.decimal "price"
     t.decimal "msrp"
     t.date "startdate"
-    t.date "endate"
+    t.date "enddate"
     t.boolean "funded"
     t.string "picurl"
     t.integer "qty"
@@ -102,7 +102,8 @@ ActiveRecord::Schema.define(version: 2020_03_25_135253) do
     t.string "courierurl"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"category_id\"", name: "index_products_on_category_id"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "taxes", force: :cascade do |t|

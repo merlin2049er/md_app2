@@ -18,18 +18,24 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'New Product', :products_path
+    add_breadcrumb 'New Product'
 
     @product = Product.new
   end
 
   # GET /products/1/edit
   def edit
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'Edit Product'
+
   end
 
   # POST /products
   # POST /products.json
   def create
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'New Product'
+
     @product = Product.new(product_params)
 
     respond_to do |format|
@@ -75,6 +81,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:draft, :active, :title, :template, :price, :msrp, :startdate, :endate, :funded, :picurl, :qty, :length, :width, :height, :weight, :courier, :courierurl)
+      params.require(:product).permit(:draft, :active, :title, :template, :price, :msrp, :startdate, :enddate, :funded, :picurl, :qty, :length, :width, :height, :weight, :courier, :courierurl, :category_id)
     end
 end

@@ -22,7 +22,7 @@ class PhotosController < ApplicationController
   # GET /photos/new
   def new
     add_breadcrumb 'MASSDUMP', :root_path
-   add_breadcrumb 'Photos', :photos_path
+    add_breadcrumb 'New Photo', :photos_path
     @photo = Photo.new
   end
 
@@ -35,7 +35,12 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
+
+
     @photo = Photo.new(photo_params)
+    
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'New Photo', :photos_path
 
     respond_to do |format|
       if @photo.save

@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   include Pagy::Backend
 
   before_action :set_category, only: %i[show edit update destroy]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   # GET /categories
   # GET /categories.json
@@ -19,6 +19,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     # added 9/24
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'categories'
 
     @category = Category.find(params[:id])
 
@@ -41,18 +43,21 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'category', :categories_path
+    add_breadcrumb 'New Category'
     @category = Category.new
   end
 
   # GET /categories/1/edit
   def edit
-    add_breadcrumb 'category', :categories_path
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'categories'
   end
 
   # POST /categories
   # POST /categories.json
   def create
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'New category'
     @category = Category.new(category_params)
 
     respond_to do |format|

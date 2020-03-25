@@ -1,12 +1,5 @@
 <!-- found in views/categories/index.html.erb -->
 
-<% if user_signed_in? %>
-
-<!-- <p id="notice"><%#= notice %></p> -->
-
-<!--
-<h1>Categories</h1>
--->
   <div>
 
   <% if @categories.empty?  %>
@@ -61,18 +54,5 @@
   <div class="pagenav">
   <%== pagy_bootstrap_nav(@pagy) %> <br/>
 </div>
-
-  <%#= will_paginate @categories, renderer: BootstrapPagination::Rails %>
-
-  <!--
-<%= link_to 'New Category', new_category_path %>
--->
-<% else %>
-
-
-
-  <div class="alert alert-warning" role="alert">You must be signed in to see the categories.</div>
-
-<% end %>
 
 <!-- end -->

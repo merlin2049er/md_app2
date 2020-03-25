@@ -12,14 +12,16 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :enabled %>
+    <%= form.check_box :enabled %>
+  </div>
+
+
+  <div class="field">
     <%= form.label :uri %>
     <%= form.text_field :uri %>
   </div>
 
-  <div class="field">
-    <%= form.label :enabled %>
-    <%= form.check_box :enabled %>
-  </div>
 
   <div class="field">
     <%= form.label :product_id %>

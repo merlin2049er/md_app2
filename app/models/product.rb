@@ -21,6 +21,7 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
 
   validates_presence_of :title
+  validates_presence_of :category_id
   validates_presence_of :picurl
   validates_presence_of :template
   validates_presence_of :qty

@@ -4,26 +4,37 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'Transactions'
     @transactions = Transaction.all
   end
 
   # GET /transactions/1
   # GET /transactions/1.json
   def show
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'Transaction'
   end
 
   # GET /transactions/new
   def new
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'New Transaction'
     @transaction = Transaction.new
   end
 
   # GET /transactions/1/edit
   def edit
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'Edit Transactions'
   end
 
   # POST /transactions
   # POST /transactions.json
   def create
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'New Transaction'
+
     @transaction = Transaction.new(transaction_params)
 
     respond_to do |format|

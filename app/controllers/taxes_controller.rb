@@ -4,26 +4,37 @@ class TaxesController < ApplicationController
   # GET /taxes
   # GET /taxes.json
   def index
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'Taxes'
     @taxes = Tax.all
   end
 
   # GET /taxes/1
   # GET /taxes/1.json
   def show
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'Taxes'
   end
 
   # GET /taxes/new
   def new
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'New Tax'
     @tax = Tax.new
   end
 
   # GET /taxes/1/edit
   def edit
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'Edit Tax'
   end
 
   # POST /taxes
   # POST /taxes.json
   def create
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'New Tax'
+
     @tax = Tax.new(tax_params)
 
     respond_to do |format|
