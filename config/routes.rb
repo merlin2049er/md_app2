@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :contacts
+  resources :categories
   resources :products
   resources :transactions
   resources :taxes

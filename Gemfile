@@ -66,12 +66,6 @@ gem 'omniauth-facebook'
 # Log impressions from controller actions or from a model
 gem 'impressionist', '~> 1.6', '>= 1.6.1'
 
-# omniauth
-gem 'omniauth'
-# for facebook authentication
-gem 'omniauth-facebook'
-
-
 # country country_select
 gem 'country_select'
 
@@ -89,6 +83,7 @@ gem "cocoon"
 
 gem 'stripe', '~> 5.12'
 
+gem 'toastr_rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
