@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'categories', :categories_path
+    add_breadcrumb 'categories'
 
     @categories = Category.all
     # @pagy, @categories = Category.order(:name).pagy(page: params[:page] , per_page: 10)

@@ -29,6 +29,7 @@
         <%= link_to "Contact", pages_contact_path %>
       </li>
 
+<!--
       <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
               Categories
@@ -39,7 +40,8 @@
               <li><a href="#">All Categories</a></li>
             </ul>
           </li>
-
+-->
+<%= render 'layouts/categorydropdown' %>
 
               <form class="navbar-form navbar-left" role="search">
                   <div class="form-group">
@@ -48,6 +50,8 @@
                   <button type="submit" class="btn btn-default">Submit</button>
                 </form>
      </ul>
+
+
     <ul class="nav navbar-nav navbar-right">
       <li>
          <%= link_to "Random", pages_random_path %>
@@ -58,10 +62,24 @@
       </li>
         <li><%= link_to "Terms", pages_terms_path %></li>
 
+
+        <%= render 'layouts/analmenu' %>
+        <%= render 'layouts/adminmenu' %>
+
         <li><%= link_to "Sign up", new_user_registration_path %></li>
 
         <li><%= link_to "Log in", new_user_session_path, :class => "nav-link" %></li>
-    
+
+        <% if current_user %>
+
+             <%= render 'layouts/adminmenu'  %>
+            <%= render 'layouts/analmenu'  %>
+
+
+             <%= render 'layouts/mainmenu'  %>
+
+         <% end %>
+
 </ul>
 <!-- search box was here  -->
 

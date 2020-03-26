@@ -40,8 +40,8 @@ class PagesController < ApplicationController
      add_breadcrumb 'MASSDUMP', :root_path
      add_breadcrumb 'Home', :pages_index_path
 
-  #  @recent_products = Product.published.most_recent(6)
-  #  @last_chance = Product.published.ending_soonest(6)
+    @recent_products = Product.published.most_recent(6)
+    @last_chance = Product.published.ending_soonest(6)
 
 
   end

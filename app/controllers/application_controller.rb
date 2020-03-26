@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
    # For APIs, you may want to use :null_session instead.
    protect_from_forgery with: :exception
 
+  helper_method :all_categories
+  helper_method :all_products
+  helper_method :all_notifications
+
+  before_action :store_history
   before_action :set_search
 
   rescue_from ActionController::InvalidAuthenticityToken, with: :handle_token_issues
