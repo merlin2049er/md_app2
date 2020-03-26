@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  root to: 'pages#index'
+  devise_for :users, controllers: { registrations: 'registrations', confirmations: 'confirmations', passwords: 'passwords', sessions: 'sessions', omniauth_callbacks: 'users/omniauth_callbacks' }
+
   resources :carts
   resources :contacts
   resources :categories
@@ -7,9 +11,8 @@ Rails.application.routes.draw do
   resources :taxes
   resources :photos
   resources :notifications
-  devise_for :users
 
-  root to: 'pages#index'
+
 
   get 'pages/about'
   get 'pages/activity'

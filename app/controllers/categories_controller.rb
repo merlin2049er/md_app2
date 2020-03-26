@@ -20,7 +20,8 @@ class CategoriesController < ApplicationController
   def show
     # added 9/24
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'categories'
+    add_breadcrumb 'categories', categories_path
+    add_breadcrumb @category.name
 
     @category = Category.find(params[:id])
 

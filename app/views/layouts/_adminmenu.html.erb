@@ -1,7 +1,5 @@
 <!-- views/layouts/_adminmenu.html.erb -->
-
-<% @user = current_user %>
-<% if @user.admin %>
+<% if current_user and  current_user.admin? %>
 
 
 <li class="dropdown">
@@ -17,7 +15,7 @@
     <li><%= link_to "New Category", new_category_path %></li>
     <li><%=link_to "New Notification", new_notification_path %></li>
     <li><%=link_to "New Product",  new_product_path %></li>
-    
+
     <li><%=link_to "New Transaction", new_transaction_path %></li>
 
 

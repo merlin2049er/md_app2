@@ -1,19 +1,5 @@
 <!-- found in views/categories/show.html.erb -->
 
-<% if user_signed_in? %>
-
-<!-- <p id="notice"><%#= notice %></p> -->
-
-<!--
-<p>
-  <strong>Name:</strong>
-  <%#= @category.name %>
-</p>
--->
-
-<!--
-<%= link_to 'Edit', edit_category_path(@category) %> |
--->
 <%= link_to 'Back', categories_path %><br/>
 
 <%= @products.count %> products in this category.<br/>
@@ -55,14 +41,5 @@
   <%== pagy_bootstrap_nav(@pagy) %> <br/>
 
 </div>
-  <!--
-  <%#= will_paginate @products, renderer: BootstrapPagination::Rails %><br/>
--->
-
-<% else %>
-
-  <div class="alert alert-warning" role="alert">You must be signed in to see the category.</div>
-
-<% end %>
 
 <!-- end -->

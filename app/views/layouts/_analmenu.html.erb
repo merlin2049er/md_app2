@@ -1,5 +1,5 @@
-<% @user = current_user %>
-<% if @user.admin %>
+
+<% if current_user and  current_user.admin? %>
 
 
 <li class="dropdown">
