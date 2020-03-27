@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
 
+  #devise_for :users
   root to: 'pages#index'
-  devise_for :users, controllers: { registrations: 'registrations', confirmations: 'confirmations', passwords: 'passwords', sessions: 'sessions', omniauth_callbacks: 'users/omniauth_callbacks' }
+  #devise_for :users, controllers: { registrations: 'registrations', confirmations: 'confirmations', passwords: 'passwords' omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  devise_for :users, :controllers => { registrations: 'registrations', sessions: 'sessions', omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  devise_scope :user do
+     get 'register', to: 'devise/registrations#new', as: :register
+     get 'login', to: 'devise/sesssions#new', as: :login
+     get 'logout', to: 'devise/sesssions#destroy', as: :logout
+   end
 
   resources :carts
   resources :contacts
