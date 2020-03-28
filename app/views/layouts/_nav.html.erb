@@ -29,18 +29,6 @@
         <%= link_to "Contact", pages_contact_path %>
       </li>
 
-<!--
-      <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              Categories
-            <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">All Categories</a></li>
-            </ul>
-          </li>
--->
 <%= render 'layouts/categorydropdown' %>
 
               <form class="navbar-form navbar-left" role="search">
@@ -53,33 +41,24 @@
 
 
     <ul class="nav navbar-nav navbar-right">
-<!--
-      <li>
-         <%#= link_to "Random", pages_random_path %>
-      </li>
--->
-      <li>
-        <%= link_to "Faq", pages_faq_path %>
-      </li>
-        <li><%= link_to "Terms", pages_terms_path %></li>
+
+      <% if !current_user %>
+
+             <li><%= link_to "Terms", pages_terms_path %></li>
+             <li><%= link_to "FAQ", pages_faq_path %></li>
+             <li> <%= link_to "Sign Up", new_user_registration_path %></li>
+            <li>  <%= link_to "Log in", new_user_session_path %> </li>
 
 
-        <li><%= link_to "Sign up", new_user_registration_path %></li>
+       <% else %>
 
-        <li><%= link_to "Log in", new_user_session_path, :class => "nav-link" %></li>
+          <li><%= render 'layouts/notificationsdropdown' %></li>
+          <li><%= render 'layouts/adminmenu' %></li>
+          <li><%= render 'layouts/analyticsmenu' %></li>
+          <li><%= render 'layouts/mainmenu' %></li>
 
-        <% if current_user %>
+      <% end %>
 
-             <%= render 'layouts/adminmenu'  %>
-            <%= render 'layouts/analmenu'  %>
-          <%= render 'layouts/mainmenu'  %>
-
-        <% else %>
-
-
-             <%= render 'layouts/mainmenu'  %>
-
-         <% end %>
 
 </ul>
 <!-- search box was here  -->
