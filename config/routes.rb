@@ -1,27 +1,30 @@
 Rails.application.routes.draw do
 
-  #devise_for :users
+
   root to: 'pages#index'
-  #devise_for :users, controllers: { registrations: 'registrations', confirmations: 'confirmations', passwords: 'passwords' omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  devise_for :users, :controllers => { registrations: 'registrations', confirmations: 'confirmations', sessions: 'sessions', omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, :controllers => { registrations: 'registrations', confirmations: 'confirmations', passwords: 'passwords', sessions: 'sessions', omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  devise_scope :user do
-     get 'register', to: 'devise/registrations#new', as: :register
-     get 'login', to: 'devise/sesssions#new', as: :login
-     get 'logout', to: 'devise/sesssions#destroy', as: :logout
-   end
-
+  resources :categories
   resources :carts
   resources :contacts
-  resources :categories
-  resources :products
-  resources :transactions
-  resources :taxes
+
+  resources :products do
+    member do
+      post :add_to_cart
+    end
+  end
+
   resources :photos
   resources :notifications
+  resources :taxes
+  resources :transactions
 
-
+  scope '/checkout' do
+  post 'create', to: 'checkout#create',   as: 'checkout_create'
+   get 'cancel', to: 'checkout#cancel',   as: 'checkout_cancel'
+   get 'success', to: 'checkout#success', as: 'checkout_success'
+  end
 
   get 'pages/about'
   get 'pages/activity'

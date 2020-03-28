@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class UsersController < ApplicationController
+class UsersController < Devise::ConfirmationsController
   include Pagy::Backend
 
   before_action :authenticate_user!
@@ -9,9 +9,6 @@ class UsersController < ApplicationController
   def index
     add_breadcrumb 'MASSDUMP',  :'root_path'
     add_breadcrumb 'Users'
-
-    @total = User.count
-    @pagy, @users = pagy(User.all)
   end
 
   # def show
