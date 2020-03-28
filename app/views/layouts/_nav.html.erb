@@ -53,18 +53,16 @@
 
 
     <ul class="nav navbar-nav navbar-right">
+<!--
       <li>
-         <%= link_to "Random", pages_random_path %>
+         <%#= link_to "Random", pages_random_path %>
       </li>
-
+-->
       <li>
         <%= link_to "Faq", pages_faq_path %>
       </li>
         <li><%= link_to "Terms", pages_terms_path %></li>
 
-
-        <%= render 'layouts/analmenu' %>
-        <%= render 'layouts/adminmenu' %>
 
         <li><%= link_to "Sign up", new_user_registration_path %></li>
 
@@ -74,6 +72,9 @@
 
              <%= render 'layouts/adminmenu'  %>
             <%= render 'layouts/analmenu'  %>
+          <%= render 'layouts/mainmenu'  %>
+
+        <% else %>
 
 
              <%= render 'layouts/mainmenu'  %>
