@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 class RegistrationsController < Devise::RegistrationsController
-#  add_breadcrumb 'MASSDUMP', :root_path
-  # add_breadcrumb  "sign up", :new_user_registration
-#  add_breadcrumb 'sign up', nil
+  add_breadcrumb 'MASSDUMP', :root_path
+  add_breadcrumb  "sign up" 
 
   def edit
     add_breadcrumb 'MASSDUMP', :root_path

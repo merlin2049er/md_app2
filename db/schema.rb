@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_26_233543) do
+ActiveRecord::Schema.define(version: 2020_03_29_180426) do
 
   create_table "carts", force: :cascade do |t|
     t.integer "user_id"
     t.integer "product_id"
-    t.boolean "prodessing"
+    t.boolean "processing"
     t.integer "qty"
     t.boolean "paid"
     t.datetime "created_at", precision: 6, null: false
@@ -150,6 +150,7 @@ ActiveRecord::Schema.define(version: 2020_03_26_233543) do
     t.string "provider"
     t.string "image"
     t.string "country"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

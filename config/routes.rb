@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  root to: 'pages#index'
+  root 'pages#index'
 
   devise_for :users, :controllers => { registrations: 'registrations', confirmations: 'confirmations', passwords: 'passwords', sessions: 'sessions', omniauth_callbacks: 'users/omniauth_callbacks' }
 

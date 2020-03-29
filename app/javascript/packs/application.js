@@ -10,7 +10,9 @@ require("channels")
 
 require("packs/bootstrap.js")
 require("packs/custom.js")
-
+import $ from 'jquery';
+global.$ = $;
+global.jQuery = $;
 
 import toastr from 'toastr';
 
@@ -25,8 +27,8 @@ global.toastr = toastr;
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
 //
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, t
+const images = require.context('../images', true);
+const imagePath = (name) => images(name, true);
 
 document.addEventListner("turbolinks:load", () => {
   $('[data=toggle-"tooltip"]').tooltip()
