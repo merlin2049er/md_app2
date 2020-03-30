@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   def index
 
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'products', :products_path
+    add_breadcrumb 'products'
 
     @search = Product.published.search(params[:query] )
     @total_products = Product.published.count
@@ -32,11 +32,10 @@ class ProductsController < ApplicationController
 
   def show
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'product', :products_path
+    add_breadcrumb 'product'
 
    @product = Product.find_by_id(params[:id])
 
-   #puts'=========',@product.inspect
 
   # insert comments here...
   # commontator_thread_show(@product)
@@ -69,7 +68,7 @@ end
   # GET /products/new
   def new
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'product', :products_path
+    add_breadcrumb 'product'
     @product = Product.new
   end
 
