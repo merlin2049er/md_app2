@@ -1,31 +1,49 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Notifications</h1>
+<% if user_signed_in? %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Notify msg</th>
-      <th>Enabled</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Notifications:  <% if @notifications.empty?  %>
+        Nothing here...
+      <% else %>
+        <%= @notifications.count %> items...
+      <% end %>
+      <div class="pull-right"><font size="1">Personalized notification messages from us.</font> </div>
 
-  <tbody>
-    <% @notifications.each do |notification| %>
-      <tr>
-        <td><%= notification.notify_msg %></td>
-        <td><%= notification.enabled %></td>
-        <td><%= notification.user_id %></td>
-        <td><%= link_to 'Show', notification %></td>
-        <td><%= link_to 'Edit', edit_notification_path(notification) %></td>
-        <td><%= link_to 'Destroy', notification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    </div>
+    <div class="panel-body">
 
-<br>
+      <table class="table"  >
+        <thead>
+        <tr>
+          <!-- <th colspan="3"></th> -->
+          <th>Added</th>
+          <th>Notification</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
 
-<%= link_to 'New Notification', new_notification_path %>
+        <% @notifications.each do |notification| %>
+          <tr class="<%= cycle("even", "odd") %>">
+            <td><%= notification.created_at.strftime("%m/%d/%Y")   %> </td>
+            <td> <%= link_to notification.notify_msg , notification  %></td>
+
+        <td><%= link_to 'Remove', notification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <!-- <br> -->
+    </div></div>
+
+  <div class="pagenav">
+  <%== pagy_bootstrap_nav(@pagy) %> <br/>
+</div>
+
+<% else %>
+
+  <div class="alert alert-warning" role="alert">You must be signed in to see the notifications.</div>
+
+<% end %>

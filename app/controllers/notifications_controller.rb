@@ -8,7 +8,7 @@ class NotificationsController < ApplicationController
   # GET /notifications.json
   def index
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'Notifications', :notifications_path
+    add_breadcrumb 'Notifications'
 
     @notifications = Notification.where('user_id =?', current_user.id).order('created_at DESC')
     @pagy, @notifications = pagy(@notifications)
@@ -19,13 +19,13 @@ class NotificationsController < ApplicationController
   # GET /notifications/1.json
   def show
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'Notification', :notifications_path
+    add_breadcrumb 'Notification'
   end
 
   # GET /notifications/new
   def new
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'Notification', :notifications_path
+    add_breadcrumb 'Notification'
 
     @notification = Notification.new
   end
@@ -33,12 +33,15 @@ class NotificationsController < ApplicationController
   # GET /notifications/1/edit
   def edit
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'Notification', :notifications_path
+    add_breadcrumb 'Notification'
   end
 
   # POST /notifications
   # POST /notifications.json
   def create
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'Notification'
+
     @notification = Notification.new(notification_params)
 
     respond_to do |format|

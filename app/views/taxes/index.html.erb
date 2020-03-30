@@ -1,33 +1,54 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Taxes</h1>
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
 
+
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Tax Rates:
+      <% if @taxes.empty? %>
+        Nothing here...
+      <% else %>
+        <%= @taxes.count %>
+      <% end %>
+
+    </div>
+    <div class="panel-body">
 <table>
   <thead>
-    <tr>
-      <th>Prov</th>
-      <th>Tax rate</th>
-      <th>Enabled</th>
-      <th>Comment</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>ID      </th>
+    <td>&nbsp;</td>
+    <th>Tax     </th>
+    <td>&nbsp;</td>
+    <th>Province</th>
+    <td>&nbsp;</td>
+    <th>Updated</th>
+
+  </tr>
   </thead>
 
   <tbody>
     <% @taxes.each do |tax| %>
       <tr>
-        <td><%= tax.prov_id %></td>
-        <td><%= tax.tax_rate %></td>
-        <td><%= tax.enabled %></td>
-        <td><%= tax.comment %></td>
-        <td><%= link_to 'Show', tax %></td>
-        <td><%= link_to 'Edit', edit_tax_path(tax) %></td>
-        <td><%= link_to 'Destroy', tax, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%=  tax.prov_id  %></td>
+        <td>&nbsp;</td>
+        <td><%=  tax.tax_rate  %></td>
+        <td>&nbsp;</td>
+        <td><%=  tax.comment  %></td>
+        <td>&nbsp;</td>
+        <td><%=  tax.updated_at  %></td>
+  </tr>
     <% end %>
   </tbody>
 </table>
+    </div>
+  </div>
 
-<br>
+  <div class="pagenav">
+    <%== pagy_bootstrap_nav(@pagy) %> <br/>
+  </div>
 
-<%= link_to 'New Tax', new_tax_path %>
+<% else %>
+  <div class="alert alert-warning" role="alert"> You must be signed in to see the taxes.</div>
+<% end %>

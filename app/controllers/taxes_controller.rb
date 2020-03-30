@@ -1,12 +1,16 @@
 class TaxesController < ApplicationController
   before_action :set_tax, only: [:show, :edit, :update, :destroy]
-
+  include Pagy::Backend
+  before_action :authenticate_user!
   # GET /taxes
   # GET /taxes.json
   def index
     add_breadcrumb 'MASSDUMP', :root_path
     add_breadcrumb 'Taxes'
     @taxes = Tax.all
+    @taxes = Tax.count
+
+   @pagy, @taxes = pagy(Tax.all.order(:prov_id))
   end
 
   # GET /taxes/1

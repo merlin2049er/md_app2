@@ -1,12 +1,14 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
-
+  include Pagy::Backend
+  before_action :authenticate_user!
   # GET /transactions
   # GET /transactions.json
   def index
     add_breadcrumb 'MASSDUMP', :root_path
     add_breadcrumb 'Transactions'
-    @transactions = Transaction.all
+    @transactions = Transaction.where('user_id =?', current_user.id).order('created_at DESC')
+    @pagy, @transactions = pagy(@transactions)
   end
 
   # GET /transactions/1

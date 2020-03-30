@@ -1,37 +1,14 @@
-<%= form_with(model: tax, local: true) do |form| %>
-  <% if tax.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(tax.errors.count, "error") %> prohibited this tax from being saved:</h2>
+<!-- Find me in app/views/taxes/_form -->
 
-      <ul>
-        <% tax.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for(@tax) do |f| %>
+  <%= f.error_notification %>
 
-    <div class="field">
-      <%= form.label :enabled %>
-      <%= form.check_box :enabled %>
-    </div>
-
-  <div class="field">
-    <%= form.label :prov_id %>
-    <%= form.text_field :prov_id %>
+  <div class="form-inputs">
   </div>
 
-  <div class="field">
-    <%= form.label :tax_rate %>
-    <%= form.text_field :tax_rate %>
-  </div>
-
-  <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_field :comment %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= f.button :submit %>
   </div>
 <% end %>
+
+<!-- end -->

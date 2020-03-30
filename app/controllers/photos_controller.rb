@@ -1,5 +1,4 @@
 class PhotosController < ApplicationController
-
   include Pagy::Backend
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
@@ -10,6 +9,8 @@ class PhotosController < ApplicationController
     add_breadcrumb 'MASSDUMP', :root_path
    add_breadcrumb 'Photos', :photos_path
     @photos = Photo.all
+    @total = Photo.count
+   @pagy, @photos = pagy(Photo.all)
   end
 
   # GET /photos/1
@@ -38,7 +39,7 @@ class PhotosController < ApplicationController
 
 
     @photo = Photo.new(photo_params)
-    
+
     add_breadcrumb 'MASSDUMP', :root_path
     add_breadcrumb 'New Photo', :photos_path
 
