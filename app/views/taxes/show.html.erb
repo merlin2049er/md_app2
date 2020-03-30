@@ -2,8 +2,6 @@
 <% @user = current_user %>
 <% if user_signed_in? && @user.admin %>
 
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Prov:</strong>
   <%= @tax.prov_id %>
