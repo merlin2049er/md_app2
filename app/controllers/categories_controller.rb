@@ -51,7 +51,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1/edit
   def edit
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'categories'
+    add_breadcrumb 'Edit Category'
   end
 
   # POST /categories

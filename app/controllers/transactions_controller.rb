@@ -7,6 +7,7 @@ class TransactionsController < ApplicationController
   def index
     add_breadcrumb 'MASSDUMP', :root_path
     add_breadcrumb 'Transactions'
+
     @transactions = Transaction.where('user_id =?', current_user.id).order('created_at DESC')
     @pagy, @transactions = pagy(@transactions)
   end

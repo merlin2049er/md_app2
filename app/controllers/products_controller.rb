@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'Products', :products_path
+    add_breadcrumb 'Products'
 
     @products = Product.all
   end
@@ -13,6 +13,9 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'Products'
+
   end
 
   # GET /products/new

@@ -25,7 +25,7 @@ class NotificationsController < ApplicationController
   # GET /notifications/new
   def new
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'Notification'
+    add_breadcrumb 'New Notification'
 
     @notification = Notification.new
   end
@@ -33,14 +33,14 @@ class NotificationsController < ApplicationController
   # GET /notifications/1/edit
   def edit
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'Notification'
+    add_breadcrumb 'Edit Notification'
   end
 
   # POST /notifications
   # POST /notifications.json
   def create
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'Notification'
+    add_breadcrumb 'New Notification'
 
     @notification = Notification.new(notification_params)
 

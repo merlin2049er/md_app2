@@ -7,12 +7,12 @@ class CartsController < ApplicationController
 
   # Product.unscoped.where(:funded => 'true')
 
-  # GET /articles
+  # GET /article/ns
   # GET /articles.json
   def index
 
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'shopping cart', :carts_path
+    add_breadcrumb 'shopping cart'
 
     @carts = Cart.where('user_id =?', current_user.id)
     @pagy, @carts = pagy(@carts)
@@ -21,18 +21,30 @@ class CartsController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'shopping cart'
+
   end
 
   # GET /articles/new
   def new
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'New shopping cart'
+
     @cart = Cart.new
   end
 
   # GET /articles/1/edit
   def edit
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'edit shopping cart'
+
   end
 
   def create
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'new shopping cart'
+
     @cart = Cart.new
 
     respond_to do |format|

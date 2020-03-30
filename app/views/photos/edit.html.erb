@@ -1,5 +1,6 @@
 
-<% if user_signed_in? %>  <!-- fix this change to admin user -->
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
 
 <h1>Editing Photo</h1>
 
@@ -13,4 +14,4 @@
 
     <div class="alert alert-warning" role="alert">You must be signed in as administrator to edit the photos.</div>
 
-<% end %> 
+<% end %>
