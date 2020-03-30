@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   get 'pages/terms'
   get 'pages/shipping'
   get 'pages/returns'
+  get 'pages/taxes'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get '*path', to: redirect('/pages/error')

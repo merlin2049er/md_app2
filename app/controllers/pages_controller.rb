@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def about
      add_breadcrumb 'MASSDUMP', :root_path
-     add_breadcrumb 'About', :pages_about_path
+     add_breadcrumb 'About'
   end
 
   def activity
@@ -11,35 +11,35 @@ class PagesController < ApplicationController
 
   def cookies
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'Cookies', :pages_cookies_path
+    add_breadcrumb 'Cookies'
   end
 
   def contact
-  
+
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'Contact', :pages_contact_path
+    add_breadcrumb 'Contact'
 
     @contact = Contact.new
   end
 
   def dashboard
      add_breadcrumb 'MASSDUMP', :root_path
-     add_breadcrumb 'Dashboard', :pages_dashboard_path
+     add_breadcrumb 'Dashboard'
   end
 
   def error
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'Error', :pages_error_path
+    add_breadcrumb 'Error'
   end
 
   def faq
      add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'FAQ', :pages_faq_path
+    add_breadcrumb 'FAQ'
   end
 
   def index
      add_breadcrumb 'MASSDUMP', :root_path
-     add_breadcrumb 'Home', :pages_index_path
+     add_breadcrumb 'Home'
 
     @recent_products = Product.published.most_recent(6)
     @last_chance = Product.published.ending_soonest(6)
@@ -52,7 +52,7 @@ class PagesController < ApplicationController
 
   def invite
      add_breadcrumb 'MASSDUMP', :root_path
-     add_breadcrumb 'Invite', :pages_invite_path
+     add_breadcrumb 'Invite'
 
      @invite = Invite.new
      @message = 'Hi, please check out this awesome site and get in on the savings.'
@@ -60,17 +60,17 @@ class PagesController < ApplicationController
 
   def jobs
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb "Jobs", :pages_jobs_path
+    add_breadcrumb "Jobs"
   end
 
   def privacy
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'Privacy', :pages_privacy_path
+    add_breadcrumb 'Privacy'
   end
 
   def random
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'Random', :pages_random_path
+    add_breadcrumb 'Random'
 
     @random = Product.published.limit(12).order("RANDOM()")
 
@@ -78,18 +78,22 @@ class PagesController < ApplicationController
 
  def terms
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'Terms', :pages_terms_path
+    add_breadcrumb 'Terms'
   end
 
   def shipping
      add_breadcrumb 'MASSDUMP', :root_path
-     add_breadcrumb 'Shipping', :pages_shipping_path
+     add_breadcrumb 'Shipping'
    end
 
    def returns
       add_breadcrumb 'MASSDUMP', :root_path
-      add_breadcrumb 'Returns', :pages_returns_path
+      add_breadcrumb 'Returns'
     end
 
+    def taxes
+       add_breadcrumb 'MASSDUMP', :root_path
+       add_breadcrumb 'Taxes'
+     end
 
 end
