@@ -1,6 +1,3 @@
-
-<%# if user_signed_in? %>
-
   <%= render 'layouts/addthis' %>
 
   <ul class="nav nav-tabs">
@@ -41,7 +38,7 @@
     <% end %>
 
 
-    </br>
+    <br/>
   <% else %>
 
   <%= form_tag add_to_cart_product_path(@product.id), method: :post do %>
@@ -52,7 +49,7 @@
   <% end %>
 
     <% end %>
-    </br>
+    <br/>
 
   <% end %>
 
@@ -117,7 +114,7 @@
     </div>
 
     <div class="well well-sm">
-      <a href="<%= @product.picurl %>", data-lightbox="Gallery" %> <img src="<%= @product.picurl %>"  > </a>
+      <a href="<%= @product.picurl %>", data-lightbox="Gallery" %> <img src=" <%= asset_pack_path "media/images#{@product.picurl}" %> "  > </a>
     </div >
 
     <% if @photo.size > 0 %>
@@ -169,12 +166,3 @@
 
     </div>
     </div>
-  </div>
-
-<%# else %>
-<!--
-  <div class="alert alert-warning" role="alert">You must be signed in to see the product.</div>
--->
-<%# end %>
-
-<!-- end -->

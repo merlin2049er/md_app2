@@ -25,7 +25,7 @@
 
       <a class="card" href=  "<%=  product_path(product) %>" >
 
-        <span class="card-header" style="background-image: url( <%=  product.picurl %> );">
+        <span class="card-header" style="background-image: url( <%= asset_pack_path "media/images/#{product.picurl}" %> );">
 
           <span class="card-title">
             <h3> <%= product.title %> </h3>

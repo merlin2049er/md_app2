@@ -22,9 +22,7 @@
     <a class="card" href=  "<%=  category_path(category) %>" >
 
    <!--   <div class="img"> -->
-
-
-      <span class="card-header" style="background-image: url( <%=  category.picurl %> );">
+        <span class="card-header" style="background-image: url( <%= asset_pack_path "media/images/#{category.picurl }" %> );>
 
         <span class="card-title">
           <h3> <%= category.name %> </h3>
