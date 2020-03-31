@@ -53,6 +53,8 @@ class ProductsController < ApplicationController
   end
 
   if @remaining == 0
+     flash.now[:warning]= 'All gone!'
+
     @product.funded = 'true'
     @product.save!
     cart = Cart.where(product_id: @product.id).update_all(processing: true)
@@ -128,7 +130,7 @@ end
       respond_to do |format|
         if @cart.save
 
-          format.html { redirect_to :back, notice: 'Product was successfully added to cart.' }
+          format.html { redirect_to :back , notice: 'Product was successfully added to cart.' }
           format.json { render :show, status: :created, location: @cart }
         else
           format.html { render :new }
@@ -144,7 +146,7 @@ end
       cart.save
 
       respond_to do |format|
-        format.html { redirect_to :back, notice: 'Product was successfully updated in cart.' }
+        format.html { redirect_to :back , notice: 'Product was successfully updated in cart.' }
         format.json { render json: @cart.errors, status: :unprocessable_entity }
       end
     end

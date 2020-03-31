@@ -1,7 +1,8 @@
 
-<%= simple_form_for(@product) do |f| %>
+
+<%= simple_form_for @product, validate: true do |f| %>
   <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
 
   <div class="form-inputs">
     <div class = "field">
@@ -12,6 +13,7 @@
      <%= f.input :active %>
     <%= f.input :draft %>
     <%= f.input :picurl %>
+
     <h4>Additional photo urls (upto 5) </h4>
       <div id='photos'>
         <%= f.simple_fields_for :photos do |p| %>
@@ -42,4 +44,5 @@
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+
 <% end %>
