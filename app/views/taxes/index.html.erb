@@ -9,21 +9,21 @@
       <% if @taxes.empty? %>
         Nothing here...
       <% else %>
-        <%= @taxes.count %>
+        <%= @taxes.count %> rates here...
       <% end %>
 
     </div>
     <div class="panel-body">
-<table>
+<table class="table" >
   <thead>
   <tr>
-    <th>ID      </th>
-    <td>&nbsp;</td>
+    <th>Prov/<br/>State ID</th>
+
     <th>Tax     </th>
-    <td>&nbsp;</td>
-    <th>Province</th>
-    <td>&nbsp;</td>
-    <th>Updated</th>
+
+    <th>Comment</th>
+
+    <th>Actions</th>
 
   </tr>
   </thead>
@@ -32,12 +32,11 @@
     <% @taxes.each do |tax| %>
       <tr>
         <td><%=  tax.prov_id  %></td>
-        <td>&nbsp;</td>
         <td><%=  tax.tax_rate  %></td>
-        <td>&nbsp;</td>
         <td><%=  tax.comment  %></td>
-        <td>&nbsp;</td>
-        <td><%=  tax.updated_at  %></td>
+        <td><%= link_to 'Edit', edit_tax_path(tax) %>
+        <%= link_to '    Destroy', tax_path(tax),   method: :delete,
+              data: { confirm: 'Are you sure?' } %> </td>
   </tr>
     <% end %>
   </tbody>

@@ -1,6 +1,4 @@
-<% @user = current_user %>
-<% if user_signed_in? && @user.admin %>
-
+<% if can? :manage, @product %>
 
 <h1>Editing Product</h1>
 
