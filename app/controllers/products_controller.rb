@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
  #before_action :set_product, only: %i[show edit update destroy]
  before_action :set_product, only: [ :show, :edit, :update, :destroy ]
- before_action  :authenticate_user!
+ # before_action  :authenticate_user!
 
   # GET /products
   # GET /products.json
@@ -68,19 +68,22 @@ end
   # GET /products/new
   def new
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'product'
+    add_breadcrumb 'New product'
     @product = Product.new
   end
 
   # GET /products/1/edit
   def edit
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'product', :products_path
+    add_breadcrumb 'Edit product'
   end
 
   # POST /products
   # POST /products.json
   def create
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'New product'
+
     @product = Product.new(product_params)
     respond_to do |format|
       if @product.save
