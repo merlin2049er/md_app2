@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :notifications
   has_many :transactions
 
+  acts_as_commontator
+
   # IT'S JUST AN EXAMPLE OF ANY ROLE SYSTEM
 def admin?
  self == User.first

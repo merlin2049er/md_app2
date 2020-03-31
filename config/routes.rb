@@ -45,5 +45,9 @@ Rails.application.routes.draw do
   get 'pages/taxes'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  #comments engine
+  mount Commontator::Engine => '/commontator'
+
+
   get '*path', to: redirect('/pages/error')
 end

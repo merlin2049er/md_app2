@@ -10,6 +10,7 @@ require("channels")
 
 require("packs/bootstrap.js")
 require("packs/custom.js")
+
 import $ from 'jquery';
 global.$ = $;
 global.jQuery = $;

@@ -38,8 +38,8 @@ class ProductsController < ApplicationController
 
 
   # insert comments here...
-  # commontator_thread_show(@product)
-  # @comments = @product.comments.with_state([:draft, :published])
+   commontator_thread_show(@product)
+ #  @comments = @product.comments.with_state([:draft, :published])
 
    impressionist(@product)
 
