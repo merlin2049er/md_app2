@@ -20,6 +20,7 @@
        Quantity: <%= number_field_tag :qty, 1, :min => 1, :max => @remaining %>
 
 <% if user_signed_in? %>
+
       <%= submit_tag "Add to cart",  data: { confirm: "Are you sure you want to add #{@product.title} to your cart?" } %>
 <% else %>
     <!-- disabled button and tooltip here... -->

@@ -8,27 +8,22 @@
 <!-- insert new stuff here -->
 
 
-<div class="container">
+<div class="container-fluid contenedor text-center">
 
-	<div class="cards">
+	<div class="container text-center">
 
 <% @products.each do |product| %>
 
-<!--        <div class="img"> -->
-<a class="card" href=  "<%=  product_path(product) %>" >
-  <span class="card-header" style="background-image: url( <%=  product.picurl %> );">
 
-    <span class="card-title">
+<a class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto" href=  "<%=  product_path(product) %>" >
+
+    <article class="text-left">
       <h3> <%= product.title %> </h3>
-    </span>
-  </span>
-  <span class="card-summary">
-    <%= truncate(product.template, length: 50 , separator: ' ')  %>
+			<%= truncate(product.template, length: 50 , separator: ' ')  %>
+  Active: <%= product.startdate %>  - <%= product.enddate %>
+    </article>
 
-  </span>
-  <span class="card-meta">
-    Active: <%= product.startdate %>  - <%= product.enddate %>
-  </span>
+		<img src="<%= asset_pack_path "media/images#{product.picurl }" %>" alt="">
 </a>
 
 
