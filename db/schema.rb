@@ -142,9 +142,9 @@ ActiveRecord::Schema.define(version: 2020_03_31_210147) do
     t.integer "weight"
     t.string "courier"
     t.string "courierurl"
+    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "category_id"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
