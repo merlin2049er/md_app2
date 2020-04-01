@@ -130,7 +130,7 @@ end
       respond_to do |format|
         if @cart.save
 
-          format.html { redirect_to :back , notice: 'Product was successfully added to cart.' }
+          format.html { redirect_back fallback_location: root_path, notice: 'Product was successfully added to cart.' }
           format.json { render :show, status: :created, location: @cart }
         else
           format.html { render :new }
@@ -146,7 +146,7 @@ end
       cart.save
 
       respond_to do |format|
-        format.html { redirect_to :back , notice: 'Product was successfully updated in cart.' }
+        format.html { redirect_back fallback_location: root_path,  notice: 'Product was successfully updated in cart.' }
         format.json { render json: @cart.errors, status: :unprocessable_entity }
       end
     end
