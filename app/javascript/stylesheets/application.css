@@ -2,3 +2,5 @@
 @import "/bootstrap.css";
 @import "/footer.css";
 @import 'toastr';
+
+@import "/categories.css";
