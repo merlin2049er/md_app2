@@ -7,9 +7,6 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("cocoon")
-
-
 
 require("packs/bootstrap.js")
 require("packs/custom.js")
