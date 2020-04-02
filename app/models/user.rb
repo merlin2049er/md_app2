@@ -15,6 +15,14 @@ def admin?
  self == User.first
 end
 
+def is_profile_complete
+  if !self.firstname.blank? and !self.lastname.blank? and !self.username.blank? and !self.address1.blank? and !self.address2.blank? and !self.city.blank? and !self.state.blank? and !self.postal.blank? and !self.provider.blank? and !self.image.blank? and !self.country.blank?
+      return true
+  else
+      return false
+  end
+end
+
 # YOU HAVE TO IMPLEMENT YOUR ROLE POLICY FOR COMMENTS HERE
 def comments_admin?
  admin?

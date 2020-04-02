@@ -42,15 +42,14 @@ class PagesController < ApplicationController
      add_breadcrumb 'Home'
 
      # check for filled in profile
-     if current_user
 
-         flash.now[:warning] = 'Please, fill in your profile...'
+     if current_user and !current_user.is_profile_complete
+         flash[:warning] = 'Please, fill in your profile...'
      end
      #
 
     @recent_products = Product.published.most_recent(6)
     @last_chance = Product.published.ending_soonest(6)
-
 
   end
 
