@@ -8,9 +8,9 @@ namespace :db do
     [Category, Product, Cart, User].each(&:delete_all)
     [Photo].each(&:delete_all)
 #    [Activity].each(&:delete_all)
-#    [Commontator_comment].each(&:delete_all)
-#    [Commontator_subscription].each(&:delete_all)
-#    [Commontator_thread].each(&:delete_all)
+    [Commontator_comment].each(&:delete_all)
+    [Commontator_subscription].each(&:delete_all)
+    [Commontator_thread].each(&:delete_all)
     [Contact].each(&:delete_all)
     [Impression].each(&:delete_all)
 #    [Invite].each(&:delete_all)
@@ -20,7 +20,7 @@ namespace :db do
 #    [Vote].each(&:delete_all)
 
     Category.populate 15 do |category|
-      category.category_id = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+      category.id = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
       category.name = Populator.words(1..2).titleize
       category.picurl = ['photo_not_available.png']
 
