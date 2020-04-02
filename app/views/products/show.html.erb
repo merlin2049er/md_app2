@@ -111,9 +111,9 @@
     </div>
 
     <div class="well well-sm">
-        <div class="pswp__container">
-            <a href="<%= @product.picurl %>"   %> <img src=" <%= asset_pack_path "media/images/#{@product.picurl}" %> "  > </a>
-        </div>
+
+            <a href="<%= @product.picurl %>", data-lightbox="Gallery"   %> <img src=" <%= asset_pack_path "media/images/#{@product.picurl}" %> "  > </a>
+
     </div >
 
     <% if @photo.size > 0 %>
@@ -121,35 +121,44 @@
       <div class="well well-sm">
 
         <% @photo.each do | p| %>
-        <div class="pswp__container">
-          <a href="<%= p.uri %>"  %> <img src="<%= p.uri %>" , class = "" > </a>
-          </div>
+
+          <a href="<%= p.uri %>, , data-lightbox="Gallery"  %> <img src="<%= p.uri %>" , class = "imgproducts" > </a>
+
         <% end %>
       </div>
 
 
     <% end %>
 
-    <div class="well well-sm">    <%= raw @product.template %> <br></div>
+        <div class="well well-sm">
+          <i>Price, MSRP, Discount, Page views</i><br/>
+          <% if @product.msrp != 0 && @product.price != 0 then %>
+            $<%= @product.price %><br/>
+          <s>  $<%= @product.msrp %> MSRP </s><br/>
+
+            %<%= Discount.calculate_percentage_discount(@product.msrp, @product.price) %> Savings <br/>
+            <%= @product.impressionist_count(:filter => :ip_address) %> Views
+          <% end %>
+
+        </div>
+
+
+    <div class="well well-sm">  <i>Description</i> <br/> <%= raw @product.template %> <br></div>
 
     <div class="well well-sm">
-      Length: <%= @product.length %><br/>
-      Width:  <%= @product.width %><br/>
-      Height: <%= @product.height %><br/>
-      Weight: <%= @product.weight %>
-      <hr/>
-      <%= link_to @product.courier, @product.courierurl, target: :_blank %><br/>
-    </div>
-
-    <div class="well well-sm">
-      <%= @product.impressionist_count(:filter => :ip_address) %> Views <br/>
-      <% if @product.msrp != 0 && @product.price != 0 then %>
-        <%= @product.price %> MSDP<br/>
-        <%= @product.msrp %> MSRP<br/>
-
-        <%= Discount.calculate_percentage_discount(@product.msrp, @product.price) %> Discount %<br/>
+       <% if @product.length == 0 and @product.width == 0 and @product.width == 0 and @product.weight == 0 %>
+         Package dimensions not available.
+      <% else %>
+      <i>Package dimensions</i><br/>
+      Length: <%= @product.length %> cm<br/>
+      Width:  <%= @product.width %> cm<br/>
+      Height: <%= @product.height %> cm<br/>
+      Weight: <%= @product.weight %> kg
       <% end %>
 
+      <hr/>
+      <i>Shipped via</i>
+      <%= link_to @product.courier, @product.courierurl, target: :_blank %><br/>
     </div>
 
     </div>

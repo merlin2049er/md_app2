@@ -41,6 +41,13 @@ class PagesController < ApplicationController
      add_breadcrumb 'MASSDUMP', :root_path
      add_breadcrumb 'Home'
 
+     # check for filled in profile
+     if current_user
+
+         flash.now[:warning] = 'Please, fill in your profile...'
+     end
+     #
+
     @recent_products = Product.published.most_recent(6)
     @last_chance = Product.published.ending_soonest(6)
 
