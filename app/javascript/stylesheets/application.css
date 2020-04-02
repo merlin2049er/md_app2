@@ -5,24 +5,4 @@
 
 /*@import "/categories.css"; */
 
-@@import "/stripe.css";
-
-
- div.pagenav {
-  clear: both;
-}
-
-// flexbox
-html, body {
-  height: 100%;
-}
-body {
-  display: flex;
-  flex-direction: column;
-}
-.content {
-  flex: 1 0 auto;
-}
-.footer {
-  flex-shrink: 0;
-}
+@import "/stripe.css";
