@@ -11,6 +11,13 @@ require("channels")
 require("packs/bootstrap.js")
 require("packs/custom.js")
 
+require("packs/rails.validations.js")
+require("packs/rails.validations.simple_form.bootstrap4.js")
+require("packs/rails.validations.simple_form.js")
+
+//require("lightbox.js")
+//require("bootstrap-dropdown.js")
+
 import $ from 'jquery';
 global.$ = $;
 global.jQuery = $;

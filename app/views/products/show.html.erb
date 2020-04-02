@@ -68,7 +68,7 @@
       <% end %>
       funded.
       <br/>
-      Start date: <%= @product.startdate %>.</br>End date: <%= @product.enddate %>.<br/>
+      Start date: <%= @product.startdate %>.<br/>End date: <%= @product.enddate %>.<br/>
       Duration, <%= distance_of_time_in_words(start_time, end_time) %>.<br/>
 
       </div>
@@ -112,7 +112,7 @@
 
     <div class="well well-sm">
         <div class="pswp__container">
-            <a href="<%= @product.picurl %>"   %> <img src=" <%= asset_pack_path "media/images#{@product.picurl}" %> "  > </a>
+            <a href="<%= @product.picurl %>"   %> <img src=" <%= asset_pack_path "media/images/#{@product.picurl}" %> "  > </a>
         </div>
     </div >
 
