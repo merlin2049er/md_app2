@@ -18,6 +18,8 @@ require("packs/rails.validations.simple_form.js")
 //require("lightbox.js")
 //require("bootstrap-dropdown.js")
 
+require("packs/stripe_v3.js")
+
 import $ from 'jquery';
 global.$ = $;
 global.jQuery = $;

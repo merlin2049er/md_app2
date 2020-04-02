@@ -5,7 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-
+    <%= render 'layouts/google_analcode' %>
+    <%= render 'layouts/hotjar_analcode' %>
+    
     <%= stylesheet_pack_tag 'application',  media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -18,9 +20,8 @@
 
     <div class="content">
 
+      <%= render 'layouts/nav' %>
       <%= custom_bootstrap_flash %>
-    
-    <%= render 'layouts/nav' %>
 
   <div class="container">
   <br>
@@ -30,8 +31,8 @@
       <%= yield %>
 
 </div>
-</div>
- <%= render 'layouts/footer' %>
+  </div>
+    <%= render 'layouts/footer' %>
 
   </body>
 </html>
