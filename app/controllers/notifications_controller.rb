@@ -58,6 +58,9 @@ class NotificationsController < ApplicationController
   # PATCH/PUT /notifications/1
   # PATCH/PUT /notifications/1.json
   def update
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'Edit Notification'
+
     respond_to do |format|
       if @notification.update(notification_params)
         format.html { redirect_to @notification, notice: 'Notification was successfully updated.' }

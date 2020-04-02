@@ -59,6 +59,9 @@ class CartsController < ApplicationController
   end
 
   def update
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'Edit shopping cart'
+
     cart = Cart.find(params[:id])
     cart.update!(qty: params[:qty])
     redirect_to carts_path

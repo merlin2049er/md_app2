@@ -55,6 +55,9 @@ class TaxesController < ApplicationController
   # PATCH/PUT /taxes/1
   # PATCH/PUT /taxes/1.json
   def update
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'Edit Tax'
+
     respond_to do |format|
       if @tax.update(tax_params)
         format.html { redirect_to @tax, notice: 'Tax was successfully updated.' }

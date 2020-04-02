@@ -20,7 +20,7 @@ class CategoriesController < ApplicationController
   def show
     # added 9/24
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'categories', categories_path
+    add_breadcrumb 'categories'
     add_breadcrumb @category.name
 
     @category = Category.find_by_id(params[:id])
@@ -74,6 +74,9 @@ class CategoriesController < ApplicationController
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
   def update
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'Edit category'
+
     respond_to do |format|
       if @category.update(category_params)
         format.html { redirect_to @category, notice: 'Category was successfully updated.' }

@@ -7,7 +7,7 @@ class PhotosController < ApplicationController
   # GET /photos.json
   def index
     add_breadcrumb 'MASSDUMP', :root_path
-   add_breadcrumb 'Photos', :photos_path
+   add_breadcrumb 'Photos'
     @photos = Photo.all
     @total = Photo.count
    @pagy, @photos = pagy(Photo.all)
@@ -17,20 +17,20 @@ class PhotosController < ApplicationController
   # GET /photos/1.json
   def show
     add_breadcrumb 'MASSDUMP', :root_path
-   add_breadcrumb 'Photos', :photos_path
+   add_breadcrumb 'Photos'
   end
 
   # GET /photos/new
   def new
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'New Photo', :photos_path
+    add_breadcrumb 'New Photo'
     @photo = Photo.new
   end
 
   # GET /photos/1/edit
   def edit
     add_breadcrumb 'MASSDUMP', :root_path
-   add_breadcrumb 'Photos', :photos_path
+   add_breadcrumb 'Photos'
   end
 
   # POST /photos
@@ -41,7 +41,7 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
 
     add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'New Photo', :photos_path
+    add_breadcrumb 'New Photo'
 
     respond_to do |format|
       if @photo.save
@@ -57,6 +57,10 @@ class PhotosController < ApplicationController
   # PATCH/PUT /photos/1
   # PATCH/PUT /photos/1.json
   def update
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'Edit Photo'
+
+
     respond_to do |format|
       if @photo.update(photo_params)
         format.html { redirect_to @photo, notice: 'Photo was successfully updated.' }

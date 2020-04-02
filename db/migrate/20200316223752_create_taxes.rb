@@ -8,5 +8,7 @@ class CreateTaxes < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :taxes, :prov_id, unique: true
+
   end
 end

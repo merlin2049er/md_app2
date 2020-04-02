@@ -5,8 +5,8 @@ class SessionsController < Devise::SessionsController
 
 
      add_breadcrumb 'MASSDUMP', :root_path
-     add_breadcrumb 'LOG IN', :new_user_session_path
-  
+     add_breadcrumb 'LOG IN'
+
   auto_session_timeout_actions
 
   def active
