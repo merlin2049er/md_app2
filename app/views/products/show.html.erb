@@ -122,10 +122,10 @@
 
         <% @photo.each do | p| %>
 
-          <a href="<%= p.uri %>, , data-lightbox="Gallery"  %> <img src="<%= p.uri %>" , class = "imgproducts" > </a>
+          <a href="<%= p.uri %>,  data-lightbox="Gallery"  %> <img src="<%= asset_pack_path "media/images/#{@p.uri}" %>" , class = "imgproducts" > </a>
+        </div>
 
         <% end %>
-      </div>
 
 
     <% end %>

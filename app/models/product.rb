@@ -9,7 +9,7 @@ class Product < ActiveRecord::Base
   is_impressionable
 
   acts_as_commontable dependent: :destroy
-  
+
   after_initialize :set_defaults
 
   # has_and_belongs_to_many :users
@@ -60,7 +60,7 @@ class Product < ActiveRecord::Base
   def set_defaults
     self.msrp ||= 0.0
     self.price ||= 0.0
-    self.picurl ||= '/photo_not_available.png'
+    self.picurl ||= 'photo_not_available.png'
     self.qty ||= 1
 
     self.funded ||= 'false'

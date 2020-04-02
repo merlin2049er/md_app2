@@ -39,11 +39,12 @@ class ProductsController < ApplicationController
 
   # insert comments here...
    commontator_thread_show(@product)
- #  @comments = @product.comments.with_state([:draft, :published])
+  # @comments = @product.comments.with_state([:draft, :published])
 
    impressionist(@product)
 
-   @photo = Photo.where('enabled' => true).where('product_id' => @product)
+   @photo = Photos.where('enabled' => true).where('product_id' => @product)
+   binding.pry
 
    @taken = Cart.where('product_id' => @product).sum(:qty)
    @remaining = @product.qty - @taken

@@ -9,6 +9,7 @@ class Photo < ActiveRecord::Base
 
   def set_defaults
     self.enabled ||= true
+    self.uri ||= 'photo_not_available.png'
   end
 
 end
