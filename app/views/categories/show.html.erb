@@ -17,14 +17,16 @@
 
 <a class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto" href=  "<%=  product_path(product) %>" >
 
-    <article class="text-left">
+    <article class="text-center">
       <h3> <%= product.title %> </h3>
-			<%= truncate(product.template, length: 50 , separator: ' ')  %>
-  Active: <%= product.startdate %>  - <%= product.enddate %>
     </article>
 
-		<img src="<%= asset_pack_path "media/images/#{product.picurl }" %>" alt="">
+		<img src="<%= asset_pack_path "media/images/#{product.picurl }" %>" alt=""><br/>
+
+		<%= truncate(product.template, length: 50 , separator: ' ')  %><br/>
+		Active: <%= product.startdate %>  - <%= product.enddate %>
 </a>
+
 
 
 <% end %>
