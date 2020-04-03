@@ -1,0 +1,13 @@
+<% if @photo.size > 0 %>
+
+  <div class="well well-sm">
+
+    <% @photo.each do | p| %>
+
+      <a href="<%= p.uri %>  <img src="<%= asset_pack_path "media/images/#{p.uri}" %>" > </a>
+
+  </div>
+
+    <% end %>
+
+<% end %>

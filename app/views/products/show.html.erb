@@ -21,9 +21,7 @@
 
 <% if user_signed_in? %>
 
-  <%= binding.pry %>
-
-      <%= submit_tag "Add to cart",  data: { confirm: "Are you sure you want to add #{@product.title} to your cart?" } %>
+      <%= submit_tag "Add to cart",  data: { confirm: "Are you sure you want to add #{@product.title} to your cart?" } ,  :title => "Are you sure you want to add #{@product.title} to your cart?"%>
 <% else %>
     <!-- disabled button and tooltip here... -->
     <button type="button"  data-toggle="tooltip" data-placement="top" title="You must log in to add to cart.">
@@ -44,7 +42,18 @@
   <% if Time.now >= @product.startdate && Time.now <= @product.enddate %>
 
      Quantity: <%= number_field_tag :qty, 1, :min => 1, :max => @remaining %>
+
+     <% if user_signed_in? %>
+
   <%= submit_tag "Add to cart",  data: { confirm: "Are you sure you want to add #{@product.title} to your cart?" }, :title => "Are you sure you want to add #{@product.title} to your cart?" %>
+    <% else %>
+    <!-- disabled button and tooltip here... -->
+    <button type="button"  data-toggle="tooltip" data-placement="top" title="You must log in to add to cart.">
+      Add to cart
+    </button>
+
+    <% end %>
+
   <% end %>
 
     <% end %>
@@ -103,65 +112,47 @@
 
     </div>
 
+
+    <%= render 'progressbar_wells' %>
+    <%= render 'main_photo_well' %>
+
+    <%= render 'thumbnails' %>
+
+
+    <%#= render 'price_well' %>  <!-- not sure why this caused problems? -->
+
     <div class="well well-sm">
-      Quantity: <%= @product.qty %>;   Remaining: <%= @remaining %> <% @percentremaining = (((  @remaining ).to_f) / (( @product.qty).to_f) *100).to_i %>
-      <div class="progress">
-        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"  style="width: <%= @percentremaining %>%" >
-          <%= @remaining %> remaining
-        </div>
-      </div>
+      <i>Price, MSRP, Discount, Page views</i><br/>
+      <% if @product.msrp != 0 && @product.price != 0 then %>
+        $<%= @product.price %><br/>
+      <s>  $<%= @product.msrp %> MSRP </s><br/>
+
+        %<%= Discount.calculate_percentage_discount(@product.msrp, @product.price) %> Savings <br/>
+        <%= @product.impressionist_count(:filter => :ip_address) %> Views
+      <% end %>
+
     </div>
 
-    <div class="well well-sm">
-
-            <a href="<%= @product.picurl %>", data-lightbox="Gallery"   %> <img src=" <%= asset_pack_path "media/images/#{@product.picurl}" %> "  > </a>
-
-    </div >
-
-    <% if @photo.size > 0 %>
-
-      <div class="well well-sm">
-
-        <% @photo.each do | p| %>
-
-          <a href="<%= p.uri %>,  data-lightbox="Gallery"  %> <img src="<%= asset_pack_path "media/images/#{p.uri}" %>" , class = "imgproducts" > </a>
-        </div>
-
-        <% end %>
 
 
-    <% end %>
-
-        <div class="well well-sm">
-          <i>Price, MSRP, Discount, Page views</i><br/>
-          <% if @product.msrp != 0 && @product.price != 0 then %>
-            $<%= @product.price %><br/>
-          <s>  $<%= @product.msrp %> MSRP </s><br/>
-
-            %<%= Discount.calculate_percentage_discount(@product.msrp, @product.price) %> Savings <br/>
-            <%= @product.impressionist_count(:filter => :ip_address) %> Views
-          <% end %>
-
-        </div>
-
-
-    <div class="well well-sm">  <i>Description</i> <br/> <%= raw @product.body %> <br></div>
+    <%= render 'description_well' %>
 
     <div class="well well-sm">
        <% if @product.length == 0 and @product.width == 0 and @product.width == 0 and @product.weight == 0 %>
          Package dimensions not available.
       <% else %>
-      <i>Package dimensions</i><br/>
-      Length: <%= @product.length %> cm<br/>
-      Width:  <%= @product.width %> cm<br/>
-      Height: <%= @product.height %> cm<br/>
-      Weight: <%= @product.weight %> kg
+        <i>Package dimensions</i><br/>
+        Length: <%= @product.length %> cm<br/>
+        Width:  <%= @product.width %> cm<br/>
+        Height: <%= @product.height %> cm<br/>
+        Weight: <%= @product.weight %> kg
       <% end %>
 
       <hr/>
       <i>Shipped via</i>
       <%= link_to @product.courier, @product.courierurl, target: :_blank %><br/>
     </div>
+
 
     </div>
 
