@@ -1,6 +1,8 @@
 @import "trix/dist/trix";
+
 @import "/bootstrap.css";
 @import "/custom.css";
 @import "/footer.css";
 @import "/stripe.css";
+@import "/style.css";
 @import 'toastr';
