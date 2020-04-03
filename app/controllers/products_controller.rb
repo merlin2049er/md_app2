@@ -94,6 +94,7 @@ end
         format.json { render :show, status: :created, location: @product }
 
       else
+        puts @product.errors.messages
         format.html { render :new }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end

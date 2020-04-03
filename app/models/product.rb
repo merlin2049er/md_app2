@@ -16,7 +16,7 @@ class Product < ActiveRecord::Base
 
   # has_and_belongs_to_many :users
   # add cart here...
-  belongs_to :cart
+  belongs_to :cart, optional: true
   belongs_to :category
   has_many :photos
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
