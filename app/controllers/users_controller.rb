@@ -9,6 +9,10 @@ class UsersController < Devise::ConfirmationsController
   def index
     add_breadcrumb 'MASSDUMP',  :'root_path'
     add_breadcrumb 'Users'
+
+    @total = User.count
+    @pagy, @users = pagy(User.all)
+
   end
 
   # def show

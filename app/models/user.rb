@@ -55,7 +55,7 @@ def self.from_omniauth(auth)
 end
 
 def set_defaults
-  self.image ||= '/photo_not_available.png'
+  self.image ||= 'photo_not_available.png'
 end
 # include PublicActivity::Model
 #  tracked owner: ->(controller,model) {controller && controller.current_user}

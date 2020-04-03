@@ -1,8 +1,5 @@
-@import "/custom.css";
 @import "/bootstrap.css";
+@import "/custom.css";
 @import "/footer.css";
-@import 'toastr';
-
-/*@import "/categories.css"; */
-
 @import "/stripe.css";
+@import 'toastr';

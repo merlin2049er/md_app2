@@ -8,6 +8,8 @@ class Product < ActiveRecord::Base
   include Elasticsearch::Model::Callbacks
   is_impressionable
 
+  has_rich_text :body
+
   acts_as_commontable dependent: :destroy
 
   after_initialize :set_defaults
@@ -22,9 +24,12 @@ class Product < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :category_id
   validates_presence_of :picurl
-  validates_presence_of :template
+  # validates_presence_of :template
+
+  validates_presence_of :body
   validates_presence_of :qty
   validates_presence_of :price
+
   validates_presence_of :msrp
   validates_presence_of :startdate
   validates_presence_of :enddate
@@ -32,13 +37,18 @@ class Product < ActiveRecord::Base
   # validates_presence_of :width
   # validates_presence_of :height
   # validates_presence_of :weight
-  # validates_presence_of :courier
-  # validates_presence_of :courierurl
+  validates_presence_of :courier
+  validates_presence_of :courierurl
 
   validates_length_of :title, maximum: 35
 
   validates_date :startdate, before: :enddate,
   before_message: 'must be at before the end date.'
+
+  validates_numericality_of :price, :greater_than => 0
+  validates_numericality_of :qty, :greater_than => 0
+  validates_numericality_of :msrp, :greater_than => :price
+
 
   # hopefully this works
   #  validates_numericality_of :qty, less_than_or_equal_to: 10, greater_than: 0

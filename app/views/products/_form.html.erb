@@ -1,16 +1,17 @@
 
 
-<%= simple_form_for @product, validate: true do |f| %>
-  <%= f.error_notification %>
+<%#= simple_form_for @product, validate: true do |f| %>
 
+<%= simple_form_for @product do |f| %>
+  <%= f.error_notification %>
 
   <div class="form-inputs">
     <div class = "field">
-     <%= f.label :category_id %>
+     <%= f.label :category_id %><br/>
      <%= f.collection_select :category_id, Category.all, :id, :name %>
      </div>
 
-     <%= f.input :active %>
+    <%= f.input :active %>
     <%= f.input :draft %>
     <%= f.input :picurl %>
 
@@ -26,7 +27,13 @@
 
     <%= f.input :title %>
     <%= f.input :qty %>
-    <%= f.input :template %>
+    <%#= f.input :template %>
+
+    <div class='form-group' >
+        <%= f.label :body %>
+        <%= f.rich_text_area :body ,class: 'form-control' %>
+    </div>
+
     <%= f.input :price %>
     <%= f.input :msrp %>
     <%= f.input :startdate %>

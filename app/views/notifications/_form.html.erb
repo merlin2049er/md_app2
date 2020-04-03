@@ -1,5 +1,8 @@
 
-<%= simple_form_for @notification, validate: true do |f| %>
+<%#= simple_form_for @notification, validate: true do |f| %>
+
+<%= simple_form_for @notification do |f| %>
+
   <%= f.error_notification %>
 
   <div class="form-inputs">

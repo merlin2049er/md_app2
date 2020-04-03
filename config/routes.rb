@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   root 'pages#index'
 
   devise_for :users, :controllers => { registrations: 'registrations', confirmations: 'confirmations', passwords: 'passwords', sessions: 'sessions', omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -15,10 +14,12 @@ Rails.application.routes.draw do
     end
   end
 
+
   resources :photos
   resources :notifications
   resources :taxes
   resources :transactions
+
 
   scope '/checkout' do
   post 'create', to: 'checkout#create',   as: 'checkout_create'
@@ -47,7 +48,6 @@ Rails.application.routes.draw do
 
   #comments engine
   mount Commontator::Engine => '/commontator'
-
 
   get '*path', to: redirect('/pages/error')
 end

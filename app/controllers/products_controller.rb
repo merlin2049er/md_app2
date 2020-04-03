@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
    impressionist(@product)
 
    @photo = @product.photos.where('enabled' => true)
-   
+
 
    @taken = Cart.where('product_id' => @product).sum(:qty)
    @remaining = @product.qty - @taken
@@ -167,7 +167,7 @@ end
   def product_params
     # params.fetch(:product, {})
     # added qty
-    params.require(:product).permit(:title, :picurl, :template, :price, :msrp, :startdate, :enddate, :draft, :active, :category_id, :qty, :length, :width, :height, :weight, :courier, :courierurl, photos_attributes: [:product_id, :uri, :done, :_destroy])
+    params.require(:product).permit(:title, :picurl, :template, :body, :price, :msrp, :startdate, :enddate, :draft, :active, :category_id, :qty, :length, :width, :height, :weight, :courier, :courierurl, photos_attributes: [:product_id, :uri, :done, :_destroy])
 
   end
 

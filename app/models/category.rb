@@ -2,8 +2,9 @@ class Category < ActiveRecord::Base
   has_many :products
 
   validates_presence_of :name
+  validates_presence_of :picurl
 
-  before_create :set_defaults
+  after_initialize :set_defaults
 
   def set_defaults
     self.picurl ||= 'photo_not_available.png'
