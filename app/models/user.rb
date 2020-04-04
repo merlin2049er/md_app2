@@ -1,9 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
+         :recoverable, :rememberable, :validatable, :confirmable,
          :omniauthable, omniauth_providers: [:facebook]
-
-# removed  :confirmable from devise
 
   has_many :notifications
   has_many :transactions

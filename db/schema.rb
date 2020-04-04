@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_04_141407) do
+ActiveRecord::Schema.define(version: 2020_04_04_151646) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -211,7 +211,6 @@ ActiveRecord::Schema.define(version: 2020_04_04_141407) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.integer "category_id"
     t.boolean "admin"
     t.string "firstname"
     t.string "lastname"
