@@ -23,7 +23,7 @@
       <div class="panel-heading">Avatar    </div>
       <% if (@user.image.present? ) then %>
 
-       <%= image_tag(@user.image, alt: "photo", size: "100x100", style: "padding: 20px 0px 20px 20px") %>  -->
+       <%= image_tag(@user.image, alt: "photo", size: "100x100", style: "padding: 20px 0px 20px 20px") %>
 
        <% else %>
        <img src="/photo_not_available.png" alt="photo"  width="100" height="100" />
