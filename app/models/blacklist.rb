@@ -1,6 +1,6 @@
 class Blacklist < ApplicationRecord
 
-  validates_uniqueness_of :email
+  validates :email, :uniqueness => { :case_sensitive => false }
   validates_presence_of :email
 
 end
