@@ -41,8 +41,8 @@ class PagesController < ApplicationController
      add_breadcrumb 'MASSDUMP', :root_path
      add_breadcrumb 'Home'
 
-     # check for filled in profile
 
+     # check for filled in profile
      if current_user and !current_user.is_profile_complete
          flash[:warning] = 'Please, fill in your profile...'
      end

@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations', confirmations: 'confirmations', passwords: 'passwords', sessions: 'sessions', omniauth_callbacks: 'users/omniauth_callbacks' }
 
+  resources :blacklists
   resources :categories
   resources :carts
   resources :contacts
+  resources :photos
 
   resources :products do
     member do
@@ -14,8 +16,6 @@ Rails.application.routes.draw do
     end
   end
 
-
-  resources :photos
   resources :notifications
   resources :taxes
   resources :transactions

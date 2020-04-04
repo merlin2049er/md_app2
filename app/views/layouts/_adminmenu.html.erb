@@ -7,11 +7,13 @@
   <a href="#" class="dropdown-toggle" data-toggle="dropdown"  data-hover="dropdown" data-delay="1000" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
   <ul class="dropdown-menu">
 
+    <li><%= link_to "Blackist Listing", blacklists_path %></li>
     <li><%= link_to "Photos Listing", photos_path %></li>
     <li><%= link_to "Users Listing", "/users" %></li>
     <li><%= link_to "Tax Listing", taxes_path %></li>
 
     <li><hr></li>
+    <li><%= link_to "New Blackist", new_blacklist_path %></li>
     <li><%= link_to "New Category", new_category_path %></li>
     <li><%=link_to "New Notification", new_notification_path %></li>
     <li><%=link_to "New Product",  new_product_path %></li>
