@@ -23,7 +23,7 @@ class CategoriesController < ApplicationController
     add_breadcrumb 'categories'
     add_breadcrumb @category.name
 
-    @category = Category.find_by_id(params[:id])
+  #  @category = Category.find_by_id(params[:id])
     require 'time'
 
     todaydate = Time.new
@@ -32,7 +32,8 @@ class CategoriesController < ApplicationController
     todaydate = todaydate.year.to_s + '-' + todaydate.month.to_s + '-' + todaydate.day.to_s
 
     @title = @category.name
-    @pagy, @products = pagy(@category.products.where("enddate > #{todaydate} AND draft = 'f' AND active = 't' AND funded = 'f'", todaydate))
+    puts @category.products.inspect
+    @pagy, @products = pagy(@category.products.where("enddate > #{todaydate} AND draft = '0' AND active = '1' AND funded = '0'", todaydate))
 
     # @products = @category.products.where( 'enddate > ?', todaydate )
 
@@ -102,7 +103,7 @@ class CategoriesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_category
-    @category = Category.find(params[:id])
+    @category = Category.find_by_id(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
