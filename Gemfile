@@ -53,7 +53,8 @@ gem 'pagy', '~> 3.7', '>= 3.7.3'
 gem 'faker'
 
 #populator
-gem 'populator', '~> 1.0'
+#gem 'populator', '~> 1.0'
+gem 'populator', :github => 'fulvi0/populator'
 
 #validates timelines
 gem 'validates_timeliness', '~> 5.0.0.alpha3'
