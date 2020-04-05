@@ -7,6 +7,10 @@ ruby '2.7.0'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3', '~> 1.4'
+
+# use Postgres on Heroku production and localhost
+gem 'pg', '~> 1.1', '>= 1.1.3'
+
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -34,8 +38,6 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 #fonts
 gem 'fontawesome-rails', '~> 4.0', '>= 4.0.3.2'
 
-# use Postgres on Heroku production
-gem 'pg', '~> 1.1', '>= 1.1.3'
 
 # breadcrumbs
 gem 'breadcrumbs_on_rails'
@@ -110,7 +112,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4'
+  # gem 'sqlite3', '~> 1.4'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'

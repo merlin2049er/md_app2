@@ -33,7 +33,7 @@ class CategoriesController < ApplicationController
 
     @title = @category.name
     puts @category.products.inspect
-    @pagy, @products = pagy(@category.products.where("enddate > #{todaydate} AND draft = '0' AND active = '1' AND funded = '0'", todaydate))
+    @pagy, @products = pagy(@category.products.where("enddate > #{todaydate} AND draft = 'f' AND active = 't' AND funded = 'f'", todaydate))
 
     # @products = @category.products.where( 'enddate > ?', todaydate )
 

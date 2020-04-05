@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2020_04_04_210326) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
     t.string "record_type", null: false
-    t.integer "record_id", null: false
+    t.bigint "record_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
@@ -25,8 +28,8 @@ ActiveRecord::Schema.define(version: 2020_04_04_210326) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -68,18 +71,18 @@ ActiveRecord::Schema.define(version: 2020_04_04_210326) do
   end
 
   create_table "commontator_comments", force: :cascade do |t|
-    t.integer "thread_id", null: false
+    t.bigint "thread_id", null: false
     t.string "creator_type", null: false
-    t.integer "creator_id", null: false
+    t.bigint "creator_id", null: false
     t.string "editor_type"
-    t.integer "editor_id"
+    t.bigint "editor_id"
     t.text "body", null: false
     t.datetime "deleted_at"
     t.integer "cached_votes_up", default: 0
     t.integer "cached_votes_down", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "parent_id"
+    t.bigint "parent_id"
     t.index ["cached_votes_down"], name: "index_commontator_comments_on_cached_votes_down"
     t.index ["cached_votes_up"], name: "index_commontator_comments_on_cached_votes_up"
     t.index ["creator_id", "creator_type", "thread_id"], name: "index_commontator_comments_on_c_id_and_c_type_and_t_id"
@@ -89,9 +92,9 @@ ActiveRecord::Schema.define(version: 2020_04_04_210326) do
   end
 
   create_table "commontator_subscriptions", force: :cascade do |t|
-    t.integer "thread_id", null: false
+    t.bigint "thread_id", null: false
     t.string "subscriber_type", null: false
-    t.integer "subscriber_id", null: false
+    t.bigint "subscriber_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["subscriber_id", "subscriber_type", "thread_id"], name: "index_commontator_subscriptions_on_s_id_and_s_type_and_t_id", unique: true
@@ -100,9 +103,9 @@ ActiveRecord::Schema.define(version: 2020_04_04_210326) do
 
   create_table "commontator_threads", force: :cascade do |t|
     t.string "commontable_type"
-    t.integer "commontable_id"
+    t.bigint "commontable_id"
     t.string "closer_type"
-    t.integer "closer_id"
+    t.bigint "closer_id"
     t.datetime "closed_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -193,6 +196,7 @@ ActiveRecord::Schema.define(version: 2020_04_04_210326) do
     t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["prov_id"], name: "index_taxes_on_prov_id", unique: true
   end
 
   create_table "transactions", force: :cascade do |t|
