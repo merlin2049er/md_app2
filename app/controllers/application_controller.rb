@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
   before_action :store_history
   before_action :set_search
+  before_action :banned
 
   rescue_from ActionController::InvalidAuthenticityToken, with: :handle_token_issues
 
@@ -39,6 +40,16 @@ def show_errors
   add_breadcrumb 'MASSDUMP', :root_path
   add_breadcrumb 'Whoa!'
   render 'pages/error'
+end
+
+def banned
+
+  if current_user and !Blacklist.find_by_email(current_user.email).nil?
+    #    binding.pry
+    flash[:warning] = 'Sorry, you have been banned...'
+    session.clear
+    render 'pages/banned'
+  end
 end
 
 private

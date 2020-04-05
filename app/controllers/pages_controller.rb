@@ -7,7 +7,6 @@ class PagesController < ApplicationController
   end
 
   def banned
-
     add_breadcrumb 'MASSDUMP', :root_path
     add_breadcrumb 'Banned'
   end
@@ -44,9 +43,8 @@ class PagesController < ApplicationController
      add_breadcrumb 'MASSDUMP', :root_path
      add_breadcrumb 'Home'
 
-
      # check for filled in profile
-     if current_user and !current_user.is_profile_complete
+     if current_user and !current_user.is_profile_complete and Blacklist.find_by_email(current_user.email).nil?
          flash[:warning] = 'Please, fill in your profile...'
      end
      #
