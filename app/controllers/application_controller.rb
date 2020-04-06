@@ -48,6 +48,9 @@ def banned
     #    binding.pry
     flash[:warning] = 'Sorry, you have been banned...'
     session.clear
+
+    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb 'Banned'
     render 'pages/banned'
   end
 end

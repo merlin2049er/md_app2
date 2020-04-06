@@ -6,10 +6,10 @@ class PagesController < ApplicationController
      add_breadcrumb 'About'
   end
 
-  def banned
-    add_breadcrumb 'MASSDUMP', :root_path
-    add_breadcrumb 'Banned'
-  end
+#  def banned
+#    add_breadcrumb 'MASSDUMP', :root_path
+#    add_breadcrumb 'Banned'
+#  end
 
   def cookies
     add_breadcrumb 'MASSDUMP', :root_path
