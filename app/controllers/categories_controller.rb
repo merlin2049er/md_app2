@@ -23,16 +23,17 @@ class CategoriesController < ApplicationController
     add_breadcrumb 'categories'
     add_breadcrumb @category.name
 
-  #  @category = Category.find_by_id(params[:id])
+    @category = Category.find_by_id(params[:id])
     require 'time'
 
     todaydate = Time.new
-    #    set 'todaydate' equal to the current date/time.
+    #set 'todaydate' equal to the current date/time.
 
     todaydate = todaydate.year.to_s + '-' + todaydate.month.to_s + '-' + todaydate.day.to_s
 
     @title = @category.name
     puts @category.products.inspect
+
     @pagy, @products = pagy(@category.products.where("enddate > #{todaydate} AND draft = 'f' AND active = 't' AND funded = 'f'", todaydate))
 
     # @products = @category.products.where( 'enddate > ?', todaydate )
