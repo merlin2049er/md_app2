@@ -15,7 +15,7 @@ require("packs/rails.validations.js")
 require("packs/rails.validations.simple_form.bootstrap4.js")
 require("packs/rails.validations.simple_form.js")
 
-//require("lightbox.js")
+require("packs/lightbox.js")
 //require("bootstrap-dropdown.js")
 
 require("packs/baguetteBox.js")
