@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
 
     todaydate = todaydate.year.to_s + '-' + todaydate.month.to_s + '-' + todaydate.day.to_s
     if !params[:query].blank?
-      @search = @search.records.where('draft = ? and active = ? and funded = ? and enddate > ?', false , true, false , todaydate )
+      @search = @search.records.where('draft = ? and active = ? and funded = ? and startdate < ? and enddate > ?', false , true, false , todaydate , todaydate )
     end
     @searchtotal = @search.count
     @products = @search
