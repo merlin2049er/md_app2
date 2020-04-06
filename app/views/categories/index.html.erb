@@ -13,23 +13,24 @@
 
   <!-- insert new stuff here... -->
 
-  <div class="container-fluid contenedor text-center">
+  <div class="container gallery-container">
 
   <!--	<div class="container text-center"> -->
 
     <% @categories.each do |category| %>
 
-    <a class="container text-center" href=  "<%=  category_path(category) %>" >
+    <a class="tz-gallery" href=  "<%=  category_path(category) %>" >
+      <div class="row">
+        <div class="col-sm-6 col-md-4" >
+          <div class="thumbnail">
 
-      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
 
-    <article class="text-center">
-        <%= truncate(category.name )  %>
-        <%#= category.name %>
-        </article>
+            <h4><%= truncate(category.name )  %></h4>
 
         <img src="<%= asset_pack_path "media/images/#{category.picurl }" %>" alt="">
 
+      </div>
+      </div>
       </div>
     </a>
     <% end %>

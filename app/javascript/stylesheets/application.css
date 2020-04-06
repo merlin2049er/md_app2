@@ -5,4 +5,5 @@
 @import "/footer.css";
 @import "/stripe.css";
 @import "/style.css";
+
 @import 'toastr';
