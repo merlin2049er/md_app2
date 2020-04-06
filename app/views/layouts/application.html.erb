@@ -7,7 +7,7 @@
 
     <%= render 'layouts/google_analcode' %>
     <%= render 'layouts/hotjar_analcode' %>
-    
+
     <%= stylesheet_pack_tag 'application',  media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -15,6 +15,10 @@
   <body>
     <script type="text/javascript">
       $(document).ready(function() {});
+    </script>
+
+    <script>
+        baguetteBox.run('.tz-gallery');
     </script>
 
 
