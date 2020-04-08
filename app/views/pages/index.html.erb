@@ -21,13 +21,13 @@ Please use the contact form to get in touch.
         <div class="thumbnail">
 
      <a href= "<%=  product_path(p) %>" >
-       <h4> <%= p.title %> </h4>
+       <h5> <%= p.title %> </h5>
      <img src="<%= asset_pack_path "media/images/#{p.picurl }" %>" alt="">
      </a>
 
       <div class ="caption" >
-     <%= truncate(p.template, length: 50 , separator: ' ')  %><br/>
-     <small>Active: <%= p.startdate %>  - <%= p.enddate %></small>
+    <!-- <%#= truncate(p.template, length: 50 , separator: ' ')  %><br/> -->
+     <small><i>Available between:</i> <%= p.startdate %>  - <%= p.enddate %></small>
    </div>
 
  </div>

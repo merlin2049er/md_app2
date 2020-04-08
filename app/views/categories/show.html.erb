@@ -8,28 +8,32 @@
 <!-- insert new stuff here -->
 
 
-<div class="container-fluid contenedor text-center">
+<div class="container gallery-container">
 
-	<div class="container text-center">
 
 <% @products.each do |product| %>
+<div class="tz-gallery">
 
+			<div class="row">
 
-<a class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto" href=  "<%=  product_path(product) %>" >
+		<div class="col-sm-6 col-md-4" >
+			<div class="thumbnail">
 
-    <article class="text-center">
-      <h3> <%= product.title %> </h3>
-    </article>
+<a  href=  "<%=  product_path(product) %>" >
+
+      <h5> <%= product.title %> </h5>
 
 		<img src="<%= asset_pack_path "media/images/#{product.picurl }" %>" alt=""><br/>
-
-		<%= truncate(product.template, length: 50 , separator: ' ')  %><br/>
-		Active: <%= product.startdate %>  - <%= product.enddate %>
 </a>
+<div class ="caption" >
 
+	<!--	<#%= truncate(product.template, length: 50 , separator: ' ')  %><br/> -->
+		<small><i>Available between:</i> <%= product.startdate %>  - <%= product.enddate %></small>
+</div>
+</div>
+</div>
 
 <% end %>
-</div>
 </div>
 
   </br>
