@@ -19,24 +19,25 @@
 
     <% @categories.each do |category| %>
 
-    <a class="tz-gallery" href=  "<%=  category_path(category) %>" >
-      <div class="row">
-        <div class="col-sm-6 col-md-4" >
-          <div class="thumbnail">
+ <div class="tz-gallery">
+   <div class="row">
+     <div class="col-sm-6 col-md-4" >
+       <div class="thumbnail">
 
+    <a  href=  "<%=  category_path(category) %>" >
 
             <h4><%= truncate(category.name )  %></h4>
 
         <img src="<%= asset_pack_path "media/images/#{category.picurl }" %>" alt="">
+</a>
+      </div>
+      </div>
+      </div>
 
-      </div>
-      </div>
-      </div>
-    </a>
     <% end %>
   </div>
 
-
+</div>
   </br>
 
 
