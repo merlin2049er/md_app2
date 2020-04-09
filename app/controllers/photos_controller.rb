@@ -6,7 +6,7 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
    add_breadcrumb 'Photos'
     @photos = Photo.all
     @total = Photo.count
@@ -16,20 +16,20 @@ class PhotosController < ApplicationController
   # GET /photos/1
   # GET /photos/1.json
   def show
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
    add_breadcrumb 'Photos'
   end
 
   # GET /photos/new
   def new
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Photo'
     @photo = Photo.new
   end
 
   # GET /photos/1/edit
   def edit
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
    add_breadcrumb 'Photos'
   end
 
@@ -40,7 +40,7 @@ class PhotosController < ApplicationController
 
     @photo = Photo.new(photo_params)
 
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Photo'
 
     respond_to do |format|
@@ -57,7 +57,7 @@ class PhotosController < ApplicationController
   # PATCH/PUT /photos/1
   # PATCH/PUT /photos/1.json
   def update
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit Photo'
 
 

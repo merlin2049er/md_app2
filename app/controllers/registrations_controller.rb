@@ -2,9 +2,11 @@
 
 class RegistrationsController < Devise::RegistrationsController
 
-  add_breadcrumb 'MASSDUMP', :root_path
+  add_breadcrumb @site_name, :root_path
   add_breadcrumb 'Sign up'
 
+  binding.pry
+  
   def edit
     add_breadcrumb 'profile'
   end

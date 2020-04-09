@@ -4,7 +4,7 @@
 class SessionsController < Devise::SessionsController
 
 
-     add_breadcrumb 'MASSDUMP', :root_path
+     add_breadcrumb @site_name, :root_path
      add_breadcrumb 'LOG IN'
 
   auto_session_timeout_actions

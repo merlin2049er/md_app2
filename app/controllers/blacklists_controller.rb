@@ -5,7 +5,7 @@ class BlacklistsController < ApplicationController
   # GET /blacklists
   # GET /blacklists.json
   def index
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Blacklist'
 
     @blacklist = Blacklist.all
@@ -18,14 +18,14 @@ class BlacklistsController < ApplicationController
   # GET /blacklists/1
   # GET /blacklists/1.json
   def show
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Blacklist'
 
   end
 
   # GET /blacklists/new
   def new
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Blacklist'
 
     @blacklist = Blacklist.new
@@ -33,7 +33,7 @@ class BlacklistsController < ApplicationController
 
   # GET /blacklists/1/edit
   def edit
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit Blacklist'
 
   end
@@ -41,7 +41,7 @@ class BlacklistsController < ApplicationController
   # POST /blacklists
   # POST /blacklists.json
   def create
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Blacklist'
 
     @blacklist = Blacklist.new(blacklist_params)
@@ -60,7 +60,7 @@ class BlacklistsController < ApplicationController
   # PATCH/PUT /blacklists/1
   # PATCH/PUT /blacklists/1.json
   def update
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Blacklist'
 
     respond_to do |format|

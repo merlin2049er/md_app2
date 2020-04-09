@@ -7,7 +7,7 @@ class UsersController < Devise::ConfirmationsController
 
 
   def index
-    add_breadcrumb 'MASSDUMP',  :'root_path'
+    add_breadcrumb @site_name,  :'root_path'
     add_breadcrumb 'Users'
 
     @total = User.count

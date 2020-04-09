@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
     add_breadcrumb 'categories'
 
     @categories = Category.all
@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     # added 9/24
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
     add_breadcrumb 'categories'
     add_breadcrumb @category.name
 
@@ -44,21 +44,21 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Category'
     @category = Category.new
   end
 
   # GET /categories/1/edit
   def edit
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit Category'
   end
 
   # POST /categories
   # POST /categories.json
   def create
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New category'
     @category = Category.new(category_params)
 
@@ -76,7 +76,7 @@ class CategoriesController < ApplicationController
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
   def update
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit category'
 
     respond_to do |format|

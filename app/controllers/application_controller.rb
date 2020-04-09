@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
    # Prevent CSRF attacks by raising an exception.
    # For APIs, you may want to use :null_session instead.
+
    protect_from_forgery with: :exception
 
   helper_method :all_categories
@@ -9,6 +10,7 @@ class ApplicationController < ActionController::Base
 
   before_action :store_history
   before_action :set_search
+  before_action :set_variables
   before_action :banned
 
   rescue_from ActionController::InvalidAuthenticityToken, with: :handle_token_issues
@@ -37,7 +39,7 @@ end
 rescue_from ActiveRecord::RecordNotFound, with: :show_errors
 
 def show_errors
-  add_breadcrumb 'MASSDUMP', :root_path
+  add_breadcrumb @site_name, :root_path
   add_breadcrumb 'Whoa!'
   render 'pages/error'
 end
@@ -49,7 +51,7 @@ def banned
     flash[:warning] = 'Sorry, you have been banned...'
     session.clear
 
-    add_breadcrumb 'MASSDUMP', :root_path
+    add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Banned'
     render 'pages/banned'
   end
@@ -66,6 +68,11 @@ def store_history
   session[:history] ||= []
   session[:history].delete_at(0) if session[:history].size >= 5
   session[:history] << request.url
+end
+
+
+def set_variables
+  @site_name = 'Tipping point'
 end
 
 protected

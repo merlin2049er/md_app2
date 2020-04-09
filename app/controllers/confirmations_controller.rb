@@ -1,6 +1,6 @@
 class ConfirmationsController < Devise::ConfirmationsController
 
-add_breadcrumb 'MASSDUMP', :root_path
+add_breadcrumb @site_name, :root_path
 add_breadcrumb 'CONFIRMATION'
 
 private
