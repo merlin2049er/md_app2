@@ -3,6 +3,7 @@
 class UsersController < Devise::ConfirmationsController
   include Pagy::Backend
 
+  @site_name = 'tipping point'
   before_action :authenticate_user!
 
 

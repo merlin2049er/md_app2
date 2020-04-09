@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 class RegistrationsController < Devise::RegistrationsController
+  @site_name = 'tipping point'
+
 
   add_breadcrumb @site_name, :root_path
   add_breadcrumb 'Sign up'
 
-  binding.pry
-  
   def edit
     add_breadcrumb 'profile'
   end
