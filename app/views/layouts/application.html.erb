@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>MASSDUMP</title>
+    <title><%= @site_name %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= render 'layouts/google_analcode' %>
     <%= render 'layouts/hotjar_analcode' %>
+    <%= render 'layouts/addthis' %>
+
 
     <%= stylesheet_pack_tag 'application',  media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -19,11 +21,6 @@
     <script type="text/javascript">
       $(document).ready(function() {});
     </script>
-
-    <script>
-        baguetteBox.run('.tz-gallery');
-    </script>
-
 
     <div class="content">
 

@@ -45,7 +45,6 @@ class ProductsController < ApplicationController
 
    @photo = @product.photos.where('enabled' => true)
 
-
    @taken = Cart.where('product_id' => @product).sum(:qty)
    @remaining = @product.qty - @taken
 
