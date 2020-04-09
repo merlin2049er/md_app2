@@ -7,15 +7,17 @@ Please use the contact form to get in touch.
 
 <% else %>
 
+
+
 <h3 class="font-weight-light text-left text-lg-left mt-4 mb-0">Recently Added</h3>
 <hr class="mt-2 mb-5">
 
-<% @recent_products.each do |p| %>
-<div class="container-gallery">
 
+<% @recent_products.each do |p| %>
+<div class="container">
 
 <div class="row text-center text-lg-left">
-  <div class="col-lg-3 col-md-4 col-6">
+  <div class="col-md-3 col-md-4 col-6">
 
 
      <a href= "<%=  product_path(p) %>" class="d-block mb-4 h-100" >
@@ -31,6 +33,8 @@ Please use the contact form to get in touch.
  </div>
 </div>
 </div>
+
+
 
 <% end %>
 
