@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :feedbacks
+  resources :feedbacks,  only:[:index]
   root 'pages#index'
 
   devise_for :users, :controllers => { registrations: 'registrations', confirmations: 'confirmations', passwords: 'passwords', sessions: 'sessions', omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -19,7 +19,11 @@ Rails.application.routes.draw do
 
   resources :notifications
   resources :taxes
-  resources :transactions
+  resources :transactions do
+
+      resources :feedbacks , only:[:new,:create,:edit,:update,:destroy]
+  
+  end
 
 
   scope '/checkout' do

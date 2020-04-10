@@ -1,7 +1,8 @@
 
-<%= simple_form_for(@feedback) do |f| %>
+<%= form_for @feedback, transaction_feedbacks_url(transaction_id: @transaction.id) do |f| %>
+
   <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
 
   <div class="form-inputs">
     <%#= f.input :rate %>
@@ -16,10 +17,13 @@
 <br/>
     <%= f.input :comment %>
 
-    <%= f.input :transaction_id, :as => :hidden %>
+    <%#= f.input :transaction_id, :as => :hidden %>
+    <%= f.input :transaction_id %>
+
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
+
   </div>
 <% end %>

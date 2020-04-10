@@ -42,19 +42,15 @@
         <td> <%=  transaction.invoice_number  %>  </td>
         <td> <%=  transaction.shipped  %>  </td>
         <td> <%=  transaction.postal_carrier  %>  </td>
-
         <td> <%=  transaction.tracking_number  %>  </td>
-         <td> <%= link_to transaction.transaction_msg , transaction  %></td>
-         <%#= if Feedbacks. %>
+        <td> <%= link_to transaction.transaction_msg , transaction  %></td>
 
-         <!-- <td> Feedback received...</td> -->
+        <%#= if Feedbacks.exists?(transaction.id) %>
+        <!--    <td> Feedback received...</td> -->
+
          <%# else %>
-        <!-- <td><%#= link_to "Leave feedback...", new_feedback_path, :transaction_id  => :transaction_id %> </td> -->
-         <td><%= link_to "Leave feedback...", controller: "feedbacks", action: "new", id: transaction.id %></td>
-
-
+            <td><%= link_to "Leave feedback...",new_transaction_feedback_url(:transaction_id => transaction.id )%> </td>
           <%# end %>
-
       </tr>
     <% end %>
   </tbody>

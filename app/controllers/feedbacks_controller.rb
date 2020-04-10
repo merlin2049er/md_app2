@@ -27,8 +27,9 @@ class FeedbacksController < ApplicationController
   def new
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Feedback'
-    @feedback = Feedback.new
 
+    @feedback = params[:transaction_id]
+    @feedback = Feedback.new(params[:transaction_id => @transaction_id])
 
   end
 
@@ -91,6 +92,6 @@ class FeedbacksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def feedback_params
-      params.require(:feedback).permit(:rate, :recommend, :comment, :transactions_id)
+      params.require(:feedback).permit(:rate, :recommend, :comment, :transaction_id)
     end
 end

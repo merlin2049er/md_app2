@@ -9,6 +9,8 @@ class TransactionsController < ApplicationController
     add_breadcrumb 'Transactions'
 
     @transactions = Transaction.where('user_id =?', current_user.id).order('created_at DESC')
+
+
     @pagy, @transactions = pagy(@transactions)
   end
 
@@ -81,7 +83,7 @@ class TransactionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction
-      @transaction = Transaction.find(params[:id])
+      @transaction = Transaction.find(params[:transaction_id])
     end
 
     # Only allow a list of trusted parameters through.
