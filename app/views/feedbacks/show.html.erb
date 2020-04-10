@@ -1,0 +1,23 @@
+
+<p>
+  <strong>Rate:</strong>
+  <%= @feedback.rate %>
+</p>
+
+<p>
+  <strong>Recommned:</strong>
+  <%= @feedback.recommned %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @feedback.comment %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @feedback.category_id %>
+</p>
+
+<%= link_to 'Edit', edit_feedback_path(@feedback) %> |
+<%= link_to 'Back', feedbacks_path %>

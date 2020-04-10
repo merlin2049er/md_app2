@@ -1,0 +1,24 @@
+
+<%= simple_form_for(@feedback) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%#= f.input :rate %>
+    <%= f.label :'Please rate your transaction on a scale of 1 to 5, with 1 being poor and 5 being excellent.' %>
+    <%= f.select :rate, [[5, 5], [4 , 4], [3, 3], [2, 2], [1, 1]], {}, {class: "form-control"} %>
+
+<br/>
+    <%#= f.input :recommend %>
+    <%= f.label :'Would you recommend us to a friend on a scale of 1 to 5, with 1 highly unlikely and 5 extremely likely.' %>
+    <%= f.select :recommend, [[5, 5], [4 , 4], [3, 3], [2, 2], [1, 1]], {}, {class: "form-control"} %>
+
+<br/>
+    <%= f.input :comment %>
+    <%= f.input :transaction_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

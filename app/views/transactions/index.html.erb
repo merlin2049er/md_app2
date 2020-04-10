@@ -23,6 +23,7 @@
     <th>Courier</th>
     <th>Tracking #</th>
     <th>Comment</th>
+    <th>Action</th>
   </tr>
   </thead>
 
@@ -44,6 +45,7 @@
 
         <td> <%=  transaction.tracking_number  %>  </td>
          <td> <%= link_to transaction.transaction_msg , transaction  %></td>
+         <td><%= link_to "Leave feedback... ", new_feedback_path %> </td>
 
       </tr>
     <% end %>
