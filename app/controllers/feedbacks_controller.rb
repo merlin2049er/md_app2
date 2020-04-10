@@ -28,6 +28,7 @@ class FeedbacksController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Feedback'
 
+    #@feedback =Feedback.new(feedback_params)
     @feedback = params[:transaction_id]
     @feedback = Feedback.new(params[:transaction_id => @transaction_id])
 

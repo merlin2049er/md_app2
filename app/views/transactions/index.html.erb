@@ -45,12 +45,11 @@
         <td> <%=  transaction.tracking_number  %>  </td>
         <td> <%= link_to transaction.transaction_msg , transaction  %></td>
 
-        <%#= if Feedbacks.exists?(transaction.id) %>
-        <!--    <td> Feedback received...</td> -->
+        <% if @feedback_recieved = true %>  <td> Feedback received...</td>
 
-         <%# else %>
+         <% else %>
             <td><%= link_to "Leave feedback...",new_transaction_feedback_url(:transaction_id => transaction.id )%> </td>
-          <%# end %>
+          <% end %>
       </tr>
     <% end %>
   </tbody>

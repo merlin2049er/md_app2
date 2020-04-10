@@ -1,5 +1,7 @@
 
-<%= form_for @feedback, transaction_feedbacks_url(transaction_id: @transaction.id) do |f| %>
+<%# simple_form_for(@feedback), transaction_feedbacks_url(transaction_id: @transaction.id) do |f| %>
+
+<%= simple_form_for(@feedback) do |f| %>
 
   <%= f.error_notification %>
 
@@ -17,8 +19,8 @@
 <br/>
     <%= f.input :comment %>
 
-    <%#= f.input :transaction_id, :as => :hidden %>
-    <%= f.input :transaction_id %>
+    <%= f.input :transaction_id, :as => :hidden %>
+    <%#= f.input :transaction_id %>
 
   </div>
 
