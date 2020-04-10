@@ -16,7 +16,7 @@
       <table class="table">
   <thead>
   <tr>
-
+    <th>id</th>
     <th>Added</th>
     <th>Invoice #</th>
     <th>Shipped?</th>
@@ -37,7 +37,7 @@
     <% @transactions.each do |transaction| %>
        <tr class="<%= cycle("even", "odd") %>">
 
-
+        <td> <%=  transaction.id  %>  </td>
         <td><%= transaction.created_at.strftime("%m/%d/%Y")  %> </td>
         <td> <%=  transaction.invoice_number  %>  </td>
         <td> <%=  transaction.shipped  %>  </td>
@@ -45,7 +45,15 @@
 
         <td> <%=  transaction.tracking_number  %>  </td>
          <td> <%= link_to transaction.transaction_msg , transaction  %></td>
-         <td><%= link_to "Leave feedback... ", new_feedback_path %> </td>
+         <%#= if Feedbacks. %>
+
+         <!-- <td> Feedback received...</td> -->
+         <%# else %>
+        <!-- <td><%#= link_to "Leave feedback...", new_feedback_path, :transaction_id  => :transaction_id %> </td> -->
+         <td><%= link_to "Leave feedback...", controller: "feedbacks", action: "new", id: transaction.id %></td>
+
+
+          <%# end %>
 
       </tr>
     <% end %>

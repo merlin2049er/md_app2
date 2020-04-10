@@ -28,6 +28,8 @@ class FeedbacksController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Feedback'
     @feedback = Feedback.new
+
+
   end
 
   # GET /feedbacks/1/edit
