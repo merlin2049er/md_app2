@@ -13,28 +13,29 @@
 
   <!-- insert new stuff here... -->
 
-  <div class="container">
-
-  <div class="row">
+  <div class="container gallery-container">
 
   <!--	<div class="container text-center"> -->
 
     <% @categories.each do |category| %>
 
-      <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="thumbnail">
+ <div class="tz-gallery">
+   <div class="row">
+     <div class="col-sm-6 col-md-4" >
+       <div class="thumbnail">
 
     <a  href=  "<%=  category_path(category) %>" >
 
-          <!--  <h4><%#= truncate(category.name )  %></h4> -->
+            <h4><%= truncate(category.name )  %></h4>
 
         <img src="<%= asset_pack_path "media/images/#{category.picurl }" %>" alt="">
 </a>
       </div>
       </div>
-
-    <% end %>
+      </div>
 </div>
+    <% end %>
+  </div>
 
 </div>
   </br>

@@ -1,7 +1,7 @@
 
 <%# simple_form_for(@feedback), transaction_feedbacks_url(transaction_id: @transaction.id) do |f| %>
 
-<%= form_for(@feedback,url: transaction_feedbacks_url(transaction_id:  params[:transaction_id]) ) do |f| %>
+<%= simple_form_for(@feedback,url: transaction_feedbacks_url(transaction_id:  params[:transaction_id]) ) do |f| %>
 
 
   <%# <%= f.error_notification %>
@@ -25,8 +25,10 @@
 
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions"  >
     <%= f.button :submit %>
 
   </div>
 <% end %>
+
+<!-- <input type="submit" name="commit" value="Get in touch!" class="btn btn-info" data-disable-with="Get in touch!"> -->
