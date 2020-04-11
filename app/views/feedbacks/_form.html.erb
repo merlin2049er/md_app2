@@ -1,9 +1,10 @@
 
 <%# simple_form_for(@feedback), transaction_feedbacks_url(transaction_id: @transaction.id) do |f| %>
 
-<%= simple_form_for(@feedback) do |f| %>
+<%= form_for(@feedback,url: transaction_feedbacks_url(transaction_id:  params[:transaction_id]) ) do |f| %>
 
-  <%= f.error_notification %>
+
+  <%# <%= f.error_notification %>
 
 
   <div class="form-inputs">
@@ -17,9 +18,9 @@
     <%= f.select :recommend, [[5, 5], [4 , 4], [3, 3], [2, 2], [1, 1]], {}, {class: "form-control"} %>
 
 <br/>
-    <%= f.input :comment %>
+    <%= f.label :'Comment' %>
+    <%= f.text_field :comment , {class: "form-control"} %><br/>
 
-    <%= f.input :transaction_id, :as => :hidden %>
     <%#= f.input :transaction_id %>
 
   </div>

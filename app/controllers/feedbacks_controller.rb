@@ -28,9 +28,16 @@ class FeedbacksController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Feedback'
 
-    #@feedback =Feedback.new(feedback_params)
-    @feedback = params[:transaction_id]
-    @feedback = Feedback.new(params[:transaction_id => @transaction_id])
+    puts "ssssssssssssssssssssss", params[:transaction_id].inspect
+    @feedback = Feedback.new(:transaction_id => params[:transaction_id])
+    @transaction = Transaction.find_by_id(params[:transaction_id])
+
+      if @transaction.feedback.blank?
+         flash[:notice] = "Please leave feedback..."
+      else
+         flash[:notice]= 'Thanks for your feedback...'
+         redirect_to transactions_url
+      end
 
   end
 
@@ -46,16 +53,17 @@ class FeedbacksController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Feedback'
     @feedback = Feedback.new(feedback_params)
+    @feedback.transaction_id = params[:transaction_id]
 
-    respond_to do |format|
       if @feedback.save
-        format.html { redirect_to @feedback, notice: 'Feedback was successfully created.' }
-        format.json { render :show, status: :created, location: @feedback }
+     flash[:notice] = 'Thanks for your feedback...'
+    redirect_to transactions_url
+
       else
-        format.html { render :new }
-        format.json { render json: @feedback.errors, status: :unprocessable_entity }
+        puts"errors", @feedback.errors.messages.inspect
+        render :new
       end
-    end
+
   end
 
   # PATCH/PUT /feedbacks/1

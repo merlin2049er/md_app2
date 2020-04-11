@@ -5,6 +5,7 @@ class Transaction < ActiveRecord::Base
   validates_presence_of :invoice_number
   validates_presence_of :tracking_number
   validates_presence_of :postal_carrier
-
+  has_one :feedback
+  #, :class_name => "Feedback", :foreign_key => :id
   # validates_presence_of :transaction_msg
 end

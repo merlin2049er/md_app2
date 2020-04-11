@@ -10,7 +10,8 @@ class TransactionsController < ApplicationController
 
     @transactions = Transaction.where('user_id =?', current_user.id).order('created_at DESC')
 
-    @feedback_recieved = Feedback.exists?(@transaction)
+
+    #@feedback_recieved = Feedback.exists?(@transaction)
 
     @pagy, @transactions = pagy(@transactions)
   end
@@ -27,6 +28,7 @@ class TransactionsController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Transaction'
     @transaction = Transaction.new
+
   end
 
   # GET /transactions/1/edit
