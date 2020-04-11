@@ -1,6 +1,6 @@
 <% if @photo.size > 0 %>
 
-  <div class="well well-sm">
+  <!-- <div class="well well-sm"> -->
 
     <div class="container">
 
@@ -8,16 +8,16 @@
     <% @photo.each do | p| %>
 
     <div class="col-md-4 col-sm-6 col-xs-12">
-  <!-- <div class="thumbnail"> -->
+   <div class="thumbnail">
 
       <a href="<%= p.uri %>  <img src="<%= asset_pack_path "media/images/#{p.uri}" %>  style="width:150px;height:150px;" " > </a>
 
-   <!-- </div> -->
+    </div> 
 </div>
 <% end %>
 
 </div>
 </div>
-</div>
+<!-- </div> -->
 
 <% end %>
