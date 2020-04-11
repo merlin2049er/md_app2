@@ -10,9 +10,13 @@
     <div class="col-md-4 col-sm-6 col-xs-12">
    <div class="thumbnail">
 
-      <a href="<%= p.uri %>  <img src="<%= asset_pack_path "media/images/#{p.uri}" %>  style="width:150px;height:150px;" " > </a>
+    <!--  <a href="<%#= p.uri %>  <img src="<%#= asset_pack_path "media/images/#{p.uri}" %>  style="width:150px;height:150px;" " > </a>  -->
 
-    </div> 
+  <!--   <img src=" <%#= asset_pack_path "media/images/#{@p.uri}" %> style="width:150px;height:150px;" "  > -->
+     <img src=" <%= asset_pack_path "media/images/#{@p.uri}" %> "  >
+
+
+    </div>
 </div>
 <% end %>
 
