@@ -15,6 +15,15 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActionController::InvalidAuthenticityToken, with: :handle_token_issues
 
+rescue_from ActiveRecord::RecordNotFound, with: :errors_stop
+rescue_from NoMethodError, with: :errors_stop
+
+
+def errors_stop
+   flash[:notice] = "Somthing worng"
+  redirect_to root_path
+end
+
 def handle_token_issues
   redirect_to(root_path) # redirect to page for handling this issue
 end

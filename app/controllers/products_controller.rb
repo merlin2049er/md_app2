@@ -34,10 +34,7 @@ class ProductsController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'product'
 
-
    @product = Product.find_by_id(params[:id])
-
-
 
   # insert comments here...
    commontator_thread_show(@product)
@@ -66,6 +63,8 @@ class ProductsController < ApplicationController
       format.json { render :show, status: :created, location: @product }
     end
   end
+
+
 
 end
 

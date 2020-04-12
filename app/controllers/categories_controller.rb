@@ -19,11 +19,13 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     # added 9/24
-    add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'categories'
-    add_breadcrumb @category.name
 
-    @category = Category.find_by_id(params[:id])
+    #begin
+        add_breadcrumb @site_name, :root_path
+        add_breadcrumb 'categories'
+        add_breadcrumb @category.name
+        @category = Category.find_by_id(params[:id])
+
     require 'time'
 
     todaydate = Time.new
@@ -39,7 +41,11 @@ class CategoriesController < ApplicationController
     # @products = @category.products.where( 'enddate > ?', todaydate )
 
     # add_breadcrumb 'category / ' << @title, categories_path  # frozen string - had to remove it?
-
+  #rescue => e
+  #  puts"hahahahaha",e.inspect
+  #   flash[:notice] = "Wrong categories"
+  #   redirect_to categories_url
+  #end
   end
 
   # GET /categories/new
