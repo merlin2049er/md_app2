@@ -20,7 +20,7 @@ rescue_from NoMethodError, with: :errors_stop
 
 
 def errors_stop
-   flash[:notice] = "Somthing worng"
+   flash[:error] = "Oops. Something went wrong."
   redirect_to root_path
 end
 
@@ -44,8 +44,6 @@ end
 def all_notifications
   @notifications = Notification.where('user_id =?', current_user.id).order('created_at DESC').limit(10)
 end
-
-rescue_from ActiveRecord::RecordNotFound, with: :show_errors
 
 def show_errors
   add_breadcrumb @site_name, :root_path

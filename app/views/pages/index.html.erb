@@ -19,17 +19,22 @@ Please use the contact form to get in touch.
   <div class="col-md-4 col-sm-6 col-xs-12">
       <div class="thumbnail">
 
+
      <a href= "<%=  product_path(p) %>" >
-       <!-- <h5> <%#= p.title %> </h5> -->
+    <!--    <h5> <%#= p.title %> </h5> -->
+
+
      <img src="<%= asset_pack_path "media/images/#{p.picurl }" %>" alt="">
+
      </a>
+     <!-- <small><i>Available between:</i> <%#= p.startdate %>  - <%#= p.enddate %></small> -->
 
       <!-- <div class ="caption" > -->
     <!-- <%#= truncate(p.template, length: 50 , separator: ' ')  %><br/> -->
-    <!-- <small><i>Available between:</i> <%#= p.startdate %>  - <%#= p.enddate %></small> -->
    <!-- </div> -->
+   </div>
 
- </div>
+
 </div>
 <% end %>
 
