@@ -9,12 +9,9 @@
     <!-- <div class="col-sm-5 ">  -->
    <!-- <div class="thumbnail"> -->
 
-    <!--  <a href="<%#= p.uri %>  <img src="<%#= asset_pack_path "media/images/#{p.uri}" %>  style="width:150px;height:150px;" " > </a>  -->
-
-  <!--   <img src=" <%#= asset_pack_path "media/images/#{@p.uri}" %> style="width:150px;height:150px;" "  > -->
-     <img src=" <%= asset_pack_path "media/images/#{ p.uri }" %> " width="150" height="150" align="top" >
-
-
+<a href = "<%= asset_pack_path "media/images/#{ p.uri}" %>"  >
+  <img src="<%= asset_pack_path "media/images/#{ p.uri}" %> "   width="150" height="150" align="top" >
+</a>
     <!-- </div> -->
  <!-- </div> -->
 <% end %>

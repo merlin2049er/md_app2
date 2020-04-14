@@ -6,4 +6,6 @@
 @import "/stripe.css";
 @import "/style.css";
 
-@import 'toastr';
+@import "toastr";
+@import "/featherlight.min.css";
+@import "/featherlight.gallery.min.css";

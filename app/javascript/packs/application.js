@@ -25,6 +25,10 @@ require("packs/cocoon.js")
 require("trix")
 require("@rails/actiontext")
 
+require("packs/featherlight.min.js")
+require("packs/featherlight.gallery.min.js")
+
+
 import $ from 'jquery';
 global.$ = $;
 global.jQuery = $;
