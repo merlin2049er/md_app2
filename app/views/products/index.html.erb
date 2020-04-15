@@ -21,20 +21,25 @@
 
     <!-- <div class="img"> -->
     <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="thumbnail">
+      <!--    <div class="thumbnail"> -->
 
             <a href=  "<%=  product_path(product) %>" >
 
 
         <!--  <article class="text-left"> -->
-        <!--    <h3> <%#= product.title %> </h3> -->
+        <font color ="grey" >
+            <h5> <%= product.title %> </h5>
+        </font>
         <!--    <%#= truncate(product.template, length: 50 , separator: ' ')  %> -->
-        <!--    Active: <%#= product.startdate %>  - <%#= product.enddate %> -->
-        <!--  </article> -->
-
-          <img src="<%= asset_pack_path "media/images/#{product.picurl }" %>" alt="">
+          <img src="<%= asset_pack_path "media/images/#{product.picurl }" %>" alt=""><br/>
 </a>
-        </div>
+<font color ="grey" >
+          <i>Ending:</i> <%= product.enddate %> </i>
+      <!--  </article> -->
+</font>
+
+
+        <!-- </div> -->
     </div>
       <% end %>
       </div>
