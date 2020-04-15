@@ -17,14 +17,14 @@ Please use the contact form to get in touch.
 <% @recent_products.each do |p| %>
 
   <div class="col-md-4 col-sm-6 col-xs-12">
-      <div class="thumbnail">
+  <!--    <div class="thumbnail"> -->
 
 
      <a href= "<%=  product_path(p) %>" >
-    <!--    <h5> <%#= p.title %> </h5> -->
+        <h5> <%= p.title %> </h5>
 
 
-     <img src="<%= asset_pack_path "media/images/#{p.picurl }" %>" alt="">
+     <img src="<%= asset_pack_path "media/images/#{p.picurl }" %>" alt=""><br/>
 
 <!-- <%# require 'date' %>
      <%# @days_remaining = Date.today.to_i - p.enddate.to_i   %>
@@ -33,11 +33,14 @@ Please use the contact form to get in touch.
 
      </a>
      <!-- <small><i>Available between:</i> <%#= p.startdate %>  - <%#= p.enddate %></small> -->
+<font color ="grey">
+    <small><i>Available between:</i> <%= p.startdate %>  - <%= p.enddate %></small>
+</font>
 
       <!-- <div class ="caption" > -->
     <!-- <%#= truncate(p.template, length: 50 , separator: ' ')  %><br/> -->
    <!-- </div> -->
-   </div>
+   <!-- </div> -->
 
 
 </div>

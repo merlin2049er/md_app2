@@ -22,15 +22,15 @@
     <% @categories.each do |category| %>
 
       <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="thumbnail">
+      <!--  <div class="thumbnail"> -->
 
     <a  href=  "<%=  category_path(category) %>" >
 
-          <!--  <h4><%#= truncate(category.name )  %></h4> -->
+            <h5><%= truncate(category.name )  %></h5>
 
         <img src="<%= asset_pack_path "media/images/#{category.picurl }" %>" alt="">
 </a>
-      </div>
+      <!--</div> -->
       </div>
 
     <% end %>

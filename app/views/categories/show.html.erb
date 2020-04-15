@@ -16,21 +16,22 @@
 <% @products.each do |product| %>
 
  <div class="col-md-4 col-sm-6 col-xs-12">
-	 <div class="thumbnail">
+	<!-- <div class="thumbnail"> -->
 
 <a  href=  "<%=  product_path(product) %>" >
 
-		<!--	<h5> <%#= product.title %> </h5> -->
-		<img src="<%= asset_pack_path "media/images/#{product.picurl }" %>" alt="">
+			<h5> <%= product.title %> </h5>
+		<img src="<%= asset_pack_path "media/images/#{product.picurl }" %>" alt=""><br/>
 </a>
-<!--
-<div class="caption" >
 
-	<!--	<#%= truncate(product.template, length: 50 , separator: ' ')  %><br/> -->
-	<!--	<small><i>Available between:</i> <%#= product.startdate %>  - <%#= product.enddate %></small> -->
+
+<font color ="grey">
+	<%= truncate(product.template, length: 50 , separator: ' ')  %><br/>
+		<!--<small><i>Available between:</i> <%= product.startdate %>  - <%= product.enddate %></small> -->
+<i>Ending:</i> <%= product.enddate %></small>
+</font>
+
 <!-- </div> -->
-
-</div>
 </div>
 
 <% end %>
