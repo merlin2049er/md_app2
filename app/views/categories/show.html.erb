@@ -3,6 +3,18 @@
 <%= link_to 'Back', categories_path %><br/>
 
 <%= @products.count %> products in this category.<br/>
+<% if @products.count == 0  %>
+<font color = 'grey' >
+<br/>
+<p>Sorry, we will be adding new products to this category shortly...<br/><br/>
+If your a manufacturer, or a wholesaler/distrubutor of audio gear I'd love to hear from you.
+<br/>
+Please use the contact form to get in touch.
+</p>
+</font>
+
+<% end %>
+
 </br>
 
 <!-- insert new stuff here -->
