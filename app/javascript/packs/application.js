@@ -18,7 +18,7 @@ require("packs/rails.validations.simple_form.js")
 require("packs/lightbox.js")
 //require("bootstrap-dropdown.js")
 
-require("packs/stripe_v3.js")
+// require("packs/stripe_v3.js")
 require("packs/cocoon.js")
 
 
