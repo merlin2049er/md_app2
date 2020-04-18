@@ -7,8 +7,14 @@ class CheckoutController < ApplicationController
       product = cart.product_id
       product = Product.find(cart.id)
       cart_total = (product.price * 100).floor
+      user = User.find(cart.user_id)
 
-#binding.pry
+      tax = Tax.find_by_prov_id(user.state)
+      cart_total = cart_total +(cart_total * tax.tax_rate).floor
+
+
+binding.pry
+
 
       if cart.nil?
       #if product.nil?
