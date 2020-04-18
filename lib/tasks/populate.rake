@@ -26,7 +26,7 @@ namespace :db do
 
       Product.populate 1..250 do |product|
         product.title = Populator.words(1..5).titleize
-        product.template = Populator.sentences(2..10)
+  #     product.template = Populator.sentences(2..10)
         product.price = [5.99, 19, 99, 29.99, 49.99]
         product.msrp =  [6.99, 21, 99, 39.99, 69.99]
         product.draft =  [false]
