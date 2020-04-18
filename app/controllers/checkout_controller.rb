@@ -2,11 +2,16 @@ class CheckoutController < ApplicationController
 
     def create
       #? maybe find cart instead?
-       product = Product.find(params[:id])
-      #cart = Cart.find(params[:id])
+      #product = Product.find(params[:id])
+      cart = Cart.find(params[:id])
+      product = cart.product_id
+      product = Product.find(cart.id)
+      cart_total = (product.price * 100).floor
 
-      #if cart.nil?
-      if product.nil?
+#binding.pry
+
+      if cart.nil?
+      #if product.nil?
         redirect_to root_path
         return
       end
@@ -22,9 +27,10 @@ class CheckoutController < ApplicationController
         name: product.title,
   #      description:  product.template,
         images: ['https://desolate-journey-54830.herokuapp.com/' + product.picurl],
-        amount: (product.price * 100).floor,
+  #      amount: (product.price * cart.qty * 100).floor,
+        amount: cart_total,
         currency: 'cad',
-        quantity: 1
+        quantity: cart.qty
         }],
   # avoid using sessions like this... use webhooks instead
         success_url: checkout_success_url + '?session_id ={CHECKOUT_SESSION_ID}',
