@@ -2,7 +2,7 @@ class CheckoutController < ApplicationController
 
     def create
       #? maybe find cart instead?
-      product = Product.find(params[:id])
+       product = Product.find(params[:id])
       #cart = Cart.find(params[:id])
 
       #if cart.nil?
