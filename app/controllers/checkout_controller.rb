@@ -32,7 +32,9 @@ class CheckoutController < ApplicationController
       line_items: [{
         name: product.title,
   #      description:  product.template,
-        images: ['https://desolate-journey-54830.herokuapp.com/packs/media/images/' + product.picurl],
+  #      images: ['https://desolate-journey-54830.herokuapp.com/packs/media/images/' + product.picurl],
+         images: ['<%= asset_pack_path "media/images/#{product.picurl }" %>',
+
   #      amount: (product.price * cart.qty * 100).floor,
         amount: cart_total,
         currency: 'cad',
