@@ -11,10 +11,7 @@ class CheckoutController < ApplicationController
 
       tax = Tax.find_by_prov_id(user.state)
       cart_total = cart_total +(cart_total * tax.tax_rate).floor
-
-
-# binding.pry
-
+    # cart_image = asset_pack_path + "media/images/#{product.picurl }"
 
       if cart.nil?
       #if product.nil?
@@ -22,7 +19,6 @@ class CheckoutController < ApplicationController
         return
       end
 
-  # binding.pry
 
   # setup a stripe payment for session
   #fix product amount and add qty
@@ -31,9 +27,10 @@ class CheckoutController < ApplicationController
       payment_method_types: ['card'],
       line_items: [{
         name: product.title,
-  #      description:  product.template,
-  #      images: ['https://desolate-journey-54830.herokuapp.com/packs/media/images/' + product.picurl],
-         images: ['<%= asset_pack_path "media/images/#{product.picurl }" %>',
+  #     description:  product.template,
+       images: ['https://desolate-journey-54830.herokuapp.com/packs/media/images/' + product.picurl],
+  #     images: [ image_tag "media/images/#{product.picurl }" ],
+  #      images: [cart_image],
 
   #      amount: (product.price * cart.qty * 100).floor,
         amount: cart_total,
