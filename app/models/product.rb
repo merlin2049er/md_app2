@@ -7,13 +7,6 @@ class Product < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
-  settings index: { number_of_shards: 1 } do
-    mapping dynamic: false do
-      indexes :title, analyzer: 'english'
-      indexes :template, analyzer: 'english'
-    end
-  end
-
   is_impressionable
 
   has_rich_text :body
