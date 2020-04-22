@@ -23,6 +23,9 @@ class CheckoutController < ApplicationController
   # setup a stripe payment for session
   #fix product amount and add qty
     @session = Stripe::Checkout::Session.create(
+      client_reference_id: cart.id,
+  #    customer: null,
+      customer_email: user.email,
       billing_address_collection: 'required',
       payment_method_types: ['card'],
       line_items: [{
