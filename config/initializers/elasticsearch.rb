@@ -1,5 +1,6 @@
 config = {
-  host: "https://paas:9d1a4639123b9560787c9b101f84dbce@oin-us-east-1.searchly.com/",
+  host: "https://paas:f49902c6629cd3282b0d3b86c1610c65@oin-us-east-1.searchly.com/",
+
   transport_options: {
     request: { timeout: 5 }
   }
