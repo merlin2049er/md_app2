@@ -65,7 +65,6 @@ class CheckoutController < ApplicationController
 
     def success
 
-
      # not sure if it returns a session id
       if params[:session_id].nil?
         redirect_to root_path
