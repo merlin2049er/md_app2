@@ -49,7 +49,7 @@ class CheckoutController < ApplicationController
 
 
       respond_to do |format|
-        format.js # render create.js.erb
+        format.js #  render create.js.erb
       end
 
     end
@@ -64,6 +64,13 @@ class CheckoutController < ApplicationController
     end
 
     def success
+
+      add_breadcrumb @site_name, :root_path
+      add_breadcrumb 'Payment status'
+
+    #  render "success"
+
+
 
      # not sure if it returns a session id
       if params[:session_id].nil?
