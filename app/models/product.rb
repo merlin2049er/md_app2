@@ -7,10 +7,11 @@ class Product < ActiveRecord::Base
 #  include Elasticsearch::Model
 #  include Elasticsearch::Model::Callbacks
 
-include Searchable
 
   is_impressionable
   has_rich_text :body
+
+  include Searchable
 
   acts_as_commontable dependent: :destroy
 

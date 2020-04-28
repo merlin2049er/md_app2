@@ -9,6 +9,5 @@ if File.exists?("config/elasticsearch.yml")
   config.merge!(YAML.load_file("config/elasticsearch.yml")[Rails.env].deep_symbolize_keys)
 end
 
-Elasticsearch::Model.client = Elasticsearch::Client.new host: ENV['ELASTICSEARCH_URL'] || "localhost:9200"
 
-#Elasticsearch::Model.settings[:inheritance_enabled]
+Elasticsearch::Model.client = Elasticsearch::Client.new host: ENV['ELASTICSEARCH_URL'] || "localhost:9200"
