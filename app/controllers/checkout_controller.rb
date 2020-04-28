@@ -11,6 +11,7 @@ class CheckoutController < ApplicationController
 
       tax = Tax.find_by_prov_id(user.state)
       cart_total = cart_total +(cart_total * tax.tax_rate).floor
+
     # cart_image = asset_pack_path + "media/images/#{product.picurl }"
 
       if cart.nil?
@@ -18,7 +19,6 @@ class CheckoutController < ApplicationController
         redirect_to root_path
         return
       end
-
 
   # setup a stripe payment for session
   #fix product amount and add qty

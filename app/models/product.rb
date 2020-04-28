@@ -4,11 +4,12 @@ require 'elasticsearch/model'
 class Product < ActiveRecord::Base
   # include PublicActivity::Model
   # tracked owner: Proc.new{ |controller, model| controller.current_user }
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
+#  include Elasticsearch::Model
+#  include Elasticsearch::Model::Callbacks
+
+include Searchable
 
   is_impressionable
-
   has_rich_text :body
 
   acts_as_commontable dependent: :destroy
