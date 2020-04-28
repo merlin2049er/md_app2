@@ -15,6 +15,10 @@ class Product < ActiveRecord::Base
 
   after_initialize :set_defaults
 
+  after_create :refresh_index
+  after_save :refresh_index
+  after_update :refresh_index
+
   # has_and_belongs_to_many :users
   # add cart here...
   belongs_to :cart, optional: true
@@ -79,6 +83,11 @@ class Product < ActiveRecord::Base
     self.courierurl ||= 'https://www.canadapost.ca'
   end
 
+  def refresh_index
+    Product.__elasticsearch__.refresh_index!
+  end
+
+
   # default_scope { where(draft: false, active: true, funded: false ) }
   # default_scope { where(draft: false, active: true  ) }
   # default_scope { where( 'enddate > ?', DateTime.now ) }
@@ -106,7 +115,7 @@ class Product < ActiveRecord::Base
         query: {
           multi_match: {
             query: query,
-            fields: ['title', 'template']
+            fields: ['title', 'body']
           }
         },
         highlight: {
@@ -114,7 +123,7 @@ class Product < ActiveRecord::Base
           post_tags: ['</em>'],
           fields: {
             title:   {},
-            template: {}
+            body: {}
           }
 
         }
