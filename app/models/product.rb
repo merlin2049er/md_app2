@@ -117,16 +117,13 @@ class Product < ActiveRecord::Base
         query: {
           multi_match: {
             query: query,
-            fields: ['title', 'body']
+            fields: ['title', "body.body"]
           }
         },
         highlight: {
           pre_tags: ['<em class="label label-highlight">'],
           post_tags: ['</em>'],
-          fields: {
-            title:   {},
-            body: {}
-          }
+          fields: {"title": {},"body.body":{}}
 
         }
       }
