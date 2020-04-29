@@ -17,10 +17,7 @@ class Product < ActiveRecord::Base
 
   after_initialize :set_defaults
 
-  after_create :refresh_index
-  after_save :refresh_index
-  after_update :refresh_index
-
+after_touch() { __elasticsearch__.index_document } 
   # has_and_belongs_to_many :users
   # add cart here...
   belongs_to :cart, optional: true
@@ -54,7 +51,7 @@ class Product < ActiveRecord::Base
 
   validates_numericality_of :price, :greater_than => 0
   validates_numericality_of :qty, :greater_than => 0
-  validates_numericality_of :msrp, :greater_than => :price
+  #validates_numericality_of :msrp, :greater_than => :price
 
 
   # hopefully this works
@@ -85,9 +82,7 @@ class Product < ActiveRecord::Base
     self.courierurl ||= 'https://www.canadapost.ca'
   end
 
-  def refresh_index
-    Product.__elasticsearch__.refresh_index!
-  end
+
 
 
   # default_scope { where(draft: false, active: true, funded: false ) }
