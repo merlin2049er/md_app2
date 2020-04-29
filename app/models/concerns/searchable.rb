@@ -1,7 +1,7 @@
 
 module Searchable
   extend ActiveSupport::Concern
-  
+
   included do
     include Elasticsearch::Model
     include Elasticsearch::Model::Callbacks
@@ -10,13 +10,13 @@ module Searchable
     settings index: { number_of_shards: 1 } do
 
       mappings dynamic: false do
-          
-        indexes :title
+
+        #indexes :title
 
         indexes :body ,type: :object do
           indexes :body
         end
-       
+
       end
 
     end
@@ -24,7 +24,7 @@ module Searchable
     def as_indexed_json(options={})
       self.as_json(
         include: {
-                  body: {only: :body} 
+                  body: {only: :body}
                  }
       )
     end
