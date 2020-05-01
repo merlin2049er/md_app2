@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :carts
   resources :contacts
+  resources :faqs  
   resources :photos
 
   resources :products do
@@ -37,7 +38,7 @@ Rails.application.routes.draw do
   get 'pages/cookies'
   get 'pages/dashboard'
   get 'pages/error'
-  get 'pages/faq'
+#  get 'pages/faq'
   get 'pages/index'
   get 'pages/invitations'
   get 'pages/invite'
