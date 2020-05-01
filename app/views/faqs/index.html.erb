@@ -2,15 +2,15 @@
 <h1>Pages#faq</h1>
 <p>Find me in app/views/pages/faq.html.erb</p>
 -->
+<!--
 <h1 class="page-header">Frequently asked questions<br/>
 <small>Please read</small>
 </h1>
-         <!-- Frequently asked questions go here... -->
-
+-->
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">
+  <div class="panel-heading">Faqs:
       <% if @faqs.empty? %>
         <p>No questions yet, please use the contact form to ask a question.  </p>
       <% else %>
@@ -22,11 +22,14 @@
 
 
 <% @faqs.each do |faq| %>
-  &nbsp; &nbsp;  <%= faq.question %>
+   &nbsp; &nbsp;  <%= faq.question %>
 
   &nbsp; <i><%= faq.answer %></i>
 <br>  <br>
+
+
 <% end %>
+
   </div>
 <br>
 
