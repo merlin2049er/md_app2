@@ -4,6 +4,12 @@ class CheckoutController < ApplicationController
       #? maybe find cart instead?
       #product = Product.find(params[:id])
       cart = Cart.find(params[:id])
+
+      if cart.nil?
+          redirect_to root_path
+        return
+      end
+
       product = cart.product_id
       product = Product.find(cart.id)
       cart_total = (product.price * 100).floor
@@ -14,15 +20,10 @@ class CheckoutController < ApplicationController
 
     # cart_image = asset_pack_path + "media/images/#{product.picurl }"
 
-      if cart.nil?
-      #if product.nil?
-        redirect_to root_path
-        return
-      end
-
   # setup a stripe payment for session
   #fix product amount and add qty
     @session = Stripe::Checkout::Session.create(
+
       client_reference_id: cart.id,
   #    customer: null,
       customer_email: user.email,
@@ -40,12 +41,11 @@ class CheckoutController < ApplicationController
         currency: 'cad',
         quantity: cart.qty
         }],
-  # avoid using sessions like this... use webhooks instead
-        success_url: checkout_success_url + '?session_id ={CHECKOUT_SESSION_ID}',
-   #     success_url: checkout_success_url,
-        cancel_url: checkout_cancel_url
 
-    )
+  # avoid using sessions like this... use webhooks instead?
+
+        success_url: checkout_success_url + '?session_id={CHECKOUT_SESSION_ID}',
+        cancel_url: checkout_cancel_url  )
 
 
       respond_to do |format|
@@ -68,18 +68,19 @@ class CheckoutController < ApplicationController
       add_breadcrumb @site_name, :root_path
       add_breadcrumb 'Payment status'
 
-    #  render "success"
-
-
-
-     # not sure if it returns a session id
-      if params[:session_id].nil?
-        redirect_to root_path
-        return
-      end
+    # not sure if it returns a session id
+    #  if params[:session_id].nil?
+    #    redirect_to root_path
+    #    return
+    #  end
 
       @success = Stripe::Checkout::Session.retrieve(params[:session_id])
       @payment_intent = Stripe:payment_intent.retrieve(@session_payment_intent)
+
+      binding.pry
+      
+    #  render "success"
+
 
     end
 
