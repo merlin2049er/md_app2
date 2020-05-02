@@ -19,19 +19,17 @@
 
   </div>
 
-
-
 <% @faqs.each do |faq| %>
    &nbsp; &nbsp;  <%= faq.question %>
 
   &nbsp; <i><%= faq.answer %></i>
 <br>  <br>
 
-
 <% end %>
 
   </div>
 <br>
+
 
 <div class="pagenav">
   <%== pagy_bootstrap_nav(@pagy) %> <br/>
