@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   has_many :notifications
   has_many :transactions
+  has_many :troubletickets
 
   acts_as_commontator
 

@@ -9,15 +9,16 @@ class TroubleticketsController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Trouble Ticket'
 
-
-
     if current_user.admin == true
       @troubletickets = Troubleticket.all
+      @pagy, @troubletickets = pagy(Troubleticket.all.order(:created_at))
+
     else
       @troubletickets = Troubleticket.where('user_id =?', current_user.id).order('created_at DESC')
+      @pagy, @troubletickets = pagy(Troubleticket.where('user_id =?', current_user.id).order('created_at DESC'))
+
     end
 
-    @pagy, @troubletickets = pagy(Troubleticket.all.order(:created_at))
 
   end
 
