@@ -52,7 +52,7 @@ class TroubleticketsController < ApplicationController
 
     respond_to do |format|
       if @troubleticket.save
-        format.html { redirect_to @troubleticket, notice: 'Troubleticket was successfully created.' }
+        format.html { redirect_to @troubleticket, notice: 'Trouble ticket was successfully created.' }
         format.json { render :show, status: :created, location: @troubleticket }
       else
         format.html { render :new }
@@ -66,7 +66,7 @@ class TroubleticketsController < ApplicationController
   def update
     respond_to do |format|
       if @troubleticket.update(troubleticket_params)
-        format.html { redirect_to @troubleticket, notice: 'Troubleticket was successfully updated.' }
+        format.html { redirect_to @troubleticket, notice: 'Trouble ticket was successfully updated.' }
         format.json { render :show, status: :ok, location: @troubleticket }
       else
         format.html { render :edit }
@@ -80,7 +80,7 @@ class TroubleticketsController < ApplicationController
   def destroy
     @troubleticket.destroy
     respond_to do |format|
-      format.html { redirect_to troubletickets_url, notice: 'Troubleticket was successfully destroyed.' }
+      format.html { redirect_to troubletickets_url, notice: 'Trouble ticket was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
