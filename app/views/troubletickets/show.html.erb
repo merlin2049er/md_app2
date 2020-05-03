@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @troubleticket.user_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @troubleticket.status %>
+</p>
+
+<p>
+  <strong>Campaign:</strong>
+  <%= @troubleticket.campaign %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @troubleticket.subject %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @troubleticket.message %>
+</p>
+
+<%= link_to 'Edit', edit_troubleticket_path(@troubleticket) %> |
+<%= link_to 'Back', troubletickets_path %>

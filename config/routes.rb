@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :carts
   resources :contacts
-  resources :faqs  
+  resources :faqs
   resources :photos
 
   resources :products do
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   resources :notifications
   resources :taxes
+  resources :troubletickets
   resources :feedbacks, only:[:index,:edit,:update,:destroy]
 
   resources :transactions do

@@ -1,0 +1,58 @@
+<% if user_signed_in? %>
+
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+      <div class="panel-heading">Trouble Tickets:  <% if @troubletickets.empty?  %>
+            Nothing here...
+        <% else %>
+            <%= @troubletickets.count %> items...
+        <% end %>
+        <div class="pull-right"><font size="1">Trouble tickets are displayed for the last 60 days.</font> </div>
+
+      </div>
+
+  <div class="panel-body">
+  <table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Status</th>
+      <th>Campaign</th>
+      <th>Subject</th>
+      <th>Message</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @troubletickets.each do |troubleticket| %>
+    <tr class="<%= cycle("even", "odd") %>">
+
+        <td><%= troubleticket.user_id %></td>
+        <td><%= troubleticket.status %></td>
+        <td><%= troubleticket.campaign %></td>
+        <td><%= troubleticket.subject %></td>
+        <td><%= troubleticket.message %></td>
+        <td><%= link_to 'Show', troubleticket %> <%= link_to '  Edit', edit_troubleticket_path(troubleticket) %> <%= link_to '  Destroy', troubleticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+  </div>
+
+<br>
+
+<%= link_to 'New Troubleticket', new_troubleticket_path %>
+
+<br>
+
+<div class="pagenav">
+
+<%== pagy_bootstrap_nav(@pagy) %> <br/>
+</div>
+<% else %>
+
+<div class="alert alert-warning" role="alert">You must be signed in to see the trouble tickets.</div>
+
+<% end %>

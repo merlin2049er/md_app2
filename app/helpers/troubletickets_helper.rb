@@ -1,0 +1,2 @@
+module TroubleticketsHelper
+end
