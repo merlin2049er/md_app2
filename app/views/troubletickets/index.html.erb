@@ -20,7 +20,7 @@
       <th>Campaign</th>
       <th>Subject</th>
       <th>Message</th>
-      <th>Action</th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -29,11 +29,16 @@
     <tr class="<%= cycle("even", "odd") %>">
 
         <td><%= troubleticket.user_id %></td>
-        <td><%= troubleticket.status %></td>
+        <td><% if troubleticket.status == true %>
+          open
+          <% else %>
+          closed
+          <% end %>
+        </td>
         <td><%= troubleticket.campaign %></td>
         <td><%= troubleticket.subject %></td>
         <td><%= troubleticket.message %></td>
-        <td><%= link_to 'Show', troubleticket %> <%= link_to '  Edit', edit_troubleticket_path(troubleticket) %> <%= link_to '  Destroy', troubleticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td> Close <%= link_to '  Show', troubleticket %> <%= link_to '  Update', edit_troubleticket_path(troubleticket) %> <%= link_to '  Destroy', troubleticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :notifications
   resources :taxes
-  resources :troubletickets
+  resources :troubletickets  
   resources :feedbacks, only:[:index,:edit,:update,:destroy]
 
   resources :transactions do

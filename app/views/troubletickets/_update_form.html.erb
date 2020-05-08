@@ -1,0 +1,49 @@
+
+<%= simple_form_for(@troubleticket) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+
+  <p>
+    <strong>User:</strong>
+    <%= @troubleticket.user_id %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= @troubleticket.status %>
+  </p>
+
+  <p>
+    <strong>Campaign:</strong>
+    <%= @troubleticket.campaign %>
+  </p>
+
+  <p>
+    <strong>Subject:</strong>
+    <%= @troubleticket.subject %>
+  </p>
+
+  <p>
+    <strong>Message:</strong>
+    <%= @troubleticket.message %>
+  </p>
+
+
+
+  <div class="form-inputs">
+    <%= f.hidden_field :user_id, :value => :user_id %>
+    <%#= f.input :user_id %>
+    <%= f.hidden_field :status, :value =>  :status %>
+    <%= f.hidden_field :campign,  :value => :campaign %>
+    <%= f.hidden_field :subject, :value =>  :subject %>
+    <%= f.hidden_field :message, :value =>  :message %>
+
+  </div>
+
+
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

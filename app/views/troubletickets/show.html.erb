@@ -7,7 +7,13 @@
 
 <p>
   <strong>Status:</strong>
-  <%= @troubleticket.status %>
+  <% if @troubleticket.status == true %>
+  <%#= @troubleticket.status %>
+  open
+  <% else %>
+  closed
+  <% end %>
+
 </p>
 
 <p>
@@ -25,5 +31,5 @@
   <%= @troubleticket.message %>
 </p>
 
-<%= link_to 'Edit', edit_troubleticket_path(@troubleticket) %> |
+<%= link_to 'Update', edit_troubleticket_path(@troubleticket) %> |
 <%= link_to 'Back', troubletickets_path %>

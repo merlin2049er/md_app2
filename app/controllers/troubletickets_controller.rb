@@ -40,7 +40,7 @@ class TroubleticketsController < ApplicationController
   # GET /troubletickets/1/edit
   def edit
     add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'Edit Trouble Ticket'
+    add_breadcrumb 'Update Trouble Ticket'
   end
 
   # POST /troubletickets
@@ -65,6 +65,9 @@ class TroubleticketsController < ApplicationController
   # PATCH/PUT /troubletickets/1
   # PATCH/PUT /troubletickets/1.json
   def update
+    add_breadcrumb @site_name, :root_path
+    add_breadcrumb 'Update Trouble Ticket'
+
     respond_to do |format|
       if @troubleticket.update(troubleticket_params)
         format.html { redirect_to @troubleticket, notice: 'Trouble ticket was successfully updated.' }
@@ -84,6 +87,12 @@ class TroubleticketsController < ApplicationController
       format.html { redirect_to troubletickets_url, notice: 'Trouble ticket was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def closed
+    #close ticket
+
+
   end
 
   private

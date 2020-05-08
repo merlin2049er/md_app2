@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_03_214327) do
+ActiveRecord::Schema.define(version: 2020_05_08_153700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -231,7 +231,7 @@ ActiveRecord::Schema.define(version: 2020_05_03_214327) do
     t.boolean "status"
     t.string "campaign"
     t.string "subject"
-    t.string "message"
+    t.text "message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
