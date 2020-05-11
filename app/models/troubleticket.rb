@@ -8,7 +8,7 @@ class Troubleticket < ApplicationRecord
 
 
  def set_defaults
-  # self.user_id ||= 2
+  # self.user_id ||= ?
    self.status ||= true
 end
 
