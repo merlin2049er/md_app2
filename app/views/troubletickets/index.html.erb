@@ -38,7 +38,11 @@
         <td><%= troubleticket.campaign %></td>
         <td><%= troubleticket.subject %></td>
         <td><%= troubleticket.message %></td>
-        <td> Close <%= link_to '  Show', troubleticket %> <%= link_to '  Update', edit_troubleticket_path(troubleticket) %> <%= link_to '  Destroy', troubleticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td> Close <%= link_to '  Show', troubleticket %>
+          <% if troubleticket.status == true %>
+         <%= link_to '  Update', edit_troubleticket_path(troubleticket) %> <% end %>
+            <%= link_to '  Destroy', troubleticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
     <% end %>
   </tbody>
