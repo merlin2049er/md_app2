@@ -15,7 +15,7 @@
   <table class="table">
   <thead>
     <tr>
-      <th>User</th>
+      <!-- <th>User</th> -->
       <th>Status</th>
       <th>Campaign</th>
       <th>Subject</th>
@@ -28,7 +28,7 @@
     <% @troubletickets.each do |troubleticket| %>
     <tr class="<%= cycle("even", "odd") %>">
 
-        <td><%= troubleticket.user_id %></td>
+        <!-- <td><%#= troubleticket.user_id %></td> -->
         <td><% if troubleticket.status == true %>
           open
           <% else %>

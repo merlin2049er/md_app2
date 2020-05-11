@@ -17,7 +17,7 @@ class Product < ActiveRecord::Base
 
   after_initialize :set_defaults
 
-after_touch() { __elasticsearch__.index_document } 
+after_touch() { __elasticsearch__.index_document }
   # has_and_belongs_to_many :users
   # add cart here...
   belongs_to :cart, optional: true
@@ -93,6 +93,7 @@ after_touch() { __elasticsearch__.index_document }
     where(draft: false)
     .where(active: true)
     .where(funded: false)
+    .where('? BETWEEN startdate AND enddate', Date.today)
     #.where('startdate >= ?', DateTime.now.to_s )
     #.where('enddate <= ?' , DateTime.now.to_s )
     #.where(':date BETWEEN startdate OR enddate', date: DateTime.now.to_s)
