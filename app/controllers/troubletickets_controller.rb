@@ -89,9 +89,13 @@ class TroubleticketsController < ApplicationController
     end
   end
 
-  def closed
+  def close
     #close ticket
 
+    respond_to do |format|
+      format.html { redirect_to troubletickets_url, notice: 'Trouble ticket was successfully closed.' }
+      format.json { head :no_content }
+    end
 
   end
 
