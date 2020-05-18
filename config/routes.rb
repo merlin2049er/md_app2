@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   resources :taxes
   resources :troubletickets
 
+  get 'troubletickets_close/(:id)' , to: 'troubletickets#close'
+
   resources :feedbacks, only:[:index,:edit,:update,:destroy]
 
   resources :transactions do

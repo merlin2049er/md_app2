@@ -92,6 +92,11 @@ class TroubleticketsController < ApplicationController
   def close
     #close ticket
 
+    troubleticket = Troubleticket.find(params[:id])
+    troubleticket.status = 'false'
+    troubleticket.save
+
+
     respond_to do |format|
       format.html { redirect_to troubletickets_url, notice: 'Trouble ticket was successfully closed.' }
       format.json { head :no_content }
