@@ -92,15 +92,26 @@ class TroubleticketsController < ApplicationController
   def close
     #close ticket
 
-    troubleticket = Troubleticket.find(params[:id])
-    troubleticket.status = 'false'
-    troubleticket.save
-
+    @troubleticket = Troubleticket.find(params[:id])
+    @troubleticket.status = 'false'
 
     respond_to do |format|
-      format.html { redirect_to troubletickets_url, notice: 'Trouble ticket was successfully closed.' }
-      format.json { head :no_content }
+      if @troubleticket.save
+
+       #  fix this it reload index
+
+        format.html { redirect_to @troubleticket, notice: 'Trouble ticket was successfully closed.' }
+        format.json { render :show, status: :created, location: @troubleticket }
+
+    #  else
+    #    format.html { render :new }
+    #    format.json { render json: @troubleticket.errors, status: :unprocessable_entity }
+    #  end
+
     end
+  end
+
+
 
   end
 
