@@ -11,12 +11,7 @@
 
   <p>
     <strong>Status:</strong>
-    <% if @troubleticket.status == true %>
-    Open
-    <% else %>
-    Closed
-    <% end %>
-
+    <%= if @troubleticket.status %>
   </p>
 
   <p>

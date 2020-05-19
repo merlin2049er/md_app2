@@ -15,7 +15,7 @@
   <table class="table">
   <thead>
     <tr>
-      <!-- <th>User</th> -->
+      <th>Ticket #</th> 
       <th>Status</th>
       <th>Campaign</th>
       <th>Subject</th>
@@ -28,13 +28,8 @@
     <% @troubletickets.each do |troubleticket| %>
     <tr class="<%= cycle("even", "odd") %>">
 
-        <!-- <td><%#= troubleticket.user_id %></td> -->
-        <td><% if troubleticket.status == true %>
-          Open
-          <% else %>
-          Closed
-          <% end %>
-        </td>
+         <td><%= troubleticket.id %>    </td>
+        <td><%= troubleticket.campaign %></td>
         <td><%= troubleticket.campaign %></td>
         <td><%= troubleticket.subject %></td>
         <td><%= troubleticket.message %></td>
@@ -46,7 +41,8 @@
           <% end %>
           <%= link_to '  Show', troubleticket %>
           <% if troubleticket.status == true %>
-         <%= link_to '  Update', edit_troubleticket_path(troubleticket) %> <% end %>
+         <%= link_to '  Update', edit_troubleticket_path(troubleticket) %>
+         <% end %>
             <%= link_to '  Destroy', troubleticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
       </tr>
