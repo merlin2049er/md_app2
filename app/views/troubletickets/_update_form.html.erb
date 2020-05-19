@@ -5,13 +5,17 @@
 
 
   <p>
+    <strong>Ticket #</strong>
+    <%= @troubleticket.id %>
+  </p>
+  <p>
     <strong>User:</strong>
     <%= @troubleticket.user_id %>
   </p>
 
   <p>
     <strong>Status:</strong>
-    <%= if @troubleticket.status %>
+    <%=  @troubleticket.status %>
   </p>
 
   <p>

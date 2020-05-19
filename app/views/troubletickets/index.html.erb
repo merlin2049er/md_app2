@@ -15,7 +15,8 @@
   <table class="table">
   <thead>
     <tr>
-      <th>Ticket #</th> 
+      <th>Ticket #</th>
+      <th>User id</th>
       <th>Status</th>
       <th>Campaign</th>
       <th>Subject</th>
@@ -29,7 +30,9 @@
     <tr class="<%= cycle("even", "odd") %>">
 
          <td><%= troubleticket.id %>    </td>
-        <td><%= troubleticket.campaign %></td>
+         <td><%= troubleticket.user_id %>    </td>
+
+        <td><%= troubleticket.status %></td>
         <td><%= troubleticket.campaign %></td>
         <td><%= troubleticket.subject %></td>
         <td><%= troubleticket.message %></td>
