@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_08_153700) do
+ActiveRecord::Schema.define(version: 2020_05_20_230127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -228,7 +228,7 @@ ActiveRecord::Schema.define(version: 2020_05_08_153700) do
 
   create_table "troubletickets", force: :cascade do |t|
     t.integer "user_id"
-    t.boolean "status"
+    t.boolean "status", default: true
     t.string "campaign"
     t.string "subject"
     t.text "message"
