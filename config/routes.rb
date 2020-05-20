@@ -42,7 +42,6 @@ Rails.application.routes.draw do
   get 'pages/cookies'
   get 'pages/dashboard'
   get 'pages/error'
-#  get 'pages/faq'
   get 'pages/index'
   get 'pages/invitations'
   get 'pages/invite'
