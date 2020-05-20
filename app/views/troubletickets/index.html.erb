@@ -29,19 +29,23 @@
     <% @troubletickets.each do |troubleticket| %>
     <tr class="<%= cycle("even", "odd") %>">
 
-         <td><%= troubleticket.id %>    </td>
-         <td><%= troubleticket.user_id %>    </td>
-
-        <td><%= troubleticket.status %></td>
+         <td><%= troubleticket.id %></td>
+         <td><%= troubleticket.user_id %></td>
+        <td>
+          <% if troubleticket.status == true %>
+          opened
+          <% else %>
+          closed
+            <% end %>
+          </td>
         <td><%= troubleticket.campaign %></td>
         <td><%= troubleticket.subject %></td>
         <td><%= troubleticket.message %></td>
         <td>
           <% if troubleticket.status == true %>
           <%= link_to "Close",  controller: "troubletickets", action: "close" , id: troubleticket.id %>
-          <% else %>
-          Close
           <% end %>
+
           <%= link_to '  Show', troubleticket %>
           <% if troubleticket.status == true %>
          <%= link_to '  Update', edit_troubleticket_path(troubleticket) %>
