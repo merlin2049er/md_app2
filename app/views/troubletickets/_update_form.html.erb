@@ -3,45 +3,15 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-
-  <p>
-    <strong>Ticket #</strong>
-    <%= @troubleticket.id %>
-  </p>
-  <p>
-    <strong>User:</strong>
-    <%= @troubleticket.user_id %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%=  @troubleticket.status %>
-  </p>
-
-  <p>
-    <strong>Campaign:</strong>
-    <%= @troubleticket.campaign %>
-  </p>
-
-  <p>
-    <strong>Subject:</strong>
-    <%= @troubleticket.subject %>
-  </p>
-
-  <p>
-    <strong>Message:</strong>
-    <%= @troubleticket.message %>
-  </p>
-
-
-
   <div class="form-inputs">
-    <%= f.hidden_field :id, :value => :id %>
-    <%= f.hidden_field :user_id, :value => :user_id %>
-    <%= f.hidden_field :status, :value =>  :status %>
-    <%= f.hidden_field :campign,  :value => :campaign %>
-    <%= f.hidden_field :subject, :value =>  :subject %>
-    <%= f.hidden_field :message, :value =>  :message %>
+    <%= f.input :id, :label => 'Ticket #', :readonly => true %>
+
+    <%= f.input :user_id, :readonly => true %>
+    <%= f.input :status, :disabled => true %>
+    <%= f.input :campaign,  :readonly => true %>
+    <%= f.input :subject, :readonly  => true %>
+    <%= f.input :message %>
+
   </div>
 
 

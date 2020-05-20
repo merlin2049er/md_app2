@@ -13,7 +13,8 @@
 
 <p>
   <strong>Status:</strong>
-  <% if @troubleticket.status == 'true' %>
+
+  <% if @troubleticket.status == true %>
   opened
   <% else %>
   closed
