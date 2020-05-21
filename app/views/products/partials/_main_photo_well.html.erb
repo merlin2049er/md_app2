@@ -5,10 +5,14 @@
         <!-- <a href="<%#= @product.picurl %>" %> -->
         <section data-featherlight-gallery data-featherlight-filter="a" >
 
-        <a href = "<%= asset_pack_path "media/images/#{@product.picurl}" %>"  >
+    <!--    <a href = "<%#= asset_pack_path "media/images/#{@product.picurl}" %>"  >  -->
 
-         <img src="<%= asset_pack_path "media/images/#{@product.picurl}" %> "  align="top" >
-          </a>
+<!--         <img src="<%#= asset_pack_path "media/images/#{@product.picurl}" %> "  align="top" > -->
+
+    <a href = "<%= @product.picurl  %>"  >
+      <img src="<%= @product.picurl  %> "  align="top" >
+      </a>
+
         <%= render 'products/partials/thumbnails' %>
         </section>
  </div >

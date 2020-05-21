@@ -31,7 +31,8 @@
             <h5> <%= product.title %> </h5>
         </font>
         <!--    <%#= truncate(product.template, length: 50 , separator: ' ')  %> -->
-          <img src="<%= asset_pack_path "media/images/#{product.picurl }" %>" alt=""><br/>
+        <!--  <img src="<%= asset_pack_path "media/images/#{product.picurl }" %>" alt=""><br/> -->
+        <img src="<%= product.picurl  %>" alt=""><br/>
 </a>
 <font color ="grey" >
           <i>Ending:</i> <%= product.enddate %> </i>
