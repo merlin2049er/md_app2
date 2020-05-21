@@ -100,6 +100,8 @@ gem 'commontator', '~> 6.3'
 #image gallery for product photos
 gem 'photoswipe-rails', '~> 4.1', '>= 4.1.2'
 
+gem "validate_url" #make sure that images posted are valid urls
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

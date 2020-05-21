@@ -28,6 +28,8 @@ after_touch() { __elasticsearch__.index_document }
   validates_presence_of :title
   validates_presence_of :category_id
   validates_presence_of :picurl
+  validates :picurl, url: true
+
   # validates_presence_of :template
 
   validates_presence_of :body
@@ -74,7 +76,7 @@ after_touch() { __elasticsearch__.index_document }
   def set_defaults
     self.msrp ||= 0.0
     self.price ||= 0.0
-    self.picurl ||= 'photo_not_available.png'
+    self.picurl ||= 'https://res.cloudinary.com/dlfodsgbd/image/upload/v1590070578/TippingPoint/photo_not_available.png'
     self.qty ||= 1
 
     self.funded ||= 'false'

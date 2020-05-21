@@ -306,6 +306,9 @@ GEM
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     unicode_utils (1.4.0)
+    validate_url (1.0.11)
+      activemodel (>= 3.0.0)
+      public_suffix
     validates_timeliness (5.0.0.beta1)
       timeliness (>= 0.3.10, < 1)
     warden (1.2.8)
@@ -378,6 +381,7 @@ DEPENDENCIES
   toastr_rails
   turbolinks (~> 5)
   tzinfo-data
+  validate_url
   validates_timeliness (~> 5.0.0.alpha3)
   web-console (>= 3.3.0)
   webdrivers
