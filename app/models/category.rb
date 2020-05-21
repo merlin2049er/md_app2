@@ -7,6 +7,7 @@ class Category < ActiveRecord::Base
   after_initialize :set_defaults
 
   def set_defaults
-    self.picurl ||= 'photo_not_available.png'
+    self.picurl ||= 'https://res.cloudinary.com/dlfodsgbd/image/upload/v1590070578/TippingPoint/photo_not_available.png'
+
   end
 end
