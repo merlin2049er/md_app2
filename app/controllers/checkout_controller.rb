@@ -3,15 +3,21 @@ class CheckoutController < ApplicationController
     def create
       #? maybe find cart instead?
       #product = Product.find(params[:id])
+
       cart = Cart.find(params[:id])
+
+      #cart = Cart.where('id =?', params[:id])
+
+    #  binding.pry
+
 
       if cart.nil?
           redirect_to root_path
         return
       end
 
-      product = cart.product_id
-      product = Product.find(cart.id)
+      product = Product.find(cart.product_id)
+
       cart_total = (product.price * 100).floor
       user = User.find(cart.user_id)
 
@@ -32,7 +38,7 @@ class CheckoutController < ApplicationController
       line_items: [{
         name: product.title,
   #     description:  product.template,
-       images: ['https://desolate-journey-54830.herokuapp.com/packs/media/images/' + product.picurl],
+       images: [ product.picurl],
   #     images: [ image_tag "media/images/#{product.picurl }" ],
   #      images: [cart_image],
 
