@@ -5,7 +5,7 @@ class Photo < ActiveRecord::Base
 
   validates_presence_of :uri
   # validates_presence_of :product_id
-  validates :uri, url: true
+  #validates :uri, url: true
 
 
   def set_defaults

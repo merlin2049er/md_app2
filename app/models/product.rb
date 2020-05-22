@@ -28,7 +28,7 @@ after_touch() { __elasticsearch__.index_document }
   validates_presence_of :title
   validates_presence_of :category_id
   validates_presence_of :picurl
-  validates :picurl, url: true
+  # validates :picurl, url: true
 
   # validates_presence_of :template
 
