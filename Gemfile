@@ -86,7 +86,8 @@ gem "sentry-raven"
 
 gem "cocoon"
 
-gem 'stripe', '~> 5.12'
+# gem 'stripe', '~> 5.12'
+gem 'stripe' 
 
 gem 'toastr_rails'
 

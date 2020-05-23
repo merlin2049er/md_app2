@@ -374,7 +374,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets-rails
-  stripe (~> 5.12)
+  stripe
   toastr_rails
   turbolinks (~> 5)
   tzinfo-data
