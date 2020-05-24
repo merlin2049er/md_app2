@@ -1,6 +1,5 @@
 class TicketnotesController < ApplicationController
   include Pagy::Backend
-
   before_action :set_ticketnotes, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
@@ -12,7 +11,9 @@ class TicketnotesController < ApplicationController
 
     #@ticketnotes  = Ticketnotes.where('user_id =?', current_user.id).order('created_at DESC')
     @ticketnotes  = Ticketnote.all
-    @pagy, @ticketnotes = pagy(@ticketnotes)
+    @ticketnotes = Ticketnote.count
+
+    @pagy, @ticketnotes = pagy(Ticketnote.all.order(:created_at))
 
   end
 
@@ -28,7 +29,10 @@ class TicketnotesController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Ticket notes'
 
-    @ticketnote = Ticketnote.new
+    @ticketnote = Ticketnote.new(:troubleticket_id => params[:troubleticket_id])
+    @troubleticket = Transaction.find_by_id(params[:troubleticket_id])
+
+
   end
 
   # GET /ticketnotes/1/edit
@@ -44,10 +48,11 @@ class TicketnotesController < ApplicationController
     add_breadcrumb 'New Ticket notes'
 
     @ticketnote = Ticketnote.new(ticketnote_params)
+    @ticketnote.troubleticket_id = params[:troubleticket_id]
 
     respond_to do |format|
       if @ticketnote.save
-        format.html { redirect_to @ticketnote , notice: 'Ticket note was successfully created.' }
+        format.html { redirect_to troubleticket_url, notice: 'Ticket note was successfully created.' }
         format.json { render :show, status: :created, location: @ticketnote }
       else
         format.html { render :new }
@@ -64,7 +69,7 @@ class TicketnotesController < ApplicationController
 
     respond_to do |format|
       if @ticketnote.update(ticketnote_params)
-        format.html { redirect_to @ticketnote, notice: 'Ticket note was successfully updated.' }
+        format.html { redirect_to troubleticket_url, notice: 'Ticket note was successfully updated.' }
         format.json { render :show, status: :ok, location: @ticketnote }
       else
         format.html { render :edit }
@@ -78,7 +83,7 @@ class TicketnotesController < ApplicationController
   def destroy
     @ticketnote.destroy
     respond_to do |format|
-      format.html { redirect_to ticketnotes_url, notice: 'Ticket note was successfully destroyed.' }
+      format.html { redirect_to @ticketnote, notice: 'Ticket note was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

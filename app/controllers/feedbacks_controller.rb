@@ -28,7 +28,7 @@ class FeedbacksController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Feedback'
 
-    puts "ssssssssssssssssssssss", params[:transaction_id].inspect
+  #  puts "ssssssssssssssssssssss", params[:transaction_id].inspect
     @feedback = Feedback.new(:transaction_id => params[:transaction_id])
     @transaction = Transaction.find_by_id(params[:transaction_id])
 
@@ -52,6 +52,7 @@ class FeedbacksController < ApplicationController
   def create
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Feedback'
+
     @feedback = Feedback.new(feedback_params)
     @feedback.transaction_id = params[:transaction_id]
 
