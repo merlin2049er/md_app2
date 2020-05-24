@@ -1,5 +1,6 @@
 class Troubleticket < ApplicationRecord
   belongs_to :user
+  has_many   :ticketnotes
 
   validates_presence_of :subject
   validates_presence_of :message

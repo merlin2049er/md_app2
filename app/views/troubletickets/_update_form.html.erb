@@ -10,13 +10,16 @@
     <%= f.input :status, :disabled => true %>
     <%= f.input :campaign,  :readonly => true %>
     <%= f.input :subject, :readonly  => true %>
-    <%= f.input :message %>
+    <%= f.input :message, :readonly  => true %>
 
   </div>
 
 
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%#= f.button :submit %>
   </div>
+
+  <%= render 'troubletickets/partials/addtocase' %>
+
 <% end %>

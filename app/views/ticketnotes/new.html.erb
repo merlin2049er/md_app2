@@ -1,0 +1,17 @@
+<% if can? :manage, @ticketnote %>
+
+
+<h1>New Ticket note</h1>
+
+<%= render 'form', ticketnote: @ticketnote %>
+
+<%= link_to 'Back', ticketnotes_path %>
+
+
+
+<% else %>
+
+
+    <div class="alert alert-warning" role="alert">Please sign in as administrator to add ticket notes.</div>
+
+<% end %>

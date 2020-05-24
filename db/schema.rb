@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_22_161046) do
+ActiveRecord::Schema.define(version: 2020_05_24_181511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -215,6 +215,14 @@ ActiveRecord::Schema.define(version: 2020_05_22_161046) do
     t.index ["prov_id"], name: "index_taxes_on_prov_id", unique: true
   end
 
+  create_table "ticketnotes", force: :cascade do |t|
+    t.bigint "troubleticket_id", null: false
+    t.string "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["troubleticket_id"], name: "index_ticketnotes_on_troubleticket_id"
+  end
+
   create_table "transactions", force: :cascade do |t|
     t.string "transaction_msg"
     t.integer "user_id"
@@ -275,4 +283,5 @@ ActiveRecord::Schema.define(version: 2020_05_22_161046) do
   add_foreign_key "commontator_comments", "commontator_comments", column: "parent_id", on_update: :restrict, on_delete: :cascade
   add_foreign_key "commontator_comments", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "commontator_subscriptions", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "ticketnotes", "troubletickets"
 end

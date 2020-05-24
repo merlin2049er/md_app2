@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+
+<p>
+  <strong>Ticket note:</strong>
+  <%= @ticketnotes.notes %>
+</p>
+
+<%= link_to 'Back', ticketnotes_path %>
+
+<% else %>
+
+  <div class="alert alert-warning" role="alert">You must be signed in to see the ticketnote.</div>
+
+<% end %>

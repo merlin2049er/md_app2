@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :notifications
   resources :taxes
   resources :troubletickets
+  resources :ticketnotes
 
   get 'troubletickets_close/(:id)' , to: 'troubletickets#close'
 
