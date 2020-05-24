@@ -1,6 +1,4 @@
 
-<%#= simple_form_for @ticketnote, validate: true do |f| %>
-
 
 <%= simple_form_for(@ticketnote,url: troubleticket_ticketnotes_url(troubleticket_id:  params[:troubleticket_id]) ) do |f| %>
 
@@ -8,7 +6,9 @@
 
   <div class="form-inputs">
 
-    <%= f.input :troubleticket_id  , :readonly => true  %>
+
+    <%= f.input :troubleticket_id, :readonly => true %>
+
 
     <%= f.input :notes %>
   </div>

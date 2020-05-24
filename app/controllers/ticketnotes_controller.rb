@@ -1,7 +1,10 @@
 class TicketnotesController < ApplicationController
+
   include Pagy::Backend
   before_action :set_ticketnotes, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+
+
 
   # GET /ticketnotes
   # GET /ticketnotes.json
@@ -30,7 +33,7 @@ class TicketnotesController < ApplicationController
     add_breadcrumb 'New Ticket notes'
 
     @ticketnote = Ticketnote.new(:troubleticket_id => params[:troubleticket_id])
-    @troubleticket = Transaction.find_by_id(params[:troubleticket_id])
+    @troubleticket = Troubleticket.find_by_id(params[:troubleticket_id])
 
 
   end
@@ -52,7 +55,7 @@ class TicketnotesController < ApplicationController
 
     respond_to do |format|
       if @ticketnote.save
-        format.html { redirect_to troubleticket_url, notice: 'Ticket note was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Ticket note was successfully created.' }
         format.json { render :show, status: :created, location: @ticketnote }
       else
         format.html { render :new }
@@ -69,7 +72,7 @@ class TicketnotesController < ApplicationController
 
     respond_to do |format|
       if @ticketnote.update(ticketnote_params)
-        format.html { redirect_to troubleticket_url, notice: 'Ticket note was successfully updated.' }
+        format.html { redirect_to @ticketnote, notice: 'Ticket note was successfully updated.' }
         format.json { render :show, status: :ok, location: @ticketnote }
       else
         format.html { render :edit }
