@@ -18,7 +18,8 @@
         <tr>
           <!-- <th colspan="3"></th> -->
           <th>Added</th>
-          <th>Ticket notes</th>
+          <th>Trouble ticket id</th>
+          <th>Ticket note</th>
           <th>Action</th>
         </tr>
         </thead>
@@ -27,7 +28,8 @@
         <% @ticketnotes.each do |ticketnote| %>
           <tr class="<%= cycle("even", "odd") %>">
             <td><%= ticketnote.created_at.strftime("%m/%d/%Y")   %> </td>
-             <td> <%= ticketnote.notes   %></td> 
+             <td> <%= ticketnote.troubleticket_id   %></td>
+             <td> <%= ticketnote.notes   %></td>
 
         <td><%= link_to 'Remove', ticketnote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>

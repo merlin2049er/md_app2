@@ -91,6 +91,7 @@ class TicketnotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ticketnote_params
-      params.require( :notes).permit( :troubleticket_id)
+      params.require(:ticketnote).permit(:notes , :troubleticket_id )
+
     end
 end

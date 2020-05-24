@@ -1,7 +1,8 @@
 
 <%#= simple_form_for @ticketnote, validate: true do |f| %>
 
-<%= simple_form_for @ticketnote do |f| %>
+
+<%= simple_form_for(@ticketnote,url: troubleticket_ticketnotes_url(troubleticket_id:  params[:troubleticket_id]) ) do |f| %>
 
   <%= f.error_notification %>
 
