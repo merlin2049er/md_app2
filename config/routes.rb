@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :troubletickets, only:[:index,:edit,:update,:destroy]
 
   resources :troubletickets do
-    resources :ticketnotes , only:[:new,:create, :destroy]
+    resources :ticketnotes , only:[:new,:create, :destroy ]
   end
 
   get 'troubletickets_close/(:id)' , to: 'troubletickets#close'
