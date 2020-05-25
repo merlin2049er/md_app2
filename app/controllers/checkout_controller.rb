@@ -28,7 +28,7 @@ class CheckoutController < ApplicationController
 
   # setup a stripe payment for session
   #fix product amount and add qty
-    @session = Stripe::Checkout::Session.create(
+  @session = Stripe::Checkout::Session.create({
 
       client_reference_id: cart.id,
   #    customer: null,
@@ -39,19 +39,15 @@ class CheckoutController < ApplicationController
         name: product.title,
   #     description:  product.template,
        images: [ product.picurl],
-  #     images: [ image_tag "media/images/#{product.picurl }" ],
-  #      images: [cart_image],
-
-  #      amount: (product.price * cart.qty * 100).floor,
         amount: cart_total,
         currency: 'cad',
         quantity: cart.qty
         }],
-
   # avoid using sessions like this... use webhooks instead?
-
         success_url: checkout_success_url + '?session_id={CHECKOUT_SESSION_ID}',
-        cancel_url: checkout_cancel_url  )
+        cancel_url: checkout_cancel_url
+
+        })
 
 
       respond_to do |format|
@@ -83,6 +79,7 @@ class CheckoutController < ApplicationController
       @success = Stripe::Checkout::Session.retrieve(params[:session_id])
     #  @payment_intent = Stripe:payment_intent.retrieve(@session_payment_intent)
       @payment_intent = Stripe::PaymentIntent.retrieve(@session_payment_intent)
+
 
       render "success"
 
