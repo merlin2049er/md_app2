@@ -81,8 +81,8 @@ class CheckoutController < ApplicationController
     #  end
 
       @success = Stripe::Checkout::Session.retrieve(params[:session_id])
-      @payment_intent = Stripe:payment_intent.retrieve(@session_payment_intent)
-
+    #  @payment_intent = Stripe:payment_intent.retrieve(@session_payment_intent)
+      @payment_intent = Stripe::PaymentIntent.retrieve(@session_payment_intent)
 
       render "success"
 
