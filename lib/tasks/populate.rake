@@ -34,8 +34,8 @@ namespace :db do
         product.funded = [false]
         product.category_id = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
         product.qty = [5, 10, 15]
-        product.startdate = ['2020-5-22']
-        product.enddate = ['2020-6-22']
+        product.startdate = ['2020-5-24']
+        product.enddate = ['2020-6-25']
         product.picurl = ['https://res.cloudinary.com/dlfodsgbd/image/upload/v1590070578/TippingPoint/photo_not_available.png']
       end
   end
