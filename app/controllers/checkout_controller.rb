@@ -41,11 +41,12 @@ class CheckoutController < ApplicationController
        images: [ product.picurl],
         amount: cart_total,
         currency: 'cad',
-        quantity: cart.qty
+        quantity: cart.qty,
+
         }],
   # avoid using sessions like this... use webhooks instead?
         success_url: checkout_success_url + '?session_id={CHECKOUT_SESSION_ID}',
-        cancel_url: checkout_cancel_url
+        cancel_url: checkout_cancel_url,
 
         })
 
@@ -78,7 +79,7 @@ class CheckoutController < ApplicationController
 
       @success = Stripe::Checkout::Session.retrieve(params[:session_id])
     #  @payment_intent = Stripe:payment_intent.retrieve(@session_payment_intent)
-      @payment_intent = Stripe::PaymentIntent.retrieve(@session_payment_intent)
+    #  @payment_intent = Stripe::PaymentIntent.retrieve(@session_payment_intent)
 
 
       render "success"
