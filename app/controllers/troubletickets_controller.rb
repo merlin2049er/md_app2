@@ -57,7 +57,8 @@ class TroubleticketsController < ApplicationController
 
     respond_to do |format|
       if @troubleticket.save
-        format.html { redirect_to @troubleticket, notice: 'Trouble ticket was successfully created.' }
+
+       format.html { redirect_to @troubleticket, notice: 'Trouble ticket was successfully created.' }
         format.json { render :show, status: :created, location: @troubleticket }
       else
         format.html { render :new }
