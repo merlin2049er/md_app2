@@ -36,13 +36,15 @@ class TroubleticketsController < ApplicationController
 
     @troubleticket = Troubleticket.new
     @troubleticket.ticketnotes.build
-    
+
   end
 
   # GET /troubletickets/1/edit
   def edit
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Update Trouble Ticket'
+  #  @troubleticket.ticketnotes.build
+
   end
 
   # POST /troubletickets
@@ -125,6 +127,6 @@ class TroubleticketsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def troubleticket_params
-      params.require(:troubleticket).permit(:user_id, :status, :campaign, :subject, :message)
+      params.require(:troubleticket).permit(:user_id, :status, :campaign, :subject, :message , ticketnotes_attributes[:id, :notes])
     end
 end
