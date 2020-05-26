@@ -37,19 +37,6 @@
   <%= @troubleticket.message %>
 </p>
 
-<!--
-<%# if @troubleticket.ticketnote.any? %>
-<p>
-  <strong>Ticket notes:</strong>
-</p>
-  <%# @troubleticket.ticketnote.each do |tt| %>
-
-  <%#= @troubleticket.ticketnote.notes %>
-  <%# end %>
-  <%# else %>
-  no additional notes...
-  <%# end %>
--->
 <% if @troubleticket.ticketnotes.any? %>
 
 <% @troubleticket.ticketnotes.each do |ticketnote| %>
@@ -60,7 +47,7 @@
   </tr>
 <% end %>
 <% else %>
-<i>no additional notes...</i><br/>
+<i>...no additional notes...</i><br/>
 <% end %>
 <br/>
 <% if @troubleticket.status == true %>

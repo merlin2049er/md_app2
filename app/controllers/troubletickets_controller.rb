@@ -35,6 +35,8 @@ class TroubleticketsController < ApplicationController
     add_breadcrumb 'New Trouble Ticket'
 
     @troubleticket = Troubleticket.new
+    @troubleticket.ticketnotes.build
+    
   end
 
   # GET /troubletickets/1/edit

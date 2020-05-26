@@ -1,4 +1,5 @@
 
+
 <%= simple_form_for(@troubleticket) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -14,13 +15,52 @@
 
   </div>
 
-
-
   <div class="form-actions">
     <%#= f.button :submit %>
   </div>
 
-  <small>Add to case notes...</small>
-  
+
+  <% if @troubleticket.ticketnotes.any? %>
+
+  <% @troubleticket.ticketnotes.each do |ticketnote| %>
+    <tr class="<%= cycle("even", "odd") %>">
+      <td><%= ticketnote.created_at.strftime("%m/%d/%Y")   %> </td>
+       <!-- <td> <%#= ticketnote.troubleticket_id   %></td> -->
+       <td> <%= ticketnote.notes   %> <br/></td>
+    </tr>
+  <% end %>
+  <% else %>
+  <i>...no additional notes...</i><br/>
+  <% end %>
+  <br/>
+
+  <!-- <small>Add to case notes...</small> <br/> -->
+  <button type="button"  data-toggle="modal" data-target="#exampleModal">
+    Update case
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add notes to case</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        
+
+        </div>
+        <div class="modal-footer">
+        <!--  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+-->
+
+        </div>
+      </div>
+    </div>
+  </div>
 
 <% end %>
