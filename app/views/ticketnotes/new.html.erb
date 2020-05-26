@@ -1,4 +1,5 @@
-<% if can? :manage, @ticketnote %>
+<% if user_signed_in? %>
+
 
 
 <h1>New Ticket note</h1>
@@ -9,6 +10,6 @@
 
 <% else %>
 
-    <div class="alert alert-warning" role="alert">Please sign in as administrator to add ticket notes.</div>
+    <div class="alert alert-warning" role="alert">Please sign in to add ticket notes.</div>
 
 <% end %>
