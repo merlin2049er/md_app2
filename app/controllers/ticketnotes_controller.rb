@@ -53,9 +53,10 @@ class TicketnotesController < ApplicationController
     @ticketnote = Ticketnote.new(ticketnote_params)
     @ticketnote.troubleticket_id = params[:troubleticket_id]
 
+
     respond_to do |format|
       if @ticketnote.save
-        format.html { redirect_to root_path, notice: 'Ticket note was successfully created.' }
+        format.html { redirect_to  edit_troubleticket_path, notice: 'Ticket note was successfully created.' }
         format.json { render :show, status: :created, location: @ticketnote }
       else
         format.html { render :new }

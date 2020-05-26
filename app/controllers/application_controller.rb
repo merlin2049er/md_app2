@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
 
     rescue_from ActiveRecord::RecordNotFound, with: :errors_stop
     rescue_from NoMethodError, with: :errors_stop
+  #  rescue_from ActionDispatch::Cookies::CookieOverflow, with: :error_stop
 
 
 def errors_stop

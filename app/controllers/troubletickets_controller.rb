@@ -127,6 +127,6 @@ class TroubleticketsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def troubleticket_params
-      params.require(:troubleticket).permit(:user_id, :status, :campaign, :subject, :message , ticketnotes_attributes[:id, :notes])
+      params.require(:troubleticket).permit(:user_id, :status, :campaign, :subject, :message )
     end
 end

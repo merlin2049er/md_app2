@@ -38,7 +38,7 @@
 </p>
 
 <% if @troubleticket.ticketnotes.any? %>
-
+  <p><strong>Additional notes:</strong></p>
 <% @troubleticket.ticketnotes.each do |ticketnote| %>
   <tr class="<%= cycle("even", "odd") %>">
     <td><%= ticketnote.created_at.strftime("%m/%d/%Y")   %> </td>
