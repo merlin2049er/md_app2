@@ -1,4 +1,8 @@
-<% if can? :manage, @notification %>
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+
+<!-- <%# if can? :manage, @notification %> -->
 
 
 <h1>New Notification</h1>

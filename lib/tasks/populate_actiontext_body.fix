@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# fix this...
+
 namespace :db do
   desc 'Fill database actiontext body'
   task populate_actiontext_body: :environment do
@@ -7,12 +9,10 @@ namespace :db do
 
    # [Category ].each(&:delete_all)
 
-    ActionTextRichText.populate 250 do | t |
+    Category.populate 15 do |category|
+    #  category.id = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+      category.name = Populator.words(1..2).titleize
 
-    t.body = Populator.sentences(2..10)
-    t.name = "body"
-    t.record_type = "Product"
-    t.record_id = 1..250
 
     end
 

@@ -1,4 +1,7 @@
-<% if can? :manage, @product %>
+<!-- <%# if can? :manage, @product %> -->
+
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
 
 <h1>New Product</h1>
 
