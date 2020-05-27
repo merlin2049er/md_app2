@@ -33,6 +33,7 @@ class ProductsController < ApplicationController
   def show
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'product'
+    add_breadcrumb @product.title
 
    @product = Product.find_by_id(params[:id])
 
