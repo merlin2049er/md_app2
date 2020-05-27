@@ -10,9 +10,7 @@ class TransactionsController < ApplicationController
 
     @transactions = Transaction.where('user_id =?', current_user.id).order('created_at DESC')
 
-
     #@feedback_recieved = Feedback.exists?(@transaction)
-
     @pagy, @transactions = pagy(@transactions)
   end
 
