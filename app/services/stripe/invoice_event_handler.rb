@@ -14,11 +14,11 @@ module Stripe
     end
 
     def handle_invoice_payment_failed(event)
-        render json: { message: 'HANDLED INVOICE PAYMENT FAILED SUCCESSFULLY :)' }
+
     end
 
     def handle_invoice_payment_succeeded(event)
-      render json: { message: 'HANDLED INVOICE PAYMENT SUCCESSFUlLY :) ' }
+
     end
   end
 end

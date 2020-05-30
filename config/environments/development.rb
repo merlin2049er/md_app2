@@ -1,8 +1,8 @@
 Rails.application.configure do
 
 # whitelist nrok local server... used for testing webhooks
-config.web_console.whiny_requests = false
-config.web_console.whitelisted_ips = '173.32.169.71'
+# config.web_console.whiny_requests = false
+# config.web_console.whitelisted_ips = '173.32.169.71'
 #  config.web_console.whitelisted_ips = '54.187.174.169'
 #  config.web_console.whitelisted_ips = '54.187.205.235'
 #  config.web_console.whitelisted_ips = '2607:fea8:86df:f324:8d02:3b80:242a:ee81'
