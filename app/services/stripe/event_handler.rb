@@ -1,5 +1,6 @@
 # Stripe module
 module Stripe
+
  # stripe main class EventHandler
  class EventHandler
    def call(event)
@@ -18,13 +19,11 @@ module Stripe
    # your code goes here
  end
 
- def handle_invoice_payment_failed(event)
+ def handle_checkout_session_completed(event)
    # your code goes here
+   render json: {message: 'booyah, great.'}
  end
 
- def handle_invoice_payment_succeeded(event)
-   # your code goes here
- end
 
 end
 
