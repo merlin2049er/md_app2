@@ -87,7 +87,10 @@ gem "sentry-raven"
 gem "cocoon"
 
 # gem 'stripe', '~> 5.12'
-gem 'stripe' 
+gem 'stripe'
+# used to handle stripe webhooks
+gem 'stripe_event'
+
 
 gem 'toastr_rails'
 

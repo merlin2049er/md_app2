@@ -41,6 +41,8 @@ Rails.application.routes.draw do
    get 'success', to: 'checkout#success', as: 'checkout_success'
   end
 
+  mount StripeEvent::Engine, at: '/stripe/webhooks'
+
   get 'pages/about'
   get 'pages/banned'
   get 'pages/contact'
