@@ -4,8 +4,9 @@
 
 
 
-<p>Thank you for your payment of <%= number_to_currency @payment_intent.amount_received / 100.0 %><br><br>
-<p>The status of your payment is <%= @payment_intent.status %>.</p>
+<p>Thank you for your payment of <%= number_to_currency @success.amount_received / 100.0 %><br><br>
+<p>The status of your payment is <%= @success.status %>.</p>
+
 
 
 <p>Thank you for your payment.<br/>
@@ -14,7 +15,7 @@ Check the status of the transaction in the main menu.
 </p>
 
 <%= debug @session %>
-<%= debug @payment_intent %>
+<%= debug @success %>
 
 
 <% else %>
