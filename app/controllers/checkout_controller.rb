@@ -88,12 +88,16 @@ class CheckoutController < ApplicationController
 
       # CART_ID = @success.payment_intent.client_reference_id
       # FIND CART BY CART_ID
+      cart = Cart.find(@success.payment_intent.client_reference_id)
+
       # MARK AS pAID
+      cart.paid = 'true'
+      cart.save!    
 
       # CREAtE A NEW TRANSACTION FOR User
       # MARK AS PAID  (TOGGLE BOOLEAN VALUE)
       # ADD REICEpT URL
-      
+
 
 
     end

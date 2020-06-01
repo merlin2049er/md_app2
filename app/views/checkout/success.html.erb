@@ -3,7 +3,7 @@
 <% if user_signed_in? %>
 
 
-<p>The status of your payment has <%= @success.payment_intent.status %>.</p>
+<p>Your payment has <%= @success.payment_intent.status %>.</p>
 <p>Thank you for your payment of <%= number_to_currency @success.payment_intent.amount / 100.0 %><br><br>
 
 
@@ -16,10 +16,10 @@
 Check the status of the transaction in the main menu.
 </p>
 
-<p>The shopping cart id is... <%= @success.client_reference_id %> </p>
+<!-- <p>The shopping cart id is... <%#= @success.client_reference_id %> </p> -->
 
 <%#= debug @session %>
-<%= debug @success %>
+<%#= debug @success %>
 
 
 <% else %>
