@@ -4,8 +4,8 @@
 
 
 
-<p>Thank you for your payment of <%= number_to_currency @success.amount_received / 100.0 %><br><br>
-<p>The status of your payment is <%= @success.status %>.</p>
+<p>Thank you for your payment of <%= number_to_currency @success.payment_intent.amount / 100.0 %><br><br>
+<p>The status of your payment is <%= @success.payment_intent.status %>.</p>
 
 
 
