@@ -86,6 +86,15 @@ class CheckoutController < ApplicationController
 
       render "success"
 
+      # CART_ID = @success.payment_intent.client_reference_id
+      # FIND CART BY CART_ID
+      # MARK AS pAID
+
+      # CREAtE A NEW TRANSACTION FOR User
+      # MARK AS PAID  (TOGGLE BOOLEAN VALUE)
+      # ADD REICEpT URL
+      
+
 
     end
 
