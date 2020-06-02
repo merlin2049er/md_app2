@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_212122) do
+ActiveRecord::Schema.define(version: 2020_06_02_213714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -232,7 +232,7 @@ ActiveRecord::Schema.define(version: 2020_06_02_212122) do
     t.string "postal_carrier"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "reciept_url"
+    t.string "receipt_url"
   end
 
   create_table "troubletickets", force: :cascade do |t|

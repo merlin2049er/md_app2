@@ -18,7 +18,7 @@
   <tr>
     <!-- <th>id</th>  -->
     <th>Added</th>
-    <th>Invoice #</th>
+    <th>Invoice # / Pdf </th>
     <th>Shipped?</th>
     <th>Courier</th>
     <th>Tracking #</th>
@@ -40,7 +40,7 @@
 
       <!--  <td> <%=  transaction.id  %>  </td> -->
         <td><%= transaction.created_at.strftime("%m/%d/%Y")  %> </td>
-        <td> <%=  transaction.invoice_number  %>  </td>
+        <td> <%= link_to transaction.invoice_number, transaction.receipt_url %> </td>
         <td> <%=  transaction.shipped  %>  </td>
         <td> <%=  transaction.postal_carrier  %></td>
         <td> <%=   transaction.tracking_number %></td>
