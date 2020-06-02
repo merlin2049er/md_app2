@@ -99,7 +99,6 @@ class CheckoutController < ApplicationController
       transaction = Transaction.new do |t|
         t.user_id = cart.user_id
         t.postal_carrier = 'Canada Post'
-        t.shipped = False
         t.invoice_number = '123...FIX THIS- HYPERLINK TO PDF'
         t.tracking_number = '...coming soon...'
         t.transaction_msg = "...shipment pending..."
