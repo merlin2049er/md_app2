@@ -44,12 +44,12 @@
         <td> <%=  transaction.shipped  %>  </td>
         <td> <%=  transaction.postal_carrier  %></td>
         <td> <%=   transaction.tracking_number %></td>
-<!--    <td> <%#= link_to transaction.transaction_msg , transaction  %></td>  -->
         <td> <%= transaction.transaction_msg  %></td>
         <td>
-            <% if user_signed_in? && @user.admin %>
-              <%= link_to 'Update  ', edit_transaction_path(transaction) %>
-              <% end %>
+        <!--    <%# if user_signed_in? && @user.admin %>
+              <%#= link_to 'Update', edit_transaction_path(transaction) %>
+              <%# end %>
+        -->
         </td>
 
        <% if transaction.feedback.blank? %>
