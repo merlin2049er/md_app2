@@ -75,7 +75,6 @@ class CartsController < ApplicationController
           format.html { render :new }
           format.json { render json: @carts.errors, status: :unprocessable_entity }
         end
-      end
 
     else
     @cart.update!(qty: params[:qty])
