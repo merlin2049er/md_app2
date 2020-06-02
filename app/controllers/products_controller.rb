@@ -144,13 +144,14 @@ end
 
     else
 
-      @cart = Cart.find_by(user_id: current_user.id, product_id: params[:id])
+       @cart = Cart.find_by(user_id: current_user.id, product_id: params[:id])
 
       if @cart.paid = true
           @cart = Cart.new
 
       respond_to do |format|
-        if @cart.save(carts_params)
+      #  if @cart.save(carts_params)
+         if @cart.save
           format.html { redirect_to @carts, notice: 'Product has been added to cart.' }
           format.json { render :show, status: :created, location: @carts_path }
         else
