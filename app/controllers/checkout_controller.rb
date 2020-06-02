@@ -100,7 +100,7 @@ class CheckoutController < ApplicationController
         t.user_id = cart.user_id
         t.postal_carrier = 'Canada Post'
         t.invoice_number = 'fix this add stripe invoice number...here...'
-        t.recipt_url =  @success.payment_intent.charges.data[0].receipt_url
+        t.receipt_url =  @success.payment_intent.charges.data[0].receipt_url
         t.tracking_number = '...coming soon...'
         t.transaction_msg = "...shipment pending..."
       end

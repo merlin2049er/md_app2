@@ -46,10 +46,10 @@
         <td> <%=   transaction.tracking_number %></td>
         <td> <%= transaction.transaction_msg  %></td>
         <td>
-        <!--    <%# if user_signed_in? && @user.admin %>
+           <%# if user_signed_in? && @user.admin %>
               <%#= link_to 'Update', edit_transaction_path(transaction) %>
               <%# end %>
-        -->
+
         </td>
 
        <% if transaction.feedback.blank? %>
