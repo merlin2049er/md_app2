@@ -128,7 +128,7 @@ end
 
   def add_to_cart
 
-    if Cart.where(user_id: current_user.id, product_id: params[:id]).blank?
+    if Cart.where([user_id: current_user.id, product_id: params[:id]).blank?,  'cart.paid =? '  true])
       @cart = Cart.new(user_id: current_user.id, product_id: params[:id], qty: params[:qty])
 
       respond_to do |format|
@@ -144,23 +144,6 @@ end
 
     else
 
-       @cart = Cart.find_by(user_id: current_user.id, product_id: params[:id])
-
-      if @cart.paid = true
-          @cart = Cart.new
-
-      respond_to do |format|
-      #  if @cart.save(carts_params)
-         if @cart.save
-          format.html { redirect_to @carts, notice: 'Product has been added to cart.' }
-          format.json { render :show, status: :created, location: @carts_path }
-        else
-          format.html { render :new }
-          format.json { render json: @carts.errors, status: :unprocessable_entity }
-        end
-      end
-
-    else
 
       @cart.qty += params[:qty].to_i
       @cart.save
@@ -170,7 +153,6 @@ end
         format.json { render json: @cart.errors, status: :unprocessable_entity }
       end
 
-    end
   end
 
   end
