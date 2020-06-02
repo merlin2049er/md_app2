@@ -144,7 +144,7 @@ end
 
     else
 
-      cart = Cart.find_by(user_id: current_user.id, product_id: params[:id])
+      @cart = Cart.find_by(user_id: current_user.id, product_id: params[:id])
 
       if @cart.paid = true
           @cart = Cart.new
@@ -161,8 +161,8 @@ end
 
     else
 
-      cart.qty += params[:qty].to_i
-      cart.save
+      @cart.qty += params[:qty].to_i
+      @cart.save
 
       respond_to do |format|
         format.html { redirect_back fallback_location: root_path,  notice: 'Product was successfully updated in cart.' }
