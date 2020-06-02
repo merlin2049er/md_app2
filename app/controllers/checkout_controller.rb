@@ -88,7 +88,7 @@ class CheckoutController < ApplicationController
 
       # CART_ID = @success.payment_intent.client_reference_id
       # FIND CART BY CART_ID
-       cart = Cart.find(@success.payment_intent.client_reference_id)
+       cart = Cart.find(@success.client_reference_id)
       # cart.paid = true ?
       cart.update(paid: true)
       cart.save
