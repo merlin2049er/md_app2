@@ -8,8 +8,8 @@ class TransactionsController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Transactions'
 
-    if @transactions = Transaction.where('admin = ?', current_user.admin ).order('created_at DESC')
-      
+    if User.where('admin =?', current_user.admin )
+      @transactions.all.order('created_at DESC')
     else
 
       @transactions = Transaction.where('user_id =?', current_user.id).order('created_at DESC')

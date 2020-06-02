@@ -24,6 +24,7 @@
     <th>Tracking #</th>
     <th>Comment</th>
     <th>Action</th>
+    <th>Feedback</th>
   </tr>
   </thead>
 
@@ -45,11 +46,17 @@
         <td> <%=   transaction.tracking_number %></td>
 <!--    <td> <%#= link_to transaction.transaction_msg , transaction  %></td>  -->
         <td> <%= transaction.transaction_msg  %></td>
-
-
+        <td>
+            <% if user_signed_in? && @user.admin %>
+              <%= link_to 'Update  ', edit_transaction_path(transaction) %>
+              <% end %>
+        </td>
+        
        <% if transaction.feedback.blank? %>
 
-            <td><%= link_to "Leave feedback...",new_transaction_feedback_url(:transaction_id => transaction.id )%> </td>
+            <td>
+
+               <%= link_to "Leave feedback...",new_transaction_feedback_url(:transaction_id => transaction.id )%> </td>
                <% else %>
                <td> Feedback received...</td>
 
