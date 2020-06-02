@@ -127,6 +127,7 @@ end
   end
 
   def add_to_cart
+
     if Cart.where(user_id: current_user.id, product_id: params[:id]).blank?
       @cart = Cart.new(user_id: current_user.id, product_id: params[:id], qty: params[:qty])
 
@@ -156,6 +157,7 @@ end
           format.html { render :new }
           format.json { render json: @carts.errors, status: :unprocessable_entity }
         end
+      end
 
     else
 
@@ -166,8 +168,10 @@ end
         format.html { redirect_back fallback_location: root_path,  notice: 'Product was successfully updated in cart.' }
         format.json { render json: @cart.errors, status: :unprocessable_entity }
       end
+
     end
   end
+
   end
 
   private
