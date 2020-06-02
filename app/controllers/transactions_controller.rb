@@ -9,7 +9,7 @@ class TransactionsController < ApplicationController
     add_breadcrumb 'Transactions'
 
     if User.where('admin =?', current_user.admin )
-      @transactions.all.order('created_at DESC')
+      @transactions = Transaction.all.order('created_at DESC')
     else
 
       @transactions = Transaction.where('user_id =?', current_user.id).order('created_at DESC')

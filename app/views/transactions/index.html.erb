@@ -1,4 +1,4 @@
-
+<% @user = current_user %>
 <% if user_signed_in? %>
 
   <div class="panel panel-default">
@@ -51,7 +51,7 @@
               <%= link_to 'Update  ', edit_transaction_path(transaction) %>
               <% end %>
         </td>
-        
+
        <% if transaction.feedback.blank? %>
 
             <td>
