@@ -99,7 +99,7 @@ class CheckoutController < ApplicationController
       transaction = Transaction.new do |t|
         t.user_id = cart.user_id
         t.postal_carrier = 'Canada Post'
-        t.invoice_number = '<a href= '<%= @success.payment_intent.charges.data[0].receipt_url  %>'>FIX THIS HYPERLINK TO INVOICE PDF</a>'
+        t.invoice_number = 'FIX THIS HYPERLINK TO INVOICE PDF'
         t.tracking_number = '...coming soon...'
         t.transaction_msg = "...shipment pending..."
       end
