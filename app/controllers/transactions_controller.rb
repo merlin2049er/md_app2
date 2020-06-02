@@ -8,7 +8,12 @@ class TransactionsController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Transactions'
 
-    @transactions = Transaction.where('user_id =?', current_user.id).order('created_at DESC')
+    if @transactions = Transaction.where('admin = ?', current_user.admin ).order('created_at DESC')
+      
+    else
+
+      @transactions = Transaction.where('user_id =?', current_user.id).order('created_at DESC')
+    end
 
     #@feedback_recieved = Feedback.exists?(@transaction)
     @pagy, @transactions = pagy(@transactions)
