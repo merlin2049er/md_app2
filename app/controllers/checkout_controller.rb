@@ -88,9 +88,9 @@ class CheckoutController < ApplicationController
 
       # CART_ID = @success.payment_intent.client_reference_id
       # FIND CART BY CART_ID
-      cart = Cart.find(@success.payment_intent.client_reference_id)
-      cart.paid = true
-      cart.save
+      # cart = Cart.find(@success.payment_intent.client_reference_id)
+      # cart.paid = true ?
+      # cart.save
       # MARK AS pAID
 
       # CREAtE A NEW TRANSACTION FOR User
