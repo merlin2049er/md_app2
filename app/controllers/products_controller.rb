@@ -128,7 +128,8 @@ end
 
   def add_to_cart
 
-    if Cart.where([user_id: current_user.id, product_id: params[:id]).blank?,  'cart.paid =? '  true])
+    if Cart.where(([user_id: current_user.id, product_id: params[:id] ]).blank? ).or(Cart.where( paid: true ))    
+
       @cart = Cart.new(user_id: current_user.id, product_id: params[:id], qty: params[:qty])
 
       respond_to do |format|
