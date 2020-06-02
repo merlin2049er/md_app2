@@ -145,6 +145,20 @@ end
 
       cart = Cart.find_by(user_id: current_user.id, product_id: params[:id])
 
+      if @cart.paid = true
+          @cart = Cart.new
+
+      respond_to do |format|
+        if @cart.save(carts_params)
+          format.html { redirect_to @carts, notice: 'Product has been added to cart.' }
+          format.json { render :show, status: :created, location: @carts_path }
+        else
+          format.html { render :new }
+          format.json { render json: @carts.errors, status: :unprocessable_entity }
+        end
+
+    else
+
       cart.qty += params[:qty].to_i
       cart.save
 
@@ -153,6 +167,7 @@ end
         format.json { render json: @cart.errors, status: :unprocessable_entity }
       end
     end
+  end
   end
 
   private
