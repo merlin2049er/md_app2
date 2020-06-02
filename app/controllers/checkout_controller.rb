@@ -95,6 +95,15 @@ class CheckoutController < ApplicationController
       # MARK AS pAID
 
       # CREAtE A NEW TRANSACTION FOR User
+
+      transaction = Transaction.new do |t|
+        t.user_id = cart.user_id
+        t.postal_carrier = 'Canada Post'
+        t.invoice_number = ''
+        t.transaction_msg = "shipment pending..."
+      end
+      transaction.save
+      #  cart.user_id
       # MARK AS PAID  (TOGGLE BOOLEAN VALUE)
       # ADD REICEpT URL
 
