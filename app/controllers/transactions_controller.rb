@@ -37,7 +37,7 @@ class TransactionsController < ApplicationController
   # GET /transactions/1/edit
   def edit
     add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'Edit Transactions'
+    add_breadcrumb 'Edit Transaction'
   end
 
   # POST /transactions
@@ -89,7 +89,7 @@ class TransactionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction
-      @transaction = Transaction.find(params[:transaction_id])
+      @transaction = Transaction.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

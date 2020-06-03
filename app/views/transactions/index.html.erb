@@ -45,10 +45,10 @@
         <td> <%=  transaction.postal_carrier  %></td>
         <td> <%=   transaction.tracking_number %></td>
         <td> <%= transaction.transaction_msg  %></td>
-        <td>
-           <%# if user_signed_in? && @user.admin %>
-              <%#= link_to 'Update', edit_transaction_path(transaction) %>
-              <%# end %>
+        <td><%= link_to 'Show  ', transaction_path(transaction ) %>
+           <% if user_signed_in? && @user.admin %>
+              <%= link_to 'Update', edit_transaction_path(transaction  ) %>
+              <% end %>
 
         </td>
 

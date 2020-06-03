@@ -1,10 +1,5 @@
 
 <p>
-  <strong>Transaction msg:</strong>
-  <%= @transaction.transaction_msg %>
-</p>
-
-<p>
   <strong>User:</strong>
   <%= @transaction.user_id %>
 </p>
@@ -32,6 +27,11 @@
 <p>
   <strong>Postal carrier:</strong>
   <%= @transaction.postal_carrier %>
+</p>
+
+<p>
+  <strong>Transaction msg:</strong>
+  <%= @transaction.transaction_msg %>
 </p>
 
 <%= link_to 'Edit', edit_transaction_path(@transaction) %> |
