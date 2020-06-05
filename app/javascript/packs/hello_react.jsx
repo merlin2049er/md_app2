@@ -4,7 +4,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Component from '../components/App.js'
+import Component from '../components/App'
 
 
 document.addEventListener('DOMContentLoaded', () => {
