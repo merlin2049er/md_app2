@@ -24,6 +24,10 @@ module Stripe
    render json: {message: 'booyah, great.'}
  end
 
+ def handle_charge_failed(event)
+   # your code goes here
+   render json: {message: 'booyah, not so good.'}
+ end
 
 end
 
