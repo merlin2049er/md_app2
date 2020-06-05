@@ -15,9 +15,9 @@ module Stripe
    end
  end
 
- def handle_charge_dispute_created(event)
+ #def handle_charge_dispute_created(event)
    # your code goes here
- end
+ #end
 
  def handle_checkout_session_completed(event)
    # your code goes here
