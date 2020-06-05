@@ -21,12 +21,12 @@ module Stripe
 
  def handle_checkout_session_completed(event)
    # your code goes here
-   render json: {message: 'booyah, great.'}
+   render json: {status: 200, message: 'booyah, great.'}
  end
 
  def handle_charge_failed(event)
    # your code goes here
-   render json: {message: 'booyah, not so good.'}
+   render json: {status: 200, message: 'booyah, not so good.'}
  end
 
 end
