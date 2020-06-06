@@ -1,4 +1,8 @@
 
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">ToDo Lists:
@@ -44,3 +48,7 @@
 <br>
 
 <%= link_to 'New ToDo item', new_todo_list_path %>
+
+<% else %>
+  <div class="alert alert-warning" role="alert"> You must be signed in to view the ToDo List.</div>
+<% end %>
