@@ -98,6 +98,11 @@ class PagesController < ApplicationController
     add_breadcrumb "Jobs"
   end
 
+  def payments
+    add_breadcrumb @site_name, :root_path
+    add_breadcrumb 'Payments'
+  end
+
   def privacy
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Privacy'
