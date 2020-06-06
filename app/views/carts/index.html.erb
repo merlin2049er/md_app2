@@ -45,8 +45,8 @@
         <th>Funded</th>
         <th>Action</th>
 
-        <th>Status (Payment due)</th>
-
+        <th>Status</th>
+        <th>Due date<th>
       </tr>
       </thead>
 
@@ -113,6 +113,7 @@
         <% end %>
 
       </td>
+      <td> <%= product.enddate + 5  %></td>
         </tr>
       <% end %>
       </tbody>
