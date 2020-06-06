@@ -1,4 +1,8 @@
 <!-- found in views/cart/index.html.erb -->
+<script>
+  $("#grid-basic").bootgrid();
+
+</script>
 
 <% if user_signed_in? %>
 
@@ -22,10 +26,13 @@
   <div class="panel-body">
 
 
-    <table class="table">
+
+       <table id="grid-basic" class="table table-condensed table-hover table-striped">
+
       <thead>
       <tr>
         <!-- <th colspan="3"></th> -->
+
         <th>Added</th>
       <th> Campaign </th>
         <th>Item</th>
@@ -54,9 +61,9 @@
           <% product = Product.where(id: cart.product_id).first %>
 
             <% if not product.funded? %>
-          <td> <%= link_to raw(" #{cart.product_id}"), controller: "products", action: "show", id: cart.product_id %> </td>
+          <td > <%= link_to raw(" #{cart.product_id}"), controller: "products", action: "show", id: cart.product_id %> </td>
             <% else %>
-            <td> <%= cart.product_id %> </td>
+            <td > <%= cart.product_id %> </td>
 
             <% end %>
 

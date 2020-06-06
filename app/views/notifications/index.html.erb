@@ -1,3 +1,8 @@
+<script>
+  $("#grid-basic").bootgrid();
+
+</script>
+
 
 <% if user_signed_in? %>
 
@@ -13,7 +18,9 @@
     </div>
     <div class="panel-body">
 
-      <table class="table"  >
+      <!--  <table class="table"> -->
+         <table id="grid-basic" class="table table-condensed table-hover table-striped">
+           
         <thead>
         <tr>
           <!-- <th colspan="3"></th> -->
