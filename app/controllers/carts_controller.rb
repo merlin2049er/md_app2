@@ -12,7 +12,7 @@ class CartsController < ApplicationController
   def index
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'shopping cart'
-
+    
     @carts = Cart.where('user_id =?', current_user.id)
     @pagy, @carts = pagy(@carts)
   end
