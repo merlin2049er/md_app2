@@ -10,7 +10,6 @@ class CartsController < ApplicationController
   # GET /article/ns
   # GET /articles.json
   def index
-
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'shopping cart'
 
@@ -65,7 +64,7 @@ class CartsController < ApplicationController
     @cart = Cart.find(params[:id])
     @cart.update!(qty: params[:qty])
     redirect_to carts_path
-    
+
   end
 
   def destroy
