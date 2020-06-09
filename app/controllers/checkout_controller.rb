@@ -99,9 +99,8 @@ class CheckoutController < ApplicationController
       transaction = Transaction.new do |t|
         t.user_id = cart.user_id
         t.postal_carrier = 'Canada Post'
-        # t.invoice_number = '...invoice here...'
-        t.invoice_number = @success.payment_intent.charges.data[0].invoice
-
+        t.invoice_number = '...invoice here...'
+        #t.invoice_number = @success.payment_intent.charges.data[0].invoice
         t.receipt_url =  @success.payment_intent.charges.data[0].receipt_url
         t.tracking_number = '...coming soon...'
         t.transaction_msg = "...shipment pending..."
