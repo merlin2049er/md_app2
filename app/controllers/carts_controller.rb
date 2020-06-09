@@ -12,8 +12,25 @@ class CartsController < ApplicationController
   def index
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'shopping cart'
-    
-    @carts = Cart.where('user_id =?', current_user.id)
+
+    if params[:view]  == 'paid'
+
+      add_breadcrumb '[Paid]'
+      @carts = Cart.where('user_id =? AND paid =?', current_user.id , true)
+
+    elsif params[:view]  == 'notpaid'
+
+      add_breadcrumb '[Not Paid]'
+    @carts = Cart.where('user_id =? AND paid =?', current_user.id , false )
+
+    else
+
+    #  @carts = Cart.where('user_id =?', current_user.id) and Cart.where('paid =?', "false")
+
+      @carts = Cart.where('user_id =?', current_user.id)
+
+    end
+
     @pagy, @carts = pagy(@carts)
   end
 

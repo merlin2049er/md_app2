@@ -11,10 +11,8 @@ class TransactionsController < ApplicationController
     if User.where('admin =?', current_user.admin )
       @transactions = Transaction.all.order('created_at DESC')
     else
-
       @transactions = Transaction.where('user_id =?', current_user.id).order('created_at DESC')
     end
-
     #@feedback_recieved = Feedback.exists?(@transaction)
     @pagy, @transactions = pagy(@transactions)
   end
