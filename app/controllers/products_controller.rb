@@ -68,12 +68,9 @@ class ProductsController < ApplicationController
 
     @user = 'merlin2049er@gmail.com'  #testing mailer...
     # send out reminder to users
-    successful_campaign_mailer.with(user: @user).successful_campaign_email.deliver_now
-
+    SuccessfulCampaignMailer.with(user: @user).successful_campaign_email.deliver_now
 
   end
-
-
 
 end
 
