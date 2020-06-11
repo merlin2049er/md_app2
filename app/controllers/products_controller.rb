@@ -65,8 +65,11 @@ class ProductsController < ApplicationController
     end
 
     # find all users in this successful campaign
+    user_id = Cart.where(product_id: @product.id).pluck(:user_id)
+    fname = User.where(user_id: user_id).pluck(:firstname)
+    email_address = User.where(id: user_id).pluck(:emailaddress)
 
-    @user = "merlin2049er@gmail.com"  #testing mailer...
+    # @user = "merlin2049er@gmail.com"  #testing mailer...
     # send out reminder to users
     SuccessfulCampaignMailer.successful_campaign_email.deliver_now
 
