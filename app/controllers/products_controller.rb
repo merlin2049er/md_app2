@@ -63,6 +63,14 @@ class ProductsController < ApplicationController
       format.html { redirect_to root_path, notice: 'Product was successfully funded.' }
       format.json { render :show, status: :created, location: @product }
     end
+
+    # find all users in this successful campaign
+
+    @user = 'merlin2049er@gmail.com'  #testing mailer...
+    # send out reminder to users
+    successful_campaign_mailer.with(user: @user).successful_campaign_email.deliver_now
+
+
   end
 
 
