@@ -1,7 +1,7 @@
 class SuccessfulCampaignMailer < ApplicationMailer
   default from: 'no-reply@jginfosys.com'
 
-   def success_email
+   def successful_campaign_email
      @user = params[:user]
      @url  = 'https://desolate-journey-54830.herokuapp.com/'
      mail(to: @user.email, subject: 'The campaign was a success...')
