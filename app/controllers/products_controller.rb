@@ -69,8 +69,7 @@ class ProductsController < ApplicationController
 
     user_id.each do |id|
       @user = User.find_by_id(id)
-    #  SuccessfulCampaignMailer.with(user: @user).successful_campaign_email.deliver_now
-    SuccessfulCampaignMailer.with(@user).successful_campaign_email.deliver_now
+      SuccessfulCampaignMailer.with(user: @user).successful_campaign_email.deliver_now
     end
 
 end
