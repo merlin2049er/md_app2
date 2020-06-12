@@ -65,13 +65,11 @@ class ProductsController < ApplicationController
     end
 
     # find all users in this successful campaign
-    user_id = Cart.where(product_id: @product.id).distinct.pluck(:user_id)
-
+    user_id = Cart.where(product_id: @product.id).pluck('DISTINCT(user_id)')
     user_id.each do |id|
       @user = User.find_by_id(id)
       #SuccessfulCampaignMailer.with(user: @user).successful_campaign_email.deliver_now
       SuccessfulCampaignMailer.with(user: @user).successful_campaign_email.deliver_now
-
     end
 
 end
