@@ -292,6 +292,8 @@ GEM
     simple_form (5.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
+    sitemap_generator (6.1.2)
+      builder (~> 3.0)
     sixarm_ruby_unaccent (1.2.0)
     sort_alphabetical (1.1.0)
       unicode_utils (>= 1.2.2)
@@ -387,6 +389,7 @@ DEPENDENCIES
   selenium-webdriver
   sentry-raven
   simple_form
+  sitemap_generator
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets-rails
