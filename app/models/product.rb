@@ -8,6 +8,9 @@ class Product < ActiveRecord::Base
 #  include Elasticsearch::Model::Callbacks
 
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   is_impressionable
   has_rich_text :body
 
@@ -54,7 +57,6 @@ after_touch() { __elasticsearch__.index_document }
   validates_numericality_of :price, :greater_than => 0
   validates_numericality_of :qty, :greater_than => 0
   #validates_numericality_of :msrp, :greater_than => :price
-
 
   # hopefully this works
   #  validates_numericality_of :qty, less_than_or_equal_to: 10, greater_than: 0

@@ -35,7 +35,9 @@ class ProductsController < ApplicationController
     add_breadcrumb 'product'
     add_breadcrumb @product.title
 
-   @product = Product.find_by_id(params[:id])
+   #@product = Product.find_by_id(params[:id])
+   @product = Product.friendly.find(params[:id])
+
 
   # insert comments here...
    commontator_thread_show(@product)
