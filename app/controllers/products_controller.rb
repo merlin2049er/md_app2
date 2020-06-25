@@ -189,7 +189,6 @@ end
       end
     end
     end
-
   end
 
   end
@@ -199,7 +198,8 @@ end
   # Use callbacks to share common setup or constraints between actions.
   def set_product
     #binding.pry
-    @product = Product.find_by_id(params[:id])
+    #@product = Product.find_by_id(params[:id])
+    @product = Product.friendly.find(params[:id])
 
     #@product = Product.find(params[:id])
   end
