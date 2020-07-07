@@ -3,7 +3,7 @@
 class Watchlist < ActiveRecord::Base
   belongs_to  :user
   has_many    :products
-  validates_uniqueness_of :product_id , :message => 'Already in WatchList' 
+  validates_uniqueness_of :product_id , :message => 'Already watching this product...' 
 
 
 
