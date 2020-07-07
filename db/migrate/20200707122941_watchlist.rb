@@ -1,4 +1,4 @@
-class Watchlist < ActiveRecord::Migration[6.0]
+class Watchlists < ActiveRecord::Migration[6.0]
 
   def change
     create_table :watchlists do |t|
