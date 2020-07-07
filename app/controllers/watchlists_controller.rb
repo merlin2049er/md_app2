@@ -21,6 +21,17 @@ class WatchlistsController < ApplicationController
 
   @watchlist = Watchlist.new
 
+    if params and params[:user_id] and params[:product_id]
+      @watchlist.user_id = params[:user_id]
+      @watchlist.product_id = params[:product_id]
+      if @watchlist.save
+        flash[:notice] = 'Watch item was successfully created.'
+          else
+            flash[:error] =  @watchlist.errors
+          end
+          render 'new.js.erb'
+    end
+
   end
 
   # POST /watchlists
