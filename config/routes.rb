@@ -28,6 +28,8 @@ Rails.application.routes.draw do
     resources :ticketnotes , only:[:new,:create, :destroy ]
   end
 
+  resources :watchlists, only:[:index, :new,:create, :destroy]
+
   get 'troubletickets_close/(:id)' , to: 'troubletickets#close'
 
   resources :feedbacks, only:[:index,:edit,:update,:destroy]
