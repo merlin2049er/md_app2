@@ -19,8 +19,11 @@
     <table class="table" >
   <thead>
     <tr>
+      <th>Created At</th>
       <th>Product Id</th>
-
+      <th>Product</th>
+      <th>Price</th>
+      <th>End Date</th>
       <th>Action</th>
       <!-- <th colspan="3"></th> -->
     </tr>
@@ -29,7 +32,25 @@
   <tbody>
     <% @watchlists.each do |watchlist| %>
       <tr>
-        <td><%= watchlist.product_id %></td>
+        <td><%= watchlist.created_at.strftime("%m/%d/%Y") %> </td>
+
+
+
+        <% product = Product.where(id: watchlist.product_id).first %>
+
+          <% if not product.funded? %>
+        <td data-column-id="id"> <%= link_to raw(" #{watchlist.product_id}"), controller: "products", action: "show", id: watchlist.product_id %> </td>
+          <% else %>
+          <td data-column-id="id"> <%= watchlist.product_id %> </td>
+
+          <% end %>
+
+
+        <td> <%=  product.title  %>  </td>
+
+        <td> <%=  number_to_currency(product.price ) %>  </td>
+
+      <td> <%=  product.enddate %>  <script > var enddate = <%=  product.enddate.to_json.html_safe %> ;console.log(enddate); </script> </td>
 
         <td><%= link_to 'Destroy', watchlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 

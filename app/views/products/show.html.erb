@@ -61,6 +61,15 @@
 
   <% end %>
 
+ <% if user_signed_in? %>
+  <i>
+
+  <%= link_to "Add to Watch list",  controller: "watchlists", action: "new" , :product_id => @product.id , :user_id => @current_user %>
+
+  </i>
+
+<br/><br/>
+<%end %>
   <div class="well well-sm">
 
     <% start_time = @product.startdate %>

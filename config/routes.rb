@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   end
 
   resources :watchlists, only:[:index, :new,:create, :destroy]
-
+  
   get 'troubletickets_close/(:id)' , to: 'troubletickets#close'
 
   resources :feedbacks, only:[:index,:edit,:update,:destroy]

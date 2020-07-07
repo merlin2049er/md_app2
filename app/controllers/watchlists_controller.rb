@@ -16,10 +16,10 @@ class WatchlistsController < ApplicationController
 
   # GET /watchlists/new
   def new
-    add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'New watch item'
+  #  add_breadcrumb @site_name, :root_path
+  #  add_breadcrumb 'New watch item'
 
-    @watchlist = Watchlist.new
+  @watchlist = Watchlist.new
 
   end
 
@@ -42,8 +42,6 @@ class WatchlistsController < ApplicationController
       end
     end
   end
-
-
 
   # DELETE /watchlists/1
   # DELETE /watchlists/1.json
