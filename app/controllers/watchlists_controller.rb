@@ -28,33 +28,33 @@ class WatchlistsController < ApplicationController
       if @watchlist.save
         flash[:notice] = 'Watch item was successfully created.'
           else
-          
+
             flash[:error] =  @watchlist.errors.full_messages.to_sentence
           end
-          render 'new.js.erb'
+        #  render 'new.js.erb'
     end
 
   end
 
   # POST /watchlists
   # POST /watchlists.json
-  def create
-    add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'New watch item'
+#  def create
+#    add_breadcrumb @site_name, :root_path
+#    add_breadcrumb 'New watch item'
 
-    @watchlist = Watchlist.new(watchlist_params)
+#    @watchlist = Watchlist.new(watchlist_params)
 
-    respond_to do |format|
-      if @watchlist.save
+#    respond_to do |format|
+#      if @watchlist.save
 
-       format.html { redirect_to watchlists_path, notice: 'Watch item was successfully created.' }
-        format.json { render :show, status: :created, location: @watchlist }
-      else
-        format.html { render :new }
-        format.json { render json: @watchlist.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+#       format.html { redirect_to watchlists_path, notice: 'Watch item was successfully created.' }
+#        format.json { render :show, status: :created, location: @watchlist }
+#      else
+#        format.html { render :new }
+#        format.json { render json: @watchlist.errors, status: :unprocessable_entity }
+#      end
+#    end
+#  end
 
   # DELETE /watchlists/1
   # DELETE /watchlists/1.json
