@@ -1,3 +1,4 @@
+
 class WatchlistsController < ApplicationController
   before_action :set_watchlist, only: [:destroy]
   include Pagy::Backend
@@ -27,7 +28,8 @@ class WatchlistsController < ApplicationController
       if @watchlist.save
         flash[:notice] = 'Watch item was successfully created.'
           else
-            flash[:error] =  @watchlist.errors
+          
+            flash[:error] =  @watchlist.errors.full_messages.to_sentence
           end
           render 'new.js.erb'
     end
