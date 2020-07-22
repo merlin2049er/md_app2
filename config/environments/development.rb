@@ -73,4 +73,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   config.hosts << "c3c851c70699.ngrok.io"
+
+  config.middleware.use Rails::Rack::LogTailer
 end
