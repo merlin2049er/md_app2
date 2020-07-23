@@ -74,5 +74,6 @@ Rails.application.configure do
 
   config.hosts << "c3c851c70699.ngrok.io"
 
-  config.middleware.use Rails::Rack::LogTailer
+  # for proxy forward...
+  # config.middleware.use Rails::Rack::LogTailer
 end
