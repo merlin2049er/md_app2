@@ -73,7 +73,7 @@ class PagesController < ApplicationController
 
      # check for filled in profile
      if current_user and !current_user.is_profile_complete and Blacklist.find_by_email(current_user.email).nil?
-         flash[:warning] = 'Please, fill in your profile...'
+         flash.now[:warning] = 'Please, fill in your profile...'
      end
      #
 

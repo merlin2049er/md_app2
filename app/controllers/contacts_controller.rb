@@ -19,10 +19,10 @@ class ContactsController < ApplicationController
        registered_user = params[:contact][:registered_user]
 
        ContactMailer.contact_email(name, email, message, supplier, registered_user).deliver
-       flash[:success] = 'Thanks for the message, we will be in touch soon.'
+       flash.now[:success] = 'Thanks for the message, we will be in touch soon.'
      else
        redirect_to pages_contact_path
-       flash[:danger] = 'Opps, there was a problem! Please fill out all the fields.'
+       flash.now[:danger] = 'Opps, there was a problem! Please fill out all the fields.'
      end
    end
 

@@ -33,9 +33,9 @@ class FeedbacksController < ApplicationController
     @transaction = Transaction.find_by_id(params[:transaction_id])
 
       if @transaction.feedback.blank?
-         flash[:notice] = "Please leave feedback..."
+         flash.now[:notice] = "Please leave feedback..."
       else
-         flash[:notice]= 'Thanks for your feedback...'
+         flash.now[:notice]= 'Thanks for your feedback...'
          redirect_to transactions_url
       end
 
@@ -57,7 +57,7 @@ class FeedbacksController < ApplicationController
     @feedback.transaction_id = params[:transaction_id]
 
       if @feedback.save
-     flash[:notice] = 'Thanks for your feedback...'
+     flash.now[:notice] = 'Thanks for your feedback...'
     redirect_to transactions_url
 
       else
