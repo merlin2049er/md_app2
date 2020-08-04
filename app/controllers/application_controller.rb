@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
 
 
 def errors_stop
-   flash[:error] = "Oops. Something went wrong."
+   flash.now[:error] = "Oops. Something went wrong."
   redirect_to root_path
 end
 
@@ -56,7 +56,7 @@ def banned
 
   if current_user and !Blacklist.find_by_email(current_user.email).nil?
     #    binding.pry
-    flash[:warning] = 'Sorry, you have been banned...'
+    flash.now[:warning] = 'Sorry, you have been banned...'
     session.clear
 
     add_breadcrumb @site_name, :root_path
