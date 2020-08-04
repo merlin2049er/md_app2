@@ -26,10 +26,10 @@ class WatchlistsController < ApplicationController
       @watchlist.user_id = params[:user_id]
       @watchlist.product_id = params[:product_id]
       if @watchlist.save
-        flash[:notice] = 'Watch item was successfully created.'
+        flash.now[:notice] = 'Watch item was successfully created.'
           else
 
-            flash[:error] =  @watchlist.errors.full_messages.to_sentence
+            flash.now[:error] =  @watchlist.errors.full_messages.to_sentence
           end
         #  render 'new.js.erb'
     end
