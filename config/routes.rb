@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   end
 
   resources :watchlists, only:[:index, :new,:create, :destroy]
-  
+
   get 'troubletickets_close/(:id)' , to: 'troubletickets#close'
 
   resources :feedbacks, only:[:index,:edit,:update,:destroy]
@@ -64,8 +64,8 @@ Rails.application.routes.draw do
   get 'pages/shipping'
   get 'pages/returns'
   get 'pages/taxes'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #comments engine
   mount Commontator::Engine => '/commontator'
 
