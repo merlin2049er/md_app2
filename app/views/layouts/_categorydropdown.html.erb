@@ -7,7 +7,15 @@
             <li><%= link_to category.name, category_path(category) %></li>
          <% end %>
         <li role="separator" class="divider"></li>
-        <li><%= link_to "All Categories", categories_path %></li>
+        <!-- <li><%#= link_to "All Categories", categories_path %></li>  -->
+
+
+          <li>
+                  <%= link_to categories_path  do %>
+          <img src="/bootstrap-icons-1.0.0/collection.svg" alt="" width="20" height="20" >  <span>All Categories</span>
+        <% end %>
+        </li>
+
        </ul>
 </li>
 

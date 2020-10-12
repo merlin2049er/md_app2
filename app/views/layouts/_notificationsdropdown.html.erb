@@ -7,7 +7,15 @@
                     <li><%= link_to notification.notify_msg, notification_path(notification) %></li>
                 <% end %>
             <li role="separator" class="divider"></li>
-            <li><%= link_to "All Notifications", notifications_path %> </li>
+
+            <!--<li><%#= link_to "All Notifications", notifications_path %> </li> -->
+
+
+              <li>
+                      <%= link_to notifications_path  do %>
+              <img src="/bootstrap-icons-1.0.0/bell.svg" alt="" width="20" height="20" >  <span>All Notifications</span>
+            <% end %>
+            </li>
         </ul>
 </li>
 
