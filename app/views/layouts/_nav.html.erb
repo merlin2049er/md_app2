@@ -35,20 +35,16 @@
     <ul class="nav navbar-nav navbar-right">
 
       <% if !current_user %>
-
-             <li><%= link_to "Terms", pages_terms_path %></li>
-             <li><%= link_to "FAQ", faqs_path %></li>
-             <li> <%= link_to "Sign Up", new_user_registration_path %></li>
-            <li>  <%= link_to "Log in", new_user_session_path %> </li>
-
+          <li><%= link_to "Terms", pages_terms_path %></li>
+          <li><%= link_to "FAQ", faqs_path %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%= link_to "Log in", new_user_session_path %> </li>
        <% else %>
-
           <li><%= render 'layouts/analmenu' %></li>
           <li><%= render 'layouts/adminmenu' %></li>
           <li><%= render 'layouts/notificationsdropdown' %></li>
           <li><%= render 'layouts/mainmenu' %></li>
           <li><%= render 'layouts/helpmenu' %></li>
-
       <% end %>
 
 
