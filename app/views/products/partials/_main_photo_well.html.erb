@@ -1,16 +1,10 @@
 
-
 <div class="well well-sm">
 
-        <!-- <a href="<%#= @product.picurl %>" %> -->
         <section data-featherlight-gallery data-featherlight-filter="a" >
 
-    <!--    <a href = "<%#= asset_pack_path "media/images/#{@product.picurl}" %>"  >  -->
-
-<!--         <img src="<%#= asset_pack_path "media/images/#{@product.picurl}" %> "  align="top" > -->
-
     <a href = "<%= @product.picurl  %>"  >
-      <img src="<%= @product.picurl  %> " width="250" height="250"  align="top" >
+      <img src="<%= @product.picurl  %> " width="250" height="250"  align="top" class ="main_img">
       </a>
 
         <%= render 'products/partials/thumbnails' %>
@@ -18,7 +12,7 @@
  </div >
 
  <style>
- img {
+ .main_img {
    border: 1px solid #ddd;
    border-radius: 4px;
    padding: 5px;
@@ -26,7 +20,7 @@
 <!--   width: 150px; -->
  }
 
- img:hover {
+ .main_img:hover {
    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
  }
  </style>
