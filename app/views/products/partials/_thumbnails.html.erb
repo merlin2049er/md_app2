@@ -1,23 +1,15 @@
 <% if @photo.size > 0 %>
 
-   <!-- <div class="well well-sm"> -->
-    <!--<div class="container">
 
-      <div class="row"> -->
     <% @photo.each do | p| %>
 
-    <!-- <div class="col-sm-5 ">  -->
-   <!-- <div class="thumbnail"> -->
+
 
 <a href = "<%=  p.uri %>"  >
   <img src="<%= p.uri %> "   width="150" height="150" align="top" >
 </a>
-    <!-- </div> -->
- <!-- </div> -->
+
 <% end %>
 
-<!--</div>
-</div> -->
-<!-- </div> -->
 
 <% end %>
