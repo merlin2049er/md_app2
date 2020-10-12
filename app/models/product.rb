@@ -61,6 +61,8 @@ after_touch() { __elasticsearch__.index_document }
   # hopefully this works
   #  validates_numericality_of :qty, less_than_or_equal_to: 10, greater_than: 0
 
+
+
   def commentable_title
      "Undefined Post Title"
    end
@@ -82,6 +84,11 @@ after_touch() { __elasticsearch__.index_document }
     self.qty ||= 1
 
     self.funded ||= 'false'
+
+    self.width  ||= 0
+    self.length ||= 0
+    self.height ||= 0
+    self.weight ||= 0
     self.courier ||= 'Canada Post'
     self.courierurl ||= 'https://www.canadapost.ca'
   end

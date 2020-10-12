@@ -1,9 +1,9 @@
-  <%= render 'layouts/addthis' %>
+<%= render 'layouts/addthis' %>
 
-  <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#Product">Product</a></li>
-    <li><a data-toggle="tab" href="#Discussion">Discussion</a></li>
-  </ul>
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#Product">Product</a></li>
+  <li><a data-toggle="tab" href="#Discussion">Discussion</a></li>
+</ul>
 
 <!-- tabs here -->
   <div class="tab-content">
@@ -145,7 +145,7 @@
 
     <div class="well well-sm">
        <% if @product.length == 0 and @product.width == 0 and @product.width == 0 and @product.weight == 0 %>
-         Package dimensions not available.
+         <i>Package dimensions not available.</i>
       <% else %>
         <i>Package dimensions</i><br/>
         Length: <%= @product.length %> cm<br/>

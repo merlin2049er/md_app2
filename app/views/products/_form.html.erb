@@ -31,7 +31,7 @@
 
     <div class='form-group' >
         <%= f.label :body %>
-        <%= f.rich_text_area :body ,class: 'form-control' %>      
+        <%= f.rich_text_area :body ,class: 'form-control' %>
     </div>
 
     <%= f.input :price %>
@@ -39,10 +39,10 @@
     <%= f.input :startdate %>
     <%= f.input :enddate %>
 
-    <%= f.input :length %>
-    <%= f.input :width %>
-    <%= f.input :height %>
-    <%= f.input :weight %>
+    <%= f.input :length, :label => "Length (cm)" %>
+    <%= f.input :width, :label => "Width (cm)" %>
+    <%= f.input :height, :label => "Height (cm)" %>
+    <%= f.input :weight, :label => "Weight (kg)" %>
 
     <%= f.input :courier %>
     <%= f.input :courierurl %>
