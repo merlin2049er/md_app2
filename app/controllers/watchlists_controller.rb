@@ -29,7 +29,7 @@ class WatchlistsController < ApplicationController
         flash.now[:notice] = 'Watch item was successfully created.'
           else
 
-            flash.now[:error] =  @watchlist.errors.full_messages.to_sentence
+             flash.now[:error] =  @watchlist.errors.full_messages.to_sentence
           end
         #  render 'new.js.erb'
     end
