@@ -8,14 +8,28 @@ class TransactionsController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Transactions'
 
-    if User.where('admin =?', current_user.admin )
-      @transactions = Transaction.all.order('created_at DESC')
-    else
-      @transactions = Transaction.where('user_id =?', current_user.id).order('created_at DESC')
-    end
+#old broken code
+#    if User.where('admin =?', current_user.admin )
+#      @transactions = Transaction.all.order('created_at DESC')
+#    else
+#      @transactions = Transaction.where('user_id =?', current_user.id).order('created_at DESC')
+#    end
     #@feedback_recieved = Feedback.exists?(@transaction)
-    @pagy, @transactions = pagy(@transactions)
-  end
+#    @pagy, @transactions = pagy(@transactions)
+#  end
+
+if current_user.admin == true
+  @transactions = Transaction.all.order('created_at DESC')
+  @pagy, @transactions = pagy(Transaction.all.order(:created_at))
+
+else
+  @transactions = Transaction.where('user_id =?', current_user.id).order('created_at DESC')
+  @pagy, @transactions = pagy(Transaction.where('user_id =?', current_user.id).order('created_at DESC'))
+
+end
+
+
+
 
   # GET /transactions/1
   # GET /transactions/1.json
