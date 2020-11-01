@@ -9,4 +9,9 @@ class Transaction < ActiveRecord::Base
   has_one :feedback
   #, :class_name => "Feedback", :foreign_key => :id
   # validates_presence_of :transaction_msg
+
+  def set_defaults
+      self.shipped ||= 'false'
+  end
+
 end
