@@ -132,6 +132,11 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'pry-rails'
+  gem "brakeman", require: false
+  gem 'bundler-audit', '~> 0.7.0.1',  require: false
+  gem 'fasterer', '~> 0.8.3', require: false
+  gem 'rails_best_practices', '~> 1.20'
+  gem 'reek', '~> 6.0', '>= 6.0.2'
 
 end
 
