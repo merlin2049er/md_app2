@@ -27,17 +27,20 @@
 
 
         <!--  <article class="text-left"> -->
-        <div style="color:grey;" >
+
             <h5> <%= product.title %> </h5>
-        </div>
+
         <!--    <%#= truncate(product.template, length: 50 , separator: ' ')  %> -->
         <!--  <img src="<%#= asset_pack_path "media/images/#{product.picurl }" %>" alt=""><br/> -->
         <img src="<%= product.picurl  %>" width="250" height="250" alt=""><br/>
 </a>
-  <div style="color:grey;" >
-          <i>Ending: <%= product.enddate %> </i>
+
+  <div style="color:grey">
+          <small><i>Ending: <%= product.enddate %> </i></small>
+
+        </div>
       <!--  </article> -->
-</div>
+
 
 
         <!-- </div> -->
