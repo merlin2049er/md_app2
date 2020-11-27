@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,18 +12,16 @@
     <%= render 'layouts/google_analcode' %>
     <%= render 'layouts/hotjar_analcode' %>
 
-    <%#= javascript_pack_tag 'hello_react' %>
     <%= stylesheet_pack_tag 'application',  media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://js.stripe.com/v3/"></script>
+   <script src="https://js.stripe.com/v3/"></script>
 
-
-  </head>
+</head>
+  <!-- script type="text/javascript">
+    $(document).ready(function() {});
+  </script>  -->
 
   <body>
-    <!-- script type="text/javascript">
-      $(document).ready(function() {});
-    </script>  -->
 
     <div class="content">
 
@@ -38,7 +37,7 @@
 
 </div>
 </div>
-</div>
+
 <!--  disable footer until I fix the galleries -->
     <%= render 'layouts/footer' %>
 
