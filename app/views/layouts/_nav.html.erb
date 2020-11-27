@@ -21,14 +21,14 @@
 
     <li >
       <%= link_to pages_about_path do %>
-      <img src="/bootstrap-icons-1.0.0/info-circle.svg" alt="" width="20" height="20" >  <span>About</span>
+      <!-- <img src="/bootstrap-icons-1.0.0/info-circle.svg" alt="" width="20" height="20" > --> <span>About</span>
        <span class="sr-only"></span>
       <% end %>
     </li>
 
 
       <li> <%= link_to pages_contact_path  do %>
-        <img src="/bootstrap-icons-1.0.0/envelope.svg" alt="" width="20" height="20" >  <span>Contact</span>
+      <!--   <img src="/bootstrap-icons-1.0.0/envelope.svg" alt="" width="20" height="20" > --> <span>Contact</span>
       <% end %>
       </li>
 
@@ -41,20 +41,20 @@
       <% if !current_user %>
       <li>
               <%= link_to pages_terms_path  do %>
-      <img src="/bootstrap-icons-1.0.0/file-text.svg" alt="" width="20" height="20" >  <span>Terms</span>
+      <!-- <img src="/bootstrap-icons-1.0.0/file-text.svg" alt="" width="20" height="20" > --> <span>Terms</span>
     <% end %>
     </li>
 
             <li>
                     <%= link_to faqs_path  do %>
-            <img src="/bootstrap-icons-1.0.0/list-stars.svg" alt="" width="20" height="20" >  <span>FAQ</span>
+        <!--     <img src="/bootstrap-icons-1.0.0/list-stars.svg" alt="" width="20" height="20" > --> <span>FAQ</span>
           <% end %>
           </li>
 
         <!--  <li><%#= link_to "Sign Up", new_user_registration_path %></li>  -->
           <li>
                   <%= link_to new_user_registration_path  do %>
-          <img src="/bootstrap-icons-1.0.0/pencil.svg" alt="" width="20" height="20" >  <span>Sign Up</span>
+        <!--   <img src="/bootstrap-icons-1.0.0/pencil.svg" alt="" width="20" height="20" >  --> <span>Sign Up</span>
         <% end %>
         </li>
 
@@ -63,7 +63,7 @@
 
           <li>
                   <%= link_to new_user_session_path  do %>
-          <img src="/bootstrap-icons-1.0.0/door-open.svg" alt="" width="20" height="20" >  <span>Log in</span>
+      <!--     <img src="/bootstrap-icons-1.0.0/door-open.svg" alt="" width="20" height="20" >  --> <span>Log in</span>
         <% end %>
         </li>
 
