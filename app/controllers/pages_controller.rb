@@ -108,12 +108,6 @@ class PagesController < ApplicationController
     add_breadcrumb 'Privacy'
   end
 
-  def react
-    add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'React'
-  end
-
-
   def random
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Random'

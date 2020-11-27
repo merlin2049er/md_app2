@@ -2,11 +2,7 @@
 <h1>Pages#faq</h1>
 <p>Find me in app/views/pages/faq.html.erb</p>
 -->
-<!--
-<h1 class="page-header">Frequently asked questions<br/>
-<small>Please read</small>
-</h1>
--->
+
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
@@ -22,7 +18,7 @@
 
 
 <% @faqs.each do |faq| %>
-   &nbsp; &nbsp;  <%= faq.question %><br/>
+   &nbsp; &nbsp;  <%= faq.question %><br>
 
   &nbsp; <i><%= faq.answer %></i>
 <br>  <br>
@@ -35,5 +31,5 @@
 
 
 <div class="pagenav">
-  <%== pagy_bootstrap_nav(@pagy) %> <br/>
+  <%== pagy_bootstrap_nav(@pagy) %> <br>
 </div>

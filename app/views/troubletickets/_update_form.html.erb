@@ -22,19 +22,19 @@
 
   <% if @troubleticket.ticketnotes.any? %>
 
-  <small><i>...additional notes...</i></small><br/>
+  <small><i>...additional notes...</i></small><br>
 
   <% @troubleticket.ticketnotes.each do |ticketnote| %>
     <tr class="<%= cycle("even", "odd") %>">
       <td><%= ticketnote.created_at.strftime("%m/%d/%Y")   %> </td>
        <!-- <td> <%#= ticketnote.troubleticket_id   %></td> -->
-       <td> <%= ticketnote.notes   %> <br/></td>
+       <td> <%= ticketnote.notes   %> <br></td>
     </tr>
   <% end %>
   <% else %>
-  <small><i>...no additional notes...</i></small><br/>
+  <small><i>...no additional notes...</i></small><br>
   <% end %>
 
-<small><%= link_to "...add to case notes...", new_troubleticket_ticketnote_path(@troubleticket) %> </small><br/><br/>
+<small><%= link_to "...add to case notes...", new_troubleticket_ticketnote_path(@troubleticket) %> </small><br><br>
 
 <% end %>

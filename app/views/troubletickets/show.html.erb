@@ -43,13 +43,13 @@
   <tr class="<%= cycle("even", "odd") %>">
     <td><%= ticketnote.created_at.strftime("%m/%d/%Y")   %> </td>
      <!-- <td> <%#= ticketnote.troubleticket_id   %></td> -->
-     <td> <%= ticketnote.notes   %> <br/></td>
+     <td> <%= ticketnote.notes   %> <br></td>
   </tr>
 <% end %>
 <% else %>
-<i>...no additional notes...</i><br/>
+<i>...no additional notes...</i><br>
 <% end %>
-<br/>
+<br>
 <% if @troubleticket.status == true %>
   <%= link_to 'Update', edit_troubleticket_path(@troubleticket) %> |
 <% end %>

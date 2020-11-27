@@ -1,6 +1,6 @@
 <!-- Find me in app/views/products/index.html.erb -->
 
-  <%= link_to 'Back', categories_path %></br>
+  <%= link_to 'Back', categories_path %><br>
 
   <div>
   <% if @searchtotal == 0  %>
@@ -25,14 +25,9 @@
 
             <a href=  "<%=  product_path(product) %>" >
 
-
-        <!--  <article class="text-left"> -->
-
             <h5> <%= product.title %> </h5>
 
-        <!--    <%#= truncate(product.template, length: 50 , separator: ' ')  %> -->
-        <!--  <img src="<%#= asset_pack_path "media/images/#{product.picurl }" %>" alt=""><br/> -->
-        <img src="<%= product.picurl  %>" width="250" height="250" alt=""><br/>
+        <img src="<%= product.picurl  %>" width="250" height="250" alt=""><br>
 </a>
 
   <div style="color:grey">
@@ -49,9 +44,9 @@
       </div>
       </div>
 
-  </br>
+  <br>
   <div class="pagenav">
-    <%== pagy_bootstrap_nav(@pagy) %> <br/>
+    <%== pagy_bootstrap_nav(@pagy) %> <br>
   </div>
 
 <!-- end -->

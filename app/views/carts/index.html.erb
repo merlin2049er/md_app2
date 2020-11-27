@@ -19,8 +19,8 @@
       <%= @carts.count %> items...
     <% end %>
 
-    <div class="pull-right"><font size="1">If a campaign is successful, you will be emailed a reminder to pay.</font><br/>
-    <div class="pull-right"><font size="1">Filters> <%= link_to "All  ", carts_path(:view=>"") %> <%= link_to "Paid  ", carts_path(:view=>"paid") %> <%= link_to "Not Paid  ", carts_path(:view=>"notpaid") %></font><br/></div>
+    <div class="pull-right"><font size="1">If a campaign is successful, you will be emailed a reminder to pay.</font><br>
+    <div class="pull-right"><font size="1">Filters> <%= link_to "All  ", carts_path(:view=>"") %> <%= link_to "Paid  ", carts_path(:view=>"paid") %> <%= link_to "Not Paid  ", carts_path(:view=>"notpaid") %></font><br></div>
 
 
   </div>
@@ -133,7 +133,7 @@
 
   <div class="pagenav">
 
-  <%== pagy_bootstrap_nav(@pagy) %> <br/>
+  <%== pagy_bootstrap_nav(@pagy) %> <br>
   </div>
 <% else %>
 
