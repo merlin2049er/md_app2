@@ -113,6 +113,8 @@ gem 'sitemap_generator'
 # sluging it out
 gem 'friendly_id', '~> 5.2.4' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 
+gem 'heroku-deflater', :group => :production
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
