@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 class Discount
   def self.calculate_percentage_discount(msrp, mdrp)

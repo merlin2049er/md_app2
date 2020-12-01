@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class TroubleticketsController < ApplicationController
-  before_action :set_troubleticket, only: [:show, :edit, :update, :destroy]
+  before_action :set_troubleticket, only: %i[show edit update destroy]
   include Pagy::Backend
   before_action :authenticate_user!
 
@@ -12,14 +14,18 @@ class TroubleticketsController < ApplicationController
     if current_user.admin == true
       @troubletickets = Troubleticket.all
       @pagy, @troubletickets = pagy(Troubleticket.all.order(:created_at))
-
     else
-      @troubletickets = Troubleticket.where('user_id =?', current_user.id).order('created_at DESC')
-      @pagy, @troubletickets = pagy(Troubleticket.where('user_id =?', current_user.id).order('created_at DESC'))
-
+      @troubletickets =
+        Troubleticket.where('user_id =?', current_user.id).order(
+          'created_at DESC'
+        )
+      @pagy, @troubletickets =
+        pagy(
+          Troubleticket.where('user_id =?', current_user.id).order(
+            'created_at DESC'
+          )
+        )
     end
-
-
   end
 
   # GET /troubletickets/1
@@ -36,15 +42,12 @@ class TroubleticketsController < ApplicationController
 
     @troubleticket = Troubleticket.new
     @troubleticket.ticketnotes.build
-
   end
 
   # GET /troubletickets/1/edit
   def edit
     add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'Update Trouble Ticket'
-  #  @troubleticket.ticketnotes.build
-
+    add_breadcrumb 'Update Trouble Ticket' #  @troubleticket.ticketnotes.build
   end
 
   # POST /troubletickets
@@ -57,12 +60,16 @@ class TroubleticketsController < ApplicationController
 
     respond_to do |format|
       if @troubleticket.save
-
-       format.html { redirect_to @troubleticket, notice: 'Trouble ticket was successfully created.' }
+        format.html do
+          redirect_to @troubleticket,
+                      notice: 'Trouble ticket was successfully created.'
+        end
         format.json { render :show, status: :created, location: @troubleticket }
       else
         format.html { render :new }
-        format.json { render json: @troubleticket.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @troubleticket.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -75,11 +82,16 @@ class TroubleticketsController < ApplicationController
 
     respond_to do |format|
       if @troubleticket.update(troubleticket_params)
-        format.html { redirect_to @troubleticket, notice: 'Trouble ticket was successfully updated.' }
+        format.html do
+          redirect_to @troubleticket,
+                      notice: 'Trouble ticket was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @troubleticket }
       else
         format.html { render :edit }
-        format.json { render json: @troubleticket.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @troubleticket.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -89,45 +101,51 @@ class TroubleticketsController < ApplicationController
   def destroy
     @troubleticket.destroy
     respond_to do |format|
-      format.html { redirect_to troubletickets_url, notice: 'Trouble ticket was successfully destroyed.' }
+      format.html do
+        redirect_to troubletickets_url,
+                    notice: 'Trouble ticket was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   def close
-    #close ticket
-
     @troubleticket = Troubleticket.find(params[:id])
     @troubleticket.status = 'false'
 
     respond_to do |format|
       if @troubleticket.save
+        #  fix this it reload index
 
-       #  fix this it reload index
-
-        format.html { redirect_to @troubleticket, notice: 'Trouble ticket was successfully closed.' }
+        format.html do
+          redirect_to @troubleticket,
+                      notice: 'Trouble ticket was successfully closed.'
+        end
         format.json { render :show, status: :created, location: @troubleticket }
 
-    #  else
-    #    format.html { render :new }
-    #    format.json { render json: @troubleticket.errors, status: :unprocessable_entity }
-    #  end
-
+        #  else
+        #    format.html { render :new }
+        #    format.json { render json: @troubleticket.errors, status: :unprocessable_entity }
+        #  end
+      end
     end
-  end
-
-
-
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_troubleticket
-      @troubleticket = Troubleticket.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def troubleticket_params
-      params.require(:troubleticket).permit(:user_id, :status, :campaign, :subject, :message )
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_troubleticket
+    @troubleticket = Troubleticket.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def troubleticket_params
+    params.require(:troubleticket).permit(
+      :user_id,
+      :status,
+      :campaign,
+      :subject,
+      :message
+    )
+  end # close ticket
 end

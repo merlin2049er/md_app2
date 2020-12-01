@@ -2,11 +2,9 @@
 
 namespace :db do
   desc 'Erase active storage attachments table in database'
-    task erase_active_storage_attachments: :environment do
+  task erase_active_storage_attachments: :environment do
     require 'populator'
 
-   [ActiveStorageAttachments].each(&:delete_all)
-
-
+    [ActiveStorageAttachments].each(&:delete_all)
   end
 end

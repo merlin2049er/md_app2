@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 class CategoriesController < ApplicationController
   include Pagy::Backend
 
   before_action :set_category, only: %i[show edit update destroy]
-  # before_action :authenticate_user!
 
   # GET /categories
   # GET /categories.json
@@ -10,42 +11,48 @@ class CategoriesController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'categories'
 
-    @categories = Category.all
-    # @pagy, @categories = Category.order(:name).pagy(page: params[:page] , per_page: 10)
+    @categories = Category.all # @pagy, @categories = Category.order(:name).pagy(page: params[:page] , per_page: 10)
     @pagy, @categories = pagy(Category.order(:name))
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def show
-    # added 9/24
-
-    #begin
-        add_breadcrumb @site_name, :root_path
-        add_breadcrumb 'categories'
-        add_breadcrumb @category.name
-        @category = Category.find_by_id(params[:id])
+    # begin
+    add_breadcrumb @site_name, :root_path
+    add_breadcrumb 'categories'
+    add_breadcrumb @category.name
+    @category = Category.find_by_id(params[:id])
 
     require 'time'
 
-    todaydate = Time.new
-    #set 'todaydate' equal to the current date/time.
+    todaydate = Time.new # set 'todaydate' equal to the current date/time.
 
-    todaydate = todaydate.year.to_s + '-' + todaydate.month.to_s + '-' + todaydate.day.to_s
+    todaydate = "#{todaydate.year}-#{todaydate.month}-#{todaydate.day}"
 
     @title = @category.name
     puts @category.products.inspect
 
-    @pagy, @products = pagy(@category.products.where('draft = ? and active = ? and funded = ? and startdate <= ? and enddate >= ? ', false , true, false , todaydate, todaydate ))
+    @pagy, @products =
+      pagy(
+        @category.products.where(
+          'draft = ? and active = ? and funded = ? and startdate <= ? and enddate >= ? ',
+          false,
+          true,
+          false,
+          todaydate,
+          todaydate
+        )
+      )
 
     # @products = @category.products.where( 'enddate > ?', todaydate )
 
     # add_breadcrumb 'category / ' << @title, categories_path  # frozen string - had to remove it?
-  #rescue => e
-  #  puts"hahahahaha",e.inspect
-  #   flash[:notice] = "Wrong categories"
-  #   redirect_to categories_url
-  #end
+    # rescue => e
+    #  puts"hahahahaha",e.inspect
+    #   flash[:notice] = "Wrong categories"
+    #   redirect_to categories_url
+    # end
   end
 
   # GET /categories/new
@@ -70,11 +77,15 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        format.html do
+          redirect_to @category, notice: 'Category was successfully created.'
+        end
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @category.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -87,11 +98,15 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to @category, notice: 'Category was successfully updated.' }
+        format.html do
+          redirect_to @category, notice: 'Category was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @category.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -101,7 +116,10 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
     respond_to do |format|
-      format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
+      format.html do
+        redirect_to categories_url,
+                    notice: 'Category was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
@@ -116,6 +134,5 @@ class CategoriesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def category_params
     params.require(:category).permit(:name, :picurl)
-  end
-
+  end # added 9/24
 end

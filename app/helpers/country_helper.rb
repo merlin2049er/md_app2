@@ -1,8 +1,7 @@
+# frozen_string_literal: true
+
 module CountryHelper
-def country
-  [
-    ['Canada', 'CAN'],
-    ['USA', 'USA']
-  ]
-end
+  def country
+    [%w[Canada CAN], %w[USA USA]]
+  end
 end

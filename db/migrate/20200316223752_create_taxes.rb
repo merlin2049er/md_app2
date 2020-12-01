@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateTaxes < ActiveRecord::Migration[6.0]
   def change
     create_table :taxes do |t|
@@ -9,6 +11,5 @@ class CreateTaxes < ActiveRecord::Migration[6.0]
       t.timestamps
     end
     add_index :taxes, :prov_id, unique: true
-
   end
 end

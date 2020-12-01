@@ -1,3 +1,3 @@
-class ActiveStorageAttachments< ActiveRecord::Base
+# frozen_string_literal: true
 
-end
+class ActiveStorageAttachments < ActiveRecord::Base; end

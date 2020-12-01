@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CartsController < ApplicationController
   include Pagy::Backend
 
@@ -13,22 +15,17 @@ class CartsController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'shopping cart'
 
-    if params[:view]  == 'paid'
-
+    case params[:view]
+    when 'paid'
       add_breadcrumb '[Paid]'
-      @carts = Cart.where('user_id =? AND paid =?', current_user.id , true)
-
-    elsif params[:view]  == 'notpaid'
-
+      @carts = Cart.where('user_id =? AND paid =?', current_user.id, true)
+    when 'notpaid'
       add_breadcrumb '[Not Paid]'
-    @carts = Cart.where('user_id =? AND paid =?', current_user.id , false )
-
+      @carts = Cart.where('user_id =? AND paid =?', current_user.id, false)
     else
-
-    #  @carts = Cart.where('user_id =?', current_user.id) and Cart.where('paid =?', "false")
+      #  @carts = Cart.where('user_id =?', current_user.id) and Cart.where('paid =?', "false")
 
       @carts = Cart.where('user_id =?', current_user.id)
-
     end
 
     @pagy, @carts = pagy(@carts)
@@ -39,7 +36,6 @@ class CartsController < ApplicationController
   def show
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'shopping cart'
-
   end
 
   # GET /articles/new
@@ -54,7 +50,6 @@ class CartsController < ApplicationController
   def edit
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'edit shopping cart'
-
   end
 
   def create
@@ -65,11 +60,15 @@ class CartsController < ApplicationController
 
     respond_to do |format|
       if @cart.save(carts_params)
-        format.html { redirect_to @carts, notice: 'Product has been added to cart.' }
+        format.html do
+          redirect_to @carts, notice: 'Product has been added to cart.'
+        end
         format.json { render :show, status: :created, location: @carts_path }
       else
         format.html { render :new }
-        format.json { render json: @carts.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @carts.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -81,13 +80,15 @@ class CartsController < ApplicationController
     @cart = Cart.find(params[:id])
     @cart.update!(qty: params[:qty])
     redirect_to carts_path
-
   end
 
   def destroy
     @cart.destroy
     respond_to do |format|
-      format.html { redirect_to carts_url, notice: 'Item in cart was successfully destroyed.' }
+      format.html do
+        redirect_to carts_url,
+                    notice: 'Item in cart was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
@@ -100,9 +101,6 @@ class CartsController < ApplicationController
   end
 
   def carts_params
-    # params.fetch(:product, {})
-    # added qty
     params.require(:cart).permit(:qty)
-  end
-
+  end # added qty
 end

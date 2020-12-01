@@ -1,10 +1,9 @@
+# frozen_string_literal: true
+
 class TicketnotesController < ApplicationController
-
   include Pagy::Backend
-  before_action :set_ticketnotes, only: [:show, :edit, :update, :destroy]
+  before_action :set_ticketnotes, only: %i[show edit update destroy]
   before_action :authenticate_user!
-
-
 
   # GET /ticketnotes
   # GET /ticketnotes.json
@@ -12,12 +11,11 @@ class TicketnotesController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Ticket notes'
 
-    #@ticketnotes  = Ticketnotes.where('user_id =?', current_user.id).order('created_at DESC')
-    @ticketnotes  = Ticketnote.all
+    # @ticketnotes  = Ticketnotes.where('user_id =?', current_user.id).order('created_at DESC')
+    @ticketnotes = Ticketnote.all
     @ticketnotes = Ticketnote.count
 
     @pagy, @ticketnotes = pagy(Ticketnote.all.order(:created_at))
-
   end
 
   # GET /ticketnotes/1
@@ -32,10 +30,8 @@ class TicketnotesController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Ticket notes'
 
-    @ticketnote = Ticketnote.new(:troubleticket_id => params[:troubleticket_id])
+    @ticketnote = Ticketnote.new(troubleticket_id: params[:troubleticket_id])
     @troubleticket = Troubleticket.find_by_id(params[:troubleticket_id])
-
-
   end
 
   # GET /ticketnotes/1/edit
@@ -53,14 +49,17 @@ class TicketnotesController < ApplicationController
     @ticketnote = Ticketnote.new(ticketnote_params)
     @ticketnote.troubleticket_id = params[:troubleticket_id]
 
-
     respond_to do |format|
       if @ticketnote.save
-        format.html { redirect_to  root_path, notice: 'Ticket note was successfully created.' }
+        format.html do
+          redirect_to root_path, notice: 'Ticket note was successfully created.'
+        end
         format.json { render :show, status: :created, location: @ticketnote }
       else
         format.html { render :new }
-        format.json { render json: @ticketnote.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @ticketnote.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -73,11 +72,16 @@ class TicketnotesController < ApplicationController
 
     respond_to do |format|
       if @ticketnote.update(ticketnote_params)
-        format.html { redirect_to @ticketnote, notice: 'Ticket note was successfully updated.' }
+        format.html do
+          redirect_to @ticketnote,
+                      notice: 'Ticket note was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @ticketnote }
       else
         format.html { render :edit }
-        format.json { render json: @ticketnote.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @ticketnote.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -87,20 +91,23 @@ class TicketnotesController < ApplicationController
   def destroy
     @ticketnote.destroy
     respond_to do |format|
-      format.html { redirect_to @ticketnote, notice: 'Ticket note was successfully destroyed.' }
+      format.html do
+        redirect_to @ticketnote,
+                    notice: 'Ticket note was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_ticketnotes
-      @ticketnote = Ticketnote.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def ticketnote_params
-      params.require(:ticketnote).permit(:notes , :troubleticket_id )
+  # Use callbacks to share common setup or constraints between actions.
+  def set_ticketnotes
+    @ticketnote = Ticketnote.find(params[:id])
+  end
 
-    end
+  # Only allow a list of trusted parameters through.
+  def ticketnote_params
+    params.require(:ticketnote).permit(:notes, :troubleticket_id)
+  end
 end

@@ -1,13 +1,8 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
-
-# whitelist nrok local server... used for testing webhooks
- config.web_console.whiny_requests = false
-# config.web_console.whitelisted_ips = '173.32.169.71'
-#  config.web_console.whitelisted_ips = '54.187.174.169'
-#  config.web_console.whitelisted_ips = '54.187.205.235'
-#  config.web_console.whitelisted_ips = '2607:fea8:86df:f324:8d02:3b80:242a:ee81'
-
-
+  # whitelist nrok local server... used for testing webhooks
+  config.web_console.whiny_requests = false #  config.web_console.whitelisted_ips = '2607:fea8:86df:f324:8d02:3b80:242a:ee81'
 
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -72,7 +67,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  config.hosts << "c3c851c70699.ngrok.io"
+  config.hosts << 'c3c851c70699.ngrok.io'
 
   # for proxy forward...
   # config.middleware.use Rails::Rack::LogTailer

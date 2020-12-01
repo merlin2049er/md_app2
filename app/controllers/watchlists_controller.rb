@@ -1,6 +1,7 @@
+# frozen_string_literal: true
 
 class WatchlistsController < ApplicationController
-  before_action :set_watchlist, only: [:destroy]
+  before_action :set_watchlist, only: %i[destroy]
   include Pagy::Backend
   before_action :authenticate_user!
 
@@ -10,72 +11,68 @@ class WatchlistsController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Watchlist'
 
-    @watchlists = Watchlist.where('user_id =?', current_user.id).order('created_at DESC')
+    @watchlists =
+      Watchlist.where('user_id =?', current_user.id).order('created_at DESC')
     @pagy, @watchlists = pagy(@watchlists)
-
   end
 
   # GET /watchlists/new
   def new
-  #  add_breadcrumb @site_name, :root_path
-  #  add_breadcrumb 'New watch item'
+    @watchlist = Watchlist.new
 
-  @watchlist = Watchlist.new
-
-    if params and params[:user_id] and params[:product_id]
+    if params && params[:user_id] && params[:product_id]
       @watchlist.user_id = params[:user_id]
       @watchlist.product_id = params[:product_id]
       if @watchlist.save
         flash.now[:notice] = 'Watch item was successfully created.'
-          else
-
-             flash.now[:error] =  @watchlist.errors.full_messages.to_sentence
-          end
-        #  render 'new.js.erb'
+      else
+        flash.now[:error] = @watchlist.errors.full_messages.to_sentence
+      end #  render 'new.js.erb'
     end
-
   end
 
   # POST /watchlists
   # POST /watchlists.json
-#  def create
-#    add_breadcrumb @site_name, :root_path
-#    add_breadcrumb 'New watch item'
+  #  def create
+  #    add_breadcrumb @site_name, :root_path
+  #    add_breadcrumb 'New watch item'
 
-#    @watchlist = Watchlist.new(watchlist_params)
+  #    @watchlist = Watchlist.new(watchlist_params)
 
-#    respond_to do |format|
-#      if @watchlist.save
+  #    respond_to do |format|
+  #      if @watchlist.save
 
-#       format.html { redirect_to watchlists_path, notice: 'Watch item was successfully created.' }
-#        format.json { render :show, status: :created, location: @watchlist }
-#      else
-#        format.html { render :new }
-#        format.json { render json: @watchlist.errors, status: :unprocessable_entity }
-#      end
-#    end
-#  end
+  #       format.html { redirect_to watchlists_path, notice: 'Watch item was successfully created.' }
+  #        format.json { render :show, status: :created, location: @watchlist }
+  #      else
+  #        format.html { render :new }
+  #        format.json { render json: @watchlist.errors, status: :unprocessable_entity }
+  #      end
+  #    end
+  #  end
 
   # DELETE /watchlists/1
   # DELETE /watchlists/1.json
   def destroy
     @watchlist.destroy
     respond_to do |format|
-      format.html { redirect_to watchlists_url, notice: 'Watch item was successfully destroyed.' }
+      format.html do
+        redirect_to watchlists_url,
+                    notice: 'Watch item was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
-
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_watchlist
-      @watchlist = Watchlist.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def watchlist_params
-      params.require(:watchlist).permit(:user_id, :product_id )
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_watchlist
+    @watchlist = Watchlist.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def watchlist_params
+    params.require(:watchlist).permit(:user_id, :product_id)
+  end #  add_breadcrumb 'New watch item'
 end

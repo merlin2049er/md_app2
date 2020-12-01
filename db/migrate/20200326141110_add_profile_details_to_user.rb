@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddProfileDetailsToUser < ActiveRecord::Migration[6.0]
   def change
     add_column :users, :category_id, :integer

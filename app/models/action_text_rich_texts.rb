@@ -1,3 +1,3 @@
-class ActionTextRichTexts< ActiveRecord::Base
+# frozen_string_literal: true
 
-end
+class ActionTextRichTexts < ActiveRecord::Base; end

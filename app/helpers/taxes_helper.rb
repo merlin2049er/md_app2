@@ -1,2 +1,3 @@
-module TaxesHelper
-end
+# frozen_string_literal: true
+
+module TaxesHelper; end

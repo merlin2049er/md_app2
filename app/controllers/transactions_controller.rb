@@ -1,35 +1,39 @@
+# frozen_string_literal: true
+
 class TransactionsController < ApplicationController
-  before_action :set_transaction, only: [:show, :edit, :update, :destroy]
+  before_action :set_transaction, only: %i[show edit update destroy]
   include Pagy::Backend
-  before_action :authenticate_user!
-  # GET /transactions
-  # GET /transactions.json
+  before_action :authenticate_user! # GET /transactions.json
   def index
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Transactions'
 
-#old broken code
-#    if User.where('admin =?', current_user.admin )
-#      @transactions = Transaction.all.order('created_at DESC')
-#    else
-#      @transactions = Transaction.where('user_id =?', current_user.id).order('created_at DESC')
-#    end
-    #@feedback_recieved = Feedback.exists?(@transaction)
-#    @pagy, @transactions = pagy(@transactions)
-#  end
+    # old broken code
+    #    if User.where('admin =?', current_user.admin )
+    #      @transactions = Transaction.all.order('created_at DESC')
+    #    else
+    #      @transactions = Transaction.where('user_id =?', current_user.id).order('created_at DESC')
+    #    end
+    # @feedback_recieved = Feedback.exists?(@transaction)
+    #    @pagy, @transactions = pagy(@transactions)
+    #  end
 
-if current_user.admin == true
-  @transactions = Transaction.all.order('created_at DESC')
-  @pagy, @transactions = pagy(Transaction.all.order(:created_at))
-
-else
-  @transactions = Transaction.where('user_id =?', current_user.id).order('created_at DESC')
-  @pagy, @transactions = pagy(Transaction.where('user_id =?', current_user.id).order('created_at DESC'))
-
-end
-
-end
-
+    if current_user.admin == true
+      @transactions = Transaction.all.order('created_at DESC')
+      @pagy, @transactions = pagy(Transaction.all.order(:created_at))
+    else
+      @transactions =
+        Transaction.where('user_id =?', current_user.id).order(
+          'created_at DESC'
+        )
+      @pagy, @transactions =
+        pagy(
+          Transaction.where('user_id =?', current_user.id).order(
+            'created_at DESC'
+          )
+        )
+    end
+  end
 
   # GET /transactions/1
   # GET /transactions/1.json
@@ -43,7 +47,6 @@ end
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Transaction'
     @transaction = Transaction.new
-
   end
 
   # GET /transactions/1/edit
@@ -62,11 +65,16 @@ end
 
     respond_to do |format|
       if @transaction.save
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
+        format.html do
+          redirect_to @transaction,
+                      notice: 'Transaction was successfully created.'
+        end
         format.json { render :show, status: :created, location: @transaction }
       else
         format.html { render :new }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @transaction.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -79,11 +87,16 @@ end
 
     respond_to do |format|
       if @transaction.update(transaction_params)
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
+        format.html do
+          redirect_to @transaction,
+                      notice: 'Transaction was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @transaction }
       else
         format.html { render :edit }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @transaction.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -93,19 +106,31 @@ end
   def destroy
     @transaction.destroy
     respond_to do |format|
-      format.html { redirect_to transactions_url, notice: 'Transaction was successfully destroyed.' }
+      format.html do
+        redirect_to transactions_url,
+                    notice: 'Transaction was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_transaction
-      @transaction = Transaction.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def transaction_params
-      params.require(:transaction).permit(:transaction_msg, :user_id, :shipped, :invoice_number, :tracking_number, :postal_carrier, :receipt_url)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_transaction
+    @transaction = Transaction.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def transaction_params
+    params.require(:transaction).permit(
+      :transaction_msg,
+      :user_id,
+      :shipped,
+      :invoice_number,
+      :tracking_number,
+      :postal_carrier,
+      :receipt_url
+    )
+  end
 end

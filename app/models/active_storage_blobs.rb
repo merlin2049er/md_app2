@@ -1,3 +1,3 @@
-class ActiveStorageBlobs< ActiveRecord::Base
+# frozen_string_literal: true
 
-end
+class ActiveStorageBlobs < ActiveRecord::Base; end

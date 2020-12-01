@@ -1,3 +1,3 @@
-class CommontatorComments< ActiveRecord::Base
+# frozen_string_literal: true
 
-end
+class CommontatorComments < ActiveRecord::Base; end

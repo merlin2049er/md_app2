@@ -1,23 +1,25 @@
+# frozen_string_literal: true
+
 class PhotosController < ApplicationController
   include Pagy::Backend
-  before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :set_photo, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
   # GET /photos
   # GET /photos.json
   def index
     add_breadcrumb @site_name, :root_path
-   add_breadcrumb 'Photos'
+    add_breadcrumb 'Photos'
     @photos = Photo.all
     @total = Photo.count
-   @pagy, @photos = pagy(Photo.all)
+    @pagy, @photos = pagy(Photo.all)
   end
 
   # GET /photos/1
   # GET /photos/1.json
   def show
     add_breadcrumb @site_name, :root_path
-   add_breadcrumb 'Photos'
+    add_breadcrumb 'Photos'
   end
 
   # GET /photos/new
@@ -30,14 +32,12 @@ class PhotosController < ApplicationController
   # GET /photos/1/edit
   def edit
     add_breadcrumb @site_name, :root_path
-   add_breadcrumb 'Photos'
+    add_breadcrumb 'Photos'
   end
 
   # POST /photos
   # POST /photos.json
   def create
-
-
     @photo = Photo.new(photo_params)
 
     add_breadcrumb @site_name, :root_path
@@ -45,11 +45,15 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
+        format.html do
+          redirect_to @photo, notice: 'Photo was successfully created.'
+        end
         format.json { render :show, status: :created, location: @photo }
       else
         format.html { render :new }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @photo.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -60,14 +64,17 @@ class PhotosController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit Photo'
 
-
     respond_to do |format|
       if @photo.update(photo_params)
-        format.html { redirect_to @photo, notice: 'Photo was successfully updated.' }
+        format.html do
+          redirect_to @photo, notice: 'Photo was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @photo }
       else
         format.html { render :edit }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @photo.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -77,19 +84,22 @@ class PhotosController < ApplicationController
   def destroy
     @photo.destroy
     respond_to do |format|
-      format.html { redirect_to photos_url, notice: 'Photo was successfully destroyed.' }
+      format.html do
+        redirect_to photos_url, notice: 'Photo was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_photo
-      @photo = Photo.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def photo_params
-      params.require(:photo).permit(:uri, :enabled, :product_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_photo
+    @photo = Photo.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def photo_params
+    params.require(:photo).permit(:uri, :enabled, :product_id)
+  end
 end

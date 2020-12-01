@@ -1,7 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
-class TaxTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-end
+class TaxTest < ActiveSupport::TestCase; end # end #   assert true # test "the truth" do

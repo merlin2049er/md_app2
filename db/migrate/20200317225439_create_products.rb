@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateProducts < ActiveRecord::Migration[6.0]
   def change
     create_table :products do |t|
@@ -19,7 +21,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :courier
       t.string :courierurl
       t.integer :category_id
-      t.index ["category_id"], name: "index_products_on_category_id"
+      t.index %w[category_id], name: 'index_products_on_category_id'
       t.timestamps
     end
   end

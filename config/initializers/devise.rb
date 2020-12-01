@@ -6,7 +6,8 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-   config.secret_key = '19a753aa8458a41b441b5c0ba15475e9642ded921f199ecb70301860e7d7f6d8e76aaa79d5c6312c5353ae18993ccbd11b670e4d26292cb7327a4e7e839ea777'
+  config.secret_key =
+    '19a753aa8458a41b441b5c0ba15475e9642ded921f199ecb70301860e7d7f6d8e76aaa79d5c6312c5353ae18993ccbd11b670e4d26292cb7327a4e7e839ea777'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -15,7 +16,7 @@ Devise.setup do |config|
   config.mailer_sender = 'do-not-reply@jginfosys.com'
 
   # Configure the class responsible to send e-mails.
-   config.mailer = 'Devise::Mailer'
+  config.mailer = 'Devise::Mailer'
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -43,12 +44,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [:email]
+  config.case_insensitive_keys = %i[email]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [:email]
+  config.strip_whitespace_keys = %i[email]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -79,7 +80,7 @@ Devise.setup do |config|
   # Notice that if you are skipping storage for all authentication paths, you
   # may want to disable generating routes to Devise's sessions controller by
   # passing skip: :sessions to `devise_for` in your config/routes.rb
-  config.skip_session_storage = [:http_auth]
+  config.skip_session_storage = %i[http_auth]
 
   # By default, Devise cleans up the CSRF token on authentication to
   # avoid CSRF token fixation attacks. This means that, when using AJAX
@@ -152,7 +153,7 @@ Devise.setup do |config|
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
-   config.timeout_in = 15.minutes
+  config.timeout_in = 15.minutes
 
   # If true, expires auth token on session timeout.
   # config.expire_auth_token_on_timeout = false
@@ -264,5 +265,13 @@ Devise.setup do |config|
   # config.omniauth :facebook, "APP-ID", "APP_SECRET"
   # config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: 'email'
   # config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], token_params: { parse: :json }, callback_url: "https://cryptic-inlet-13518.herokuapp.com/users/auth/facebook"
-  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], callback_url: 'https://desolate-journey-54830.herokuapp.com/users/auth/facebook/callback', scope: 'email, public_profile', info_fields: 'email, first_name, last_name, picture', image_size: 'large', secure_image_url: true
+  config.omniauth :facebook,
+                  ENV['FACEBOOK_APP_ID'],
+                  ENV['FACEBOOK_APP_SECRET'],
+                  callback_url:
+                    'https://desolate-journey-54830.herokuapp.com/users/auth/facebook/callback',
+                  scope: 'email, public_profile',
+                  info_fields: 'email, first_name, last_name, picture',
+                  image_size: 'large',
+                  secure_image_url: true
 end

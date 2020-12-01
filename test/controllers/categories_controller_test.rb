@@ -1,7 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
-class CategoriesControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
-end
+class CategoriesControllerTest < ActionDispatch::IntegrationTest; end # end #   assert true # test "the truth" do

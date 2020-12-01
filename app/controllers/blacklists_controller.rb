@@ -1,9 +1,9 @@
+# frozen_string_literal: true
+
 class BlacklistsController < ApplicationController
-  before_action :set_blacklist, only: [:show, :edit, :update, :destroy]
+  before_action :set_blacklist, only: %i[show edit update destroy]
   include Pagy::Backend
-  before_action :authenticate_user!
-  # GET /blacklists
-  # GET /blacklists.json
+  before_action :authenticate_user! # GET /blacklists.json
   def index
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Blacklist'
@@ -11,8 +11,7 @@ class BlacklistsController < ApplicationController
     @blacklist = Blacklist.all
     @blacklist = Blacklist.count
 
-   @pagy, @blacklist = pagy(Blacklist.all.order(:email))
-
+    @pagy, @blacklist = pagy(Blacklist.all.order(:email))
   end
 
   # GET /blacklists/1
@@ -20,7 +19,6 @@ class BlacklistsController < ApplicationController
   def show
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Blacklist'
-
   end
 
   # GET /blacklists/new
@@ -35,7 +33,6 @@ class BlacklistsController < ApplicationController
   def edit
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit Blacklist'
-
   end
 
   # POST /blacklists
@@ -48,11 +45,15 @@ class BlacklistsController < ApplicationController
 
     respond_to do |format|
       if @blacklist.save
-        format.html { redirect_to @blacklist, notice: 'Blacklist was successfully created.' }
+        format.html do
+          redirect_to @blacklist, notice: 'Blacklist was successfully created.'
+        end
         format.json { render :show, status: :created, location: @blacklist }
       else
         format.html { render :new }
-        format.json { render json: @blacklist.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @blacklist.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -65,11 +66,15 @@ class BlacklistsController < ApplicationController
 
     respond_to do |format|
       if @blacklist.update(blacklist_params)
-        format.html { redirect_to @blacklist, notice: 'Blacklist was successfully updated.' }
+        format.html do
+          redirect_to @blacklist, notice: 'Blacklist was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @blacklist }
       else
         format.html { render :edit }
-        format.json { render json: @blacklist.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @blacklist.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -79,19 +84,23 @@ class BlacklistsController < ApplicationController
   def destroy
     @blacklist.destroy
     respond_to do |format|
-      format.html { redirect_to blacklists_url, notice: 'Blacklist was successfully destroyed.' }
+      format.html do
+        redirect_to blacklists_url,
+                    notice: 'Blacklist was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_blacklist
-      @blacklist = Blacklist.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def blacklist_params
-      params.require(:blacklist).permit(:email, :comment)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_blacklist
+    @blacklist = Blacklist.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def blacklist_params
+    params.require(:blacklist).permit(:email, :comment)
+  end
 end

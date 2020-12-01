@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class NotificationsController < ApplicationController
   include Pagy::Backend
 
-  before_action :set_notification, only: [:show, :edit, :update, :destroy]
+  before_action :set_notification, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
   # GET /notifications
@@ -10,9 +12,9 @@ class NotificationsController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Notifications'
 
-    @notifications = Notification.where('user_id =?', current_user.id).order('created_at DESC')
+    @notifications =
+      Notification.where('user_id =?', current_user.id).order('created_at DESC')
     @pagy, @notifications = pagy(@notifications)
-
   end
 
   # GET /notifications/1
@@ -46,11 +48,16 @@ class NotificationsController < ApplicationController
 
     respond_to do |format|
       if @notification.save
-        format.html { redirect_to @notification, notice: 'Notification was successfully created.' }
+        format.html do
+          redirect_to @notification,
+                      notice: 'Notification was successfully created.'
+        end
         format.json { render :show, status: :created, location: @notification }
       else
         format.html { render :new }
-        format.json { render json: @notification.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @notification.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -63,11 +70,16 @@ class NotificationsController < ApplicationController
 
     respond_to do |format|
       if @notification.update(notification_params)
-        format.html { redirect_to @notification, notice: 'Notification was successfully updated.' }
+        format.html do
+          redirect_to @notification,
+                      notice: 'Notification was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @notification }
       else
         format.html { render :edit }
-        format.json { render json: @notification.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @notification.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -77,19 +89,23 @@ class NotificationsController < ApplicationController
   def destroy
     @notification.destroy
     respond_to do |format|
-      format.html { redirect_to notifications_url, notice: 'Notification was successfully destroyed.' }
+      format.html do
+        redirect_to notifications_url,
+                    notice: 'Notification was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_notification
-      @notification = Notification.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def notification_params
-      params.require(:notification).permit(:notify_msg, :enabled, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_notification
+    @notification = Notification.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def notification_params
+    params.require(:notification).permit(:notify_msg, :enabled, :user_id)
+  end
 end

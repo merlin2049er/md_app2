@@ -1,3 +1,3 @@
-class CommontatorSubscriptions < ActiveRecord::Base
+# frozen_string_literal: true
 
-end
+class CommontatorSubscriptions < ActiveRecord::Base; end

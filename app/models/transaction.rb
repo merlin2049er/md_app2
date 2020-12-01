@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Transaction < ActiveRecord::Base
   belongs_to :user
 
@@ -6,12 +8,9 @@ class Transaction < ActiveRecord::Base
   validates_presence_of :receipt_url
   validates_presence_of :tracking_number
   validates_presence_of :postal_carrier
-  has_one :feedback
-  #, :class_name => "Feedback", :foreign_key => :id
-  # validates_presence_of :transaction_msg
+  has_one :feedback # , :class_name => "Feedback", :foreign_key => :id
 
   def set_defaults
-      self.shipped ||= 'false'
+    self.shipped ||= 'false'
   end
-
 end

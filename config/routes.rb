@@ -1,9 +1,17 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   resources :todo_lists
   root 'pages#index'
 
-  devise_for :users, :controllers => { registrations: 'registrations', confirmations: 'confirmations', passwords: 'passwords', sessions: 'sessions', omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users,
+             controllers: {
+               registrations: 'registrations',
+               confirmations: 'confirmations',
+               passwords: 'passwords',
+               sessions: 'sessions',
+               omniauth_callbacks: 'users/omniauth_callbacks'
+             }
 
   resources :blacklists
   resources :categories
@@ -13,35 +21,33 @@ Rails.application.routes.draw do
   resources :photos
 
   resources :products do
-    member do
-      post :add_to_cart
-    end
+    member { post :add_to_cart }
   end
 
   resources :notifications
   resources :taxes
   resources :transactions
 
-  resources :troubletickets, only:[:index,:edit,:update,:destroy]
+  resources :troubletickets, only: %i[index edit update destroy]
 
   resources :troubletickets do
-    resources :ticketnotes , only:[:new,:create, :destroy ]
+    resources :ticketnotes, only: %i[new create destroy]
   end
 
-  resources :watchlists, only:[:index, :new,:create, :destroy]
+  resources :watchlists, only: %i[index new create destroy]
 
-  get 'troubletickets_close/(:id)' , to: 'troubletickets#close'
+  get 'troubletickets_close/(:id)', to: 'troubletickets#close'
 
-  resources :feedbacks, only:[:index,:edit,:update,:destroy]
+  resources :feedbacks, only: %i[index edit update destroy]
 
   resources :transactions do
-      resources :feedbacks , only:[:new,:create]
+    resources :feedbacks, only: %i[new create]
   end
 
   scope '/checkout' do
-  post 'create', to: 'checkout#create',   as: 'checkout_create'
-   get 'cancel', to: 'checkout#cancel',   as: 'checkout_cancel'
-   get 'success', to: 'checkout#success', as: 'checkout_success'
+    post 'create', to: 'checkout#create', as: 'checkout_create'
+    get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
+    get 'success', to: 'checkout#success', as: 'checkout_success'
   end
 
   mount StripeEvent::Engine, at: '/stripe/webhooks'
@@ -65,7 +71,7 @@ Rails.application.routes.draw do
   get 'pages/taxes'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  #comments engine
+  # comments engine
   mount Commontator::Engine => '/commontator'
 
   get '*path', to: redirect('/pages/error')

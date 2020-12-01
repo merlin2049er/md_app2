@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Categories < ActiveRecord::Migration[6.0]
   def change
     create_table :categories do |t|
@@ -5,6 +7,6 @@ class Categories < ActiveRecord::Migration[6.0]
       t.string :picurl
 
       t.timestamps
+    end
   end
-end
 end

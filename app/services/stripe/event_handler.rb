@@ -1,34 +1,33 @@
+# frozen_string_literal: true
+
 # Stripe module
-module Stripe
+module Stripe # stripe main class EventHandler
+  class EventHandler
+    def call(event)
+      method = "handle_#{event.type.tr('.', '_')}"
+      send method, event
+    rescue JSON::ParserError => e
+      render json: { status: 400, error: 'Invalid payload' }
+      Raven.capture_exception(e)
+    rescue Stripe::SignatureVerificationError => e
+      render json: { status: 400, error: 'Invalid signature' }
+      Raven.capture_exception(e)
+    end
+  end
 
- # stripe main class EventHandler
- class EventHandler
-   def call(event)
-     method = 'handle_' + event.type.tr('.', '_')
-     send method, event
-   rescue JSON::ParserError => e
-     render json: { status: 400, error: 'Invalid payload' }
-     Raven.capture_exception(e)
-   rescue Stripe::SignatureVerificationError => e
-     render json: { status: 400, error: 'Invalid signature' }
-     Raven.capture_exception(e)
-   end
- end
+  # def handle_charge_dispute_created(event)
+  # your code goes here
+  # end
 
- #def handle_charge_dispute_created(event)
-   # your code goes here
- #end
-
- #def handle_checkout_session_completed(event)
-   # your code goes here
+  # def handle_checkout_session_completed(event)
+  # your code goes here
   # render json: {status: 200, message: 'booyah, great.'}
- #end
+  # end
 
- #def handle_charge_failed(event)
-   # your code goes here
+  # def handle_charge_failed(event)
+  # your code goes here
   # render json: {status: 200, message: 'booyah, not so good.'}
- #end
-
+  # end
 end
 
 # method = 'handle_' + event.type.tr('.', '_')

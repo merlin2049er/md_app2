@@ -1,7 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
-class ContactTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-end
+class ContactTest < ActiveSupport::TestCase; end # end #   assert true # test "the truth" do

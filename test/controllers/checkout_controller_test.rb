@@ -1,7 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
-class CheckoutControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
-end
+class CheckoutControllerTest < ActionDispatch::IntegrationTest; end # end #   assert true # test "the truth" do
