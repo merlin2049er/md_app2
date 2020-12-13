@@ -15,8 +15,8 @@ class ApplicationController < ActionController::Base # For APIs, you may want to
   rescue_from ActionController::InvalidAuthenticityToken,
               with: :handle_token_issues
 
-  #  rescue_from ActiveRecord::RecordNotFound, with: :errors_stop
-  #  rescue_from NoMethodError, with: :errors_stop
+    rescue_from ActiveRecord::RecordNotFound, with: :errors_stop
+    rescue_from NoMethodError, with: :errors_stop
   #  rescue_from ActionDispatch::Cookies::CookieOverflow, with: :error_stop
 
   def errors_stop
