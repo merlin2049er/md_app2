@@ -104,7 +104,7 @@ gem 'commontator', '~> 6.3'
 # image gallery for product photos
 gem 'photoswipe-rails', '~> 4.1', '>= 4.1.2'
 
-gem 'react-rails'
+#gem 'react-rails'
 
 # for sitemap generation
 gem 'sitemap_generator'
