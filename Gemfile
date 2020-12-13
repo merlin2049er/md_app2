@@ -114,12 +114,6 @@ gem 'friendly_id', '~> 5.2.4' # NOTE: You MUST use 5.0.0 or greater for Rails 4.
 
 gem 'heroku-deflater', group: :production
 
-# Ruby static code analyze [linter]
-gem 'rubocop', require: false
-
-# make the code look pretty
-gem 'prettier'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -145,6 +139,10 @@ group :development do
   gem 'pry-rails'
   gem 'rails_best_practices', '~> 1.20'
   gem 'reek', '~> 6.0', '>= 6.0.2'
+  # Ruby static code analyze [linter]
+  gem 'rubocop', require: false
+  # make the code look pretty
+  gem 'prettier'
 end
 
 group :test do
