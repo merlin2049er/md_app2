@@ -5,7 +5,11 @@
   <div class="row">
     <div class="col-lg-4 about-company">
       <h4>JG Infosystems</h4>
-      <p class="pr-5 text-white-50">About the company, little discription will goes here.. </p>
+      <p class="pr-5 text-white-50">Get in on great group deals... </p>
+      <%= link_to "About", pages_about_path %><br>
+      <%= link_to "Contact", pages_contact_path %><br>
+      <%= link_to "FAQS", 'faqs' %><br>
+      <%= link_to "Terms", pages_terms_path %><br>
       <p><a href="#"><i class="fa fa-facebook-square mr-1">Join us on Facebook</i></a></p>
     </div>
 
@@ -25,7 +29,7 @@
     <div class="col-lg-4  getstarted">
       <h4 class="mt-lg-0 mt-sm-4">Get Started</h4>
 
-      <p>Get access to awesome deals.</p>
+      <p class="pr-5 text-white-50">Get access to awesome deals.</p>
       <%= link_to "Sign up now", new_user_registration_path , class: "btn btn-primary" %>
 
     </div>
