@@ -45,8 +45,9 @@
       </div>
 
   <br>
+  <% if @searchtotal > 0  %>
   <div class="pagenav">
     <%== pagy_bootstrap_nav(@pagy) %> <br>
   </div>
-
+<% end %>
 <!-- end -->

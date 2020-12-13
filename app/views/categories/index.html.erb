@@ -46,9 +46,10 @@
 </div>
   <br>
 
-
+<% if @categories.count > 0 %>
   <div class="pagenav">
   <%== pagy_bootstrap_nav(@pagy) %> <br>
 </div>
+<% end %>
 
 <!-- end -->
