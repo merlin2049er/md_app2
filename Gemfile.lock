@@ -77,10 +77,6 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.1)
     auto-session-timeout (0.9.6)
-    babel-source (5.8.35)
-    babel-transpiler (0.7.0)
-      babel-source (>= 4.0, < 6)
-      execjs (~> 2.0)
     bcrypt (3.1.16)
     better_errors (2.9.1)
       coderay (>= 1.0.0)
@@ -126,7 +122,6 @@ GEM
       rails (>= 5.2)
       will_paginate
     concurrent-ruby (1.1.7)
-    connection_pool (2.2.3)
     countries (3.0.1)
       i18n_data (~> 0.10.0)
       sixarm_ruby_unaccent (~> 1.1)
@@ -152,7 +147,6 @@ GEM
       multi_json
     erubi (1.10.0)
     erubis (2.7.0)
-    execjs (2.7.0)
     faker (2.15.1)
       i18n (>= 1.6, < 2)
     faraday (1.1.0)
@@ -293,12 +287,6 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    react-rails (2.6.1)
-      babel-transpiler (>= 0.7.0)
-      connection_pool
-      execjs
-      railties (>= 3.2)
-      tilt
     redis (4.2.5)
     reek (6.0.2)
       kwalify (~> 0.7.0)
@@ -447,7 +435,6 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
   rails_best_practices (~> 1.20)
-  react-rails
   redis (~> 4.0)
   reek (~> 6.0, >= 6.0.2)
   rubocop
