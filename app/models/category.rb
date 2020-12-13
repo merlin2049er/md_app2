@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Category < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   has_many :products
 
   validates_presence_of :name

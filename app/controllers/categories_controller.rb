@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'categories'
     add_breadcrumb @category.name
-    @category = Category.find_by_id(params[:id])
+    #@category = Category.find_by_id(params[:id])
 
     require 'time'
 
@@ -128,7 +128,11 @@ class CategoriesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_category
-    @category = Category.find_by_id(params[:id])
+    #@category = Category.find_by_id(params[:id])
+    @category = Category.friendly.find(params[:id])
+
+    #@product = Product.friendly.find(params[:id])
+
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
