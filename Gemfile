@@ -97,7 +97,8 @@ gem 'stripe_event'
 gem 'toastr_rails'
 
 # Simple authorization solution
-gem 'cancan', '~> 1.6', '>= 1.6.10'
+#gem 'cancan', '~> 1.6', '>= 1.6.10'
+gem 'cancancan'
 
 gem 'auto-session-timeout'
 
