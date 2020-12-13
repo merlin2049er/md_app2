@@ -11,7 +11,8 @@ class ContactsController < ApplicationController # GET /contacts/new
     @contact = Contact.new(contact_params)
 
     if @contact.save
-      redirect_to root_path
+      # redirect_to root_path
+      redirect_to pages_thankyou_path
       name = params[:contact][:name]
       email = params[:contact][:email]
       message = params[:contact][:message]
@@ -25,11 +26,10 @@ class ContactsController < ApplicationController # GET /contacts/new
         supplier,
         registered_user
       ).deliver
-      flash.now[:success] = 'Thanks for the message, we will be in touch soon.'
+    #  flash.now[:success] = 'Thanks for the message, we will be in touch soon.'
     else
       redirect_to pages_contact_path
-      flash.now[:danger] =
-        'Opps, there was a problem! Please fill out all the fields.'
+    #  flash.now[:danger] = 'Opps, there was a problem! Please fill out all the fields.'
     end
   end
 

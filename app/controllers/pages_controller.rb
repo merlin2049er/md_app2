@@ -18,6 +18,11 @@ class PagesController < ApplicationController
     add_breadcrumb 'Cookies'
   end
 
+  def thankyou
+    add_breadcrumb @site_name, :root_path
+    add_breadcrumb 'Thank you'
+  end
+
   def contact
     add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Contact'

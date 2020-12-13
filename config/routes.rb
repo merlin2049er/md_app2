@@ -66,6 +66,7 @@ Rails.application.routes.draw do
   get 'pages/privacy'
   get 'pages/random'
   get 'pages/terms'
+  get 'pages/thankyou'
   get 'pages/shipping'
   get 'pages/returns'
   get 'pages/taxes'
