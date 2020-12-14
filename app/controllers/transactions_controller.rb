@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
   include Pagy::Backend
   before_action :authenticate_user! # GET /transactions.json
   def index
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Transactions'
 
     # old broken code
@@ -38,27 +38,27 @@ class TransactionsController < ApplicationController
   # GET /transactions/1
   # GET /transactions/1.json
   def show
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Transaction'
   end
 
   # GET /transactions/new
   def new
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Transaction'
     @transaction = Transaction.new
   end
 
   # GET /transactions/1/edit
   def edit
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit Transaction'
   end
 
   # POST /transactions
   # POST /transactions.json
   def create
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Transaction'
 
     @transaction = Transaction.new(transaction_params)
@@ -82,7 +82,7 @@ class TransactionsController < ApplicationController
   # PATCH/PUT /transactions/1
   # PATCH/PUT /transactions/1.json
   def update
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit Transaction'
 
     respond_to do |format|

@@ -8,7 +8,7 @@ class WatchlistsController < ApplicationController
   # GET /watchlist
   # GET /watchlist.json
   def index
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Watchlist'
 
     @watchlists =
@@ -34,7 +34,7 @@ class WatchlistsController < ApplicationController
   # POST /watchlists
   # POST /watchlists.json
   #  def create
-  #    add_breadcrumb @site_name, :root_path
+  #    #add_breadcrumb @site_name, :root_path
   #    add_breadcrumb 'New watch item'
 
   #    @watchlist = Watchlist.new(watchlist_params)

@@ -4,11 +4,11 @@ class CategoriesController < ApplicationController
   include Pagy::Backend
 
   before_action :set_category, only: %i[show edit update destroy]
-
+  
   # GET /categories
   # GET /categories.json
   def index
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'categories'
 
     @categories = Category.all # @pagy, @categories = Category.order(:name).pagy(page: params[:page] , per_page: 10)
@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     # begin
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'categories'
     add_breadcrumb @category.name
     #@category = Category.find_by_id(params[:id])
@@ -57,21 +57,21 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Category'
     @category = Category.new
   end
 
   # GET /categories/1/edit
   def edit
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit Category'
   end
 
   # POST /categories
   # POST /categories.json
   def create
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New category'
     @category = Category.new(category_params)
 
@@ -93,7 +93,7 @@ class CategoriesController < ApplicationController
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
   def update
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit category'
 
     respond_to do |format|

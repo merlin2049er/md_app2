@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'products'
 
     @search = Product.published.search(params[:query])
@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'product'
     add_breadcrumb @product.title
 
@@ -87,21 +87,21 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New product'
     @product = Product.new
   end
 
   # GET /products/1/edit
   def edit
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit product'
   end
 
   # POST /products
   # POST /products.json
   def create
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New product'
 
     @product = Product.new(product_params)

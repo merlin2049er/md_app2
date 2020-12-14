@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base # For APIs, you may want to
 
   before_action :store_history
   before_action :set_search
-  before_action :set_variables
+  # before_action :set_variables
   before_action :banned
 
   rescue_from ActionController::InvalidAuthenticityToken,
@@ -18,6 +18,9 @@ class ApplicationController < ActionController::Base # For APIs, you may want to
     rescue_from ActiveRecord::RecordNotFound, with: :errors_stop
     rescue_from NoMethodError, with: :errors_stop
   #  rescue_from ActionDispatch::Cookies::CookieOverflow, with: :error_stop
+
+  SITE_NAME = 'Tipping point'
+  add_breadcrumb SITE_NAME, :root_path
 
   def errors_stop
     flash.now[:error] = 'Oops. Something went wrong.'
@@ -48,7 +51,7 @@ class ApplicationController < ActionController::Base # For APIs, you may want to
   end
 
   def show_errors
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Whoa!'
     render 'pages/error'
   end
@@ -58,7 +61,7 @@ class ApplicationController < ActionController::Base # For APIs, you may want to
       flash.now[:warning] = 'Sorry, you have been banned...'
       session.clear
 
-      add_breadcrumb @site_name, :root_path
+      #add_breadcrumb @site_name, :root_path
       add_breadcrumb 'Banned'
       render 'pages/banned'
     end
@@ -77,9 +80,9 @@ class ApplicationController < ActionController::Base # For APIs, you may want to
     session[:history] << request.url
   end
 
-  def set_variables
-    @site_name = 'Tipping point'
-  end
+  # def set_variables
+  #  @site_name = 'Tipping point'
+  # end
 
   # override before_timedout
   # not being used >>

@@ -9,7 +9,7 @@ class NotificationsController < ApplicationController
   # GET /notifications
   # GET /notifications.json
   def index
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Notifications'
 
     @notifications =
@@ -20,13 +20,13 @@ class NotificationsController < ApplicationController
   # GET /notifications/1
   # GET /notifications/1.json
   def show
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Notification'
   end
 
   # GET /notifications/new
   def new
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Notification'
 
     @notification = Notification.new
@@ -34,14 +34,14 @@ class NotificationsController < ApplicationController
 
   # GET /notifications/1/edit
   def edit
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit Notification'
   end
 
   # POST /notifications
   # POST /notifications.json
   def create
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Notification'
 
     @notification = Notification.new(notification_params)
@@ -65,7 +65,7 @@ class NotificationsController < ApplicationController
   # PATCH/PUT /notifications/1
   # PATCH/PUT /notifications/1.json
   def update
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit Notification'
 
     respond_to do |format|

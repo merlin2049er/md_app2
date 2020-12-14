@@ -8,7 +8,7 @@ class TicketnotesController < ApplicationController
   # GET /ticketnotes
   # GET /ticketnotes.json
   def index
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Ticket notes'
 
     # @ticketnotes  = Ticketnotes.where('user_id =?', current_user.id).order('created_at DESC')
@@ -21,13 +21,13 @@ class TicketnotesController < ApplicationController
   # GET /ticketnotes/1
   # GET /ticketnotes/1.json
   def show
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Ticket notes'
   end
 
   # GET /ticketnotes/new
   def new
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Ticket notes'
 
     @ticketnote = Ticketnote.new(troubleticket_id: params[:troubleticket_id])
@@ -36,14 +36,14 @@ class TicketnotesController < ApplicationController
 
   # GET /ticketnotes/1/edit
   def edit
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit Ticket notes'
   end
 
   # POST /ticketnotes
   # POST /ticketnotes.json
   def create
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Ticket notes'
 
     @ticketnote = Ticketnote.new(ticketnote_params)
@@ -67,7 +67,7 @@ class TicketnotesController < ApplicationController
   # PATCH/PUT /ticketnotes/1
   # PATCH/PUT /ticketnotes/1.json
   def update
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit Ticketnotes'
 
     respond_to do |format|

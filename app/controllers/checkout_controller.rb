@@ -55,14 +55,14 @@ class CheckoutController < ApplicationController # product = Product.find(params
   end
 
   def cancel
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Payment status'
 
     render 'cancel'
   end
 
   def success
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Payment status'
 
     # not sure if it returns a session id

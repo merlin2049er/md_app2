@@ -8,7 +8,7 @@ class FeedbacksController < ApplicationController
   # GET /feedbacks
   # GET /feedbacks.json
   def index
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Feedback'
 
     @feedbacks = Feedback.all
@@ -20,13 +20,13 @@ class FeedbacksController < ApplicationController
   # GET /feedbacks/1
   # GET /feedbacks/1.json
   def show
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Feedback'
   end
 
   # GET /feedbacks/new
   def new
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Feedback'
 
     #  puts "ssssssssssssssssssssss", params[:transaction_id].inspect
@@ -43,14 +43,14 @@ class FeedbacksController < ApplicationController
 
   # GET /feedbacks/1/edit
   def edit
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit Feedback'
   end
 
   # POST /feedbacks
   # POST /feedbacks.json
   def create
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Feedback'
 
     @feedback = Feedback.new(feedback_params)
@@ -68,7 +68,7 @@ class FeedbacksController < ApplicationController
   # PATCH/PUT /feedbacks/1
   # PATCH/PUT /feedbacks/1.json
   def update
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit Feedback'
 
     respond_to do |format|

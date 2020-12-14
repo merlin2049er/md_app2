@@ -4,34 +4,34 @@ class PagesController < ApplicationController
   include Pagy::Backend
 
   def about
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'About'
   end
 
   #  def banned
-  #    add_breadcrumb @site_name, :root_path
+  #    #add_breadcrumb @site_name, :root_path
   #    add_breadcrumb 'Banned'
   #  end
 
   def cookies
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Cookies'
   end
 
   def thankyou
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Thank you'
   end
 
   def contact
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Contact'
 
     @contact = Contact.new
   end
 
   def dashboard
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Dashboard'
 
     # user model queries
@@ -63,17 +63,17 @@ class PagesController < ApplicationController
   end
 
   def error
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Error'
   end
 
   #  def faq
-  #     add_breadcrumb @site_name, :root_path
+  #     #add_breadcrumb @site_name, :root_path
   #    add_breadcrumb 'FAQ'
   #  end
 
   def index
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Home'
 
     # check for filled in profile
@@ -89,7 +89,7 @@ class PagesController < ApplicationController
   def invitations; end
 
   def invite
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Invite'
 
     @invite = Invite.new
@@ -98,44 +98,44 @@ class PagesController < ApplicationController
   end
 
   def jobs
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Jobs'
   end
 
   def payments
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Payments'
   end
 
   def privacy
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Privacy'
   end
 
   def random
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Random'
 
     @random = Product.published.limit(12).order('RANDOM()')
   end
 
   def terms
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Terms'
   end
 
   def shipping
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Shipping'
   end
 
   def returns
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Returns'
   end
 
   def taxes
-    add_breadcrumb @site_name, :root_path
+    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Taxes'
   end
 end
