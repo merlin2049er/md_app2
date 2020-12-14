@@ -7,13 +7,12 @@ class CartsController < ApplicationController
   before_action :set_cart, only: %i[create destroy]
   before_action :authenticate_user!
 
-  
+
   # Product.unscoped.where(:funded => 'true')
 
   # GET /article/ns
   # GET /articles.json
   def index
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'shopping cart'
 
     case params[:view]
@@ -35,26 +34,21 @@ class CartsController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'shopping cart'
   end
 
   # GET /articles/new
   def new
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New shopping cart'
-
     @cart = Cart.new
   end
 
   # GET /articles/1/edit
   def edit
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'edit shopping cart'
   end
 
   def create
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'new shopping cart'
 
     @cart = Cart.new
@@ -75,7 +69,6 @@ class CartsController < ApplicationController
   end
 
   def update
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit shopping cart'
 
     @cart = Cart.find(params[:id])

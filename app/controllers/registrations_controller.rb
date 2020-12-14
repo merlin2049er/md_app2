@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 class RegistrationsController < Devise::RegistrationsController
-  @site_name = 'tipping point'
-
-  #add_breadcrumb @site_name, :root_path
   add_breadcrumb 'Sign up'
 
   def edit
@@ -34,7 +31,6 @@ class RegistrationsController < Devise::RegistrationsController
       :email,
       :password,
       :password_confirmation,
-      #:current_password,
       :username,
       :firstname,
       :lastname,

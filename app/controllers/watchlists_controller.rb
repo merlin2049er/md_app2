@@ -8,9 +8,7 @@ class WatchlistsController < ApplicationController
   # GET /watchlist
   # GET /watchlist.json
   def index
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Watchlist'
-
     @watchlists =
       Watchlist.where('user_id =?', current_user.id).order('created_at DESC')
     @pagy, @watchlists = pagy(@watchlists)
@@ -27,29 +25,9 @@ class WatchlistsController < ApplicationController
         flash.now[:notice] = 'Watch item was successfully created.'
       else
         flash.now[:error] = @watchlist.errors.full_messages.to_sentence
-      end #  render 'new.js.erb'
+      end
     end
   end
-
-  # POST /watchlists
-  # POST /watchlists.json
-  #  def create
-  #    #add_breadcrumb @site_name, :root_path
-  #    add_breadcrumb 'New watch item'
-
-  #    @watchlist = Watchlist.new(watchlist_params)
-
-  #    respond_to do |format|
-  #      if @watchlist.save
-
-  #       format.html { redirect_to watchlists_path, notice: 'Watch item was successfully created.' }
-  #        format.json { render :show, status: :created, location: @watchlist }
-  #      else
-  #        format.html { render :new }
-  #        format.json { render json: @watchlist.errors, status: :unprocessable_entity }
-  #      end
-  #    end
-  #  end
 
   # DELETE /watchlists/1
   # DELETE /watchlists/1.json
@@ -74,5 +52,5 @@ class WatchlistsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def watchlist_params
     params.require(:watchlist).permit(:user_id, :product_id)
-  end #  add_breadcrumb 'New watch item'
+  end 
 end

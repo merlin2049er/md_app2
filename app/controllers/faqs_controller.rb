@@ -7,37 +7,31 @@ class FaqsController < ApplicationController
   # GET /faqs
   # GET /faqs.json
   def index
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'FAQ'
     @faqs = Faq.all
-
     @pagy, @faqs = pagy(Faq.all.order(:created_at))
   end
 
   # GET /faqs/1
   # GET /faqs/1.json
   def show
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'FAQ'
   end
 
   # GET /faqs/new
   def new
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New FAQ'
     @faq = Faq.new
   end
 
   # GET /faqs/1/edit
   def edit
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit FAQ'
   end
 
   # POST /faqs
   # POST /faqs.json
   def create
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New FAQ'
 
     @faq = Faq.new(faq_params)

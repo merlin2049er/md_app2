@@ -20,29 +20,24 @@ class BlacklistsController < ApplicationController
   # GET /blacklists/1
   # GET /blacklists/1.json
   def show
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Blacklist'
   end
 
   # GET /blacklists/new
   def new
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Blacklist'
-
     @blacklist = Blacklist.new
   end
 
   # GET /blacklists/1/edit
   def edit
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'Edit Blacklist'
+        add_breadcrumb 'Edit Blacklist'
   end
 
   # POST /blacklists
   # POST /blacklists.json
   def create
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'New Blacklist'
+        add_breadcrumb 'New Blacklist'
 
     @blacklist = Blacklist.new(blacklist_params)
 
@@ -64,8 +59,7 @@ class BlacklistsController < ApplicationController
   # PATCH/PUT /blacklists/1
   # PATCH/PUT /blacklists/1.json
   def update
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'New Blacklist'
+        add_breadcrumb 'New Blacklist'
 
     respond_to do |format|
       if @blacklist.update(blacklist_params)

@@ -3,41 +3,35 @@
 class TodoListsController < ApplicationController
   before_action :set_todo_list, only: %i[show edit update destroy]
   include Pagy::Backend
-  before_action :authenticate_user! # GET /todo_lists.json
+  before_action :authenticate_user!
+
   def index
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Todo list'
-
-    @todo_lists = TodoList.all #  @todo_lists = TodoList.count
-
+    @todo_lists = TodoList.all
     @pagy, @todo_lists = pagy(TodoList.all.order(:created_at))
   end
 
   # GET /todo_lists/1
   # GET /todo_lists/1.json
   def show
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Todo list'
   end
 
   # GET /todo_lists/new
   def new
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Todo list'
     @todo_list = TodoList.new
   end
 
   # GET /todo_lists/1/edit
   def edit
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit Todo list'
   end
 
   # POST /todo_lists
   # POST /todo_lists.json
   def create
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'New Todo list'
+        add_breadcrumb 'New Todo list'
     @todo_list = TodoList.new(todo_list_params)
 
     respond_to do |format|
@@ -58,8 +52,7 @@ class TodoListsController < ApplicationController
   # PATCH/PUT /todo_lists/1
   # PATCH/PUT /todo_lists/1.json
   def update
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'Todo list'
+        add_breadcrumb 'Todo list'
 
     respond_to do |format|
       if @todo_list.update(todo_list_params)

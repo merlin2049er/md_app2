@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
-class CheckoutController < ApplicationController # product = Product.find(params[:id])
+class CheckoutController < ApplicationController 
   def create
     cart = Cart.find(params[:id])
-
-    # cart = Cart.where('id =?', params[:id])
-
-    #  binding.pry
 
     if cart.nil?
       redirect_to root_path
@@ -20,10 +16,10 @@ class CheckoutController < ApplicationController # product = Product.find(params
 
     tax = Tax.find_by_prov_id(user.state)
 
-    cart_total += (cart_total * tax.tax_rate).floor unless tax.nil? # cart_image = asset_pack_path + "media/images/#{product.picurl }"
+    cart_total += (cart_total * tax.tax_rate).floor unless tax.nil?
 
     # setup a stripe payment for session
-    # fix product amount and add qty
+
     @session =
       Stripe::Checkout::Session.create(
         {
@@ -55,46 +51,36 @@ class CheckoutController < ApplicationController # product = Product.find(params
   end
 
   def cancel
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'Payment status'
+        add_breadcrumb 'Payment status'
 
     render 'cancel'
   end
 
   def success
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'Payment status'
-
-    # not sure if it returns a session id
-    #  if params[:session_id].nil?
-    #    redirect_to root_path
-    #    return
-    #  end
+        add_breadcrumb 'Payment status'
 
     @success =
       Stripe::Checkout::Session.retrieve(
         { id: params[:session_id], expand: %w[payment_intent] }
-      ) # ch = Stripe::Checkout::Session.retrieve({id:  CHECKOUT_SESSION_ID,   expand: ['payment_intent'],},)
+      )
 
     render 'success'
 
-    # CART_ID = @success.payment_intent.client_reference_id
-    # FIND CART BY CART_ID
-    cart = Cart.find(@success.client_reference_id) # cart.paid = true ?
+    cart = Cart.find(@success.client_reference_id)
     cart.update(paid: true)
     cart.save
 
-    # CREAtE A NEW TRANSACTION FOR User
+    # Create a new transaction for the user
 
     transaction =
       Transaction.new do |t|
         t.user_id = cart.user_id
         t.postal_carrier = 'Canada Post'
-        t.invoice_number = '...invoice here...' # t.invoice_number = @success.payment_intent.charges.data[0].invoice
+        t.invoice_number = '...invoice here...'
         t.receipt_url = @success.payment_intent.charges.data[0].receipt_url
         t.tracking_number = '...coming soon...'
         t.transaction_msg = '...shipment pending...'
       end
-    transaction.save # ADD REICEpT URL # MARK AS PAID  (TOGGLE BOOLEAN VALUE) #  cart.user_id
+    transaction.save
   end
 end

@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base # For APIs, you may want to
 
   before_action :store_history
   before_action :set_search
-  # before_action :set_variables
   before_action :banned
 
   rescue_from ActionController::InvalidAuthenticityToken,
@@ -51,7 +50,6 @@ class ApplicationController < ActionController::Base # For APIs, you may want to
   end
 
   def show_errors
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Whoa!'
     render 'pages/error'
   end
@@ -61,7 +59,6 @@ class ApplicationController < ActionController::Base # For APIs, you may want to
       flash.now[:warning] = 'Sorry, you have been banned...'
       session.clear
 
-      #add_breadcrumb @site_name, :root_path
       add_breadcrumb 'Banned'
       render 'pages/banned'
     end
@@ -79,10 +76,6 @@ class ApplicationController < ActionController::Base # For APIs, you may want to
     session[:history].delete_at(0) if session[:history].size >= 5
     session[:history] << request.url
   end
-
-  # def set_variables
-  #  @site_name = 'Tipping point'
-  # end
 
   # override before_timedout
   # not being used >>

@@ -4,19 +4,9 @@ class TransactionsController < ApplicationController
   before_action :set_transaction, only: %i[show edit update destroy]
   include Pagy::Backend
   before_action :authenticate_user! # GET /transactions.json
-  def index
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'Transactions'
 
-    # old broken code
-    #    if User.where('admin =?', current_user.admin )
-    #      @transactions = Transaction.all.order('created_at DESC')
-    #    else
-    #      @transactions = Transaction.where('user_id =?', current_user.id).order('created_at DESC')
-    #    end
-    # @feedback_recieved = Feedback.exists?(@transaction)
-    #    @pagy, @transactions = pagy(@transactions)
-    #  end
+  def index
+    add_breadcrumb 'Transactions'
 
     if current_user.admin == true
       @transactions = Transaction.all.order('created_at DESC')
@@ -38,28 +28,24 @@ class TransactionsController < ApplicationController
   # GET /transactions/1
   # GET /transactions/1.json
   def show
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'Transaction'
+        add_breadcrumb 'Transaction'
   end
 
   # GET /transactions/new
   def new
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'New Transaction'
+        add_breadcrumb 'New Transaction'
     @transaction = Transaction.new
   end
 
   # GET /transactions/1/edit
   def edit
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'Edit Transaction'
+        add_breadcrumb 'Edit Transaction'
   end
 
   # POST /transactions
   # POST /transactions.json
   def create
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'New Transaction'
+        add_breadcrumb 'New Transaction'
 
     @transaction = Transaction.new(transaction_params)
 
@@ -82,8 +68,7 @@ class TransactionsController < ApplicationController
   # PATCH/PUT /transactions/1
   # PATCH/PUT /transactions/1.json
   def update
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'Edit Transaction'
+        add_breadcrumb 'Edit Transaction'
 
     respond_to do |format|
       if @transaction.update(transaction_params)

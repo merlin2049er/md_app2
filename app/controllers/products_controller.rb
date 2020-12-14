@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'products'
 
     @search = Product.published.search(params[:query])
@@ -40,20 +39,16 @@ class ProductsController < ApplicationController
   end
 
   def show
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'product'
+        add_breadcrumb 'product'
     add_breadcrumb @product.title
 
-    # @product = Product.find_by_id(params[:id])
     @product = Product.friendly.find(params[:id])
 
     # insert comments here...
-    commontator_thread_show(@product) # @comments = @product.comments.with_state([:draft, :published])
-
+    commontator_thread_show(@product)
     impressionist(@product)
 
     @photo = @product.photos.where('enabled' => true)
-
     @taken = Cart.where('product_id' => @product).sum(:qty)
     @remaining = @product.qty - @taken
 
@@ -87,22 +82,19 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'New product'
+        add_breadcrumb 'New product'
     @product = Product.new
   end
 
   # GET /products/1/edit
   def edit
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'Edit product'
+        add_breadcrumb 'Edit product'
   end
 
   # POST /products
   # POST /products.json
   def create
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'New product'
+        add_breadcrumb 'New product'
 
     @product = Product.new(product_params)
     respond_to do |format|

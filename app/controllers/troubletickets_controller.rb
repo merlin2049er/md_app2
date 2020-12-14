@@ -8,8 +8,7 @@ class TroubleticketsController < ApplicationController
   # GET /troubletickets
   # GET /troubletickets.json
   def index
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'Trouble Ticket'
+        add_breadcrumb 'Trouble Ticket'
 
     if current_user.admin == true
       @troubletickets = Troubleticket.all
@@ -31,14 +30,12 @@ class TroubleticketsController < ApplicationController
   # GET /troubletickets/1
   # GET /troubletickets/1.json
   def show
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'Trouble Ticket'
+        add_breadcrumb 'Trouble Ticket'
   end
 
   # GET /troubletickets/new
   def new
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'New Trouble Ticket'
+        add_breadcrumb 'New Trouble Ticket'
 
     @troubleticket = Troubleticket.new
     @troubleticket.ticketnotes.build
@@ -46,15 +43,13 @@ class TroubleticketsController < ApplicationController
 
   # GET /troubletickets/1/edit
   def edit
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'Update Trouble Ticket' #  @troubleticket.ticketnotes.build
+        add_breadcrumb 'Update Trouble Ticket'
   end
 
   # POST /troubletickets
   # POST /troubletickets.json
   def create
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'New Trouble Ticket'
+        add_breadcrumb 'New Trouble Ticket'
 
     @troubleticket = Troubleticket.new(troubleticket_params)
 
@@ -77,8 +72,7 @@ class TroubleticketsController < ApplicationController
   # PATCH/PUT /troubletickets/1
   # PATCH/PUT /troubletickets/1.json
   def update
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'Update Trouble Ticket'
+        add_breadcrumb 'Update Trouble Ticket'
 
     respond_to do |format|
       if @troubleticket.update(troubleticket_params)
@@ -123,10 +117,6 @@ class TroubleticketsController < ApplicationController
         end
         format.json { render :show, status: :created, location: @troubleticket }
 
-        #  else
-        #    format.html { render :new }
-        #    format.json { render json: @troubleticket.errors, status: :unprocessable_entity }
-        #  end
       end
     end
   end

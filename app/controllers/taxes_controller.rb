@@ -5,7 +5,6 @@ class TaxesController < ApplicationController
   include Pagy::Backend
   before_action :authenticate_user! # GET /taxes.json
   def index
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Taxes'
     @taxes = Tax.all
     @taxes = Tax.count
@@ -16,29 +15,24 @@ class TaxesController < ApplicationController
   # GET /taxes/1
   # GET /taxes/1.json
   def show
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Taxes'
   end
 
   # GET /taxes/new
   def new
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Tax'
     @tax = Tax.new
   end
 
   # GET /taxes/1/edit
   def edit
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'Edit Tax'
   end
 
   # POST /taxes
   # POST /taxes.json
   def create
-    #add_breadcrumb @site_name, :root_path
     add_breadcrumb 'New Tax'
-
     @tax = Tax.new(tax_params)
 
     respond_to do |format|
@@ -57,8 +51,7 @@ class TaxesController < ApplicationController
   # PATCH/PUT /taxes/1
   # PATCH/PUT /taxes/1.json
   def update
-    #add_breadcrumb @site_name, :root_path
-    add_breadcrumb 'Edit Tax'
+        add_breadcrumb 'Edit Tax'
 
     respond_to do |format|
       if @tax.update(tax_params)
