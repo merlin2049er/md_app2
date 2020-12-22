@@ -9,6 +9,7 @@ ruby '2.7.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
+#gem 'rails', github: 'rails/rails'
 
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3', '~> 1.4'
@@ -75,8 +76,11 @@ gem 'impressionist', '~> 1.6', '>= 1.6.1'
 gem 'country_select'
 
 # validations
-gem 'client_side_validations', '~> 16.1', '>= 16.1.1'
-gem 'client_side_validations-simple_form', '~> 10.0'
+#gem 'client_side_validations', '~> 16.1', '>= 16.1.1'
+gem 'client_side_validations', '~> 17.2'
+#gem 'client_side_validations-simple_form', '~> 10.0'
+gem 'client_side_validations-simple_form', '~> 11.2'
+
 
 # elasticsearch
 gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '5.x'
