@@ -9,7 +9,6 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     add_breadcrumb 'categories'
-
     @categories = Category.all # @pagy, @categories = Category.order(:name).pagy(page: params[:page] , per_page: 10)
     @pagy, @categories = pagy(Category.order(:name))
   end
