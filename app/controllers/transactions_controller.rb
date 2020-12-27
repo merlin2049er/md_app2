@@ -9,8 +9,42 @@ class TransactionsController < ApplicationController
     add_breadcrumb 'Transactions'
 
     if current_user.admin == true
-      @transactions = Transaction.all.order('created_at DESC')
-      @pagy, @transactions = pagy(Transaction.all.order(  'created_at DESC'))
+      case params[:view]
+      when 'shipped'
+        add_breadcrumb '[Shipped]'
+
+        @transactions =
+          Transaction.where('shipped =? ', true).order(
+            'created_at DESC'
+          )
+          @pagy, @transactions =
+            pagy(
+              Transaction.where('shipped =? ' ,true).order(
+                'created_at DESC'
+              )
+            )
+      when 'notshipped'
+        add_breadcrumb '[Not Shipped]'
+
+        @transactions =
+          Transaction.where('shipped =?', false).order(
+            'created_at DESC'
+          )
+          @pagy, @transactions =
+            pagy(
+              Transaction.where('shipped =? ', false).order(
+                'created_at DESC'
+              )
+            )
+      else
+        @transactions = Transaction.all.order('created_at DESC')
+        @pagy, @transactions = pagy(Transaction.all.order(  'created_at DESC'))        
+      end
+
+  #    @transactions = Transaction.all.order('created_at DESC')
+  #    @pagy, @transactions = pagy(Transaction.all.order(  'created_at DESC'))
+
+
     else
 
       case params[:view]
