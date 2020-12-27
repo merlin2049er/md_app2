@@ -1,4 +1,4 @@
-<% if @recent_products.blank?  %>
+<% if @last_chance.blank?  %>
 <p>Sorry, we will be updating the shop with some new products shortly.<br><br>
 If your a manufacturer, or a wholesaler/distrubutor of audio gear I'd love to hear from you.
 <br>
@@ -8,16 +8,16 @@ Please use the contact form to get in touch.
 <% else %>
 
 
-<h3>Recently Added</h3>
+<h3>Last Chance</h3>
 <h5 >
-  <%= link_to "Recently Added", "/" %>|<%= link_to "Last Chance", "/pages/index2" %>
+  <%= link_to "Recently Added", "/" %>|<%= link_to "Last Chance", "/index2" %>
 </h5>
 
 <div class="container">
 
   <div class="row">
 
-<% @recent_products.each do |p| %>
+<% @last_chance.each do |p| %>
 
   <div class="col-md-4 col-sm-6 col-xs-12">
   <!--    <div class="thumbnail"> -->

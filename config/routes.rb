@@ -58,7 +58,8 @@ Rails.application.routes.draw do
   get 'pages/cookies'
   get 'pages/dashboard'
   get 'pages/error'
-  get 'pages/index'
+  get 'pages/index'  # recently added
+  get 'pages/index2' #last change
   get 'pages/invitations'
   get 'pages/invite'
   get 'pages/jobs'

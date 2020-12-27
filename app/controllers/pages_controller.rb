@@ -66,6 +66,19 @@ class PagesController < ApplicationController
     end
 
     @recent_products = Product.published.most_recent(6)
+
+  end
+
+  def index2
+    add_breadcrumb 'Home'
+
+    # check for filled in profile
+    if current_user && !current_user.is_profile_complete &&
+         Blacklist.find_by_email(current_user.email).nil?
+      flash.now[:warning] = 'Please, fill in your profile...'
+    end
+
+
     @last_chance = Product.published.ending_soonest(6)
   end
 
@@ -98,7 +111,7 @@ class PagesController < ApplicationController
     add_breadcrumb 'Random'
     @random = Product.published.limit(12).order('RANDOM()')
   end
-  
+
   def terms
     add_breadcrumb 'Terms'
   end
