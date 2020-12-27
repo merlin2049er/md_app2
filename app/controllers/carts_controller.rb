@@ -14,6 +14,10 @@ class CartsController < ApplicationController
   # GET /articles.json
   def index
     add_breadcrumb 'shopping cart'
+    @grand_sub_total = 0
+    @grand_tax_total = 0
+    @grand_total = 0
+    @total_qty = 0
 
     case params[:view]
     when 'paid'

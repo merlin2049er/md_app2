@@ -76,6 +76,7 @@
 
 
           <% if not product.funded? %>
+
           <td>
 		  <% if not cart.paid? %>
 		  	<%= link_to 'Remove', cart, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -121,8 +122,31 @@
         <%= product.enddate + 5  %></td>
         <% end %>
         </tr>
+          <% @total_qty = @total_qty + cart.qty %>
+          <% @grand_tax_total = @grand_tax_total + taxes %>
+          <% @grand_sub_total = @grand_sub_total + total %>
       <% end %>
       </tbody>
+      <% if @total_qty != 0 %>
+      <tfoot>
+           <tr>
+               <th>Grand Total</th>
+               <td></td>
+               <td></td>
+                <td><%= @total_qty %> </td>
+               <td></td>
+               <td><%= number_to_currency(@grand_sub_total)%> </td>
+               <td><%= number_to_currency(@grand_tax_total) %> </td>
+               <td><%= number_to_currency(@grand_total = @grand_sub_total + @grand_tax_total )%> </td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+           </tr>
+       </tfoot>
+       <% end %>
+
     </table>
   </div>
 
