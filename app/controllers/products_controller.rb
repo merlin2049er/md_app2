@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     add_breadcrumb 'products'
-
+    @q = params[:query]
     @search = Product.published.search(params[:query])
     @total_products = Product.published.count
     require 'time'
