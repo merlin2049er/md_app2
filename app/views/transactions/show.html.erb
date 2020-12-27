@@ -33,6 +33,9 @@
   <strong>Transaction msg:</strong>
   <%= @transaction.transaction_msg %>
 </p>
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+  <%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<% end %>
 
-<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
 <%= link_to 'Back', transactions_path %>

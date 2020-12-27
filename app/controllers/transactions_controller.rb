@@ -10,19 +10,50 @@ class TransactionsController < ApplicationController
 
     if current_user.admin == true
       @transactions = Transaction.all.order('created_at DESC')
-      @pagy, @transactions = pagy(Transaction.all.order(:created_at))
+      @pagy, @transactions = pagy(Transaction.all.order(  'created_at DESC'))
     else
-      @transactions =
-        Transaction.where('user_id =?', current_user.id).order(
-          'created_at DESC'
-        )
-      @pagy, @transactions =
-        pagy(
+
+      case params[:view]
+      when 'shipped'
+        add_breadcrumb '[Shipped]'
+
+        @transactions =
+          Transaction.where('user_id =? AND shipped =?', current_user.id, true).order(
+            'created_at DESC'
+          )
+          @pagy, @transactions =
+            pagy(
+              Transaction.where('user_id =?  AND shipped =?', current_user.id,true).order(
+                'created_at DESC'
+              )
+            )
+      when 'notshipped'
+        add_breadcrumb '[Not Shipped]'
+
+        @transactions =
+          Transaction.where('user_id =? AND shipped =?', current_user.id, false).order(
+            'created_at DESC'
+          )
+          @pagy, @transactions =
+            pagy(
+              Transaction.where('user_id =?  AND shipped =?', current_user.id,false).order(
+                'created_at DESC'
+              )
+            )
+      else
+        @transactions =
           Transaction.where('user_id =?', current_user.id).order(
             'created_at DESC'
           )
-        )
+        @pagy, @transactions =
+          pagy(
+            Transaction.where('user_id =?', current_user.id).order(
+              'created_at DESC'
+            )
+          )
+      end
     end
+
   end
 
   # GET /transactions/1

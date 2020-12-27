@@ -7,14 +7,15 @@
 <% @user = current_user %>
 <% if user_signed_in? %>
 
-  <div class="panel panel-default">
-    <!-- Default panel contents -->
+<div class="table-responsive">
+      <!-- Default panel contents -->
       <div class="panel-heading">Transactions:  <% if @transactions.empty?  %>
             Nothing here...
         <% else %>
             <%= @transactions.count %> items...
         <% end %>
         <div class="pull-right" ><font size="1">Transactions are displayed for the last 60 days.</font><br>
+       <div class="pull-right"><font size="1">Filters> <%= link_to "All  ", transactions_path(:view=>"") %> <%= link_to "Shipped  ", transactions_path(:view=>"shipped") %> <%= link_to "Not Shipped  ", transactions_path(:view=>"notshipped") %></font><br></div>
 
     </div>
       </div>
