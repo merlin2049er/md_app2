@@ -50,7 +50,7 @@
 
       <!--  <td> <%=  transaction.id  %>  </td> -->
         <td><%= transaction.created_at.strftime("%m/%d/%Y")  %> </td>
-        <td> <%= link_to transaction.invoice_number, transaction.receipt_url %> </td>
+        <td> <%= link_to transaction.invoice_number, transaction.receipt_url, target: :_blank %> </td>
         <td> <%=  transaction.shipped  %>  </td>
         <td> <%=  transaction.postal_carrier  %></td>
         <td> <%=   transaction.tracking_number %></td>
