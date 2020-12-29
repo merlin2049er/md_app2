@@ -80,8 +80,7 @@ class Product < ActiveRecord::Base
         lambda {
           where(draft: false).where(active: true).where(funded: false).where(
             '? BETWEEN startdate AND enddate',
-            Date.today
-          )
+            Date.today)
         }
 
   scope :most_recent, ->(limit) { order('startdate desc').limit(limit) }
