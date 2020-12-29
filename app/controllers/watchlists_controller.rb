@@ -24,7 +24,7 @@ class WatchlistsController < ApplicationController
       if @watchlist.save
         flash.now[:notice] = 'Watch item was successfully created.'
       else
-        flash.now[:error] = @watchlist.errors.full_messages.to_sentence
+        flash.now[:error] = "Already watching this..."
       end
     end
   end
@@ -52,5 +52,5 @@ class WatchlistsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def watchlist_params
     params.require(:watchlist).permit(:user_id, :product_id)
-  end 
+  end
 end

@@ -8,7 +8,7 @@ class Transaction < ActiveRecord::Base
   validates_presence_of :receipt_url
   validates_presence_of :tracking_number
   validates_presence_of :postal_carrier
-  has_one :feedback # , :class_name => "Feedback", :foreign_key => :id
+  has_one :feedback
 
   def set_defaults
     self.shipped ||= 'false'

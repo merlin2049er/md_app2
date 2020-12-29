@@ -3,12 +3,8 @@
 class CartsController < ApplicationController
   include Pagy::Backend
 
-  # before_action :set_cart, only: [:create, :show, :edit, :update, :destroy]
   before_action :set_cart, only: %i[create destroy]
   before_action :authenticate_user!
-
-
-  # Product.unscoped.where(:funded => 'true')
 
   # GET /article/ns
   # GET /articles.json
@@ -27,8 +23,6 @@ class CartsController < ApplicationController
       add_breadcrumb '[Not Paid]'
       @carts = Cart.where('user_id =? AND paid =?', current_user.id, false)
     else
-      #  @carts = Cart.where('user_id =?', current_user.id) and Cart.where('paid =?', "false")
-
       @carts = Cart.where('user_id =?', current_user.id)
     end
 

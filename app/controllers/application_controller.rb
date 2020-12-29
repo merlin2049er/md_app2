@@ -55,7 +55,7 @@ class ApplicationController < ActionController::Base # For APIs, you may want to
   end
 
   def banned
-    if current_user && !Blacklist.find_by_email(current_user.email).nil? #    binding.pry
+    if current_user && !Blacklist.find_by_email(current_user.email).nil?
       flash.now[:warning] = 'Sorry, you have been banned...'
       session.clear
 

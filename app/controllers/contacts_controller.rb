@@ -26,10 +26,10 @@ class ContactsController < ApplicationController # GET /contacts/new
         supplier,
         registered_user
       ).deliver
-    #  flash.now[:success] = 'Thanks for the message, we will be in touch soon.'
+    
     else
       redirect_to pages_contact_path
-    #  flash.now[:danger] = 'Opps, there was a problem! Please fill out all the fields.'
+
     end
   end
 

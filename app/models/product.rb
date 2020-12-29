@@ -3,7 +3,7 @@
 require 'elasticsearch'
 require 'elasticsearch/model'
 
-class Product < ActiveRecord::Base #  include Elasticsearch::Model::Callbacks #  include Elasticsearch::Model # tracked owner: Proc.new{ |controller, model| controller.current_user } # include PublicActivity::Model
+class Product < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
@@ -26,9 +26,7 @@ class Product < ActiveRecord::Base #  include Elasticsearch::Model::Callbacks # 
 
   validates_presence_of :title
   validates_presence_of :category_id
-  validates_presence_of :picurl # validates :picurl, url: true
-
-  # validates_presence_of :template
+  validates_presence_of :picurl
 
   validates_presence_of :body
   validates_presence_of :qty
@@ -47,10 +45,7 @@ class Product < ActiveRecord::Base #  include Elasticsearch::Model::Callbacks # 
                  before_message: 'must be at before the end date.'
 
   validates_numericality_of :price, greater_than: 0
-  validates_numericality_of :qty, greater_than: 0 # validates_numericality_of :msrp, :greater_than => :price
-
-  # hopefully this works
-  #  validates_numericality_of :qty, less_than_or_equal_to: 10, greater_than: 0
+  validates_numericality_of :qty, greater_than: 0
 
   def commentable_title
     'Undefined Post Title'
@@ -81,21 +76,15 @@ class Product < ActiveRecord::Base #  include Elasticsearch::Model::Callbacks # 
     self.courierurl ||= 'https://www.canadapost.ca'
   end
 
-  # default_scope { where(draft: false, active: true, funded: false ) }
-  # default_scope { where(draft: false, active: true  ) }
-  # default_scope { where( 'enddate > ?', DateTime.now ) }
-
   scope :published,
         lambda {
           where(draft: false).where(active: true).where(funded: false).where(
             '? BETWEEN startdate AND enddate',
             Date.today
-          ) # .where(':date BETWEEN startdate OR enddate', date: DateTime.now.to_s)
+          )
         }
 
-  # scope :incart , -> { where(draft: false, active: true ) }
-
-  scope :most_recent, ->(limit) { order('created_at desc').limit(limit) }
+  scope :most_recent, ->(limit) { order('startdate desc').limit(limit) }
   scope :ending_soonest, ->(limit) { order('enddate desc').limit(limit) }
 
   def self.search(query)
