@@ -76,9 +76,9 @@ class FeedbacksController < ApplicationController
     respond_to do |format|
       if @feedback.update(feedback_params)
         format.html do
-          redirect_to @feedback, notice: 'Feedback was successfully updated.'
+          redirect_to feedbacks_url, notice: 'Feedback was successfully updated.'
         end
-        format.json { render :show, status: :ok, location: @feedback }
+      #  format.json { render :show, status: :ok, location: @feedback }
       else
         format.html { render :edit }
         format.json do
@@ -114,7 +114,6 @@ class FeedbacksController < ApplicationController
       :rate,
       :recommend,
       :comment,
-      :transaction_id,
       :share,
       :publish
     )

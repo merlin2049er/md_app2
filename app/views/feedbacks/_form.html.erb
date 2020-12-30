@@ -1,5 +1,5 @@
 
-<%= simple_form_for(@feedback,url: transaction_feedbacks_url(transaction_id:  params[:transaction_id]) ) do |f| %>
+<%= simple_form_for(@feedback,url: (@feedback.new_record? ? transaction_feedbacks_url(transaction_id:  params[:transaction_id]) : feedback_url(id: @feedback,transaction_id:  params[:transaction_id])) ) do |f| %>
 
   <%# <%= f.error_notification %>
 
