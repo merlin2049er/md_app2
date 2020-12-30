@@ -84,7 +84,7 @@ class Product < ActiveRecord::Base
         }
 
   scope :most_recent, ->(limit) { order('startdate desc').limit(limit) }
-  scope :ending_soonest, ->(limit) { order('enddate desc').limit(limit) }
+  scope :ending_soonest, ->(limit) { order('startdate asc').limit(limit) }
 
   def self.search(query)
     if !query.blank?
