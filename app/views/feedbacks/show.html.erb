@@ -16,7 +16,17 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @feedback.category_id %>
+  <%= @feedback.transaction_id %>
+</p>
+
+<p>
+  <strong>Share:</strong>
+  <%= @feedback.share %>
+</p>
+
+<p>
+  <strong>Publish:</strong>
+  <%= @feedback.publish %>
 </p>
 
 <%= link_to 'Edit', edit_feedback_path(@feedback) %> |

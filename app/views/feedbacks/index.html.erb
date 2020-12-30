@@ -18,9 +18,14 @@
 <table class="table" >
   <thead>
     <tr>
+      <th>Id</th>
+      <th>Transaction Id</th>
       <th>Rate</th>
       <th>Recommned</th>
       <th>Comment</th>
+
+      <th>Share</th>
+      <th>Publish</th>
       <th>Action</th>
       <th colspan="3"></th>
     </tr>
@@ -29,12 +34,14 @@
   <tbody>
     <% @feedbacks.each do |feedback| %>
       <tr>
+        <td><%= feedback.id %></td>
+        <td><%= feedback.transaction_id %></td>
         <td><%= feedback.rate %></td>
         <td><%= feedback.recommend %></td>
         <td><%= feedback.comment %></td>
-        <!-- <td><%#= feedback.transaction_id %></td> -->
-      <!--  <td><%#= link_to 'Edit', edit_feedback_path(feedback) %> -->
-      <td>  <%= link_to '    Destroy', feedback, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= feedback.share %></td>
+        <td><%= feedback.publish %></td>
+       <td><%= link_to 'Edit', edit_feedback_path(feedback, :transaction_id => feedback.transaction_id) %> | <%= link_to ' Destroy', feedback, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

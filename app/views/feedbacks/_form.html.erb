@@ -1,14 +1,11 @@
 
-<%# simple_form_for(@feedback), transaction_feedbacks_url(transaction_id: @transaction.id) do |f| %>
-
 <%= simple_form_for(@feedback,url: transaction_feedbacks_url(transaction_id:  params[:transaction_id]) ) do |f| %>
-
 
   <%# <%= f.error_notification %>
 
 
   <div class="form-inputs">
-    <%#= f.input :rate %>
+    <%= f.input :transaction_id, :disabled => true  %>
     <%= f.label :'Please rate your transaction on a scale of 1 to 5, with 1 being poor and 5 being excellent.' %>
     <%= f.select :rate, [[5, 5], [4 , 4], [3, 3], [2, 2], [1, 1]], {}, {class: "form-control"} %>
 
@@ -20,8 +17,15 @@
 <br>
     <%= f.label :'Comment' %>
     <%= f.text_field :comment , {class: "form-control"} %><br>
+    <%= f.label :'Share public feedback?' %>
 
-    <%#= f.input :transaction_id %>
+    <%= f.input :share  %>
+    <% @user = current_user %>
+    <% if @user.admin %>
+        <%= f.input :publish, :disabled => false  %>
+    <% else %>
+      <%= f.input :publish, :disabled => true  %>
+    <% end %>
 
   </div>
 
@@ -30,5 +34,3 @@
 
   </div>
 <% end %>
-
-<!-- <input type="submit" name="commit" value="Get in touch!" class="btn btn-info" data-disable-with="Get in touch!"> -->

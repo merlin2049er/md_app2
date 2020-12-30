@@ -38,11 +38,14 @@ Rails.application.routes.draw do
 
   get 'troubletickets_close/(:id)', to: 'troubletickets#close'
 
-  resources :feedbacks, only: %i[index edit update destroy]
+
+   resources :feedbacks, only: %i[index edit update destroy]
 
   resources :transactions do
     resources :feedbacks, only: %i[new create]
   end
+
+  get 'feedbacks/feedback_left'
 
   scope '/checkout' do
     post 'create', to: 'checkout#create', as: 'checkout_create'

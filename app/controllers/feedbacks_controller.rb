@@ -16,6 +16,15 @@ class FeedbacksController < ApplicationController
     @pagy, @feedbacks = pagy(Feedback.all.order(:created_at))
   end
 
+  def feedback_left
+    add_breadcrumb 'Feedback Shared'
+
+    @feedbacks = Feedback.where(share: true, publish: true).limit(20)
+    @feedbacks = Feedback.count
+
+    @pagy, @feedbacks = pagy(Feedback.where(share: true, publish: true).limit(20).order(:created_at))
+  end
+
   # GET /feedbacks/1
   # GET /feedbacks/1.json
   def show
@@ -62,7 +71,7 @@ class FeedbacksController < ApplicationController
   # PATCH/PUT /feedbacks/1
   # PATCH/PUT /feedbacks/1.json
   def update
-        add_breadcrumb 'Edit Feedback'
+        add_breadcrumb 'New Feedback'
 
     respond_to do |format|
       if @feedback.update(feedback_params)
@@ -105,7 +114,8 @@ class FeedbacksController < ApplicationController
       :rate,
       :recommend,
       :comment,
-      :transaction_id
+      :transaction_id,
+      :share
     )
   end
 end
