@@ -3,7 +3,7 @@
 class FeedbacksController < ApplicationController
   before_action :set_feedback, only: %i[show edit update destroy]
   include Pagy::Backend
-  before_action :authenticate_user!
+  before_action :authenticate_user!,  except: [:feedback_left]
 
   # GET /feedbacks
   # GET /feedbacks.json
