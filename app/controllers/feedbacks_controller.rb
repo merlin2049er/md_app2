@@ -115,7 +115,8 @@ class FeedbacksController < ApplicationController
       :recommend,
       :comment,
       :transaction_id,
-      :share
+      :share,
+      :publish
     )
   end
 end

@@ -107,6 +107,11 @@ class PagesController < ApplicationController
     @random = Product.published.limit(12).order('RANDOM()')
   end
 
+  def random2
+    add_breadcrumb 'Random'
+    @random = Product.published.limit(12).order('RANDOM()')
+  end
+
   def terms
     add_breadcrumb 'Terms'
   end
