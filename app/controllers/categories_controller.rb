@@ -27,7 +27,7 @@ class CategoriesController < ApplicationController
     todaydate = "#{todaydate.year}-#{todaydate.month}-#{todaydate.day}"
 
     @title = @category.name
-    puts @category.products.inspect
+    #puts @category.products.inspect
 
     @pagy, @products =
       pagy(
