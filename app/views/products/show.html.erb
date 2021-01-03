@@ -24,16 +24,14 @@
       <%= submit_tag "Add to cart",  data: { confirm: "Are you sure you want to add #{@product.title} to your cart?" } ,  :title => "Are you sure you want to add #{@product.title} to your cart?"%>
 <% else %>
     <!-- disabled button and tooltip here... -->
-    <button type="button"  data-toggle="tooltip" data-placement="top" title="You must log in to add to cart.">
+   <button type="button"  data-toggle="tooltip" data-placement="top" title="You must log in to add to cart.">
       Add to cart
     </button>
-
 <% end %>
 
 <%end %>
 
     <% end %>
-
 
     <br>
   <% else %>
