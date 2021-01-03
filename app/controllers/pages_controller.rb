@@ -78,7 +78,6 @@ class PagesController < ApplicationController
       flash.now[:warning] = 'Please, fill in your profile...'
     end
 
-
     @last_chance = Product.published.ending_soonest(6)
   end
 
