@@ -74,7 +74,7 @@ class ApplicationController < ActionController::Base # For APIs, you may want to
   def store_history
     session[:history] ||= []
     session[:history].delete_at(0) if session[:history].size >= 5
-    # 
+    #
   end
 
   # override before_timedout
