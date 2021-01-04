@@ -38,7 +38,12 @@ class ProductsController < ApplicationController
   end
 
   def show
-        add_breadcrumb 'product'
+
+      session[:history] << request.original_url
+
+    #binding.pry
+
+    add_breadcrumb 'product'
     add_breadcrumb @product.title
 
     @product = Product.friendly.find(params[:id])

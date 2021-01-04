@@ -1,0 +1,9 @@
+<div class="well well-sm">
+  <i>Previously viewed...</i> <br>
+
+    <% for i in session[:history]  do %>
+      <%= link_to i, i %> <br>
+    <% end %>
+
+  <br>
+</div>
