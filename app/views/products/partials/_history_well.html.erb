@@ -5,7 +5,7 @@
 
      <%  i.sub!("http://localhost:3000/products/", "") %>
      <%  i.sub!("https://desolate-journey-54830.herokuapp.com/products/", "" ) %>
-     <%  i.sub!("-", " ") %>
+     <%  i.gsub!("-", " ") %>
 
      <%= link_to i.titleize, i %> <br>
 
