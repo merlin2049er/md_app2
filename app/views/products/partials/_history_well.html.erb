@@ -1,13 +1,12 @@
 <div class="well well-sm">
-  <i>Previously viewed...</i>(need to fix this..) <br>
+  <i>Previously viewed...</i>need to wrap in image_tag<br>
 
    <% for i in  session[:history]   do %>
 
      <%  i.sub!("http://localhost:3000/products/", "") %>
      <%  i.sub!("https://desolate-journey-54830.herokuapp.com/products/", "" ) %>
-     <%  i.gsub!("-", " ") %>
 
-     <%= link_to i.titleize, i %> <br>
+     <%= link_to Product.where(title: i.titleize).pluck('picurl') , i  %> <br>
 
     <% end %>
 

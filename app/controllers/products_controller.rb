@@ -39,6 +39,7 @@ class ProductsController < ApplicationController
 
   def show
 
+    # this doesn't work either - i need to keep the array in tact
     if session[:history].exclude?(request.original_url)
         session[:history] << request.original_url
     end
