@@ -43,9 +43,6 @@ class ProductsController < ApplicationController
         session[:history] << request.original_url
     end
 
-
-    #binding.pry
-
     add_breadcrumb 'product'
     add_breadcrumb @product.title
 
