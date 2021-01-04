@@ -39,7 +39,6 @@ class ProductsController < ApplicationController
 
   def show
 
-
     if session[:history].exclude?(request.original_url)
         session[:history] << request.original_url
     end
