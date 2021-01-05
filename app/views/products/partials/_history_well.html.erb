@@ -1,12 +1,15 @@
 <div class="well well-sm">
   <i>Previously viewed...</i>need to wrap in image_tag<br>
 
+
    <% for i in  session[:history]   do %>
 
      <%  i.sub!("http://localhost:3000/products/", "") %>
      <%  i.sub!("https://desolate-journey-54830.herokuapp.com/products/", "" ) %>
 
      <%= link_to Product.where(title: i.titleize).pluck('picurl') , i  %> <br>
+
+     <!-- <img src= <%#= Product.where(title: i.titleize).pluck('picurl') %>   width="75" height="75" align="top" > -->
 
     <% end %>
 
