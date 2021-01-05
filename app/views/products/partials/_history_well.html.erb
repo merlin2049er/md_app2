@@ -9,7 +9,7 @@
 
      <%= link_to Product.where(title: i.titleize).pluck('picurl') , i  %> <br>
 
-     <!-- <img src= <%#= Product.where(title: i.titleize).pluck('picurl') %>   width="75" height="75" align="top" > -->
+    <!-- <%#= image_tag( Product.where(title: i.titleize).pluck('picurl') )    %> -->
 
     <% end %>
 
