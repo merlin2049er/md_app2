@@ -1,8 +1,9 @@
 <div class="well well-sm">
   <i>Previously viewed...</i>need to wrap in image_tag<br>
 
+  <% x = session[:history].clone.map(&:clone) %>
 
-   <% for i in  session[:history]   do %>
+   <% for i in  x   do %>
 
      <%  i.sub!("http://localhost:3000/products/", "") %>
      <%  i.sub!("https://desolate-journey-54830.herokuapp.com/products/", "" ) %>
