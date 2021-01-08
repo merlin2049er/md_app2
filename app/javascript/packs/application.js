@@ -49,9 +49,8 @@ global.toastr = toastr;
 const images = require.context('../images', true);
 const imagePath = (name) => images(name, true);
 
-// document.addEventListner("turbolinks:load", () => {  //old
 $( document ).on('turbo:load', () => {
-  console.log("turbo!")
+  console.log("turketbo!")
   $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()
 })

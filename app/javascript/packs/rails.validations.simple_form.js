@@ -4,8 +4,9 @@
  * Copyright (c) 2018 Geremia Taglialatela, Brian Cardarella
  * Licensed under MIT (http://opensource.org/licenses/mit-license.php)
  */
-
+$( document ).on('turbo:load', () => {
 (function() {
+
   ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
     add: function(element, settings, message) {
       return this.wrapper(settings.wrapper).add.call(this, element, settings, message);
@@ -44,3 +45,4 @@
   };
 
 }).call(this);
+})
