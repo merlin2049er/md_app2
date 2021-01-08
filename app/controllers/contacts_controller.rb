@@ -26,9 +26,11 @@ class ContactsController < ApplicationController # GET /contacts/new
         supplier,
         registered_user
       ).deliver
-    
+
     else
-      redirect_to pages_contact_path
+      
+       render pages_contact_path, status: :unprocessable_entity
+    #  redirect_to pages_contact_path
 
     end
   end

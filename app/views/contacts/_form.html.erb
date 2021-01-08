@@ -1,3 +1,9 @@
+<% turbo_frame_tag contact do %>
+
+
+
+
+
 <%= form_with(model: contact, local: true) do |form| %>
   <% if contact.errors.any? %>
     <div id="error_explanation">
@@ -39,4 +45,6 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+<% end %>
+
 <% end %>
