@@ -77,9 +77,7 @@ gem 'impressionist', '~> 1.6', '>= 1.6.1'
 gem 'country_select'
 
 # validations
-#gem 'client_side_validations', '~> 16.1', '>= 16.1.1'
 gem 'client_side_validations', '~> 17.2'
-#gem 'client_side_validations-simple_form', '~> 10.0'
 gem 'client_side_validations-simple_form', '~> 11.2'
 
 

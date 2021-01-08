@@ -4,7 +4,7 @@
  * Copyright (c) 2018 Geremia Taglialatela, Brian Cardarella
  * Licensed under MIT (http://opensource.org/licenses/mit-license.php)
  */
-//$( document ).on('turbo:load', () => {
+
 (function() {
   var $, ClientSideValidations, initializeOnEvent, validateElement, validateForm, validatorsFor,
     indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -582,4 +582,3 @@
   window.ClientSideValidations = ClientSideValidations;
 
 }).call(this);
-//})

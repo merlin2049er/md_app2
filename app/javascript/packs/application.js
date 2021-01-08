@@ -16,11 +16,7 @@ require("packs/rails.validations.simple_form.bootstrap4.js")
 require("packs/rails.validations.simple_form.js")
 
 require("packs/lightbox.js")
-//require("bootstrap-dropdown.js")
-
-// require("packs/stripe_v3.js")
 require("packs/cocoon.js")
-
 
 require("trix")
 require("@rails/actiontext")
@@ -50,7 +46,7 @@ const images = require.context('../images', true);
 const imagePath = (name) => images(name, true);
 
 $( document ).on('turbo:load', () => {
-  console.log("turketbo!")
+  console.log("turbo loaded!")
   $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()
 })
