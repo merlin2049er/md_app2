@@ -9,9 +9,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%#= stylesheet_pack_tag 'application',  media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
     <%= stylesheet_pack_tag 'application',  media: 'all', 'data-turbo': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbo': 'reload' %>
 
@@ -22,12 +19,10 @@
 
 <%= favicon_link_tag asset_path('favicon.ico') %>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <%= stimulus_include_tags %>
+    <%#= stimulus_include_tags %>
 
 </head>
-  <!-- script type="text/javascript">
-    $(document).ready(function() {});
-  </script>  -->
+
 
   <body>
 
@@ -42,11 +37,9 @@
       <%= render_breadcrumbs :tag => :li, :separator => "" %>
   </ol>
       <%= yield %>
-
 </div>
 </div>
 
-<!--  disable footer until I fix the galleries -->
     <%= render 'layouts/footer' %>
 
   </body>

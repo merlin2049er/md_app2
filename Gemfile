@@ -117,8 +117,8 @@ gem 'friendly_id', '~> 5.2.4' # NOTE: You MUST use 5.0.0 or greater for Rails 4.
 
 gem 'heroku-deflater', group: :production
 
-gem 'hotwire-rails'
-gem 'turbo-rails'
+#gem 'hotwire-rails' (installed via yarn)
+#gem 'turbo-rails'   (installed via yarn)
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
