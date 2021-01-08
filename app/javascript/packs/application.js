@@ -52,8 +52,8 @@ const imagePath = (name) => images(name, true);
 // document.addEventListner("turbolinks:load", () => {  //old
 $( document ).on('turbo:load', () => {
   console.log("turbo!")
-  $('[data=toggle-"tooltip"]').tooltip()
-  $('[data=toggle-"popover"]').popover()
+  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="popover"]').popover()
 })
 
 import "../stylesheets/application";
