@@ -110,7 +110,7 @@ class ProductsController < ApplicationController
         format.json { render :show, status: :created, location: @product }
       else
         puts @product.errors.messages
-        format.html { render :new }
+        format.html { render :new , status: :unprocessable_entity }
         format.json do
           render json: @product.errors, status: :unprocessable_entity
         end
@@ -128,7 +128,7 @@ class ProductsController < ApplicationController
         end
         format.json { render :show, status: :ok, location: @product }
       else
-        format.html { render :edit }
+        format.html { render :edit , status: :unprocessable_entity }
         format.json do
           render json: @product.errors, status: :unprocessable_entity
         end
@@ -165,7 +165,7 @@ class ProductsController < ApplicationController
           end
           format.json { render :show, status: :created, location: @cart }
         else
-          format.html { render :new }
+          format.html { render :new , status: :unprocessable_entity }
           format.json do
             render json: @cart.errors, status: :unprocessable_entity
           end
@@ -185,7 +185,7 @@ class ProductsController < ApplicationController
           end
           format.json { render :show, status: :created, location: @cart }
         else
-          format.html { render :new }
+          format.html { render :new , status: :unprocessable_entity }
           format.json do
             render json: @cart.errors, status: :unprocessable_entity
           end
@@ -205,7 +205,7 @@ class ProductsController < ApplicationController
             render json: @cart.errors, status: :unprocessable_entity
           end
         else
-          format.html { render :new }
+          format.html { render :new , status: :unprocessable_entity }
           format.json do
             render json: @cart.errors, status: :unprocessable_entity
           end
