@@ -42,7 +42,7 @@ class TaxesController < ApplicationController
         end
         format.json { render :show, status: :created, location: @tax }
       else
-        format.html { render :new }
+        format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @tax.errors, status: :unprocessable_entity }
       end
     end
@@ -60,7 +60,7 @@ class TaxesController < ApplicationController
         end
         format.json { render :show, status: :ok, location: @tax }
       else
-        format.html { render :edit }
+        format.html { render :edit , status: :unprocessable_entity }
         format.json { render json: @tax.errors, status: :unprocessable_entity }
       end
     end

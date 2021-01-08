@@ -80,7 +80,7 @@ class FeedbacksController < ApplicationController
         end
       #  format.json { render :show, status: :ok, location: @feedback }
       else
-        format.html { render :edit }
+        format.html { render :edit , status: :unprocessable_entity }
         format.json do
           render json: @feedback.errors, status: :unprocessable_entity
         end

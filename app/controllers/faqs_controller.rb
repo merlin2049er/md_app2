@@ -43,7 +43,7 @@ class FaqsController < ApplicationController
         end
         format.json { render :show, status: :created, location: @faq }
       else
-        format.html { render :new }
+        format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @faq.errors, status: :unprocessable_entity }
       end
     end
@@ -59,7 +59,7 @@ class FaqsController < ApplicationController
         end
         format.json { render :show, status: :ok, location: @faq }
       else
-        format.html { render :edit }
+        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @faq.errors, status: :unprocessable_entity }
       end
     end

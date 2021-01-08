@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+import "@hotwired/turbo-rails"
 require("@rails/activestorage").start()
 require("channels")
 
@@ -49,7 +49,9 @@ global.toastr = toastr;
 const images = require.context('../images', true);
 const imagePath = (name) => images(name, true);
 
-document.addEventListner("turbolinks:load", () => {
+// document.addEventListner("turbolinks:load", () => {  //old
+document.addEventListner("turbo:load", () => {
+  console.log("turbo!")
   $('[data=toggle-"tooltip"]').tooltip()
   $('[data=toggle-"popover"]').popover()
 })

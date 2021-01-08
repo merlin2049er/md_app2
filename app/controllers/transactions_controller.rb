@@ -38,7 +38,7 @@ class TransactionsController < ApplicationController
             )
       else
         @transactions = Transaction.all.order('created_at DESC')
-        @pagy, @transactions = pagy(Transaction.all.order(  'created_at DESC'))        
+        @pagy, @transactions = pagy(Transaction.all.order(  'created_at DESC'))
       end
 
   #    @transactions = Transaction.all.order('created_at DESC')
@@ -122,7 +122,7 @@ class TransactionsController < ApplicationController
         end
         format.json { render :show, status: :created, location: @transaction }
       else
-        format.html { render :new }
+        format.html { render :new , status: :unprocessable_entity }
         format.json do
           render json: @transaction.errors, status: :unprocessable_entity
         end
@@ -143,7 +143,7 @@ class TransactionsController < ApplicationController
         end
         format.json { render :show, status: :ok, location: @transaction }
       else
-        format.html { render :edit }
+        format.html { render :edit , status: :unprocessable_entity }
         format.json do
           render json: @transaction.errors, status: :unprocessable_entity
         end

@@ -41,7 +41,8 @@ class TodoListsController < ApplicationController
         end
         format.json { render :show, status: :created, location: @todo_list }
       else
-        format.html { render :new }
+        format.html { render :new , status: :unprocessable_entity }
+ }
         format.json do
           render json: @todo_list.errors, status: :unprocessable_entity
         end
@@ -61,7 +62,7 @@ class TodoListsController < ApplicationController
         end
         format.json { render :show, status: :ok, location: @todo_list }
       else
-        format.html { render :edit }
+        format.html { render :edit, status: :unprocessable_entity }
         format.json do
           render json: @todo_list.errors, status: :unprocessable_entity
         end

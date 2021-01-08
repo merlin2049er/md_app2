@@ -61,7 +61,7 @@ class TroubleticketsController < ApplicationController
         end
         format.json { render :show, status: :created, location: @troubleticket }
       else
-        format.html { render :new }
+        format.html { render :new , status: :unprocessable_entity }
         format.json do
           render json: @troubleticket.errors, status: :unprocessable_entity
         end
@@ -82,7 +82,7 @@ class TroubleticketsController < ApplicationController
         end
         format.json { render :show, status: :ok, location: @troubleticket }
       else
-        format.html { render :edit }
+        format.html { render :edit , status: :unprocessable_entity }
         format.json do
           render json: @troubleticket.errors, status: :unprocessable_entity
         end

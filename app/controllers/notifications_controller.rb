@@ -47,7 +47,7 @@ class NotificationsController < ApplicationController
         end
         format.json { render :show, status: :created, location: @notification }
       else
-        format.html { render :new }
+        format.html { render :new , status: :unprocessable_entity }
         format.json do
           render json: @notification.errors, status: :unprocessable_entity
         end
@@ -68,7 +68,7 @@ class NotificationsController < ApplicationController
         end
         format.json { render :show, status: :ok, location: @notification }
       else
-        format.html { render :edit }
+        format.html { render :edit , status: :unprocessable_entity }
         format.json do
           render json: @notification.errors, status: :unprocessable_entity
         end

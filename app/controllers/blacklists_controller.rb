@@ -48,7 +48,7 @@ class BlacklistsController < ApplicationController
         end
         format.json { render :show, status: :created, location: @blacklist }
       else
-        format.html { render :new }
+        format.html { render :new , status: :unprocessable_entity }
         format.json do
           render json: @blacklist.errors, status: :unprocessable_entity
         end
@@ -68,7 +68,7 @@ class BlacklistsController < ApplicationController
         end
         format.json { render :show, status: :ok, location: @blacklist }
       else
-        format.html { render :edit }
+        format.html { render :edit, status: :unprocessable_entity}
         format.json do
           render json: @blacklist.errors, status: :unprocessable_entity
         end

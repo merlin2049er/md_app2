@@ -58,7 +58,7 @@ class CartsController < ApplicationController
         end
         format.json { render :show, status: :created, location: @carts_path }
       else
-        format.html { render :new }
+        format.html { render :new, status: :unprocessable_entity}
         format.json do
           render json: @carts.errors, status: :unprocessable_entity
         end

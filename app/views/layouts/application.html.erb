@@ -9,15 +9,20 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%#= stylesheet_pack_tag 'application',  media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_pack_tag 'application',  media: 'all', 'data-turbo': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbo': 'reload' %>
+
     <%= render 'layouts/google_analcode' %>
     <%= render 'layouts/hotjar_analcode' %>
 
-    <%= stylesheet_pack_tag 'application',  media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
    <script src="https://js.stripe.com/v3/"></script>
 
 <%= favicon_link_tag asset_path('favicon.ico') %>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <%= stimulus_include_tags %>
 
 </head>
   <!-- script type="text/javascript">

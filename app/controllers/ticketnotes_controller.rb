@@ -48,7 +48,8 @@ class TicketnotesController < ApplicationController
         end
         format.json { render :show, status: :created, location: @ticketnote }
       else
-        format.html { render :new }
+        format.html { render :new, status: :unprocessable_entity }
+ }
         format.json do
           render json: @ticketnote.errors, status: :unprocessable_entity
         end
@@ -69,7 +70,7 @@ class TicketnotesController < ApplicationController
         end
         format.json { render :show, status: :ok, location: @ticketnote }
       else
-        format.html { render :edit }
+        format.html { render :edit, status: :unprocessable_entity }
         format.json do
           render json: @ticketnote.errors, status: :unprocessable_entity
         end
