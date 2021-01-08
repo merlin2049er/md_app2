@@ -3,20 +3,13 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# ruby '2.7.0'
-# ruby '2.7.1'
  ruby '2.7.2'
-# ruby '3.0.0'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
-#gem 'rails', github: 'rails/rails'
-
-# Use sqlite3 as the database for Active Record
-# gem 'sqlite3', '~> 1.4'
 
 # use Postgres on Heroku production and localhost
-# gem 'pg', '~> 1.1', '>= 1.1.3'
 gem 'pg'
 
 # Use Puma as the app server
@@ -117,8 +110,8 @@ gem 'friendly_id', '~> 5.2.4' # NOTE: You MUST use 5.0.0 or greater for Rails 4.
 
 gem 'heroku-deflater', group: :production
 
-#gem 'hotwire-rails' (installed via yarn)
-#gem 'turbo-rails'   (installed via yarn)
+gem 'hotwire-rails'
+gem 'turbo-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
