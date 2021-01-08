@@ -42,7 +42,6 @@ class TodoListsController < ApplicationController
         format.json { render :show, status: :created, location: @todo_list }
       else
         format.html { render :new , status: :unprocessable_entity }
- }
         format.json do
           render json: @todo_list.errors, status: :unprocessable_entity
         end
