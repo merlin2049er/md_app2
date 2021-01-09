@@ -113,6 +113,9 @@ gem 'heroku-deflater', group: :production
 gem 'hotwire-rails'
 gem 'turbo-rails'
 
+gem 'rails_warden'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
