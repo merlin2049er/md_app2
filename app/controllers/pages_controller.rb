@@ -20,6 +20,10 @@ class PagesController < ApplicationController
     @contact = Contact.new
   end
 
+  def lola
+    add_breadcrumb 'Lola'
+  end
+
   def dashboard
     add_breadcrumb 'Dashboard'
 

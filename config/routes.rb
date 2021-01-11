@@ -66,6 +66,7 @@ Rails.application.routes.draw do
   get 'pages/invitations'
   get 'pages/invite'
   get 'pages/jobs'
+  get 'pages/lola'
   get 'pages/payments'
   get 'pages/privacy'
   get 'pages/random'
