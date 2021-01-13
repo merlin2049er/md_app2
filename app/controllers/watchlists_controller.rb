@@ -8,7 +8,7 @@ class WatchlistsController < ApplicationController
   # GET /watchlist
   # GET /watchlist.json
   def index
-    add_breadcrumb 'Watchlist'
+    add_breadcrumb 'Watch list'
     @watchlists =
       Watchlist.where('user_id =?', current_user.id).order('created_at DESC')
     @pagy, @watchlists = pagy(@watchlists)

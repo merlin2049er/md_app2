@@ -55,16 +55,12 @@
   <% end %>
 
     <% end %>
-    <br>
+
 
   <% end %>
 
  <% if user_signed_in? %>
-  <i>
-
-  <%= link_to "Add to Watch list",  controller: "watchlists", action: "new" , :product_id => @product.id , :user_id => @current_user  ,:remote => true%>
-
-  </i>
+  <i><%= link_to "Add to Watch List",  controller: "watchlists", action: "new" , :product_id => @product.id , :user_id => @current_user  ,:remote => true%></i>
 
 <br><br>
 <%end %>
@@ -165,6 +161,9 @@
     <div id="Discussion" class="tab-pane fade">
 
       <H2><%= @product.title %></H2>
+
+      <%= render 'products/partials/main_photo_well' %>
+
 
       <div class="well well-sm">
 
