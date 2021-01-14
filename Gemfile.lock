@@ -153,9 +153,8 @@ GEM
       ruby2_keywords
     faraday-net_http (1.0.0)
     ffi (1.14.2)
-    fontawesome-rails (4.0.3.2)
-      actionpack (>= 3.1)
-      railties (>= 3.1)
+    font-awesome-rails (4.7.0.6)
+      railties (>= 3.2, < 6.2)
     friendly_id (5.2.5)
       activerecord (>= 4.0.0)
     globalid (0.4.2)
@@ -414,7 +413,7 @@ DEPENDENCIES
   elasticsearch-model!
   elasticsearch-rails!
   faker
-  fontawesome-rails (~> 4.0, >= 4.0.3.2)
+  font-awesome-rails
   friendly_id (~> 5.2.4)
   heroku-deflater
   hotwire-rails

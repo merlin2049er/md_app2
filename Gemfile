@@ -37,7 +37,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'sprockets-rails', require: 'sprockets/railtie'
 
 # fonts
-gem 'fontawesome-rails', '~> 4.0', '>= 4.0.3.2'
+#gem 'fontawesome-rails', '~> 4.0', '>= 4.0.3.2'
+gem "font-awesome-rails"
 
 # breadcrumbs
 gem 'breadcrumbs_on_rails'
