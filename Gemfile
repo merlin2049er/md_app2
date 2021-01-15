@@ -5,25 +5,32 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
  ruby '2.7.2'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
+#gem 'rails', '~> 6.1', '>= 6.1.1'  #causes stack too deep error
 
 # use Postgres on Heroku production and localhost
 gem 'pg'
 
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+#gem 'puma', '~> 4.1'
+gem 'puma', '~> 5.1', '>= 5.1.1'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 4.0'
+#gem 'webpacker', '~> 4.0'
+gem 'webpacker', '~> 5.2', '>= 5.2.1'
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
+#gem 'jbuilder', '~> 2.7'
+gem 'jbuilder', '~> 2.10', '>= 2.10.1'
+
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 4.0'
+#gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.2', '>= 4.2.5'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -31,7 +38,8 @@ gem 'redis', '~> 4.0'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
+#gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', '~> 1.5', '>= 1.5.1', require: false
 
 # sprockets
 gem 'sprockets-rails', require: 'sprockets/railtie'
@@ -44,14 +52,16 @@ gem "font-awesome-rails"
 gem 'breadcrumbs_on_rails'
 
 # devise for authentication
-gem 'devise', '~> 4.2'
+#gem 'devise', '~> 4.2'
+gem 'devise', :git => "https://github.com/heartcombo/devise.git", ref: '8bb358cf80a632d3232c3f548ce7b95fd94b6eb2'
+
 
 # for forms
 gem 'simple_form'
 
 # for pagination
-gem 'pagy', '~> 3.7', '>= 3.7.3'
-
+#gem 'pagy', '~> 3.7', '>= 3.7.3'
+gem 'pagy', '~> 3.10'
 # populator
 # gem 'populator', '~> 1.0'
 gem 'populator', github: 'fulvi0/populator'
@@ -107,7 +117,8 @@ gem 'photoswipe-rails', '~> 4.1', '>= 4.1.2'
 gem 'sitemap_generator'
 
 # sluging it out
-gem 'friendly_id', '~> 5.2.4' # NOTE: You MUST use 5.0.0 or greater for Rails 4.0+
+#gem 'friendly_id', '~> 5.2.4' # NOTE: You MUST use 5.0.0 or greater for Rails 4.0+
+gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 
 gem 'heroku-deflater', group: :production
 
