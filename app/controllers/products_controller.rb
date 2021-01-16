@@ -80,7 +80,7 @@ class ProductsController < ApplicationController
       user_id = Cart.where(product_id: @product.id).pluck('DISTINCT(user_id)')
       user_id.each do |id|
         @user = User.find_by_id(id)
-        SuccessfulCampaignMailer.successful_campaign_email(@user).deliver_now
+        SuccessfulCampaignMailer.successful_campaign_email(@user).deliver_later
       end
     end
   end
