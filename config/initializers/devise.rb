@@ -287,11 +287,12 @@ Devise.setup do |config|
   # config.omniauth :facebook, "APP-ID", "APP_SECRET"
   # config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: 'email'
   # config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], token_params: { parse: :json }, callback_url: "https://cryptic-inlet-13518.herokuapp.com/users/auth/facebook"
+  require "omniauth-facebook"
+
   config.omniauth :facebook,
                   ENV['FACEBOOK_APP_ID'],
                   ENV['FACEBOOK_APP_SECRET'],
-                  callback_url:
-                    'https://desolate-journey-54830.herokuapp.com/users/auth/facebook/callback',
+                  callback_url: 'https://desolate-journey-54830.herokuapp.com/users/auth/facebook/callbacks',
                   scope: 'email, public_profile',
                   info_fields: 'email, first_name, last_name, picture',
                   image_size: 'large',

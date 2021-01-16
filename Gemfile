@@ -70,9 +70,10 @@ gem 'populator', github: 'fulvi0/populator'
 gem 'validates_timeliness', '~> 5.0.0.alpha3'
 
 # omniauth
-gem 'omniauth'
+
+gem 'omniauth', '~> 2.0'
 # for facebook authentication
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '~> 8.0'
 
 # Log impressions from controller actions or from a model
 gem 'impressionist', '~> 1.6', '>= 1.6.1'

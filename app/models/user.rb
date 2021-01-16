@@ -9,7 +9,7 @@ class User < ApplicationRecord
          :validatable,
          :confirmable,
          :omniauthable,
-         omniauth_providers: %i[facebook]
+         omniauth_providers: [:facebook]
 
   has_many :notifications
   has_many :transactions

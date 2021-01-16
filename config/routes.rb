@@ -12,6 +12,8 @@ Rails.application.routes.draw do
                sessions: 'sessions',
                omniauth_callbacks: 'users/omniauth_callbacks'
              }
+  # post 'users/auth/:provider', to: 'sessions#create'
+
 
   resources :blacklists
   resources :categories
