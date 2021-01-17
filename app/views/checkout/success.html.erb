@@ -7,7 +7,7 @@
 <p>Thank you for your payment of <%= number_to_currency @success.payment_intent.amount / 100.0 %><br><br>
 
 
-<p>A copy of your invoice is <a href= '<%= @success.payment_intent.charges.data[0].receipt_url  %>' >here</a>.</p>
+<p>A copy of your invoice is <a href= '<%= @success.payment_intent.charges.data[0].receipt_url  %>'  target="_blank" >here</a>.</p>
 
 <p>Shipments begin after receiving payments from everyone in the campaign.<br>
 Check the status of the transaction in the main menu.

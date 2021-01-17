@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CheckoutController < ApplicationController 
+class CheckoutController < ApplicationController
   def create
     cart = Cart.find(params[:id])
 
@@ -75,6 +75,7 @@ class CheckoutController < ApplicationController
     transaction =
       Transaction.new do |t|
         t.user_id = cart.user_id
+        t.shipped = false
         t.postal_carrier = 'Canada Post'
         t.invoice_number = '...invoice here...'
         t.receipt_url = @success.payment_intent.charges.data[0].receipt_url

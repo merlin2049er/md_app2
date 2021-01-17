@@ -17,7 +17,7 @@
 <table class="table" >
   <thead>
     <tr>
-
+      <th>Recieved on</th>
       <th>Rating</th>
       <th>Recommend</th>
       <th>Feedback</th>
@@ -29,6 +29,9 @@
   <tbody>
     <% @feedbacks.each do |feedback| %>
       <tr>
+        <td>
+          <%= feedback.created_at %>
+        </td>
           <td>
             <% for i in 1..feedback.rate do %>
                <%= image_tag("star3d.png", size: "16") %>
