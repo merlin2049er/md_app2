@@ -65,11 +65,14 @@
 
           <td>   <%= link_to( controller: "products", action: "show", id: cart.product_id ) do %>
 
-        <%= product.title %><br><img src= "<%= product.picurl%>" alt="<% product.title %>" width="75" height="75"> </td>
+        <%= product.title %><br><img src= "<%= product.picurl%>" alt="<% product.title %>" width="50" height="50">
+
         <% end %>
+        </td>
 
         <% else %>
-        <td data-column-id="id"> <%= product.title  %> </td>
+        <td data-column-id="id"> <%= product.title %><br><img src= "<%= product.picurl%>" alt="<% product.title %>" width="50" height="50">
+</td>
 
         <% end %>
 
