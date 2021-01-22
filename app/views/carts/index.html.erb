@@ -34,7 +34,7 @@
         <!-- <th colspan="3"></th> -->
 
         <th>Added</th>
-      <th> Campaign </th>
+      <!--<th> Campaign </th> -->
         <th>Item</th>
         <th>Qty</th>
         <th>Price</th>
@@ -60,14 +60,19 @@
           <% product = Product.where(id: cart.product_id).first %>
 
             <% if not product.funded? %>
-          <td data-column-id="id"> <%= link_to raw(" #{cart.product_id}"), controller: "products", action: "show", id: cart.product_id %> </td>
-            <% else %>
-            <td data-column-id="id"> <%= cart.product_id %> </td>
-
-            <% end %>
 
 
-          <td> <%=  product.title  %>  </td>
+
+          <td>   <%= link_to( controller: "products", action: "show", id: cart.product_id ) do %>
+
+        <%= product.title %><br><img src= "<%= product.picurl%>" alt="<% product.title %>" width="75" height="75"> </td>
+        <% end %>
+
+        <% else %>
+        <td data-column-id="id"> <%= product.title  %> </td>
+
+        <% end %>
+
           <td> <%=  cart.qty  %>  </td>
           <td> <%=  number_to_currency(product.price ) %>  </td>
           <td> <%=  number_to_currency(total = product.price * cart.qty)  %>  </td>
@@ -99,10 +104,6 @@
 <% else %>
 
 
-<!--
-	      <%#= button_to 'Pay now', checkout_create_path, method: :post, params: {id: cart.product_id}, remote: true, class: "button button1" %>
-              <p class="<%#= cart.product_id %>"></p>
--->
   <% if  DateTime.current > product.enddate + 5 %>
    N/A...
    <% else %>
@@ -133,7 +134,7 @@
       <tfoot>
            <tr>
                <th>Grand Total</th>
-               <td></td>
+
                <td></td>
                 <td><%= @total_qty %> </td>
                <td></td>
@@ -145,6 +146,8 @@
                <td></td>
                <td></td>
                <td></td>
+
+
            </tr>
        </tfoot>
        <% end %>
