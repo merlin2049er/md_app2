@@ -44,7 +44,7 @@ class TicketnotesController < ApplicationController
     respond_to do |format|
       if @ticketnote.save
         format.html do
-          redirect_to root_path, notice: 'Ticket note was successfully created.'
+          redirect_to troubleticket_path(:id => @ticketnote.troubleticket_id), notice: 'Ticket note was successfully created.'
         end
         format.json { render :show, status: :created, location: @ticketnote }
       else
