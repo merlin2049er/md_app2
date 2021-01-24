@@ -20,6 +20,6 @@ class Vendor < ApplicationRecord
   validates_numericality_of :processing, greater_than: 0
   validates_numericality_of :processing, less_than: 5
 
-  validates_length_of :product, minicmum: 35
+  validates_length_of :product, minimum: 35
 
 end
