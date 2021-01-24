@@ -3,7 +3,9 @@
  <%= f.input :name ,:validate => true  %>
  <%= f.input :email ,:validate => true  %>
  <%= f.input :registered_user %>
- <%= f.input :supplier %>
+ <%= f.input :supplier, :label => 'Vendor'  %>
+
  <%= f.input :message  ,:validate => true %>
- <%= f.submit "Get in touch!", class: "btn btn-info" %>
+ <%= f.submit "Get in touch!", class: "btn btn-info" %><br><br>
+ <%= link_to "Click here to create a vendor profile", new_vendor_path %>
  <% end %>

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :vendors
   resources :todo_lists
   root 'pages#index'
 
@@ -46,6 +47,8 @@ Rails.application.routes.draw do
   resources :transactions do
     resources :feedbacks, only: %i[new create]
   end
+
+  resources :vendors
 
   get 'feedbacks/feedback_left'
 

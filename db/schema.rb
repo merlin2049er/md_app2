@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_30_145539) do
+ActiveRecord::Schema.define(version: 2021_01_24_150021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -311,6 +311,26 @@ ActiveRecord::Schema.define(version: 2020_12_30_145539) do
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "vendors", force: :cascade do |t|
+    t.string "vendor"
+    t.string "contact_name"
+    t.string "address1"
+    t.string "address2"
+    t.string "website"
+    t.text "product"
+    t.boolean "dropship"
+    t.integer "processing"
+    t.boolean "locally"
+    t.string "payments"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "email"
+    t.string "phone"
+    t.string "city"
+    t.string "state"
+    t.string "country"
   end
 
   create_table "watchlists", force: :cascade do |t|
