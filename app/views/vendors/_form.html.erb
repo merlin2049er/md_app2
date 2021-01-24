@@ -9,8 +9,7 @@
     <%= f.input :address1 %>
     <%= f.input :address2 %>
     <%= f.input :city %>
-    <%= f.input :state %>
-    <%#= f.input :country %>
+    <%= f.input :state, :collection => canadian_provinces , required: true, :validate => true, label: 'Prov/State' %>
     <%= f.input :country, :collection => %w[Canada USA], required: true , :validate => true%>
     <%= f.input :email %>
     <%= f.input :phone %>
