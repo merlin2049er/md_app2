@@ -15,7 +15,9 @@
   <% elsif @remaining == 1 %>
 
     <%= form_tag add_to_cart_product_path(@product.id), method: :post do %>
-    <% if Time.now >= @product.startdate && Time.now <= @product.enddate %>
+    <%# if Time.now >= @product.startdate && Time.now <= @product.enddate %>
+    <% if Date.today BETWEEN @product.startdate AND @product.enddate %>
+
 
        Quantity: <%= number_field_tag :qty, 1, :min => 1, :max => @remaining %>
 
