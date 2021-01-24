@@ -79,7 +79,7 @@ class Product < ActiveRecord::Base
   scope :published,
         lambda {
           where(draft: false).where(active: true).where(funded: false).where(
-            '? BETWEEN startdate AND enddate',
+            '? BETWEEN startdate  AND enddate ',
             Date.today)
         }
 

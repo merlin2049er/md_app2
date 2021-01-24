@@ -1,11 +1,12 @@
 class VendorsController < ApplicationController
   before_action :set_vendor, only: [:show, :edit, :update, :destroy]
-
+  include Pagy::Backend
   # GET /vendors
   # GET /vendors.json
   def index
         add_breadcrumb 'Vendors'
     @vendors = Vendor.all
+    @pagy, @vendors = pagy(Vendor.all.order(:created_at))
   end
 
   # GET /vendors/1
@@ -22,11 +23,13 @@ class VendorsController < ApplicationController
 
   # GET /vendors/1/edit
   def edit
+    add_breadcrumb 'Edit Vendor'
   end
 
   # POST /vendors
   # POST /vendors.json
   def create
+    add_breadcrumb 'New Vendor'
     @vendor = Vendor.new(vendor_params)
 
     respond_to do |format|
@@ -43,6 +46,7 @@ class VendorsController < ApplicationController
   # PATCH/PUT /vendors/1
   # PATCH/PUT /vendors/1.json
   def update
+    add_breadcrumb 'Vendor'
     respond_to do |format|
       if @vendor.update(vendor_params)
         format.html { redirect_to @vendor, notice: 'Vendor was successfully updated.' }

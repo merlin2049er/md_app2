@@ -12,20 +12,23 @@ class ProductsController < ApplicationController
     @q = params[:query]
     @search = Product.published.search(params[:query])
     @total_products = Product.published.count
-    require 'time'
+    #require 'time'
 
-    todaydate = Time.new
+    #todaydate = Time.new
 
-    todaydate = "#{todaydate.year}-#{todaydate.month}-#{todaydate.day}"
+    #todaydate = "#{todaydate.year}-#{todaydate.month}-#{todaydate.day}"
+    todaydate = Date.today
+
     unless params[:query].blank?
       @search =
         @search.records.where(
-          'draft = ? and active = ? and funded = ? and startdate < ? and enddate > ?',
+        #  'draft = ? and active = ? and funded = ? and startdate < ? and enddate > ?',
+           'draft = ? and active = ? and funded = ? and ? BETWEEN startdate AND enddate',
           false,
           true,
           false,
-          todaydate,
           todaydate
+
         )
     end
     @searchtotal = @search.count

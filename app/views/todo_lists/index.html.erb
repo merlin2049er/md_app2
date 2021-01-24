@@ -45,9 +45,11 @@
 
 </div>
 </div>
-<br>
 
-<%= link_to 'New ToDo item', new_todo_list_path %>
+<div class ='pagenav'>
+<%== pagy_bootstrap_nav(@pagy) %> <br/>
+</div>
+<%#= link_to 'New ToDo item', new_todo_list_path %>
 
 <% else %>
   <div class="alert alert-warning" role="alert">You must be signed in as the administrator to view the ToDo List.</div>

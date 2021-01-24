@@ -54,9 +54,12 @@
 </table>
 </div>
 </div>
-<br>
 
-<%= link_to 'New Vendor', new_vendor_path %>
+<div class ='pagenav'>
+<%== pagy_bootstrap_nav(@pagy) %> <br/>
+</div>
+
+<%#= link_to 'New Vendor', new_vendor_path %>
 
 <% else %>
   <div class="alert alert-warning" role="alert">You must be signed in as the administrator to view the Vendor List.</div>
