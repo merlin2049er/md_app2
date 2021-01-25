@@ -9,9 +9,11 @@ class ContactsController < ApplicationController # GET /contacts/new
   # POST /contacts.json
   def create
     @contact =  Contact.new(contact_params)
+    captcha_message = "You are a robot, failed!"
 
     # if verify_recaptcha(model: @contact) && @contact.save
-    if verify_recaptcha && @contact.save
+    if verify_recaptcha(model: @contact, message: captcha_message) && @contact.save
+
       # redirect_to root_path
       redirect_to pages_thankyou_path
       name = params[:contact][:name]
