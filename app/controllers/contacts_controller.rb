@@ -10,7 +10,7 @@ class ContactsController < ApplicationController # GET /contacts/new
   def create
     @contact =  Contact.new(contact_params)
 
-    if verify_recaptcha && @contact.save
+    if verify_recaptcha(model: @contact) && @contact.save
       # redirect_to root_path
       redirect_to pages_thankyou_path
       name = params[:contact][:name]
