@@ -8,9 +8,9 @@ class ContactsController < ApplicationController # GET /contacts/new
   # POST /contacts
   # POST /contacts.json
   def create
-    @contact = Contact.new(contact_params)
+    @contact =  Contact.new(contact_params)
 
-    if @contact.save
+    if verify_recaptcha && @contact.save
       # redirect_to root_path
       redirect_to pages_thankyou_path
       name = params[:contact][:name]
@@ -28,7 +28,7 @@ class ContactsController < ApplicationController # GET /contacts/new
       ).deliver
 
     else
-      
+
        render pages_contact_path, status: :unprocessable_entity
     #  redirect_to pages_contact_path
 

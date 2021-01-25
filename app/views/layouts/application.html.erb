@@ -15,8 +15,9 @@
     <%= render 'layouts/google_analcode' %>
     <%= render 'layouts/hotjar_analcode' %>
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://js.stripe.com/v3" async></script>
-  
+
 <%= favicon_link_tag asset_path('favicon.ico') %>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <%#= turbo_include_tags %>
