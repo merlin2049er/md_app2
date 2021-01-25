@@ -35,12 +35,12 @@ class VendorsController < ApplicationController
     respond_to do |format|
      #if verify_recaptcha(model: @vendor) && @vendor.save  -- doesn't like verify verify_recaptcha
      captcha_message = "You are a robot, failed!"
-     if verify_recaptcha(model: @vendor, message: captcha_message) && @vendor.save
+    if verify_recaptcha(model: @vendor, message: captcha_message) && @vendor.save
        #if  @vendor.save
         format.html { redirect_to pages_thankyou_path, notice: 'Vendor was successfully created.' }
         format.json { render :show, status: :created, location: @vendor }
       else
-        format.html { render :new, status: :unprocessable_entity}
+        format.html { render :new, status: :unprocessable_entity}  
         format.json { render json: @vendor.errors, status: :unprocessable_entity }
       end
     end

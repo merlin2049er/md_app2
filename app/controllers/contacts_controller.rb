@@ -11,8 +11,6 @@ class ContactsController < ApplicationController # GET /contacts/new
     @contact =  Contact.new(contact_params)
     captcha_message = "You are a robot, failed!"
 
-    # if verify_recaptcha(model: @contact) && @contact.save
-    #puts"----------------------------",verify_recaptcha(model: @contact, message: captcha_message).inspect
     if verify_recaptcha(model: @contact, message: captcha_message) && @contact.save
 
       # redirect_to root_path
