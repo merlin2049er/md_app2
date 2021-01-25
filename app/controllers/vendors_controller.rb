@@ -33,7 +33,8 @@ class VendorsController < ApplicationController
     @vendor = Vendor.new(vendor_params)
 
     respond_to do |format|
-      if verify_recaptcha(model: @vendor) && @vendor.save
+    #  if verify_recaptcha(model: @vendor) && @vendor.save
+      if verify_recaptcha && @vendor.save
       # format.html { redirect_to @vendor, notice: 'Vendor was successfully created.' }
         format.html { redirect_to pages_thankyou_path, notice: 'Vendor was successfully created.' }
         format.json { render :show, status: :created, location: @vendor }
