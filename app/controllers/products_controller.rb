@@ -12,12 +12,12 @@ class ProductsController < ApplicationController
     @q = params[:query]
     @search = Product.published.search(params[:query])
     @total_products = Product.published.count
-    #require 'time'
+    require 'time'
 
-    #todaydate = Time.new
+    todaydate = Time.new
 
-    #todaydate = "#{todaydate.year}-#{todaydate.month}-#{todaydate.day}"
-    todaydate = Date.today
+    todaydate = "#{todaydate.year}-#{todaydate.month}-#{todaydate.day}"
+    #todaydate = Date.today
 
     unless params[:query].blank?
       @search =
@@ -51,7 +51,6 @@ class ProductsController < ApplicationController
     add_breadcrumb @product.title
 
     @product = Product.friendly.find(params[:id])
-
     # insert comments here...
     commontator_thread_show(@product)
     impressionist(@product)
