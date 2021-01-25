@@ -77,6 +77,6 @@ class VendorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vendor_params
-      params.require(:vendor).permit(:vendor, :contact_name, :address1, :address2, :city, :state, :email, :phone, :website, :product, :dropship, :processing, :locally, :payments)
+      params.require(:vendor).permit(:vendor, :contact_name, :address1, :address2, :city, :state, :country, :email, :phone, :website, :product, :dropship, :processing, :locally, :payments)
     end
 end
