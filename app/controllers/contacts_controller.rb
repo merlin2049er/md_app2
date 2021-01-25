@@ -12,6 +12,7 @@ class ContactsController < ApplicationController # GET /contacts/new
     captcha_message = "You are a robot, failed!"
 
     # if verify_recaptcha(model: @contact) && @contact.save
+    #puts"----------------------------",verify_recaptcha(model: @contact, message: captcha_message).inspect
     if verify_recaptcha(model: @contact, message: captcha_message) && @contact.save
 
       # redirect_to root_path
@@ -33,7 +34,7 @@ class ContactsController < ApplicationController # GET /contacts/new
     else
 
        render pages_contact_path, status: :unprocessable_entity
-    #  redirect_to pages_contact_path
+    # redirect_to pages_contact_path
 
     end
   end
