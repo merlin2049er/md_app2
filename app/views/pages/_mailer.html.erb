@@ -10,7 +10,7 @@
  <%= f.input :supplier, :label => 'Vendor'  %>
 
  <%= f.input :message  ,:validate => true %>
- <%#= recaptcha_tags %><br>
- <%= f.submit "Get in touch!", class: "btn btn-info" %><br><br>
+ <%#= recaptcha_tags %>
+ <%= f.submit "Get in touch!", class: "btn btn-info" %><br>
  <%= link_to "Click here to create a vendor profile", new_vendor_path %>
  <% end %>
