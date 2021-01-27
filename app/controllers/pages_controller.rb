@@ -11,6 +11,10 @@ class PagesController < ApplicationController
     add_breadcrumb 'Cookies'
   end
 
+  def carousel
+    add_breadcrumb 'carousel'
+  end
+
   def thankyou
     add_breadcrumb 'Thank you'
   end

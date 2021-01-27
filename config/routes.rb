@@ -63,6 +63,7 @@ Rails.application.routes.draw do
   get 'pages/about'
   get 'pages/banned'
   get 'pages/contact'
+  get 'pages/carousel'
   get 'pages/cookies'
   get 'pages/dashboard'
   get 'pages/error'
