@@ -130,6 +130,9 @@ gem 'rails_warden'
 
 gem "recaptcha", require: "recaptcha/rails"
 
+gem 'jquery_mask_rails' # more details at http://bit.ly/jquery-mask-gem
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

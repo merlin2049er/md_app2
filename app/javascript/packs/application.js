@@ -24,7 +24,7 @@ require("@rails/actiontext")
 require("packs/featherlight.min.js")
 require("packs/featherlight.gallery.min.js")
 
-require("packs/jquery-mask-plugin.js")
+require("jquery.mask")
 
 
 import $ from 'jquery';
