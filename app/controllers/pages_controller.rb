@@ -138,4 +138,9 @@ class PagesController < ApplicationController
   def taxes
     add_breadcrumb 'Taxes'
   end
+
+  def download_pdf
+  send_file "#{Rails.root}/app/assets/docs/JG Resume ROR.pdf", type: "application/pdf", x_sendfile: true
+end
+
 end

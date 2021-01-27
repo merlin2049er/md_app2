@@ -3,25 +3,27 @@
 <h1 class="page-header">Resume</h1>
                   <!--  <h3>Join You?</h3> -->
 
-         <!-- Jobs go here ... -->
+         <!-- Resume goes here ... -->
 
-
-<%= image_tag "ring.jpg", width: 75, height: 75  %>
+<%= image_tag "ring.jpg", width: 75, height: 75  %><br>
+<%= link_to "Resume PDF", download_pdf_path %><br>
 <h3>Joe Guerra</h3>
 
 <H4>Ruby on Rails Developer @ JG Infosystems</h4>
 Toronto, Ontario<br>
 Canada<br>
+<%= mail_to("jguerra@jginfosys.com") %><br>
 <%= tel_to('416 529 1562',  target: '_blank') %><br>
 
 Oct 2016 => to present<br><br>
-Linkldn Profile: <%= link_to( "https://www.linkedin.com/in/joe-guerra-09a6771b4/", 'https://www.linkedin.com/in/joe-guerra-09a6771b4/' , target: '_blank' ) %><br>
 
-<%= mail_to("jguerra@jginfosys.com") %><br>
+
 <H4>PROFESSIONAL DESCRIPTION:</H4>
  Designing and developing this open source ecommerce group purchasing website.<br>
  Website: <%= link_to("https://desolate-journey-54830.herokuapp.com/", "https://desolate-journey-54830.herokuapp.com/" , target: '_blank') %>...this one right here... <br>
  Github Profile: <%= link_to( "https://github.com/merlin2049er" ,"https://github.com/merlin2049er" , target: '_blank') %><br>
+ Linkldn Profile: <%= link_to( "https://www.linkedin.com/in/joe-guerra-09a6771b4/", 'https://www.linkedin.com/in/joe-guerra-09a6771b4/' , target: '_blank' ) %><br>
+
 <H4>PROFESSIONAL SUMMARY:</H4>
  3+ years of programming experience in developing web based applications using Ruby, Rails, JavaScript, CSS, HTML<br>
  Strong debugging and problem-solving skills with excellent understanding of system development methodologies, techniques and tools<br>
