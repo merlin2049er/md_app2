@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :vendors
-  resources :todo_lists
+
   root 'pages#index'
 
   devise_for :users,
@@ -15,7 +14,7 @@ Rails.application.routes.draw do
              }
   # post 'users/auth/:provider', to: 'sessions#create'
 
-
+  resources :announcements
   resources :blacklists
   resources :categories
   resources :carts
@@ -29,6 +28,7 @@ Rails.application.routes.draw do
 
   resources :notifications
   resources :taxes
+  resources :todo_lists
   resources :transactions
 
   resources :troubletickets, only: %i[index edit update destroy]
