@@ -6,10 +6,8 @@ class AnnouncementsController < ApplicationController
 
   def index
     add_breadcrumb 'Announcement'
-
     @announcement = Announcement.all
-  #  @announcement = Announcement.count
-
+    #@announcement = Announcement.count
     @pagy, @announcement = pagy(Announcement.all.order(:created_at))
   end
 

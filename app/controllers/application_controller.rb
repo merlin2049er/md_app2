@@ -9,13 +9,14 @@ class ApplicationController < ActionController::Base # For APIs, you may want to
 
   before_action :store_history
   before_action :set_search
+  before_action :set_top_announcement
   before_action :banned
 
   rescue_from ActionController::InvalidAuthenticityToken,
               with: :handle_token_issues
 
-    rescue_from ActiveRecord::RecordNotFound, with: :errors_stop
-    rescue_from NoMethodError, with: :errors_stop
+  rescue_from ActiveRecord::RecordNotFound, with: :errors_stop
+  rescue_from NoMethodError, with: :errors_stop
   #  rescue_from ActionDispatch::Cookies::CookieOverflow, with: :error_stop
 
   SITE_NAME = 'Tipping point'
@@ -62,6 +63,10 @@ class ApplicationController < ActionController::Base # For APIs, you may want to
       add_breadcrumb 'Banned'
       render 'pages/banned'
     end
+  end
+
+  def set_top_announcement
+    @top_announcement = Announcement.limit(1).where('enabled =?', true).order(created_at: :desc).pluck(:announcement)
   end
 
   private
