@@ -40,7 +40,7 @@ class VendorsController < ApplicationController
         format.html { redirect_to pages_thankyou_path, notice: 'Vendor was successfully created.' }
         format.json { render :show, status: :created, location: @vendor }
       else
-        format.html { render :new, status: :unprocessable_entity}  
+        format.html { render :new, status: :unprocessable_entity}
         format.json { render json: @vendor.errors, status: :unprocessable_entity }
       end
     end
@@ -79,6 +79,6 @@ class VendorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vendor_params
-      params.require(:vendor).permit(:vendor, :contact_name, :address1, :address2, :city, :state, :country, :email, :phone, :website, :product, :dropship, :processing, :locally, :payments)
+      params.require(:vendor).permit(:vendor, :contact_name, :address1, :address2, :city, :state, :country, :email, :phone, :website, :product, :dropship, :processing, :locally, :payments, :courier)
     end
 end

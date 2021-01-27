@@ -246,6 +246,7 @@ class ProductsController < ApplicationController
       :weight,
       :courier,
       :courierurl,
+      :brand,
       photos_attributes: %i[product_id uri done _destroy]
     )
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_24_150021) do
+ActiveRecord::Schema.define(version: 2021_01_27_003954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -225,6 +225,7 @@ ActiveRecord::Schema.define(version: 2021_01_24_150021) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
+    t.string "brand"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["slug"], name: "index_products_on_slug", unique: true
   end
@@ -331,6 +332,7 @@ ActiveRecord::Schema.define(version: 2021_01_24_150021) do
     t.string "city"
     t.string "state"
     t.string "country"
+    t.string "courier"
   end
 
   create_table "watchlists", force: :cascade do |t|

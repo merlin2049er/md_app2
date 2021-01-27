@@ -10,6 +10,7 @@
     <div id="Product" class="tab-pane fade in active">
 
   <H2><%= @product.title %></H2>
+  <h5><%= @product.brand %></h5>
   <% if @remaining == 0 %>
 
   <% elsif @remaining == 1 %>
@@ -120,13 +121,9 @@
 <%= render 'products/partials/progressbar_wells' %>
     </div>
 
-
-
     <%= render 'products/partials/main_photo_well' %>
 
-
-
-    <%#= render 'products/partials/price_well' %>  <!-- not sure why this caused problems? -->
+  <%= render 'products/partials/description_well' %>
 
     <div class="well well-sm">
       <i>Price, MSRP, Discount, Page views</i><br>
@@ -140,7 +137,7 @@
 
     </div>
 
-    <%= render 'products/partials/description_well' %>
+
 
     <div class="well well-sm">
        <% if @product.length == 0 and @product.width == 0 and @product.width == 0 and @product.weight == 0 %>

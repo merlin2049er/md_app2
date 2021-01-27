@@ -25,6 +25,7 @@ class Product < ActiveRecord::Base
                                 reject_if: :all_blank, allow_destroy: true
 
   validates_presence_of :title
+  validates_presence_of :brand
   validates_presence_of :category_id
   validates_presence_of :picurl
 

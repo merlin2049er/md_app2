@@ -16,6 +16,7 @@ class Vendor < ApplicationRecord
   validates_presence_of :processing
   validates_presence_of :locally
   validates_presence_of :payments
+  validates_presence_of :courier
 
   validates_numericality_of :processing, greater_than: 0
   validates_numericality_of :processing, less_than: 5

@@ -19,6 +19,7 @@
     <%= f.input :processing ,  input_html: { min: 1,  max: 5}, :label => 'Processing - how many days to process your order?' %>
     <%= f.input :locally, :label => 'Locally - are your products shipped within Canada or the US?'%>
     <%= f.input :payments, :label => 'Payments - what are your payment options?' %>
+    <%= f.input :courier, :label => 'Courier - who do you ship with?' %>
   </div>
 
   <%= recaptcha_tags %><br>
