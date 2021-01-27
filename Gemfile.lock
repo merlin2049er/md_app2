@@ -372,6 +372,8 @@ GEM
     stripe_event (2.3.1)
       activesupport (>= 3.1)
       stripe (>= 2.8, < 6)
+    tel_to_helper (0.1.0)
+      rails
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -466,6 +468,7 @@ DEPENDENCIES
   sprockets-rails
   stripe
   stripe_event
+  tel_to_helper
   toastr_rails
   turbo-rails
   tzinfo-data
