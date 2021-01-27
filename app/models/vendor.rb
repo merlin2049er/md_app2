@@ -9,7 +9,7 @@ class Vendor < ApplicationRecord
   validates_presence_of :country
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
   validates :email, uniqueness: { case_sensitive: false }
-  validates_presence_of :phone
+  validates_presence_of :phone,  :mask => "(999) 999-9999"
   validates_presence_of :website
   validates_presence_of :product
   validates_presence_of :dropship
