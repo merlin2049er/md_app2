@@ -180,7 +180,6 @@ GEM
       nokogiri (~> 1)
     jbuilder (2.11.1)
       activesupport (>= 5.0.0)
-    jquery_mask_rails (0.1.0)
     js_regex (3.5.1)
       character_set (~> 1.4)
       regexp_parser (~> 1.8, >= 1.8.2)
@@ -439,7 +438,6 @@ DEPENDENCIES
   hotwire-rails
   impressionist (~> 1.6, >= 1.6.1)
   jbuilder (~> 2.10, >= 2.10.1)
-  jquery_mask_rails
   listen (~> 3.3, >= 3.3.3)
   meta_request
   omniauth (~> 2.0)

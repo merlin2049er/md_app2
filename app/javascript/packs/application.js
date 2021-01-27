@@ -24,9 +24,6 @@ require("@rails/actiontext")
 require("packs/featherlight.min.js")
 require("packs/featherlight.gallery.min.js")
 
-require("jquery.mask")
-
-
 import $ from 'jquery';
 global.$ = $;
 global.jQuery = $;
@@ -39,8 +36,6 @@ toastr.options = {
 };
 
 global.toastr = toastr;
-
-$.jMaskGlobals.watchDataMask = true;
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
