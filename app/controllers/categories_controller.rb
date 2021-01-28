@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     # begin
-    add_breadcrumb 'categories'
+    add_breadcrumb 'categories', :categories_path
     add_breadcrumb @category.name
 
     require 'time'

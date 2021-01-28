@@ -1,4 +1,5 @@
 <!-- found in views/categories/index.html.erb -->
+<% @user = current_user %>
 
   <div>
 
@@ -34,6 +35,9 @@
         <img src="<%= category.picurl  %>" alt="<%= truncate(category.name ) %>">
 </a>
 
+<% if user_signed_in? && @user.admin %>
+  <%= link_to 'Edit', edit_category_path(category) %>
+  <% end %>
       </div>
 
     <% end %>
