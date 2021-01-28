@@ -48,12 +48,12 @@
       <div class="panel-body">
 
 
-    <%= f.input :firstname, required: true, :validate => true  %>
-    <%= f.input :lastname, required: true, :validate => true%>
+    <%= f.input :firstname, required: true, :validate => true ,label: 'First Name' %>
+    <%= f.input :lastname, required: true, :validate => true ,label: 'Last Name'%>
 
 
 
-    <%= f.input :address1, required: true, :validate => true %>
+    <%= f.input :address1, required: true, :validate => true ,label: 'Address' %>
     <%= f.input :address2, required: false %>
     <%= f.input :city, required: true, :validate => true %>
     <!-- <%= f.input :state, required: true, :validate => true, label: 'Prov / State' %> -->
@@ -66,6 +66,7 @@
 
     <%#= f.country_select :country, only: ["CA", "US"], label: 'Country', required: true  %>
     <%= f.input :country, :collection => %w[Canada USA], required: true , :validate => true%>
+
 
 
       </div>
@@ -101,9 +102,18 @@
 </div>
 -->
 
+<div class="panel panel-default">
+ <div class="panel-heading">Subscribe to newsletter</div>
+<div class="panel-body">
+<%= f.input :newsletter %>
+  </div>
+  </div>
+
+
   <div class="form-actions">
     <%= f.button :submit, "Update" %>
   </div>
+
 <% end %>
 
 <h3>Cancel my account</h3>

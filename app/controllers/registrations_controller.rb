@@ -22,7 +22,8 @@ class RegistrationsController < Devise::RegistrationsController
       :city,
       :state,
       :postal,
-      :country
+      :country,
+      :newsletter
     )
   end
 
@@ -39,7 +40,8 @@ class RegistrationsController < Devise::RegistrationsController
       :city,
       :state,
       :postal,
-      :country
+      :country,
+      :newsletter
     )
   end
 
