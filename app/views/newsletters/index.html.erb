@@ -48,10 +48,7 @@
 <div class ='pagenav'>
 <%== pagy_bootstrap_nav(@pagy) %> <br/>
 </div>
-<%#= link_to 'New ToDo item', new_todo_list_path %>
-
-<%= link_to "Export newsletter as xlx sheet", newsletter_path(format: "xlsx") %>
 
 <% else %>
-  <div class="alert alert-warning" role="alert">You must be signed in as the administrator to view the ToDo List.</div>
+  <div class="alert alert-warning" role="alert">You must be signed in as the administrator to view the Newsletter List.</div>
 <% end %>
