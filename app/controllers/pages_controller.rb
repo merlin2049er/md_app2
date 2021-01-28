@@ -19,6 +19,15 @@ class PagesController < ApplicationController
     add_breadcrumb 'Thank you'
   end
 
+  def thankyouhiringmanager
+    add_breadcrumb 'Thank you'
+
+    session[:name] = params[:name]
+    session[:company] =  params[:company]
+    session[:website] =  params[:website]
+
+  end
+
   def contact
     add_breadcrumb 'Contact'
     @contact = Contact.new
@@ -121,6 +130,8 @@ class PagesController < ApplicationController
 
   def resume
     add_breadcrumb 'Resume'
+    #params.permit(:name, :company, :website)
+
   end
 
   def terms

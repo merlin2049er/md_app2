@@ -47,7 +47,17 @@ Oct 2016 => to present<br><br>
  Ruby challenges accepted...Here's one I recently completed...<%= link_to "Palindrome Checker", "https://vast-mountain-39668.herokuapp.com/" %><br>
  Availability 1 ~ 2 weeks notice<br>
  Part time, Full Time, Remote, Volunteer [registered charities only] <br>
- Schedule a time to chat with me using Calendly<br>
+ Schedule a time to chat with me using Calendly<br><br>
+
+<i>Fill this in if you have interviewed me for a position.</i><br><br>
+
+<%= form_tag("/pages/thankyouhiringmanager", method: "get") do %>
+  Name:<br>  <%=text_field_tag(:name) %> <br />
+  Company:<br>  <%= text_field_tag(:company) %><br />
+  Website:<br>  <%= text_field_tag(:website) %> <br />
+  <%= submit_tag("Next") %>
+<% end %>
+
 
 <!-- Calendly badge widget begin -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
