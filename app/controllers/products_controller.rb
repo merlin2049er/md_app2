@@ -224,7 +224,7 @@ class ProductsController < ApplicationController
   end
 
   def downvote
-    @product.downvote_from current_user
+    @product.downvote_from current_user  
     redirect_to request.referrer
 
   end
