@@ -17,6 +17,8 @@ class User < ApplicationRecord
 
   acts_as_commontator
 
+   acts_as_voter
+
   # IT'S JUST AN EXAMPLE OF ANY ROLE SYSTEM
   def admin?
     self == User.first

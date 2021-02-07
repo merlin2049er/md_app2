@@ -132,6 +132,9 @@ gem "recaptcha", require: "recaptcha/rails"
 
 gem 'tel_to_helper'
 
+#up/downvoting
+gem 'acts_as_votable'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

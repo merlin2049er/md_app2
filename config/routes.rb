@@ -26,6 +26,14 @@ Rails.application.routes.draw do
     member { post :add_to_cart }
   end
 
+  resources :products do
+    member do
+	      put "Like" => "products#upvote"
+        put "Unlike" => "products#downvote"
+      end
+    end
+
+
   resources :notifications
   resources :taxes
   resources :todo_lists

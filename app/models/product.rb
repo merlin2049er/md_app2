@@ -14,6 +14,8 @@ class Product < ActiveRecord::Base
 
   acts_as_commontable dependent: :destroy
 
+  acts_as_votable
+
   after_initialize :set_defaults
 
   after_touch { __elasticsearch__.index_document }
