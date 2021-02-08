@@ -1,9 +1,0 @@
-<%= link_to Like_product_path(@product), method: :put do %>
-
-	<button type="button" class="btn" aria-label="Left Align">
-	 <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
-
-	<span class="badge badge-dark"><%= @product.get_upvotes.size %></span>
-
-	</button>
-<% end %>

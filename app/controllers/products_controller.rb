@@ -3,7 +3,7 @@
 class ProductsController < ApplicationController
   include Pagy::Backend
 
-  before_action :set_product, only: %i[show edit update destroy, upvote, downvote]
+  before_action :set_product, only: %i[show edit update destroy]
 
   # GET /products
   # GET /products.json
@@ -214,19 +214,6 @@ class ProductsController < ApplicationController
         end
       end
     end
-  end
-
-
-  def upvote
-    @product.upvote_from current_user
-    redirect_to request.referrer
-
-  end
-
-  def downvote
-    @product.downvote_from current_user  
-    redirect_to request.referrer
-
   end
 
   private
