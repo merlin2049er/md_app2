@@ -10,8 +10,8 @@
  <%= f.input :supplier, :label => 'Vendor'  %>
 
  <%= f.input :message  ,:validate => true %>
- <br>
- Before filling out this form, please complete this captcha.<br>
+
+ Before sending this message, please complete this captcha.<br>
 
  <%= recaptcha_tags %><br>
  <%= f.submit "Get in touch!", class: "btn btn-info" %><br>
