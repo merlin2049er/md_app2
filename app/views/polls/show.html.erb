@@ -1,0 +1,24 @@
+<% @user = current_user %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @poll.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @poll.description %>
+</p>
+
+<p>
+  <strong>Enabled:</strong>
+  <%= @poll.enabled %>
+</p>
+
+<% if user_signed_in? && @user.admin %>
+
+<%= link_to 'Edit', edit_poll_path(@poll) %> |
+<% end %>
+<%= link_to 'Back', polls_path %>

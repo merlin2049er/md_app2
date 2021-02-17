@@ -4,6 +4,13 @@
      <a href="#" class="dropdown-toggle" data-toggle="dropdown"  data-hover="dropdown" data-delay="1000"  role="button" aria-haspopup="true" aria-expanded="false">Main Menu<span class="caret"></span></a>
      <ul class="dropdown-menu">
 
+       <li>
+       <%= link_to polls_path  do %>
+       <span>Polls</span>
+       <% end %>
+     </li>
+
+
       <li>
       <%= link_to edit_user_registration_path  do %>
       <span>Profile</span>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_07_191824) do
+ActiveRecord::Schema.define(version: 2021_02_17_204330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -206,6 +206,26 @@ ActiveRecord::Schema.define(version: 2021_02_07_191824) do
     t.string "uri"
     t.boolean "enabled"
     t.integer "product_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "poll_options", force: :cascade do |t|
+    t.string "poll"
+    t.boolean "enabled"
+    t.boolean "poll_url_enabled"
+    t.string "poll_url"
+    t.integer "count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "poll_id"
+    t.index ["poll_id"], name: "index_poll_options_on_poll_id"
+  end
+
+  create_table "polls", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.boolean "enabled"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

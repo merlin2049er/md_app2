@@ -2,6 +2,8 @@
 
 Rails.application.routes.draw do
 
+  resources :poll_options
+  resources :polls
   root 'pages#index'
 
   devise_for :users,
@@ -49,6 +51,8 @@ Rails.application.routes.draw do
   end
 
   resources :vendors
+  resources :polls
+  resources :polls_options
 
   get 'feedbacks/feedback_left'
 
