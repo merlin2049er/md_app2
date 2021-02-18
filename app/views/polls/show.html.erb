@@ -27,7 +27,7 @@
       <tr> <img src="<%= polloption.poll_url  %>" width="250" height="250" alt="polloption.poll"><br></tr>
 
     <% if @voted.nil? %>
-      <tr><%= form_for @poll, :url => {:controller => "polls", :action => "vote" } do |f| %><%= f.submit "Vote!" %>
+      <tr><%= form_for Poll.new, :url => {:controller => "polls", :action => "vote" } ,html:{action: "post"} do |f| %><%= f.submit "Vote!" %>
 
         <%= f.hidden_field :poll_id , :value => @poll.id %>
         <%= f.hidden_field :user_id , :value => @user.id %>

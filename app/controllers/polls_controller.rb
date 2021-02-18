@@ -73,8 +73,13 @@ class PollsController < ApplicationController
 
     # save record in voteds table (so they don't vote again on the same poll)
 
-    # lookup poll_option record and increment poll_option counter
+    # poll = params[:poll_id]
+    # user = params[:user_id]
+    # poll_option_id = params[:polloption_id ]
 
+
+    # lookup poll_option record and increment poll_option counter
+   binding.pry
 
     respond_to do |format|
       format.html { render 'thank_you' }
@@ -91,9 +96,7 @@ class PollsController < ApplicationController
 
    def check_if_voted
      @current_user ||= User.find_by(id: session[:user_id])
-
-      @voted = Voted.find_by(user_id: @current_user , poll_id: @poll ? @poll.id :  '')
-
+     @voted = Voted.find_by(user_id: @current_user , poll_id: @poll ? @poll.id :  '')
     end
 
     # Only allow a list of trusted parameters through.
