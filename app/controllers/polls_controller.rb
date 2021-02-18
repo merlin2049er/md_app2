@@ -1,5 +1,7 @@
 class PollsController < ApplicationController
   before_action :set_poll, only: %i[ show edit update destroy ]
+  # before_action  :check_if_voted
+
   include Pagy::Backend
   before_action :authenticate_user!
 
@@ -72,7 +74,7 @@ class PollsController < ApplicationController
     # save record in voteds table (so they don't vote again on the same poll)
 
     # lookup poll_option record and increment poll_option counter
-      
+
 
     respond_to do |format|
       format.html { render 'thank_you' }
@@ -86,6 +88,13 @@ class PollsController < ApplicationController
     def set_poll
       @poll = Poll.find(params[:id])
     end
+
+  #  def check_if_voted
+  #    @current_user ||= User.find_by(id: session[:user_id])
+  #    @voted = Voted.find_by(user_id: @current_user , poll_id: @poll.id)
+
+  #  end
+
 
     # Only allow a list of trusted parameters through.
     def poll_params

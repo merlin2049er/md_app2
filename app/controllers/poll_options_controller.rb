@@ -1,5 +1,6 @@
 class PollOptionsController < ApplicationController
   before_action :set_poll_option, only: %i[ show edit update destroy ]
+
   include Pagy::Backend
   before_action :authenticate_user!
 

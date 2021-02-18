@@ -26,6 +26,7 @@
        <% if  polloption.poll_url_enabled %>
       <tr> <img src="<%= polloption.poll_url  %>" width="250" height="250" alt="polloption.poll"><br></tr>
 
+    <% if @voted.nil? %>
       <tr><%= form_for @poll, :url => {:controller => "polls", :action => "vote" } do |f| %><%= f.submit "Vote!" %>
 
         <%= f.hidden_field :poll_id , :value => @poll.id %>
@@ -34,6 +35,9 @@
 
         <% end %> </tr>
 
+        <% else %>
+         Already voted!<br>
+        <% end %>
         <% end %>
         <% end %>
         <br>
