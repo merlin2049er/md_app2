@@ -1,6 +1,6 @@
 class PollsController < ApplicationController
   before_action :set_poll, only: %i[ show edit update destroy ]
-  # before_action  :check_if_voted
+  before_action  :check_if_voted
 
   include Pagy::Backend
   before_action :authenticate_user!
@@ -17,7 +17,7 @@ class PollsController < ApplicationController
     add_breadcrumb 'Poll'
   end
 
-  # GET /polls/new
+  # GT /polls/new
   def new
       add_breadcrumb 'New Poll'
     @poll = Poll.new
@@ -89,16 +89,16 @@ class PollsController < ApplicationController
       @poll = Poll.find(params[:id])
     end
 
-  #  def check_if_voted
-  #    @current_user ||= User.find_by(id: session[:user_id])
-  #    @voted = Voted.find_by(user_id: @current_user , poll_id: @poll.id)
+   def check_if_voted
+     @current_user ||= User.find_by(id: session[:user_id])
 
-  #  end
+      @voted = Voted.find_by(user_id: @current_user , poll_id: @poll ? @poll.id :  '')
 
+    end
 
     # Only allow a list of trusted parameters through.
     def poll_params
-      params.require(:poll).permit(:name, :description, :enabled ,poll_options_attributes: [:poll, :description, :enabled, :poll_url_enabled, :poll_url, :_destroy])
+      params.require(:poll).permit(:name, :description, :enabled ,poll_options_attributes: [:poll, :description, :enabled, :poll_url_enabled, :poll_url, :id,:_destroy])
 
     end
 end
