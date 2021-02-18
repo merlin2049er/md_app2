@@ -9,10 +9,14 @@
 
 <% if @poll.poll_options.any? %>
    <p><i>Vote from one of the options here...</i></p>
-   <table>
+
+   <div class="container">
+
+
+
 <% @poll.poll_options.each do |polloption| %>
 
-
+  <div class="col-md-4 col-sm-6 col-xs-12">
     <% if  polloption.enabled %>
 
      <tr><%= polloption.poll   %>|<%= polloption.count   %>|<button type="button" onclick="alert('Your vote has been registered...')">Pick me!</button> <br>     </tr>
@@ -22,13 +26,17 @@
         <% end %>
         <% end %>
         <br>
-
+</div>
 <% end %>
-</table>
+
+
 <% else %>
 <i>...no poll options added...</i><br>
 <% end %>
 
+
+</div>
+  <br>
 <% if user_signed_in? && @user.admin %>
 
 <%= link_to 'Edit', edit_poll_path(@poll) %> |
