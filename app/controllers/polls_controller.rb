@@ -65,6 +65,15 @@ class PollsController < ApplicationController
     end
   end
 
+
+  def vote
+    respond_to do |format|
+      format.html { render 'thank_you' }
+      format.json { head :no_content }
+    end
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_poll

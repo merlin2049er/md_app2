@@ -8,7 +8,7 @@
 
 
 <% if @poll.poll_options.any? %>
-   <p><i>Vote from one of the options here...</i></p>
+   <p><i>Vote from one of the options here... voting helps us gage interest for future campaigns...</i></p>
 
    <div class="container">
 
@@ -19,10 +19,20 @@
   <div class="col-md-4 col-sm-6 col-xs-12">
     <% if  polloption.enabled %>
 
-     <tr><%= polloption.poll   %>|<%= polloption.count   %>|<button type="button" onclick="alert('Your vote has been registered...')">Pick me!</button> <br>     </tr>
+
+
+     <tr><%= polloption.poll   %>|<%= polloption.count   %> <% if !polloption.count.nil? %> votes in so far... <% end %><br> </tr>
      <tr><small><i> <%= polloption.description   %></i></small> <br></tr>
        <% if  polloption.poll_url_enabled %>
       <tr> <img src="<%= polloption.poll_url  %>" width="250" height="250" alt="polloption.poll"><br></tr>
+
+      <tr><%= form_for @poll, :url => {:controller => "polls", :action => "vote" } do |f| %><%= f.submit "Vote!" %>
+
+        <%= f.hidden_field :poll_id , :value => @poll.id %>
+        <%= f.hidden_field :user_id , :value => @user.id %>
+
+        <% end %> </tr>
+
         <% end %>
         <% end %>
         <br>

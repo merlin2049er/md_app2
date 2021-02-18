@@ -54,6 +54,8 @@ Rails.application.routes.draw do
   resources :polls
   resources :polls_options
 
+  patch '/polls_vote_url', to: 'polls#vote', as: 'polls_vote'
+
   get 'feedbacks/feedback_left'
 
   scope '/checkout' do
