@@ -7,7 +7,7 @@ class PollOptionsController < ApplicationController
   def index
       add_breadcrumb 'Poll Option list'
     @poll_options = PollOption.all
-    @pagy, @poll_options = pagy(PollOption.all.order(:created_at))
+    @pagy, @poll_options = pagy(PollOption.all.order(:count))
 
   end
 
@@ -74,6 +74,6 @@ class PollOptionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def poll_option_params
-      params.require(:poll_option).permit(:poll, :enabled, :poll_url_enabled, :poll_url)
+      params.require(:poll_option).permit(:poll, :description, :enabled, :poll_url_enabled, :poll_url)
     end
 end

@@ -2,27 +2,29 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Poll:</strong>
-  <%= @poll.name %>|<%= @poll.description %>
-</p>
+  <h2><%= @poll.name %>|<%= @poll.description %> </h2>
+
 
 
 
 <% if @poll.poll_options.any? %>
-  <p><strong>Poll options:</strong></p>
+   <p><i>Vote from one of the options here...</i></p>
+   <table>
 <% @poll.poll_options.each do |polloption| %>
-  <tr class="<%= cycle("even", "odd") %>">
+
 
     <% if  polloption.enabled %>
-     <td> <%#= polloption.enabled   %> <%= polloption.poll   %> <br></td>
+
+     <tr><%= polloption.poll   %>|<%= polloption.count   %>|<button type="button" onclick="alert('Your vote has been registered...')">Pick me!</button> <br>     </tr>
+     <tr><small><i> <%= polloption.description   %></i></small> <br></tr>
        <% if  polloption.poll_url_enabled %>
-      <td> <%#= polloption.poll_url_enabled   %>
-        <img src="<%= polloption.poll_url  %>" width="250" height="250" alt="polloption.poll"><br></td>
+      <tr> <img src="<%= polloption.poll_url  %>" width="250" height="250" alt="polloption.poll"><br></tr>
         <% end %>
         <% end %>
-  </tr>
+        <br>
+
 <% end %>
+</table>
 <% else %>
 <i>...no poll options added...</i><br>
 <% end %>
