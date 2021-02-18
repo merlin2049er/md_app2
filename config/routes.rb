@@ -54,7 +54,7 @@ Rails.application.routes.draw do
   resources :polls
   resources :polls_options
 
-  patch '/polls_vote_url', to: 'polls#vote', as: 'polls_vote'
+  patch '/polls_vote_url', to: 'polls#vote', as: 'polls_vote'  # why is this a patch and not a post?
 
   get 'feedbacks/feedback_left'
 

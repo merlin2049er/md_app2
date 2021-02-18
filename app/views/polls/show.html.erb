@@ -21,7 +21,7 @@
 
 
 
-     <tr><%= polloption.poll   %>|<%= polloption.count   %> <% if !polloption.count.nil? %> votes in so far... <% end %><br> </tr>
+     <tr><%= polloption.poll   %><% if !polloption.count.nil? %>|<%= polloption.count   %> votes in so far... <% end %><br> </tr>
      <tr><small><i> <%= polloption.description   %></i></small> <br></tr>
        <% if  polloption.poll_url_enabled %>
       <tr> <img src="<%= polloption.poll_url  %>" width="250" height="250" alt="polloption.poll"><br></tr>
@@ -30,6 +30,7 @@
 
         <%= f.hidden_field :poll_id , :value => @poll.id %>
         <%= f.hidden_field :user_id , :value => @user.id %>
+        <%= f.hidden_field :polloption_id , :value => polloption.id %>
 
         <% end %> </tr>
 

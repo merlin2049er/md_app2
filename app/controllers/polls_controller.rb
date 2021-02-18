@@ -67,6 +67,13 @@ class PollsController < ApplicationController
 
 
   def vote
+    add_breadcrumb 'Thanks'
+
+    # save record in voteds table (so they don't vote again on the same poll)
+
+    # lookup poll_option record and increment poll_option counter
+      
+
     respond_to do |format|
       format.html { render 'thank_you' }
       format.json { head :no_content }
