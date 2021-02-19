@@ -4,6 +4,8 @@ class PollOption < ApplicationRecord
   validates_presence_of :poll
   validates_presence_of :poll_url
 
+  default_scope { order(count: :desc) }
+
 
   def set_defaults
     self.enabled ||= 'true'
