@@ -69,21 +69,33 @@ class PollsController < ApplicationController
 
 
   def vote
-    add_breadcrumb 'Thanks'
 
+
+     @poll = params[:poll][:poll_id]
+     @user = params[:poll][:user_id]
+     @poll_option_id = params[:poll][:polloption_id]
     # save record in voteds table (so they don't vote again on the same poll)
 
-     poll = params[:poll_id]
-     user = params[:user_id]
-     poll_option_id = params[:polloption_id ]
+
+
+    @vote = Voted.new(voted_params)
 
     # lookup poll_option record and increment poll_option counter
     # binding.pry
 
     respond_to do |format|
-      format.html { render 'thank_you' }
-      format.json { head :no_content }
+      if @vote.save
+        add_breadcrumb 'Thanks'
+        format.html { render 'thank_you' }
+        format.json { render :show, status: :created, location: @poll }
+      else
+        add_breadcrumb 'Error'
+        format.html { render 'error' }
+        format.json { render json: @poll.errors, status: :unprocessable_entity }
+      end
     end
+
+
 
   end
 
@@ -102,5 +114,14 @@ class PollsController < ApplicationController
     def poll_params
       params.require(:poll).permit(:name, :description, :enabled, poll_options_attributes: [:poll, :description, :enabled, :poll_url_enabled, :poll_url, :id,:_destroy ])
     end
+
+   def voted_params
+     params.require(:poll).permit(:poll_id, :user_id)
+   end
+
+   def poll_count_params
+     params.require(:poll).permit(:poll_option_id)
+   end
+
 
 end
