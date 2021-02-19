@@ -73,13 +73,12 @@ class PollsController < ApplicationController
 
     # save record in voteds table (so they don't vote again on the same poll)
 
-    # poll = params[:poll_id]
-    # user = params[:user_id]
-    # poll_option_id = params[:polloption_id ]
-
+     poll = params[:poll_id]
+     user = params[:user_id]
+     poll_option_id = params[:polloption_id ]
 
     # lookup poll_option record and increment poll_option counter
-   binding.pry
+    # binding.pry
 
     respond_to do |format|
       format.html { render 'thank_you' }
@@ -101,7 +100,7 @@ class PollsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def poll_params
-      params.require(:poll).permit(:name, :description, :enabled ,poll_options_attributes: [:poll, :description, :enabled, :poll_url_enabled, :poll_url, :id,:_destroy])
-
+      params.require(:poll).permit(:name, :description, :enabled, poll_options_attributes: [:poll, :description, :enabled, :poll_url_enabled, :poll_url, :id,:_destroy ])
     end
+
 end
