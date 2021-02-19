@@ -76,12 +76,19 @@ class PollsController < ApplicationController
      @poll_option_id = params[:poll][:polloption_id]
     # save record in voteds table (so they don't vote again on the same poll)
 
+    @poll_option = PollOption.find(@poll_option_id)
 
+    @count= @poll_option.count
+    @count = @count +1
+    
 
+    binding.pry
     @vote = Voted.new(voted_params)
 
     # lookup poll_option record and increment poll_option counter
     # binding.pry
+
+
 
     respond_to do |format|
       if @vote.save
