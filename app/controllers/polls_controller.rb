@@ -80,9 +80,10 @@ class PollsController < ApplicationController
 
     @count= @poll_option.count
     @count = @count +1
-    
+    PollOption.count = @count
+    PollOption.save
 
-    binding.pry
+    #binding.pry
     @vote = Voted.new(voted_params)
 
     # lookup poll_option record and increment poll_option counter
