@@ -1,6 +1,8 @@
 class PollsController < ApplicationController
   before_action :set_poll, only: %i[ show edit update destroy ]
-  before_action  :check_if_voted
+  #before_action :voted_params
+  #before_action :poll_count_params
+  before_action :check_if_voted
 
   include Pagy::Backend
   before_action :authenticate_user!

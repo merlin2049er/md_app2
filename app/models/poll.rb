@@ -1,6 +1,7 @@
 class Poll < ApplicationRecord
   after_initialize :set_defaults
   has_many :poll_options,  dependent: :destroy
+  has_many :voted,  dependent: :destroy
 
   validates_presence_of :name
   validates_presence_of :description
