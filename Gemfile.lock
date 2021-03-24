@@ -230,7 +230,7 @@ GEM
       oauth2 (~> 1.4)
       omniauth (>= 1.9, < 3)
     orm_adapter (0.5.0)
-    pagy (3.12.0)
+    pagy (4.1.0)
     parallel (1.20.1)
     parser (3.0.0.0)
       ast (~> 2.4.1)
@@ -373,8 +373,6 @@ GEM
     stripe_event (2.3.1)
       activesupport (>= 3.1)
       stripe (>= 2.8, < 6)
-    tel_to_helper (0.1.0)
-      rails
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -445,7 +443,7 @@ DEPENDENCIES
   meta_request
   omniauth (~> 2.0)
   omniauth-facebook (~> 8.0)
-  pagy (~> 3.10)
+  pagy (~> 4.1)
   pg
   photoswipe-rails (~> 4.1, >= 4.1.2)
   populator!
@@ -469,7 +467,6 @@ DEPENDENCIES
   sprockets-rails
   stripe
   stripe_event
-  tel_to_helper
   toastr_rails
   turbo-rails
   tzinfo-data
@@ -479,7 +476,7 @@ DEPENDENCIES
   webpacker (~> 5.2, >= 5.2.1)
 
 RUBY VERSION
-   ruby 2.7.2p137
+   ruby 3.0.0p0
 
 BUNDLED WITH
    2.2.5
