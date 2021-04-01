@@ -94,7 +94,8 @@ gem 'client_side_validations-simple_form', '~> 11.2'
 gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '5.x'
 gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: '5.x'
 
-gem 'sentry-raven'
+# gem 'sentry-raven'  is deprecated!
+gem 'sentry-ruby', '~> 4.3', '>= 4.3.1'
 
 gem 'cocoon'
 
