@@ -227,6 +227,9 @@ GEM
     omniauth-oauth2 (1.7.1)
       oauth2 (~> 1.4)
       omniauth (>= 1.9, < 3)
+    omniauth-rails_csrf_protection (1.0.0)
+      actionpack (>= 4.2)
+      omniauth (~> 2.0)
     orm_adapter (0.5.0)
     pagy (4.1.0)
     parallel (1.20.1)
@@ -446,6 +449,7 @@ DEPENDENCIES
   meta_request
   omniauth (~> 2.0)
   omniauth-facebook (~> 8.0)
+  omniauth-rails_csrf_protection (~> 1.0)
   pagy (~> 4.1)
   pg
   photoswipe-rails (~> 4.1, >= 4.1.2)
