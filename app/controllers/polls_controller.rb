@@ -17,6 +17,9 @@ class PollsController < ApplicationController
   # GET /polls/1 or /polls/1.json
   def show
     add_breadcrumb 'Poll'
+    @sum = PollOption.where(poll_id: Poll.ids).pluck(:count).compact.sum
+    #binding.pry
+
   end
 
   # GT /polls/new
