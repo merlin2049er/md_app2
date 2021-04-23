@@ -15,18 +15,14 @@
     <% if  polloption.enabled %>
 
 
-     <tr><%= polloption.poll   %>|
-
-
-       <% @polloption_sum = Voted.where(polloption_id: polloption.id).count %>
-       <% if @polloption_sum >0 %>
-       <%= @polloption_sum %> votes in so far... <br><%= (( @polloption_sum.to_f / @polloption_total.to_f )* 100).round(2) %>% of the vote...  <br>
-      <% end %>
-
-     </tr>
-     <tr><small><i> <%= polloption.description   %></i></small> <br></tr>
+     <tr><%= polloption.poll   %>|<small><i> <%= polloption.description   %></i></small></tr>
        <% if  polloption.poll_url_enabled %>
       <tr> <img src="<%= polloption.poll_url  %>" width="250" height="250" alt="polloption.poll"><br></tr>
+
+      <% @polloption_sum = Voted.where(polloption_id: polloption.id).count %>
+      <% if @polloption_sum >0 %>
+      <tr> <small> <i> <%= @polloption_sum %> votes in so far...<%= (( @polloption_sum.to_f / @polloption_total.to_f )* 100).round(2) %>% of the vote...</i></small> <br></tr>
+     <% end %>
 
     <% if @voted.nil? %>
       <tr><%= form_for Poll.new, :url => {:controller => "polls", :action => "vote" } ,html:{action: "post"} do |f| %><%= f.submit "Vote!" %>
@@ -38,7 +34,7 @@
         <% end %> </tr>
 
         <% else %>
-         Already voted!<br>
+         <tr>Already voted!</tr><br>
         <% end %>
         <% end %>
         <% end %>
