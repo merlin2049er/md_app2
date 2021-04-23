@@ -14,7 +14,15 @@
   <div class="col-md-4 col-sm-6 col-xs-12">
     <% if  polloption.enabled %>
 
-     <tr><%= polloption.poll   %>|<%= @polloption_sum = Voted.where(polloption_id: polloption.id).count %> votes in so far... <br><%= (( @polloption_sum.to_f / @polloption_total.to_f )* 100).round(2) %>% of the vote...  <br>
+
+     <tr><%= polloption.poll   %>|
+
+
+       <% @polloption_sum = Voted.where(polloption_id: polloption.id).count %>
+       <% if @polloption_sum >0 %>
+       <%= @polloption_sum %> votes in so far... <br><%= (( @polloption_sum.to_f / @polloption_total.to_f )* 100).round(2) %>% of the vote...  <br>
+      <% end %>
+
      </tr>
      <tr><small><i> <%= polloption.description   %></i></small> <br></tr>
        <% if  polloption.poll_url_enabled %>

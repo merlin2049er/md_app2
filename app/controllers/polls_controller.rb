@@ -18,10 +18,7 @@ class PollsController < ApplicationController
   def show
     add_breadcrumb 'Poll'
 
-    #fix this put in right variables...
-    #@polloption_sum = Voted.where(polloption_id: 42).count  #put this in the view...
     @polloption_total = Voted.where(poll_id: @poll.id).count
-
     #binding.pry
 
   end
