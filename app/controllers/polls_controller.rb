@@ -17,7 +17,10 @@ class PollsController < ApplicationController
   # GET /polls/1 or /polls/1.json
   def show
     add_breadcrumb 'Poll'
-    @sum = PollOption.where(poll_id: Poll.ids).pluck(:count).compact.sum
+
+    #fix this - should count the number of polls_options in voted
+    #@sum = Voteds.where(polloption_id: Poll.ids).pluck(:count).compact.sum
+
     #binding.pry
 
   end
@@ -75,25 +78,7 @@ class PollsController < ApplicationController
 
   def vote
 
-
-     @poll = params[:poll][:poll_id]
-     @user = params[:poll][:user_id]
-     @poll_option_id = params[:poll][:polloption_id]
-    # save record in voteds table (so they don't vote again on the same poll)
-
-    @poll_option = PollOption.find(@poll_option_id)
-
-    @count= @poll_option.count
-    @count = @count +1
-    @poll_option.count = @count
-    @poll_option.save
-
     @vote = Voted.new(voted_params)
-
-    # lookup poll_option record and increment poll_option counter
-    # binding.pry
-
-
 
     respond_to do |format|
       if @vote.save
@@ -106,8 +91,6 @@ class PollsController < ApplicationController
         format.json { render json: @poll.errors, status: :unprocessable_entity }
       end
     end
-
-
 
   end
 
@@ -128,11 +111,7 @@ class PollsController < ApplicationController
     end
 
    def voted_params
-     params.require(:poll).permit(:poll_id, :user_id)
-   end
-
-   def poll_count_params
-     params.require(:poll).permit(:poll_option_id)
+     params.require(:poll).permit(:poll_id, :user_id, :polloption_id)
    end
 
 

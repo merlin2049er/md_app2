@@ -8,7 +8,7 @@ class PollOptionsController < ApplicationController
   def index
       add_breadcrumb 'Poll Option list'
     @poll_options = PollOption.all
-    @pagy, @poll_options = pagy(PollOption.all.order(:count))
+    @pagy, @poll_options = pagy(PollOption.all.order(:created_at))
 
   end
 

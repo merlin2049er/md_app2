@@ -14,7 +14,7 @@
   <div class="col-md-4 col-sm-6 col-xs-12">
     <% if  polloption.enabled %>
 
-     <tr><%= polloption.poll   %><% if !polloption.count.nil? %>|<%= polloption.count %> votes in so far... <% end %><br><%= ( polloption.count.to_f / @sum )* 100 %>% of the vote...  <br>
+     <tr><%= polloption.poll   %><%# if !polloption.count.nil? %>|<%#= polloption.count %> votes in so far... <%# end %><br><%#= ( polloption.count.to_f / @sum )* 100 %>% of the vote...  <br>
      </tr>
      <tr><small><i> <%= polloption.description   %></i></small> <br></tr>
        <% if  polloption.poll_url_enabled %>
