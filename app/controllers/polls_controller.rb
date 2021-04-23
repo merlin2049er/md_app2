@@ -18,14 +18,15 @@ class PollsController < ApplicationController
   def show
     add_breadcrumb 'Poll'
 
-    #fix this - should count the number of polls_options in voted
-    #@sum = Voteds.where(polloption_id: Poll.ids).pluck(:count).compact.sum
+    #fix this put in right variables...
+    @polloption_sum = Voted.where(polloption_id: 42).count
+    @polloption_total = Voted.where(poll_id: @poll.id).count
 
     #binding.pry
 
   end
 
-  # GT /polls/new
+  # GT /polls/new@poll.poll_options
   def new
       add_breadcrumb 'New Poll'
     @poll = Poll.new
