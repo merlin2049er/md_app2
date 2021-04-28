@@ -8,9 +8,9 @@
    <p><i>Vote from one of the options here... voting helps us gage interest for future campaigns...</i></p>
 
    <div class="container">
-       <% if @voted %>
 
-       <i>Already voted!</i> <br><br>
+       <% if @voted %>
+        <i>Already voted!</i> <br><br>
        <% end %>
 
 <% @poll.poll_options.each do |polloption| %>
@@ -24,6 +24,7 @@
       <tr> <img src="<%= polloption.poll_url  %>" width="250" height="250" alt="polloption.poll"><br></tr>
 
       <% @polloption_sum = Voted.where(polloption_id: polloption.id).count %>
+
       <% if @polloption_sum >0 %>
       <tr> <small> <i> <%= @polloption_sum %> votes in so far...<%= (( @polloption_sum.to_f / @polloption_total.to_f )* 100).round(2) %>% of the vote...</i></small> <br></tr>
      <% end %>
