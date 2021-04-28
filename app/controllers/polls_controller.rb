@@ -101,6 +101,9 @@ class PollsController < ApplicationController
    def check_if_voted
      @current_user ||= User.find_by(id: session[:user_id])
      @voted = Voted.find_by(user_id: @current_user , poll_id: @poll ? @poll.id :  '')
+
+    # binding.pry
+
     end
 
     # Only allow a list of trusted parameters through.

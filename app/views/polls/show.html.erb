@@ -8,6 +8,10 @@
    <p><i>Vote from one of the options here... voting helps us gage interest for future campaigns...</i></p>
 
    <div class="container">
+       <% if @voted %>
+
+       <i>Already voted!</i> <br><br>
+       <% end %>
 
 <% @poll.poll_options.each do |polloption| %>
 
@@ -25,16 +29,14 @@
      <% end %>
 
     <% if @voted.nil? %>
-      <tr><%= form_for Poll.new, :url => {:controller => "polls", :action => "vote" } ,html:{action: "post"} do |f| %><%= f.submit "Vote!" %>
+      <tr><%= form_for Poll.new, :url => {:controller => "polls", :action => "vote" } ,html:{action: "post"} do |f| %><%= f.submit "Vote!" %></tr>
 
         <%= f.hidden_field :poll_id , :value => @poll.id %>
         <%= f.hidden_field :user_id , :value => @user.id %>
         <%= f.hidden_field :polloption_id , :value => polloption.id %>
 
-        <% end %> </tr>
+        <% end %>
 
-        <% else %>
-         <tr>Already voted!</tr><br>
         <% end %>
         <% end %>
         <% end %>
