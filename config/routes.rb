@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
 
+  resources :search_fors
   resources :poll_options
   resources :polls
   root 'pages#index'
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
   end
 
   resources :notifications
+  resources :search_fors
   resources :taxes
   resources :todo_lists
   resources :transactions
