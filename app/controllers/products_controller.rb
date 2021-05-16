@@ -31,6 +31,12 @@ class ProductsController < ApplicationController
 
         )
     end
+
+    # save search keyword to search for table
+    sk = SearchFor.new
+    sk.searchterm = @search
+    sk.save
+
     @searchtotal = @search.count
     @products = @search
     @pagy, @a =
