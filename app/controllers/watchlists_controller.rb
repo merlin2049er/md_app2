@@ -18,14 +18,19 @@ class WatchlistsController < ApplicationController
   def new
     @watchlist = Watchlist.new
 
-    if params && params[:user_id] && params[:product_id]
+    if params and params[:user_id] and params[:product_id]
+
       @watchlist.user_id = params[:user_id]
       @watchlist.product_id = params[:product_id]
+
+     if Watchlist.where(user_id: params[:user_id], product_id: params[:product_id]).exists?
+       flash.now[:error] = "Already watching this..."
+     else
       if @watchlist.save
         flash.now[:notice] = 'Watch item was successfully created.'
-      else
-        flash.now[:error] = "Already watching this..."
+
       end
+    end
     end
   end
 
