@@ -15,7 +15,30 @@ class WatchlistsController < ApplicationController
   end
 
   # GET /watchlists/new
+  def new
+    # add_breadcrumb 'New Watch list'
+      @watchlist = Watchlist.new
+      binding.pry
+  end
 
+  def create
+    #    add_breadcrumb 'New Todo list'
+    @watchlist = Watchlist.new(watchlist_params)
+
+    respond_to do |format|
+      if @watchlist.save
+        format.html do
+          redirect_to @watchlist, notice: 'Product added to watchlist.'
+        end
+        format.json { render :show, status: :created, location: @watchlist }
+      else
+        format.html { render :new , status: :unprocessable_entity }
+        format.json do
+          render json: @watchlist.errors, status: :unprocessable_entity
+        end
+      end
+    end
+  end
 
 
   # DELETE /watchlists/1

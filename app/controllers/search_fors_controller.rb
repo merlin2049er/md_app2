@@ -16,8 +16,7 @@ class SearchForsController < ApplicationController
   # GET /search_fors/new
   def new
     add_breadcrumb 'New Search Keyword'
-    @search_for = SearchFor.new
-
+      @search_for = SearchFor.new
   end
 
   # POST /search_fors or /search_fors.json
