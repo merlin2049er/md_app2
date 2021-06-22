@@ -6,7 +6,7 @@ class SearchForsController < ApplicationController
   def index
       add_breadcrumb 'Search'
     @search_fors = SearchFor.all
-      @pagy, @search_fors = pagy(SearchFor.all.order(:created_at))
+      @pagy, @search_fors = pagy(SearchFor.all.order("created_at DESC"))
   end
 
   def show
@@ -17,12 +17,13 @@ class SearchForsController < ApplicationController
   def new
     add_breadcrumb 'New Search Keyword'
     @search_for = SearchFor.new
+
   end
 
   # POST /search_fors or /search_fors.json
   def create
-    @search_for = SearchFor.new(search_for_params)
 
+    @search_for = SearchFor.new(search_for_params)
     respond_to do |format|
       if @search_for.save
         format.html { redirect_to @search_for, notice: "Search for was successfully created." }
@@ -32,12 +33,14 @@ class SearchForsController < ApplicationController
         format.json { render json: @search_for.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
 
 
   # DELETE /search_fors/1 or /search_fors/1.json
   def destroy
+
     @search_for.destroy
     respond_to do |format|
       format.html { redirect_to search_fors_url, notice: "Search for was successfully destroyed." }
