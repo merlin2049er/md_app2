@@ -19,22 +19,9 @@ class PagesController < ApplicationController
     add_breadcrumb 'Thank you'
   end
 
-  def thankyouhiringmanager
-    add_breadcrumb 'Thank you'
-
-    session[:name] = params[:name]
-    session[:company] =  params[:company]
-    session[:website] =  params[:website]
-
-  end
-
   def contact
     add_breadcrumb 'Contact'
     @contact = Contact.new
-  end
-
-  def lola
-    add_breadcrumb 'Lola'
   end
 
   def dashboard
@@ -128,12 +115,6 @@ class PagesController < ApplicationController
     @random = Product.published.limit(12).order('RANDOM()')
   end
 
-  def resume
-    add_breadcrumb 'Resume'
-    #params.permit(:name, :company, :website)
-
-  end
-
   def terms
     add_breadcrumb 'Terms'
   end
@@ -150,8 +131,8 @@ class PagesController < ApplicationController
     add_breadcrumb 'Taxes'
   end
 
-  def download_pdf
-  send_file "#{Rails.root}/app/assets/docs/JG Resume ROR.pdf", type: "application/pdf", x_sendfile: true
-end
+  #def download_pdf
+  # send_file "#{Rails.root}/app/assets/docs/JG Resume ROR.pdf", type: "application/pdf", x_sendfile: true
+  #end
 
 end

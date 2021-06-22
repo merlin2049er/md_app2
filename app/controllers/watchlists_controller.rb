@@ -15,24 +15,8 @@ class WatchlistsController < ApplicationController
   end
 
   # GET /watchlists/new
-  def new
-    @watchlist = Watchlist.new
 
-    if params and params[:user_id] and params[:product_id]
 
-      @watchlist.user_id = params[:user_id]
-      @watchlist.product_id = params[:product_id]
-
-     if Watchlist.where(user_id: params[:user_id], product_id: params[:product_id]).exists?
-       flash.now[:error] = "Already watching this..."
-     else
-      if @watchlist.save
-        flash.now[:notice] = 'Watch item was successfully created.'
-
-      end
-    end
-    end
-  end
 
   # DELETE /watchlists/1
   # DELETE /watchlists/1.json

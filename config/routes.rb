@@ -84,20 +84,17 @@ Rails.application.routes.draw do
   get 'pages/privacy'
   get 'pages/random'
   get 'pages/random2'
-  get 'pages/resume'
+
   get 'pages/terms'
   get 'pages/thankyou'
   get 'pages/shipping'
   get 'pages/returns'
   get 'pages/taxes'
 
-  post 'pages/resume'
-  get 'pages/thankyouhiringmanager'
-
 
   resources :newsletters, only: %i[index]
 
-  get 'download_pdf', to: "pages#download_pdf"
+  # get 'download_pdf', to: "pages#download_pdf"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # comments engine
