@@ -9,8 +9,7 @@ class WatchlistsController < ApplicationController
   # GET /watchlist.json
   def index
     add_breadcrumb 'Watch list'
-    @watchlists =
-      Watchlist.where('user_id =?', current_user.id).order('created_at DESC')
+    @watchlists =  Watchlist.where('user_id =?', current_user.id).order('created_at DESC')
     @pagy, @watchlists = pagy(@watchlists)
   end
 
@@ -18,7 +17,6 @@ class WatchlistsController < ApplicationController
   def new
     # add_breadcrumb 'New Watch list'
       @watchlist = Watchlist.new
-      binding.pry
   end
 
   def create
@@ -28,7 +26,7 @@ class WatchlistsController < ApplicationController
     respond_to do |format|
       if @watchlist.save
         format.html do
-          redirect_to @watchlist, notice: 'Product added to watchlist.'
+          redirect_to @watchlist, notice: 'Product added to watch list.'
         end
         format.json { render :show, status: :created, location: @watchlist }
       else
@@ -63,6 +61,9 @@ class WatchlistsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def watchlist_params
-    params.require(:watchlist).permit(:user_id, :product_id)
+    params.require(:watchlist).permit(
+      :user_id,
+      :product_id
+    )
   end
 end

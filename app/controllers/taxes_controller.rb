@@ -3,7 +3,10 @@
 class TaxesController < ApplicationController
   before_action :set_tax, only: %i[show edit update destroy]
   include Pagy::Backend
-  before_action :authenticate_user! # GET /taxes.json
+  before_action :authenticate_user!
+
+  # GET /taxes
+  # GET /taxes.json
   def index
     add_breadcrumb 'Taxes'
     @taxes = Tax.all
