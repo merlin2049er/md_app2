@@ -14,30 +14,25 @@ class WatchlistsController < ApplicationController
   end
 
   # GET /watchlists/new
+
   def new
-    # add_breadcrumb 'New Watch list'
-      @watchlist = Watchlist.new
-  end
+    @watchlist = Watchlist.new
 
-  def create
-    #    add_breadcrumb 'New Todo list'
-    @watchlist = Watchlist.new(watchlist_params)
+    if params and params[:user_id] and params[:product_id]
 
-    respond_to do |format|
+      @watchlist.user_id = params[:user_id]
+      @watchlist.product_id = params[:product_id]
+
+     if Watchlist.where(user_id: params[:user_id], product_id: params[:product_id]).exists?
+       flash.now[:error] = "Already watching this..."
+     else
       if @watchlist.save
-        format.html do
-          redirect_to @watchlist, notice: 'Product added to watch list.'
-        end
-        format.json { render :show, status: :created, location: @watchlist }
-      else
-        format.html { render :new , status: :unprocessable_entity }
-        format.json do
-          render json: @watchlist.errors, status: :unprocessable_entity
-        end
+        flash.now[:notice] = 'Item was added to watch list.'
+
       end
     end
+    end
   end
-
 
   # DELETE /watchlists/1
   # DELETE /watchlists/1.json
