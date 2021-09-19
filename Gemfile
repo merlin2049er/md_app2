@@ -97,7 +97,8 @@ gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: '5.x'
 # gem 'sentry-raven'  is deprecated!
 gem 'sentry-ruby', '~> 4.3', '>= 4.3.1'
 
-gem 'cocoon'
+#gem 'cocoon'
+gem 'cocoon', '~> 1.2', '>= 1.2.15'
 
 # gem 'stripe', '~> 5.12'
 gem 'stripe'

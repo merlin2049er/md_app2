@@ -443,7 +443,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   client_side_validations (~> 17.2)
   client_side_validations-simple_form (~> 11.2)
-  cocoon
+  cocoon (~> 1.2, >= 1.2.15)
   commontator (~> 6.3)
   country_select
   devise!
