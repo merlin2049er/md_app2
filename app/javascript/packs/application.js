@@ -16,7 +16,10 @@ require("packs/rails.validations.simple_form.bootstrap4.js")
 require("packs/rails.validations.simple_form.js")
 
 require("packs/lightbox.js")
-require("packs/cocoon.js")
+//require("packs/cocoon.js")
+
+//require("jquery")
+require("@nathanvda/cocoon")
 
 require("trix")
 require("@rails/actiontext")
