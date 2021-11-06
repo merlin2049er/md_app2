@@ -18,9 +18,9 @@ class User < ApplicationRecord
   acts_as_commontator
 
   # IT'S JUST AN EXAMPLE OF ANY ROLE SYSTEM
-  def admin?
-    self == User.first
-  end
+  # def admin?
+  #  self == User.first
+  # end
 
   def is_profile_complete
     if !firstname.blank? && !lastname.blank? && !username.blank? &&

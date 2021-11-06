@@ -41,6 +41,12 @@ class TicketnotesController < ApplicationController
     @ticketnote = Ticketnote.new(ticketnote_params)
     @ticketnote.troubleticket_id = params[:troubleticket_id]
 
+    if current_user.admin?
+      @ticketnote.admin = true
+    else
+      @ticketnote.admin = false
+    end
+
     respond_to do |format|
       if @ticketnote.save
         format.html do
@@ -99,6 +105,6 @@ class TicketnotesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def ticketnote_params
-    params.require(:ticketnote).permit(:notes, :troubleticket_id)
+    params.require(:ticketnote).permit(:notes, :troubleticket_id, :admin)
   end
 end
