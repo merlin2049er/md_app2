@@ -4,7 +4,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 #ruby '2.7.2'
-ruby '3.0.0'
+#ruby '3.0.0'
+ruby '3.0.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 #gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
@@ -174,7 +175,7 @@ group :development do
 end
 
 group :test do
-  
+
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
