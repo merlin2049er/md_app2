@@ -69,6 +69,8 @@ Rails.application.routes.draw do
   mount StripeEvent::Engine, at: '/stripe/webhooks'
 
   get 'pages/about'
+  get 'pages/admin'
+  get 'pages/analytics'
   get 'pages/banned'
   get 'pages/contact'
   get 'pages/carousel'

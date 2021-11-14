@@ -7,6 +7,14 @@ class PagesController < ApplicationController
     add_breadcrumb 'About'
   end
 
+  def admin
+    add_breadcrumb 'Admin page'
+  end
+
+  def analytics
+    add_breadcrumb 'Analytics Page'
+  end
+
   def cookies
     add_breadcrumb 'Cookies'
   end
