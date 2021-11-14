@@ -84,8 +84,16 @@ class Product < ActiveRecord::Base
             Date.today)
         }
 
+  scope :expired,
+              lambda {
+                where(draft: false).where(active: false).where(funded: false).where(
+                  '? > enddate ',
+                  Date.today)
+              }
+
   scope :most_recent, ->(limit) { order('startdate desc').limit(limit) }
   scope :ending_soonest, ->(limit) { order('startdate asc').limit(limit) }
+
 
   def self.search(query)
     if !query.blank?

@@ -79,6 +79,7 @@ Rails.application.routes.draw do
   get 'pages/error'
   get 'pages/index'  # recently added
   get 'pages/index2' #last change
+  get 'pages/index3' #expired listings
   get 'pages/invitations'
   get 'pages/invite'
   get 'pages/jobs'

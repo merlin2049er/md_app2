@@ -93,6 +93,19 @@ class PagesController < ApplicationController
     @last_chance = Product.published.ending_soonest(6)
   end
 
+  def index3
+    add_breadcrumb 'Home'
+
+    # check for filled in profile
+    if current_user && !current_user.is_profile_complete &&
+         Blacklist.find_by_email(current_user.email).nil?
+      flash.now[:warning] = 'Please, fill in your profile...'
+    end
+
+    @expired = Product.published.ending_soonest(6)  #fix this to expired
+  end
+
+
   def invite
         add_breadcrumb 'Invite'
 
