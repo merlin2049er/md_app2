@@ -32,7 +32,8 @@ Please use the contact form to get in touch.
        <small><i><%= p.body %> </i> </small>
        <% if user_signed_in? %>
 
-       <%= link_to "<button>I'm Interested</button>".html_safe, ""%>
+
+      <%= link_to "<button>I'm Interested</button>".html_safe,  controller: "interests", action: "new" , :product_id => p.id , :user_id => @current_user  ,:remote => true %>
 
        <% else %>
            <!-- disabled button and tooltip here... -->

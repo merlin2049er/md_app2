@@ -43,6 +43,9 @@ Rails.application.routes.draw do
 
   resources :watchlists, only: %i[index new create destroy]
 
+  resources :interests, only: %i[new create]
+
+
   get 'troubletickets_close/(:id)', to: 'troubletickets#close'
 
 
