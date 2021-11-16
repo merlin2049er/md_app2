@@ -79,14 +79,14 @@ class Product < ActiveRecord::Base
 
   scope :published,
         lambda {
-          where(draft: false).where(active: true).where(funded: false).where(
+          where(draft: false,active: true, funded: false).where(
             '? BETWEEN startdate  AND enddate ',
             Date.today)
         }
 
   scope :expired,
               lambda {
-                where(draft: false).where(active: false).where(funded: false).where(
+                where(draft: false,active: false,funded: false).where(
                   '? > enddate ',
                   Date.today)
               }
