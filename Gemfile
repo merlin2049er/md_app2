@@ -10,7 +10,9 @@ ruby '3.0.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 #gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 
-gem 'rails', '~> 6.0.4'
+#gem 'rails', '~> 6.0.4'
+#gem 'rails', '~> 6.0.4.4'
+gem 'rails', '~> 6.1'
 
 # use Postgres on Heroku production and localhost
 gem 'pg'
@@ -81,7 +83,8 @@ gem 'omniauth', '~> 2.0'
 gem 'omniauth-facebook', '~> 8.0'
 
 # Log impressions from controller actions or from a model
-gem 'impressionist', '~> 1.6', '>= 1.6.1'
+#gem 'impressionist', '~> 1.6', '>= 1.6.1'
+gem 'impressionist', '~> 2.0'
 
 # country country_select
 gem 'country_select'
