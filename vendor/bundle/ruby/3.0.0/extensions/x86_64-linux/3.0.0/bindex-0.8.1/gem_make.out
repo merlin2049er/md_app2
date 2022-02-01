@@ -1,15 +1,15 @@
 current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
-/home/joe/.rbenv/versions/3.0.0/bin/ruby -I /home/joe/.rbenv/versions/3.0.0/lib/ruby/3.0.0 -r ./siteconf20211105-8920-weda2l.rb extconf.rb
+/home/joe/.rbenv/versions/3.0.2/bin/ruby -I /home/joe/.rbenv/versions/3.0.2/lib/ruby/3.0.0 -r ./siteconf20220201-10905-1k324t.rb extconf.rb
 creating Makefile
 
 current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
-make "DESTDIR=" clean
+make DESTDIR\= clean
 
 current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
-make "DESTDIR="
+make DESTDIR\=
 compiling cruby.c
 linking shared-object skiptrace/internal/cruby.so
 
 current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
-make "DESTDIR=" install
-/usr/bin/install -c -m 0755 cruby.so ./.gem.20211105-8920-h61uwd/skiptrace/internal
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20220201-10905-ky0kj7/skiptrace/internal

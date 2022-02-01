@@ -1,5 +1,5 @@
 current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/nio4r-2.5.8/ext/nio4r
-/home/joe/.rbenv/versions/3.0.0/bin/ruby -I /home/joe/.rbenv/versions/3.0.0/lib/ruby/3.0.0 -r ./siteconf20211105-8920-vrrazv.rb extconf.rb
+/home/joe/.rbenv/versions/3.0.2/bin/ruby -I /home/joe/.rbenv/versions/3.0.2/lib/ruby/3.0.0 -r ./siteconf20220201-10905-pe6qba.rb extconf.rb
 checking for unistd.h... yes
 checking for linux/aio_abi.h... yes
 checking for linux/io_uring.h... yes
@@ -12,10 +12,10 @@ checking for sys/resource.h... yes
 creating Makefile
 
 current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/nio4r-2.5.8/ext/nio4r
-make "DESTDIR=" clean
+make DESTDIR\= clean
 
 current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/nio4r-2.5.8/ext/nio4r
-make "DESTDIR="
+make DESTDIR\=
 compiling bytebuffer.c
 compiling monitor.c
 compiling nio4r_ext.c
@@ -87,11 +87,11 @@ selector.c:301:26: warning: passing argument 1 of ‘rb_ensure’ from incompati
       |                          ^~~~
       |                          |
       |                          VALUE (*)(VALUE *) {aka long unsigned int (*)(long unsigned int *)}
-In file included from /home/joe/.rbenv/versions/3.0.0/include/ruby-3.0.0/ruby/ruby.h:38,
-                 from /home/joe/.rbenv/versions/3.0.0/include/ruby-3.0.0/ruby.h:38,
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:38,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
                  from nio4r.h:10,
                  from selector.c:6:
-/home/joe/.rbenv/versions/3.0.0/include/ruby-3.0.0/ruby/internal/iterator.h:53:17: note: expected ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} but argument is of type ‘VALUE (*)(VALUE *)’ {aka ‘long unsigned int (*)(long unsigned int *)’}
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/iterator.h:53:17: note: expected ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} but argument is of type ‘VALUE (*)(VALUE *)’ {aka ‘long unsigned int (*)(long unsigned int *)’}
    53 | VALUE rb_ensure(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE),VALUE);
       |                 ^~~~~~~~~~~~~~~
 selector.c: In function ‘NIO_Selector_wakeup’:
@@ -105,5 +105,5 @@ cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand�
 linking shared-object nio4r_ext.so
 
 current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/nio4r-2.5.8/ext/nio4r
-make "DESTDIR=" install
-/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20211105-8920-7alzs0
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20220201-10905-um77d9

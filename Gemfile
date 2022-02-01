@@ -150,31 +150,14 @@ group :development, :test do
 end
 
 group :development do
-  # for fake data
-  gem 'faker'
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  #gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'listen', '~> 3.3', '>= 3.3.3'
-
-  gem 'web-console', '>= 3.3.0'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  # Use sqlite3 as the database for Active Record
-  # gem 'sqlite3', '~> 1.4'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'brakeman', require: false
-  gem 'bundler-audit', '~> 0.7.0.1', require: false
-  # gem 'fasterer', '~> 0.8.3', require: false  'no rails 3.0.0 compatible version'
-  gem 'meta_request'
-  gem 'pry-rails'
-  gem 'rails_best_practices', '~> 1.20'
-  gem 'reek', '~> 6.0', '>= 6.0.2'
-  # Ruby static code analyze [linter]
-  gem 'rubocop', require: false
-  # make the code look pretty
-  gem 'prettier'
+   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+   gem 'web-console', '>= 4.1.0'
+   # Display performance information such as SQL time and flame graphs for each request in your browser.
+   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
+   gem 'rack-mini-profiler', '~> 2.0'
+   gem 'listen', '~> 3.3'
+   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+   gem 'spring'
 end
 
 group :test do

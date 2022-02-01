@@ -1,5 +1,5 @@
 current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/json-2.6.1/ext/json
-/home/joe/.rbenv/versions/3.0.2/bin/ruby -I /home/joe/.rbenv/versions/3.0.2/lib/ruby/3.0.0 -r ./siteconf20211218-14319-ql9fsy.rb extconf.rb
+/home/joe/.rbenv/versions/3.0.2/bin/ruby -I /home/joe/.rbenv/versions/3.0.2/lib/ruby/3.0.0 -r ./siteconf20220201-10905-96p4pd.rb extconf.rb
 creating Makefile
 
 current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/json-2.6.1/ext/json

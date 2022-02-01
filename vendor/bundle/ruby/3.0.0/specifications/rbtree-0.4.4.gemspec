@@ -18,8 +18,8 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT".freeze]
   s.rdoc_options = ["--title".freeze, "Ruby/RBTree".freeze, "--main".freeze, "README".freeze, "--exclude".freeze, "\\A(?!README|rbtree\\.c).*\\z".freeze]
   s.required_ruby_version = Gem::Requirement.new(">= 1.8.6".freeze)
-  s.rubygems_version = "3.2.3".freeze
+  s.rubygems_version = "3.2.22".freeze
   s.summary = "A sorted associative collection.".freeze
 
-  s.installed_by_version = "3.2.3" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.2.22" if s.respond_to? :installed_by_version
 end

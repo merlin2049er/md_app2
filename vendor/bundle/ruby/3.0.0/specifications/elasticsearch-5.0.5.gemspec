@@ -16,10 +16,10 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/elasticsearch/elasticsearch-ruby".freeze
   s.licenses = ["Apache 2".freeze]
   s.rdoc_options = ["--charset=UTF-8".freeze]
-  s.rubygems_version = "3.2.3".freeze
+  s.rubygems_version = "3.2.22".freeze
   s.summary = "Ruby integrations for Elasticsearch".freeze
 
-  s.installed_by_version = "3.2.3" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.2.22" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4

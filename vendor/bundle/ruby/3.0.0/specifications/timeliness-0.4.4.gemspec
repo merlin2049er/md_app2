@@ -15,10 +15,10 @@ Gem::Specification.new do |s|
   s.files = ["CHANGELOG.rdoc".freeze, "README.rdoc".freeze]
   s.homepage = "http://github.com/adzap/timeliness".freeze
   s.licenses = ["MIT".freeze]
-  s.rubygems_version = "3.2.3".freeze
+  s.rubygems_version = "3.2.22".freeze
   s.summary = "Date/time parsing for the control freak.".freeze
 
-  s.installed_by_version = "3.2.3" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.2.22" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4

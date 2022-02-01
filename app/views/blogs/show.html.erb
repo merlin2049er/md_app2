@@ -1,0 +1,21 @@
+
+
+<p>
+  <strong>Posted on:</strong>
+  <%= @blog.created_at %>
+</p>
+
+
+
+<p>
+  <strong>Title:</strong>
+  <%= @blog.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @blog.description %>
+</p>
+
+<%#= link_to 'Edit', edit_blog_path(@blog) %>
+<%= link_to 'Back', blogs_path %>
