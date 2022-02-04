@@ -43,7 +43,7 @@ class BlogsController < ApplicationController
   # PATCH/PUT /blogs/1 or /blogs/1.json
   def update
       add_breadcrumb 'Blogs'
-      
+
     respond_to do |format|
       if @blog.update(blog_params)
         format.html { redirect_to blog_url(@blog), notice: "Blog was successfully updated." }
@@ -73,6 +73,6 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title, :description)
+      params.require(:blog).permit(:title, :description, :content)
     end
 end

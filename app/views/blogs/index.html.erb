@@ -31,8 +31,15 @@
         <td><%= blog.created_at %></td>
         <td><%= blog.title %></td>
         <td><%= blog.description %></td>
-        <td><%= link_to 'Show', blog %></td>
+        <td><%= link_to 'Show', blog %>
 
+          <% @user = current_user %>
+          <% if user_signed_in? && @user.admin %>
+
+
+       <%= link_to 'Edit', edit_blog_path(blog) %> <%= link_to '    Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+       <% end %>
+     </td>
 
      </tr>
     <% end %>
