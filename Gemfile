@@ -84,6 +84,8 @@ gem 'omniauth-facebook', '~> 8.0'
 
 # for google authentication
 gem 'omniauth-google-oauth2'
+# gem "omniauth-rails_csrf_protection"
+
 
 # Log impressions from controller actions or from a model
 #gem 'impressionist', '~> 1.6', '>= 1.6.1'
