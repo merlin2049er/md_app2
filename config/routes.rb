@@ -16,6 +16,8 @@ Rails.application.routes.draw do
                sessions: 'sessions',
                omniauth_callbacks: 'users/omniauth_callbacks'
              }
+# match '/auth/:provider/callback' => 'authentications#create'
+
   # post 'users/auth/:provider', to: 'sessions#create'
 
   resources :announcements
