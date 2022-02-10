@@ -299,6 +299,9 @@ Devise.setup do |config|
                   image_size: 'large',
                   secure_image_url: true
 
-  config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], {}
+  require "omniauth-google-oauth2"
+                  
+  config.omniauth :google_oauth2,
+                  ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], {}
 
 end
