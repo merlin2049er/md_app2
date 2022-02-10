@@ -63,6 +63,8 @@ class User < ApplicationRecord
     end
   end
 
+
+
   def set_defaults
     self.image ||= 'photo_not_available.png'
   end #  tracked owner: ->(controller,model) {controller && controller.current_user}
