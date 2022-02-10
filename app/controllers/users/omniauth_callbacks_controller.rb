@@ -25,7 +25,7 @@ module Users
         sign_in_and_redirect @user, event: :authentication # this will throw if @user is not activated
       if is_navigational_format?
           set_flash_message(:notice, :success, kind: 'Google')
-
+        end
       else
         session['devise.google_data'] = request.env['omniauth.auth'].except('extra') # Removing extra as it can overflow some session stores
         redirect_to new_user_registration_url
