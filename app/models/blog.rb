@@ -11,7 +11,7 @@ class Blog < ApplicationRecord
   validate :post_content_present
 
   def post_content_present
-    errors.add(:content, "can't be empty") if content.blank?
+    errors.add(:base, "Content can't be empty") if content.blank?
   end
 
 end

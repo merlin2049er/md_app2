@@ -82,6 +82,10 @@ gem 'omniauth', '~> 2.0'
 # for facebook authentication
 gem 'omniauth-facebook', '~> 8.0'
 
+# for google authentication
+gem 'omniauth-google-oauth2'
+
+
 # Log impressions from controller actions or from a model
 #gem 'impressionist', '~> 1.6', '>= 1.6.1'
 gem 'impressionist', '~> 2.0'
