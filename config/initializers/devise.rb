@@ -302,7 +302,8 @@ Devise.setup do |config|
   require "omniauth-google-oauth2"
 
   config.omniauth :google_oauth2,
-                  ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"]
+                 ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"]
+      #  '389951062598-tr6te7nkrl9nogdv0pjvvl07d6dnd5l8.apps.googleusercontent.com', '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'
 
 
 end

@@ -52,14 +52,14 @@ class User < ApplicationRecord
   end
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    where(email: auth.info.email).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
       user.firstname = auth.info.first_name # assuming the user model has a name
       user.lastname = auth.info.last_name # assuming the user model has a name
       user.image = auth.info.image # uncomment the line below to skip the confirmation emails. # If you are using confirmable and the provider(s) you use validate emails, # assuming the user model has an image
       user.skip_confirmation!
-      user.save!
+      user.save! if user.new_record?
     end
   end
 
