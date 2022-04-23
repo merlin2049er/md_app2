@@ -5,7 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 #ruby '2.7.2'
 #ruby '3.0.0'
-ruby '3.0.2'
+#ruby '3.0.2'
+ruby '3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 #gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
@@ -132,7 +133,8 @@ gem 'sitemap_generator'
 
 # sluging it out
 #gem 'friendly_id', '~> 5.2.4' # NOTE: You MUST use 5.0.0 or greater for Rails 4.0+
-gem 'friendly_id', '~> 5.4', '>= 5.4.2'
+gem 'friendly_id',  '~> 5.4', '>= 5.4.2'
+#gem 'friendly_id', '~> 5.0.0'
 
 #gem 'heroku-deflater', group: :production
 
@@ -147,6 +149,9 @@ gem "recaptcha", require: "recaptcha/rails"
 
 #gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
+
+gem 'psych', '< 4'
+gem 'net-smtp', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
