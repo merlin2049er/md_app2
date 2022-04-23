@@ -134,9 +134,8 @@ gem 'sitemap_generator'
 # sluging it out
 #gem 'friendly_id', '~> 5.2.4' # NOTE: You MUST use 5.0.0 or greater for Rails 4.0+
 gem 'friendly_id',  '~> 5.4', '>= 5.4.2'
-#gem 'friendly_id', '~> 5.0.0'
 
-#gem 'heroku-deflater', group: :production
+gem 'heroku-deflater', group: :production
 
 gem 'hotwire-rails'
 gem 'turbo-rails'
