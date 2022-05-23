@@ -14,13 +14,14 @@ ruby '3.1.2'
 #gem 'rails', '~> 6.0.4'
 #gem 'rails', '~> 6.0.4.4'
 gem 'rails', '~> 6.1'
-
+#gem 'rails', '~> 7.0', '>= 7.0.3'
 # use Postgres on Heroku production and localhost
 gem 'pg'
 
 # Use Puma as the app server
 #gem 'puma', '~> 4.1'
-gem 'puma', '~> 5.1', '>= 5.1.1'
+#gem 'puma', '~> 5.1', '>= 5.1.1'
+gem 'puma', '~> 5.6', '>= 5.6.4'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
@@ -61,7 +62,7 @@ gem 'breadcrumbs_on_rails'
 # devise for authentication
 #gem 'devise', '~> 4.2'
 gem 'devise', :git => "https://github.com/heartcombo/devise.git", ref: '8bb358cf80a632d3232c3f548ce7b95fd94b6eb2'
-
+#gem 'devise', '~> 4.8', '>= 4.8.1'
 
 # for forms
 gem 'simple_form'
@@ -69,7 +70,8 @@ gem 'simple_form'
 # for pagination
 #gem 'pagy', '~> 3.7', '>= 3.7.3'
 # gem 'pagy', '~> 3.10'
-gem 'pagy', '~> 4.1'
+#gem 'pagy', '~> 4.1'
+gem 'pagy', '~> 5.10', '>= 5.10.1'
 
 # populator
 # gem 'populator', '~> 1.0'
@@ -95,9 +97,10 @@ gem 'impressionist', '~> 2.0'
 gem 'country_select'
 
 # validations
-gem 'client_side_validations', '~> 17.2'
-gem 'client_side_validations-simple_form', '~> 11.2'
-
+#gem 'client_side_validations', '~> 17.2'
+gem 'client_side_validations', '~> 20.0', '>= 20.0.2'
+#gem 'client_side_validations-simple_form', '~> 11.2'
+gem 'client_side_validations-simple_form', '~> 14.1'
 
 # elasticsearch
 gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '5.x'
@@ -111,8 +114,10 @@ gem 'cocoon', '~> 1.2', '>= 1.2.15'
 
 # gem 'stripe', '~> 5.12'
 gem 'stripe'
+#gem 'stripe', '~> 6.2'
 # used to handle stripe webhooks
 gem 'stripe_event'
+#gem 'stripe_event', '~> 2.4'
 
 gem 'toastr_rails'
 

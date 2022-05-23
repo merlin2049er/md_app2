@@ -6,8 +6,6 @@ StripeEvent.signing_secret = ENV['STRIPE_SIGNING_SECRET'] # StripeEvent.signing_
 
 StripeEvent.configure do |events|
   # events.subscribe 'charge.dispute.created', Stripe::EventHandler.new
-  events.subscribe 'checkout.session.completed',
-                                                                                        Stripe::EventHandler
-                                                                                          .new
+  events.subscribe 'checkout.session.completed', Stripe::EventHandler.new
   events.subscribe 'charge.failed', Stripe::EventHandler.new
 end
