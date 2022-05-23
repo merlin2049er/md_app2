@@ -1,0 +1,13 @@
+current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.1.0/gems/json-2.6.2/ext/json
+/home/joe/.rbenv/versions/3.1.2/bin/ruby -I /home/joe/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20220523-9712-7e0u2q.rb extconf.rb
+creating Makefile
+
+current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.1.0/gems/json-2.6.2/ext/json
+make DESTDIR\= clean
+
+current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.1.0/gems/json-2.6.2/ext/json
+make DESTDIR\=
+make: Nothing to be done for 'all'.
+
+current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.1.0/gems/json-2.6.2/ext/json
+make DESTDIR\= install
