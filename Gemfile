@@ -46,8 +46,8 @@ gem 'redis', '~> 4.2', '>= 4.2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 #gem 'bootsnap', '>= 1.4.2', require: false
-#gem 'bootsnap', '~> 1.5', '>= 1.5.1', require: false
-gem 'bootsnap', '~> 1.11', '>= 1.11.1'
+gem 'bootsnap', '~> 1.5', '>= 1.5.1', require: false
+#gem 'bootsnap', '~> 1.11', '>= 1.11.1'
 
 # sprockets
 gem 'sprockets-rails', require: 'sprockets/railtie'
@@ -97,10 +97,10 @@ gem 'impressionist', '~> 2.0'
 gem 'country_select'
 
 # validations
-#gem 'client_side_validations', '~> 17.2'
-gem 'client_side_validations', '~> 20.0', '>= 20.0.2'
-#gem 'client_side_validations-simple_form', '~> 11.2'
-gem 'client_side_validations-simple_form', '~> 14.1'
+gem 'client_side_validations', '~> 17.2'
+#gem 'client_side_validations', '~> 20.0', '>= 20.0.2'
+gem 'client_side_validations-simple_form', '~> 11.2'
+#gem 'client_side_validations-simple_form', '~> 14.1'
 
 # elasticsearch
 gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '5.x'
@@ -141,7 +141,7 @@ gem 'sitemap_generator'
 #gem 'friendly_id', '~> 5.2.4' # NOTE: You MUST use 5.0.0 or greater for Rails 4.0+
 gem 'friendly_id',  '~> 5.4', '>= 5.4.2'
 
-#gem 'heroku-deflater', group: :production
+gem 'heroku-deflater', group: :production
 
 gem 'hotwire-rails'
 gem 'turbo-rails'
@@ -157,7 +157,7 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
 
 gem 'psych', '< 4'
 gem 'net-smtp', require: false
-gem 'ffi', '~> 1.15', '>= 1.15.5'
+#gem 'ffi', '~> 1.15', '>= 1.15.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
