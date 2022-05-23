@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+
+  <form action = "<%= blog_blog_comments_path(@blog) %>" method="post"  >
+  <input type="hidden" name="authenticity_token" id="authenticity_token" value="J7CBxfHalt49OSHp27hblqK20c9PgwJ108nDHX/8Cts=" />
+  <small>Leave a comment...</small><br>
+  <textarea name ="blog_comment[comment]"  rows="4" cols = "40"> </textarea><br>
+  <input type ="submit" value="Submit" >
+  </form>
+
+  <% else %>
+    <small>You must be logged in to post a comment...</small>
+<% end %>

@@ -7,6 +7,8 @@ class Blog < ApplicationRecord
   validates_presence_of :description
   has_rich_text :content
 
+  has_many :blog_comments
+  belongs_to :user
 
   validate :post_content_present
 

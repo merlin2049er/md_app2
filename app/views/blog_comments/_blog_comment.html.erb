@@ -1,0 +1,5 @@
+<article>
+  <p>  <i><%= blog_comment.comment %> </i> <p>
+    <small> by <%= blog_comment.user.email.gsub(/.{4}@/, '####@') %> | on <%= blog_comment.created_at %> </small>
+    <hr>
+</article>

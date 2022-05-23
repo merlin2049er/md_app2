@@ -2,7 +2,10 @@
 
 Rails.application.routes.draw do
 
-  resources :blogs
+  resources :blogs do
+    resources :blog_comments, only: [:create]
+  end
+
   resources :search_fors
   resources :poll_options
   resources :polls
@@ -21,7 +24,6 @@ Rails.application.routes.draw do
   # post 'users/auth/:provider', to: 'sessions#create'
 
   resources :announcements
-  resources :blog
   resources :blacklists
   resources :categories
   resources :carts

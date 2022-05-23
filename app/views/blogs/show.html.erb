@@ -22,6 +22,11 @@
   <%= @blog.content %>
 </p>
 
+<p>
+  <strong>Comments:</strong>
+  <%= render @blog.blog_comments.order(id: :desc) %>
+  <%= render :partial =>  'blog_comments/form', locals: { } %>
+</p>
 
 <%#= link_to 'Edit', edit_blog_path(@blog) %>
 <%= link_to 'Back', blogs_path %>
