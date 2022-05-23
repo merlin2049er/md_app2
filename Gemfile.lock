@@ -434,6 +434,7 @@ DEPENDENCIES
   devise!
   elasticsearch-model!
   elasticsearch-rails!
+  ffi (~> 1.15, >= 1.15.5)
   font-awesome-rails
   friendly_id (~> 5.4, >= 5.4.2)
   hotwire-rails

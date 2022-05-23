@@ -157,6 +157,7 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
 
 gem 'psych', '< 4'
 gem 'net-smtp', require: false
+gem 'ffi', '~> 1.15', '>= 1.15.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
