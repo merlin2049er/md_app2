@@ -429,7 +429,7 @@ PLATFORMS
 
 DEPENDENCIES
   auto-session-timeout
-  bootsnap (~> 1.11, >= 1.11.1)
+  bootsnap
   breadcrumbs_on_rails
   byebug
   cancancan
