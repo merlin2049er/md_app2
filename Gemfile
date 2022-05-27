@@ -46,8 +46,8 @@ gem 'redis', '~> 4.2', '>= 4.2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 #gem 'bootsnap', '>= 1.4.2', require: false
-gem 'bootsnap', '~> 1.5', '>= 1.5.1', require: false
-#gem 'bootsnap', '~> 1.11', '>= 1.11.1'
+#gem 'bootsnap', '~> 1.5', '>= 1.5.1', require: false
+gem 'bootsnap', '~> 1.11', '>= 1.11.1'
 
 # sprockets
 gem 'sprockets-rails', require: 'sprockets/railtie'
