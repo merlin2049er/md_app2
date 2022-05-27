@@ -13,8 +13,8 @@ ruby '3.1.2'
 
 #gem 'rails', '~> 6.0.4'
 #gem 'rails', '~> 6.0.4.4'
-gem 'rails', '~> 6.1'
-#gem 'rails', '~> 7.0', '>= 7.0.3'
+#gem 'rails', '~> 6.1'
+gem 'rails', '~> 7.0', '>= 7.0.3'
 # use Postgres on Heroku production and localhost
 gem 'pg'
 
@@ -62,8 +62,9 @@ gem 'breadcrumbs_on_rails'
 
 # devise for authentication
 #gem 'devise', '~> 4.2'
-gem 'devise', :git => "https://github.com/heartcombo/devise.git", ref: '8bb358cf80a632d3232c3f548ce7b95fd94b6eb2'
+#gem 'devise', :git => "https://github.com/heartcombo/devise.git", ref: '8bb358cf80a632d3232c3f548ce7b95fd94b6eb2'
 #gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'devise', '~> 4.8', '>= 4.8.1'
 
 # for forms
 gem 'simple_form'
@@ -92,16 +93,23 @@ gem 'omniauth-google-oauth2'
 
 # Log impressions from controller actions or from a model
 #gem 'impressionist', '~> 1.6', '>= 1.6.1'
-gem 'impressionist', '~> 2.0'
+# gem 'impressionist', '~> 2.0'
+#gem 'impressionist'
+### not working with rails 7.0 check again later
+# gem "impressionist", git: "https://github.com/charlotte-ruby/impressionist"
+
 
 # country country_select
 gem 'country_select'
 
 # validations
-gem 'client_side_validations', '~> 17.2'
+#gem 'client_side_validations', '~> 17.2'
 #gem 'client_side_validations', '~> 20.0', '>= 20.0.2'
-gem 'client_side_validations-simple_form', '~> 11.2'
+#gem 'client_side_validations-simple_form', '~> 11.2'
 #gem 'client_side_validations-simple_form', '~> 14.1'
+
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
 
 # elasticsearch
 gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '5.x'
@@ -114,11 +122,13 @@ gem 'sentry-ruby', '~> 4.3', '>= 4.3.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.15'
 
 # gem 'stripe', '~> 5.12'
-gem 'stripe'
+#gem 'stripe'
+gem 'stripe', '~> 6.2'
 #gem 'stripe', '~> 6.2'
 # used to handle stripe webhooks
-gem 'stripe_event'
+#gem 'stripe_event'
 #gem 'stripe_event', '~> 2.4'
+gem 'stripe_event', '~> 2.4'
 
 gem 'toastr_rails'
 

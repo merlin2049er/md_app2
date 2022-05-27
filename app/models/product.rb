@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  is_impressionable
+  # is_impressionable , not working for rails 7.0 fix coming soon?
   has_rich_text :body
 
   include Searchable

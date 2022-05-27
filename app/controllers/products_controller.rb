@@ -59,7 +59,8 @@ class ProductsController < ApplicationController
     @product = Product.friendly.find(params[:id])
     # insert comments here...
     commontator_thread_show(@product)
-    impressionist(@product)
+    # not working for rails 7.0, check again later..
+    #impressionist(@product)
 
     @photo = @product.photos.where('enabled' => true)
     @taken = Cart.where('product_id' => @product).sum(:qty)
