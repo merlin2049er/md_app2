@@ -397,6 +397,8 @@ GEM
     timeliness (0.4.4)
     timeout (0.3.0)
     toastr_rails (2.1.3)
+    trix-rails (2.4.0)
+      rails (> 4.1)
     turbo-rails (1.1.1)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
@@ -484,6 +486,7 @@ DEPENDENCIES
   stripe (~> 6.2)
   stripe_event (~> 2.4)
   toastr_rails
+  trix-rails (~> 2.4)
   turbo-rails
   tzinfo-data
   validates_timeliness (~> 5.0.0.alpha3)
